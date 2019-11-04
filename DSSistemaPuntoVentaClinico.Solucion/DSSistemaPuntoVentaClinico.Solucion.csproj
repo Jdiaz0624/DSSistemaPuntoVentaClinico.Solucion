@@ -178,6 +178,12 @@
     <Compile Include="Pantallas\Pantallas\Facturacion\OtrasInformaciones.Designer.cs">
       <DependentUpon>OtrasInformaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Facturacion\ProgramacionCirugiaConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Facturacion\ProgramacionCirugiaConsulta.Designer.cs">
+      <DependentUpon>ProgramacionCirugiaConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Facturacion\ProgramacionCirugias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Facturacion\OtrasInformaciones.resx">
       <DependentUpon>OtrasInformaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Facturacion\ProgramacionCirugiaConsulta.resx">
+      <DependentUpon>ProgramacionCirugiaConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Facturacion\ProgramacionCirugias.resx">
       <DependentUpon>ProgramacionCirugias.cs</DependentUpon>
