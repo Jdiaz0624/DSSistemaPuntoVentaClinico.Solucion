@@ -308,9 +308,11 @@
       <Column Name="NoFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="NoReferencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="FechaAdiciona0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="FechaAdiciona" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="ModificadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="FechaModifica0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="FechaModifica" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="IdTipoFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />

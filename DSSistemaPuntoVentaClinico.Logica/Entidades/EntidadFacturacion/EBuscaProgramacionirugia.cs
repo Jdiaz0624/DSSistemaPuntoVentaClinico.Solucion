@@ -30,11 +30,15 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
 
         public System.Nullable<decimal> UsuarioAdiciona {get;set;}
 
+        public string CreadoPor {get;set;}
+
         public System.Nullable<System.DateTime> FechaAdiciona0 {get;set;}
 
         public string FechaAdiciona {get;set;}
 
         public System.Nullable<decimal> UsuarioModifica {get;set;}
+
+        public string ModificadoPor {get;set;}
 
         public System.Nullable<System.DateTime> FechaModifica0 {get;set;}
 

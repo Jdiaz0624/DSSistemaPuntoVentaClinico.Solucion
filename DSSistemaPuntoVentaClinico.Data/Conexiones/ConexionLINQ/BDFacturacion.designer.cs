@@ -2977,11 +2977,15 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 		
 		private System.Nullable<decimal> _UsuarioAdiciona;
 		
+		private string _CreadoPor;
+		
 		private System.Nullable<System.DateTime> _FechaAdiciona0;
 		
 		private string _FechaAdiciona;
 		
 		private System.Nullable<decimal> _UsuarioModifica;
+		
+		private string _ModificadoPor;
 		
 		private System.Nullable<System.DateTime> _FechaModifica0;
 		
@@ -3201,6 +3205,22 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreadoPor", DbType="VarChar(1000)")]
+		public string CreadoPor
+		{
+			get
+			{
+				return this._CreadoPor;
+			}
+			set
+			{
+				if ((this._CreadoPor != value))
+				{
+					this._CreadoPor = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona0", DbType="Date")]
 		public System.Nullable<System.DateTime> FechaAdiciona0
 		{
@@ -3245,6 +3265,22 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._UsuarioModifica != value))
 				{
 					this._UsuarioModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModificadoPor", DbType="VarChar(1000)")]
+		public string ModificadoPor
+		{
+			get
+			{
+				return this._ModificadoPor;
+			}
+			set
+			{
+				if ((this._ModificadoPor != value))
+				{
+					this._ModificadoPor = value;
 				}
 			}
 		}

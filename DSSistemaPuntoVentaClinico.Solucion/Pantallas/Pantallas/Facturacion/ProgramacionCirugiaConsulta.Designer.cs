@@ -225,6 +225,7 @@
             this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Buscar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // gbListado
             // 
@@ -287,6 +288,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // lbNumeroRegistros
             // 
@@ -315,6 +317,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
@@ -346,6 +349,7 @@
             this.Name = "ProgramacionCirugiaConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProgramacionCirugiaConsulta";
+            this.Load += new System.EventHandler(this.ProgramacionCirugiaConsulta_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

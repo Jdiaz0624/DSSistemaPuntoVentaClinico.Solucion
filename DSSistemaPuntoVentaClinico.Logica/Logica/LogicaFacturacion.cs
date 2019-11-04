@@ -372,7 +372,51 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
 
         #region MANTENIMEINTO DE PROGRAMACION DE CIRUGIA
         //LISTADO DE PROGRAMACION DE CIRUGIA
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EBuscaProgramacionirugia> BuscaProgramacionCirugia(decimal? IdProgramacionCirugia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdCentroSalud = null, decimal? IdMedico = null, decimal? IdEstatusCirugia = null, decimal? NumeroFactura = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
+            ObjData.CommandTimeout = 999999999;
 
+            var Buscar = (from n in ObjData.SP_BUSCA_PROGRAMACION_CIRUGIA(IdProgramacionCirugia, FechaDesde, FechaHasta, IdCentroSalud, IdMedico, IdEstatusCirugia, NumeroFactura, NumeroPagina, NumeroRegistros)
+                          select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EBuscaProgramacionirugia
+                          {
+                              IdProgramacionCirugia=n.IdProgramacionCirugia,
+                              FechaCirugia=n.FechaCirugia,
+                              IdCentroSalud=n.IdCentroSalud,
+                              CentroSalud=n.CentroSalud,
+                              IdMedico=n.IdMedico,
+                              NombreMedico=n.NombreMedico,
+                              IdEstatusCirugia=n.IdEstatusCirugia,
+                              Estatus=n.Estatus,
+                              NoFactura=n.NoFactura,
+                              NoReferencia=n.NoReferencia,
+                              UsuarioAdiciona=n.UsuarioAdiciona,
+                              CreadoPor=n.CreadoPor,
+                              FechaAdiciona0=n.FechaAdiciona0,
+                              FechaAdiciona=n.FechaAdiciona,
+                              UsuarioModifica=n.UsuarioModifica,
+                              ModificadoPor=n.ModificadoPor,
+                              FechaModifica0=n.FechaModifica0,
+                              FechaModifica=n.FechaModifica,
+                              IdTipoFacturacion=n.IdTipoFacturacion,
+                              TipoComprobante=n.TipoComprobante,
+                              Comprobante=n.Comprobante,
+                              Paciente=n.Paciente,
+                              Telefono=n.Telefono,
+                              IdCentroSaludAnterior=n.IdCentroSaludAnterior,
+                              Sala=n.Sala,
+                              IdMedicoAnterior=n.IdMedicoAnterior,
+                              IdTipoIdentificacion=n.IdTipoIdentificacion,
+                              NumeroIdentificacion=n.NumeroIdentificacion,
+                              Direccion=n.Direccion,
+                              IdSexo=n.IdSexo,
+                              Email=n.Email,
+                              ComentarioPaciente=n.ComentarioPaciente,
+                              FechaFacturacion0=n.FechaFacturacion0,
+                              FechaFacturacion=n.FechaFacturacion,
+                              IdUsuario=n.IdUsuario
+                          }).ToList();
+            return Buscar;
+        }
 
         //MANTENIMEINTO DE PROGRAMACION DE CIRUGIA
         public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia MantenimientoProgramacionCirugia(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia Item, string Accion)

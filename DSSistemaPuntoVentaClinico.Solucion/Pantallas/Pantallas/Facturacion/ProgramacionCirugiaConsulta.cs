@@ -12,7 +12,57 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 {
     public partial class ProgramacionCirugiaConsulta : Form
     {
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaFacturacion> ObjDataFActuracion = new Lazy<Logica.Logica.LogicaFacturacion>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+
+        #region MOSTRAR LA INFORMACION DE LA EMPRESA
+        private void MostrarInformacionEmpresa(int idInformacionEmpresa)
+        {
+            var SacarInformacion = ObjDataConfiguracion.Value.BuscaInformacionEmpresa(idInformacionEmpresa);
+            foreach (var n in SacarInformacion)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
+        }
+        #endregion
+        #region MOSTRAR EL LISTAD DE LAS CIRUGIAS
+        private void MostrarHistorialCirugias()
+        {
+            var MostrarListado = ObjDataFActuracion.Value.BuscaProgramacionCirugia(
+                new Nullable<decimal>(),
+                Convert.ToDateTime(txtFechaDesde.Text),
+                Convert.ToDateTime(txtFechaHasta.Text),
+                null, null, null, null,
+                Convert.ToInt32(txtNumeroPagina.Value),
+                Convert.ToInt32(txtNumeroRegistros.Value));
+            dtListado.DataSource = MostrarListado;
+            OcultarColumnas();
+        }
+        private void OcultarColumnas()
+        {
+            this.dtListado.Columns["IdProgramacionCirugia"].Visible = false;
+            this.dtListado.Columns["IdCentroSalud"].Visible = false;
+            this.dtListado.Columns["IdMedico"].Visible = false;
+            this.dtListado.Columns["IdEstatusCirugia"].Visible = false;
+            this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
+            this.dtListado.Columns["FechaAdiciona0"].Visible = false;
+            this.dtListado.Columns["IdTipoFacturacion"].Visible = false;
+            this.dtListado.Columns["UsuarioModifica"].Visible = false;
+            this.dtListado.Columns["ModificadoPor"].Visible = false;
+            this.dtListado.Columns["FechaModifica0"].Visible = false;
+            this.dtListado.Columns["FechaModifica"].Visible = false;
+            this.dtListado.Columns["IdCentroSaludAnterior"].Visible = false;
+            this.dtListado.Columns["IdMedicoAnterior"].Visible = false;
+            this.dtListado.Columns["IdTipoIdentificacion"].Visible = false;
+            this.dtListado.Columns["IdSexo"].Visible = false;
+            this.dtListado.Columns["Email"].Visible = false;
+            this.dtListado.Columns["ComentarioPaciente"].Visible = false;
+            this.dtListado.Columns["FechaFacturacion0"].Visible = false;
+            this.dtListado.Columns["IdUsuario"].Visible = false;
+        }
+        #endregion
 
         public ProgramacionCirugiaConsulta()
         {
@@ -33,6 +83,44 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugias Mantenimiento = new ProgramacionCirugias();
             Mantenimiento.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Mantenimiento.ShowDialog();
+        }
+
+        private void ProgramacionCirugiaConsulta_Load(object sender, EventArgs e)
+        {
+            MostrarInformacionEmpresa(1);
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            MostrarHistorialCirugias();
+        }
+
+        private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroPagina.Value < 1)
+            {
+                MessageBox.Show("El numero de paginas no puede ser menor a 1, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNumeroPagina.Value = 1;
+                MostrarHistorialCirugias();
+            }
+            else
+            {
+                MostrarHistorialCirugias();
+            }
+        }
+
+        private void txtNumeroRegistros_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroRegistros.Value < 1)
+            {
+                MessageBox.Show("El numero de registros no puede ser menor a 1, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNumeroRegistros.Value = 10;
+                MostrarHistorialCirugias();
+            }
+            else
+            {
+                MostrarHistorialCirugias();
+            }
         }
     }
 }
