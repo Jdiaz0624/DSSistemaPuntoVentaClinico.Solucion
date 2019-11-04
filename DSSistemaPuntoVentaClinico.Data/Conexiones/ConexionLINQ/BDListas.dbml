@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaFacturacionMedico" Class="BDListasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JUANMARCELINOMD;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="Listas.SP_BUSCA_TIPO_PROVEEDORES" Method="SP_BUSCA_TIPO_PROVEEDORES">
+    <ElementType Name="SP_BUSCA_TIPO_PROVEEDORESResult">
+      <Column Name="IdTipoProveedor" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTA_ALMACEN" Method="SP_LISTA_ALMACEN">
+    <ElementType Name="SP_LISTA_ALMACENResult">
+      <Column Name="IdAlmacen" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTA_TIPO_EMPAQUE" Method="SP_LISTA_TIPO_EMPAQUE">
+    <ElementType Name="SP_LISTA_TIPO_EMPAQUEResult">
+      <Column Name="IdTipoEmpaque" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTA_PROVEEDOR" Method="SP_LISTA_PROVEEDOR">
+    <Parameter Name="IdTipoProveedor" Parameter="idTipoProveedor" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <ElementType Name="SP_LISTA_PROVEEDORResult">
+      <Column Name="IdProveedor" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTA_TIPO_PRODUCTO" Method="SP_LISTA_TIPO_PRODUCTO">
+    <ElementType Name="SP_LISTA_TIPO_PRODUCTOResult">
+      <Column Name="IdTipoProducto" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTA_CENTRO_SALUD" Method="SP_LISTA_CENTRO_SALUD">
+    <ElementType Name="SP_LISTA_CENTRO_SALUDResult">
+      <Column Name="IdCentroSalud" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTA_COMPROBANTES_FISCALES" Method="SP_LISTA_COMPROBANTES_FISCALES">
+    <ElementType Name="SP_LISTA_COMPROBANTES_FISCALESResult">
+      <Column Name="IdComprobante" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CARGAR_LISTA_SEXO" Method="SP_CARGAR_LISTA_SEXO">
+    <ElementType Name="SP_CARGAR_LISTA_SEXOResult">
+      <Column Name="IdSexo" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CARGAR_LISTA_TIPO_IDENTIFICACION" Method="SP_CARGAR_LISTA_TIPO_IDENTIFICACION">
+    <ElementType Name="SP_CARGAR_LISTA_TIPO_IDENTIFICACIONResult">
+      <Column Name="IdTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CARGAR_LISTA_MEDICOS" Method="SP_CARGAR_LISTA_MEDICOS">
+    <Parameter Name="IdCentroSalud" Parameter="idCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_CARGAR_LISTA_MEDICOSResult">
+      <Column Name="IdMedico" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NombreMedico" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CARGAR_LISTA_TIPO_PAGO" Method="SP_CARGAR_LISTA_TIPO_PAGO">
+    <ElementType Name="SP_CARGAR_LISTA_TIPO_PAGOResult">
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CARGAR_LISTA_ESTATUS_FACTURACION" Method="SP_CARGAR_LISTA_ESTATUS_FACTURACION">
+    <ElementType Name="SP_CARGAR_LISTA_ESTATUS_FACTURACIONResult">
+      <Column Name="IdEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTA_USUARIOS" Method="SP_LISTA_USUARIOS">
+    <ElementType Name="SP_LISTA_USUARIOSResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Persona" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTA_ESTATUS_CIRUGIA" Method="SP_LISTA_ESTATUS_CIRUGIA">
+    <ElementType Name="SP_LISTA_ESTATUS_CIRUGIAResult">
+      <Column Name="IdEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

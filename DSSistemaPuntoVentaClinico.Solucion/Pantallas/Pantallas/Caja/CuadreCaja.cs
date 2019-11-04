@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
+{
+    public partial class CuadreCaja : Form
+    {
+        public CuadreCaja()
+        {
+            InitializeComponent();
+        }
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaCaja> ObjdataCaja = new Lazy<Logica.Logica.LogicaCaja>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjdataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
+        public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
+
+
+        private void CuadreCaja_Load(object sender, EventArgs e)
+        {
+            gbSeleccionar.ForeColor = Color.Black;
+            
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void CuadreCaja_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
+            }
+        }
+
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            try {
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.ECuadreCaja Borrar = new Logica.Entidades.EntidadReporte.ECuadreCaja();
+                Borrar.IdUsuario = VariablesGlobales.IdUsuario;
+                var MAN2 = ObjDataHistorial.Value.CuadreCaja(Borrar, "DELETE");
+
+                //SACAMOS LOS DATOS QUE SE VAN A GRABAR
+                var SacarDatos = ObjdataCaja.Value.MostrarHistorialCaja(
+                    Convert.ToDateTime(txtFechaDesde.Text),
+                    Convert.ToDateTime(txtFechaHasta.Text));
+                foreach (var n in SacarDatos)
+                {
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.ECuadreCaja Cuadrar = new Logica.Entidades.EntidadReporte.ECuadreCaja();
+
+                    Cuadrar.IdUsuario = VariablesGlobales.IdUsuario;
+                    Cuadrar.Caja = n.Caja;
+                    Cuadrar.Monto = Convert.ToDecimal(n.Monto);
+                    Cuadrar.Concepto = n.Concepto;
+                    Cuadrar.Fecha = n.Fecha;
+                    Cuadrar.CreadoPor = n.CreadoPor;
+                    Cuadrar.NumeroReferencia = n.NumeroReferencia;
+                    Cuadrar.TipoPago = n.TipoPago;
+                    Cuadrar.FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
+                    Cuadrar.FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+
+                    var MAN = ObjDataHistorial.Value.CuadreCaja(Cuadrar, "INSERT");
+                }
+
+                //MOSTRAMOS EL REPORTE EN PANTALLA
+                //SACAMOS LAS CREDENCIALES DEL SISTEMA
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarLogonBD(1);
+                foreach (var n in SacarCredenciales)
+                {
+                    VariablesGlobales.UsuarioBD = n.Usuario;
+                    VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                }
+                //SACAMOS LA RUTA DEL REPORTE
+                var SacarRutaReporte = ObjDataHistorial.Value.SacarRutaReporte(2);
+                foreach (var n in SacarRutaReporte)
+                {
+                    VariablesGlobales.RutaReporte = n.RutaReporte;
+                }
+                //MANDAMOS LOS PARAMETROS E INVOCAMOS EL REPORTE
+                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Cuadre = new Reporte.Reportes();
+
+                Cuadre.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                Cuadre.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                Cuadre.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                Cuadre.GenerarCuadreCaja(VariablesGlobales.IdUsuario);
+                Cuadre.ShowDialog();
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar el reporte" + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

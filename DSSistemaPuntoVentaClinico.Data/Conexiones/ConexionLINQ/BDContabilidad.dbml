@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaFacturacionMedico" Class="BDContabilidadDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JUANMARCELINOMD;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="Contabilidad.SP_GENERAR_COMPROBANTE_FISCAL" Method="SP_GENERAR_COMPROBANTE_FISCAL">
+    <Parameter Name="IdComprobante" Parameter="idComprobante" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_GENERAR_COMPROBANTE_FISCALResult">
+      <Column Name="TipoComprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Comprobante" Type="System.String" DbType="VarChar(8000) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>
