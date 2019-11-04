@@ -373,6 +373,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         #region MANTENIMEINTO DE PROGRAMACION DE CIRUGIA
         //LISTADO DE PROGRAMACION DE CIRUGIA
 
+
         //MANTENIMEINTO DE PROGRAMACION DE CIRUGIA
         public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia MantenimientoProgramacionCirugia(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia Item, string Accion)
         {

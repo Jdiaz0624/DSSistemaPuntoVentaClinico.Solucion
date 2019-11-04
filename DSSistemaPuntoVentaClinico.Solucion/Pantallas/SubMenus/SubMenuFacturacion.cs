@@ -77,7 +77,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
 
         private void btnFinanciamiento_Click(object sender, EventArgs e)
         {
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugias Programacion = new Pantallas.Facturacion.ProgramacionCirugias();
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugiaConsulta Programacion = new Pantallas.Facturacion.ProgramacionCirugiaConsulta();
             Programacion.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
             Programacion.ShowDialog();
         }
