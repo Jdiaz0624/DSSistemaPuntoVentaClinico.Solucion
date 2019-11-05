@@ -178,6 +178,7 @@
             this.btnDeshabilitar.TabIndex = 6;
             this.btnDeshabilitar.Text = "Eliminar";
             this.btnDeshabilitar.UseVisualStyleBackColor = true;
+            this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
             // 
             // btnModificar
             // 
@@ -190,6 +191,7 @@
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Restablecer";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnRestablecer
             // 
@@ -202,6 +204,7 @@
             this.btnRestablecer.TabIndex = 5;
             this.btnRestablecer.Text = "Modificar";
             this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
             // btnNuevo
             // 
@@ -258,6 +261,7 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(857, 269);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -349,6 +353,7 @@
             this.Name = "ProgramacionCirugiaConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProgramacionCirugiaConsulta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProgramacionCirugiaConsulta_FormClosing);
             this.Load += new System.EventHandler(this.ProgramacionCirugiaConsulta_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

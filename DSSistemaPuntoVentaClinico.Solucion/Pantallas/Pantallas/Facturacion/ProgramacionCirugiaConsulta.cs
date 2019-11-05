@@ -61,6 +61,23 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             this.dtListado.Columns["ComentarioPaciente"].Visible = false;
             this.dtListado.Columns["FechaFacturacion0"].Visible = false;
             this.dtListado.Columns["IdUsuario"].Visible = false;
+            this.dtListado.Columns["FechaCirugia0"].Visible = false;
+        }
+        #endregion
+        #region RESTABLECER LA PANTALLA
+        private void RestablecerPantalla()
+        {
+            btnNuevo.Enabled = true;
+            btnConsultar.Enabled = true;
+            btnRestablecer.Enabled = false;
+            btnModificar.Enabled = false;
+            btnDeshabilitar.Enabled = false;
+            txtNumeroPagina.Value = 1;
+            txtNumeroRegistros.Value = 10;
+            MostrarHistorialCirugias();
+            lbClaveSeguridad.Visible = false;
+            txtClaveSeguridad.Visible = false;
+            txtClaveSeguridad.Text = string.Empty;
         }
         #endregion
 
@@ -81,6 +98,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         {
             this.Hide();
             DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugias Mantenimiento = new ProgramacionCirugias();
+            Mantenimiento.VariablesGlobales.IdMantenimiento = 0;
+            Mantenimiento.VariablesGlobales.NumeroFacturaMantenimiento = VariablesGlobales.NumeroFacturaMantenimiento;
+            Mantenimiento.VariablesGlobales.AccionTomar = "INSERT";
             Mantenimiento.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Mantenimiento.ShowDialog();
         }
@@ -88,6 +108,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         private void ProgramacionCirugiaConsulta_Load(object sender, EventArgs e)
         {
             MostrarInformacionEmpresa(1);
+            txtClaveSeguridad.PasswordChar = '•';
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -120,6 +141,114 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             else
             {
                 MostrarHistorialCirugias();
+            }
+        }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.VariablesGlobales.NumeroFacturaMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NoFactura"].Value.ToString());
+                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdProgramacionCirugia"].Value.ToString());
+                btnNuevo.Enabled = false;
+                btnConsultar.Enabled = false;
+                btnModificar.Enabled = true;
+                btnDeshabilitar.Enabled = true;
+                lbClaveSeguridad.Visible = true;
+                txtClaveSeguridad.Visible = true;
+                btnRestablecer.Enabled = true;
+                txtNumeroPagina.Enabled = false;
+                txtNumeroRegistros.Enabled = false;
+                
+            }
+        }
+
+        private void btnRestablecer_Click(object sender, EventArgs e)
+        {
+            //VERIFICAMOS LA CLAVE DE SEGURIDAD
+            if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+            {
+                MessageBox.Show("La clave de seguridad no puede estar vacia, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                //VERIFICAMOS SI LA CLAVE DE SEGURIDAD ES VALIDA
+                string Clave = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.Encriptar(txtClaveSeguridad.Text);
+
+                var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                    Clave, null, 1, 1);
+                if (Validar.Count() < 1)
+                {
+                    MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtClaveSeguridad.Text = string.Empty;
+                    txtClaveSeguridad.Focus();
+                }
+                else
+                {
+                    this.Hide();
+                    DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugias Modificar = new ProgramacionCirugias();
+                    Modificar.VariablesGlobales.IdMantenimiento = VariablesGlobales.IdMantenimiento;
+                    Modificar.VariablesGlobales.NumeroFacturaMantenimiento = VariablesGlobales.NumeroFacturaMantenimiento;
+                    Modificar.VariablesGlobales.AccionTomar = "UPDATE";
+                    Modificar.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                    Modificar.ShowDialog();
+                }
+            }
+            
+        }
+
+        private void btnDeshabilitar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+            {
+                MessageBox.Show("Favor de ingresar la clave de seguridad", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                //VERIFICAMOS LA CLAVE DE SEGURIDAD
+                string Clave = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.Encriptar(txtClaveSeguridad.Text);
+
+                var Validar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                    Clave, null, 1, 1);
+                if (Validar.Count() < 1)
+                {
+                    MessageBox.Show("La clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtClaveSeguridad.Text = string.Empty;
+                    txtClaveSeguridad.Focus();
+                }
+                else
+                {
+                    if (MessageBox.Show("¿Quieres eliminar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        //ELIMINAMOS EL REGISTRO
+                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia Borrar = new Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia();
+
+                        Borrar.IdProgramacionCirugia = VariablesGlobales.IdMantenimiento;
+
+                        var MAN = ObjDataFActuracion.Value.MantenimientoProgramacionCirugia(Borrar, "DELETE");
+                        MessageBox.Show("Registro eliminado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RestablecerPantalla();
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            RestablecerPantalla();
+        }
+
+        private void ProgramacionCirugiaConsulta_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.UserClosing:
+                    e.Cancel = true;
+                    break;
             }
         }
     }

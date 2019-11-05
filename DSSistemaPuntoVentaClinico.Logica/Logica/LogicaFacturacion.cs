@@ -380,6 +380,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EBuscaProgramacionirugia
                           {
                               IdProgramacionCirugia=n.IdProgramacionCirugia,
+                              FechaCirugia0=n.FechaCirugia0,
                               FechaCirugia=n.FechaCirugia,
                               IdCentroSalud=n.IdCentroSalud,
                               CentroSalud=n.CentroSalud,

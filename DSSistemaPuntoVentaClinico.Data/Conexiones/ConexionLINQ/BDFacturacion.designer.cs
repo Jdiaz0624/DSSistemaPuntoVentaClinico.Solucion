@@ -2957,6 +2957,8 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 		
 		private decimal _IdProgramacionCirugia;
 		
+		private System.Nullable<System.DateTime> _FechaCirugia0;
+		
 		private string _FechaCirugia;
 		
 		private System.Nullable<decimal> _IdCentroSalud;
@@ -3041,6 +3043,22 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._IdProgramacionCirugia != value))
 				{
 					this._IdProgramacionCirugia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCirugia0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaCirugia0
+		{
+			get
+			{
+				return this._FechaCirugia0;
+			}
+			set
+			{
+				if ((this._FechaCirugia0 != value))
+				{
+					this._FechaCirugia0 = value;
 				}
 			}
 		}

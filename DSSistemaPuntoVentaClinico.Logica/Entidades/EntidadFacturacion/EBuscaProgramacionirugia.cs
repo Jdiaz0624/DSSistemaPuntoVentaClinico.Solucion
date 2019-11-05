@@ -9,6 +9,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
     public class EBuscaProgramacionirugia
     {
         public decimal? IdProgramacionCirugia {get;set;}
+        public System.Nullable<System.DateTime> FechaCirugia0 { get; set; }
 
         public string FechaCirugia {get;set;}
 

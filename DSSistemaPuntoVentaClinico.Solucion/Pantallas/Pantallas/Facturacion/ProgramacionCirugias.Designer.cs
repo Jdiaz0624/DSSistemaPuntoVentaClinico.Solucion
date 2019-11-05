@@ -114,6 +114,7 @@
             this.gbProgramacionCirugia.TabIndex = 0;
             this.gbProgramacionCirugia.TabStop = false;
             this.gbProgramacionCirugia.Text = "Programación de Cirugia";
+            this.gbProgramacionCirugia.Enter += new System.EventHandler(this.gbProgramacionCirugia_Enter);
             // 
             // gbReferencia
             // 
@@ -651,7 +652,6 @@
         private System.Windows.Forms.GroupBox gbProgramacionCirugia;
         private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtNumeroFactura;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -697,5 +697,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox txtNumeroFactura;
     }
 }

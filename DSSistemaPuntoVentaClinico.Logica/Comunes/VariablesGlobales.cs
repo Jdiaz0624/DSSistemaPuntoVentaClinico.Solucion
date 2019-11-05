@@ -8,6 +8,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Comunes
 {
     public class VariablesGlobales
     {
+        public decimal NumeroFacturaMantenimiento { get; set; }
         public bool DescuentoAplicado { get; set; }
         public decimal PrecioOriginal { get; set; }
         public string NombreSistema { get; set; }

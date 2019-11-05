@@ -298,6 +298,7 @@
     <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
     <ElementType Name="SP_BUSCA_PROGRAMACION_CIRUGIAResult">
       <Column Name="IdProgramacionCirugia" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCirugia0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="FechaCirugia" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="IdCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="CentroSalud" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />

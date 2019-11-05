@@ -220,7 +220,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         {
             DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia Mantenimiento = new Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia();
 
-            Mantenimiento.IdProgramacionCirugia = 0;
+            Mantenimiento.IdProgramacionCirugia = VariablesGlobales.IdMantenimiento;
             Mantenimiento.FechaCirugia = Convert.ToDateTime(txtFechaCirugia.Text);
             Mantenimiento.IdCentroSalud = Convert.ToDecimal(ddlCentroSalud.SelectedValue);
             Mantenimiento.IdMedico = Convert.ToDecimal(ddlMedico.SelectedValue);
@@ -232,10 +232,30 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
             Mantenimiento.FechaModifica = DateTime.Now;
 
-            var MAN = ObjDataFacturacion.Value.MantenimientoProgramacionCirugia(Mantenimiento, "INSERT");
-            MessageBox.Show("Registro completo");
+            var MAN = ObjDataFacturacion.Value.MantenimientoProgramacionCirugia(Mantenimiento, VariablesGlobales.AccionTomar);
+            if (VariablesGlobales.AccionTomar != "INSERT")
+            {
+
+                MessageBox.Show("Registro Modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CerrarPantalla();
+            }
+            else
+            {
+                MessageBox.Show("Registro Guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CerrarPantalla();
+            }
         }
-#endregion
+        #endregion
+
+        #region CERRAR LA PANTALLA
+        private void CerrarPantalla()
+        {
+            this.Dispose();
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugiaConsulta Consulta = new ProgramacionCirugiaConsulta();
+            Consulta.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Consulta.ShowDialog();
+        }
+        #endregion
         private void ProgramacionCirugias_Load(object sender, EventArgs e)
         {
             rbBuscarPorNumeroFactura.Checked = true;
@@ -257,6 +277,21 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             CargarCentroSalud();
             CargarMedicos();
             CargarEstatusCirugia();
+            if (VariablesGlobales.AccionTomar != "INSERT")
+            {
+                SacarDatosprogramacionCirugia(VariablesGlobales.NumeroFacturaMantenimiento);
+
+                var SacarDatos = ObjDataFacturacion.Value.BuscaProgramacionCirugia(
+                    VariablesGlobales.IdMantenimiento,
+                    null, null, null, null, null, null, 1, 1);
+                foreach (var n in SacarDatos)
+                {
+                    txtFechaCirugia.Text = n.FechaCirugia0.ToString();
+                    ddlCentroSalud.Text = n.CentroSalud;
+                    ddlMedico.Text = n.NombreMedico;
+                    ddlEstatusCirugia.Text = n.Estatus;
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -281,7 +316,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            CerrarPantalla();
         }
 
         private void ProgramacionCirugias_FormClosing(object sender, FormClosingEventArgs e)
@@ -370,6 +405,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.OtrasInformaciones Otras = new OtrasInformaciones();
             Otras.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Otras.ShowDialog();
+        }
+
+        private void gbProgramacionCirugia_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
