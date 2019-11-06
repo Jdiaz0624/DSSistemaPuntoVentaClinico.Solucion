@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
@@ -51,8 +51,8 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.gbOpciones.SuspendLayout();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -71,6 +71,19 @@
             this.panel1.Size = new System.Drawing.Size(885, 45);
             this.panel1.TabIndex = 0;
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(843, 10);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 23;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtFechaHasta);
@@ -84,14 +97,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cirugia Consulta";
             // 
-            // label1
+            // txtFechaHasta
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Desde";
+            this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaHasta.Location = new System.Drawing.Point(88, 93);
+            this.txtFechaHasta.Name = "txtFechaHasta";
+            this.txtFechaHasta.Size = new System.Drawing.Size(154, 30);
+            this.txtFechaHasta.TabIndex = 3;
+            // 
+            // txtFechaDesde
+            // 
+            this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaDesde.Location = new System.Drawing.Point(88, 57);
+            this.txtFechaDesde.Name = "txtFechaDesde";
+            this.txtFechaDesde.Size = new System.Drawing.Size(154, 30);
+            this.txtFechaDesde.TabIndex = 2;
             // 
             // label2
             // 
@@ -102,34 +122,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Hasta";
             // 
-            // txtFechaDesde
+            // label1
             // 
-            this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaDesde.Location = new System.Drawing.Point(88, 57);
-            this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(154, 30);
-            this.txtFechaDesde.TabIndex = 2;
-            // 
-            // txtFechaHasta
-            // 
-            this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaHasta.Location = new System.Drawing.Point(88, 93);
-            this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(154, 30);
-            this.txtFechaHasta.TabIndex = 3;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(843, 10);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 23;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Desde";
             // 
             // gbOpciones
             // 
@@ -160,10 +160,10 @@
             // txtClaveSeguridad
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(227, 93);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(222, 95);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 30);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(291, 30);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -356,9 +356,9 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProgramacionCirugiaConsulta_FormClosing);
             this.Load += new System.EventHandler(this.ProgramacionCirugiaConsulta_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.gbOpciones.ResumeLayout(false);
             this.gbOpciones.PerformLayout();
             this.gbListado.ResumeLayout(false);
