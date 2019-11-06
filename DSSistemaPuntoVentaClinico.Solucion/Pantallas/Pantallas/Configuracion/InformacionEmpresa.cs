@@ -29,10 +29,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Configuracion
 
         private void InformacionEmpresa_Load(object sender, EventArgs e)
         {
-            groupBox1.ForeColor = Color.White;
-            groupBox2.ForeColor = Color.White;
-            btnModificar.ForeColor = Color.White;
-            btnCerrar.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
+            groupBox2.ForeColor = Color.Black;
+            btnModificar.ForeColor = Color.Black;
+            btnCerrar.ForeColor = Color.Black;
             txtNombreEmpresa.ForeColor = Color.Black;
             txtRNC.ForeColor = Color.Black;
             txtDireccion.ForeColor = Color.Black;

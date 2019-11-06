@@ -30,32 +30,32 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbNombreEmpresa = new System.Windows.Forms.Label();
-            this.lbRNC = new System.Windows.Forms.Label();
-            this.lbDireccion = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
-            this.lbEmail2 = new System.Windows.Forms.Label();
-            this.lbFacebook = new System.Windows.Forms.Label();
-            this.lbInstagram = new System.Windows.Forms.Label();
-            this.lbTelefonos = new System.Windows.Forms.Label();
-            this.lbFax = new System.Windows.Forms.Label();
-            this.txtNombreEmpresa = new System.Windows.Forms.TextBox();
-            this.txtRNC = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtEmail2 = new System.Windows.Forms.TextBox();
-            this.txtFacebook = new System.Windows.Forms.TextBox();
-            this.txtInstagram = new System.Windows.Forms.TextBox();
-            this.txtTelefonos = new System.Windows.Forms.TextBox();
             this.txtFax = new System.Windows.Forms.TextBox();
+            this.txtTelefonos = new System.Windows.Forms.TextBox();
+            this.txtInstagram = new System.Windows.Forms.TextBox();
+            this.txtFacebook = new System.Windows.Forms.TextBox();
+            this.txtEmail2 = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtRNC = new System.Windows.Forms.TextBox();
+            this.txtNombreEmpresa = new System.Windows.Forms.TextBox();
+            this.lbFax = new System.Windows.Forms.Label();
+            this.lbTelefonos = new System.Windows.Forms.Label();
+            this.lbInstagram = new System.Windows.Forms.Label();
+            this.lbFacebook = new System.Windows.Forms.Label();
+            this.lbEmail2 = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.lbDireccion = new System.Windows.Forms.Label();
+            this.lbRNC = new System.Windows.Forms.Label();
+            this.lbNombreEmpresa = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cbCambiarLogo = new System.Windows.Forms.CheckBox();
             this.btnBucaImagen = new System.Windows.Forms.Button();
+            this.cbCambiarLogo = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -89,85 +89,86 @@
             this.groupBox1.Text = "Información de Empresa";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // lbNombreEmpresa
+            // txtFax
             // 
-            this.lbNombreEmpresa.AutoSize = true;
-            this.lbNombreEmpresa.Location = new System.Drawing.Point(9, 41);
-            this.lbNombreEmpresa.Name = "lbNombreEmpresa";
-            this.lbNombreEmpresa.Size = new System.Drawing.Size(214, 23);
-            this.lbNombreEmpresa.TabIndex = 0;
-            this.lbNombreEmpresa.Text = "Nombre de Empresa";
-            this.lbNombreEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtFax.BackColor = System.Drawing.Color.Silver;
+            this.txtFax.Location = new System.Drawing.Point(227, 316);
+            this.txtFax.MaxLength = 50;
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Size = new System.Drawing.Size(316, 32);
+            this.txtFax.TabIndex = 17;
+            this.txtFax.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
-            // lbRNC
+            // txtTelefonos
             // 
-            this.lbRNC.AutoSize = true;
-            this.lbRNC.Location = new System.Drawing.Point(170, 76);
-            this.lbRNC.Name = "lbRNC";
-            this.lbRNC.Size = new System.Drawing.Size(53, 23);
-            this.lbRNC.TabIndex = 1;
-            this.lbRNC.Text = "RNC";
-            this.lbRNC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtTelefonos.BackColor = System.Drawing.Color.Silver;
+            this.txtTelefonos.Location = new System.Drawing.Point(227, 281);
+            this.txtTelefonos.MaxLength = 100;
+            this.txtTelefonos.Name = "txtTelefonos";
+            this.txtTelefonos.Size = new System.Drawing.Size(316, 32);
+            this.txtTelefonos.TabIndex = 16;
             // 
-            // lbDireccion
+            // txtInstagram
             // 
-            this.lbDireccion.AutoSize = true;
-            this.lbDireccion.Location = new System.Drawing.Point(122, 110);
-            this.lbDireccion.Name = "lbDireccion";
-            this.lbDireccion.Size = new System.Drawing.Size(101, 23);
-            this.lbDireccion.TabIndex = 2;
-            this.lbDireccion.Text = "Dirección";
-            this.lbDireccion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtInstagram.BackColor = System.Drawing.Color.Silver;
+            this.txtInstagram.Location = new System.Drawing.Point(227, 246);
+            this.txtInstagram.MaxLength = 50;
+            this.txtInstagram.Name = "txtInstagram";
+            this.txtInstagram.Size = new System.Drawing.Size(316, 32);
+            this.txtInstagram.TabIndex = 15;
             // 
-            // lbEmail
+            // txtFacebook
             // 
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(161, 146);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(62, 23);
-            this.lbEmail.TabIndex = 3;
-            this.lbEmail.Text = "Email";
-            this.lbEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtFacebook.BackColor = System.Drawing.Color.Silver;
+            this.txtFacebook.Location = new System.Drawing.Point(227, 211);
+            this.txtFacebook.MaxLength = 50;
+            this.txtFacebook.Name = "txtFacebook";
+            this.txtFacebook.Size = new System.Drawing.Size(316, 32);
+            this.txtFacebook.TabIndex = 14;
             // 
-            // lbEmail2
+            // txtEmail2
             // 
-            this.lbEmail2.AutoSize = true;
-            this.lbEmail2.Location = new System.Drawing.Point(144, 180);
-            this.lbEmail2.Name = "lbEmail2";
-            this.lbEmail2.Size = new System.Drawing.Size(79, 23);
-            this.lbEmail2.TabIndex = 4;
-            this.lbEmail2.Text = "Email 2";
-            this.lbEmail2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtEmail2.BackColor = System.Drawing.Color.Silver;
+            this.txtEmail2.Location = new System.Drawing.Point(227, 176);
+            this.txtEmail2.MaxLength = 50;
+            this.txtEmail2.Name = "txtEmail2";
+            this.txtEmail2.Size = new System.Drawing.Size(316, 32);
+            this.txtEmail2.TabIndex = 13;
             // 
-            // lbFacebook
+            // txtEmail
             // 
-            this.lbFacebook.AutoSize = true;
-            this.lbFacebook.Location = new System.Drawing.Point(113, 215);
-            this.lbFacebook.Name = "lbFacebook";
-            this.lbFacebook.Size = new System.Drawing.Size(110, 23);
-            this.lbFacebook.TabIndex = 5;
-            this.lbFacebook.Text = "Facebook";
-            this.lbFacebook.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtEmail.BackColor = System.Drawing.Color.Silver;
+            this.txtEmail.Location = new System.Drawing.Point(227, 141);
+            this.txtEmail.MaxLength = 50;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(316, 32);
+            this.txtEmail.TabIndex = 12;
             // 
-            // lbInstagram
+            // txtDireccion
             // 
-            this.lbInstagram.AutoSize = true;
-            this.lbInstagram.Location = new System.Drawing.Point(115, 251);
-            this.lbInstagram.Name = "lbInstagram";
-            this.lbInstagram.Size = new System.Drawing.Size(108, 23);
-            this.lbInstagram.TabIndex = 6;
-            this.lbInstagram.Text = "Instagram";
-            this.lbInstagram.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtDireccion.BackColor = System.Drawing.Color.Silver;
+            this.txtDireccion.Location = new System.Drawing.Point(227, 106);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(316, 32);
+            this.txtDireccion.TabIndex = 11;
             // 
-            // lbTelefonos
+            // txtRNC
             // 
-            this.lbTelefonos.AutoSize = true;
-            this.lbTelefonos.Location = new System.Drawing.Point(122, 286);
-            this.lbTelefonos.Name = "lbTelefonos";
-            this.lbTelefonos.Size = new System.Drawing.Size(101, 23);
-            this.lbTelefonos.TabIndex = 7;
-            this.lbTelefonos.Text = "Telefonos";
-            this.lbTelefonos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtRNC.BackColor = System.Drawing.Color.Silver;
+            this.txtRNC.Location = new System.Drawing.Point(227, 71);
+            this.txtRNC.MaxLength = 50;
+            this.txtRNC.Name = "txtRNC";
+            this.txtRNC.Size = new System.Drawing.Size(316, 32);
+            this.txtRNC.TabIndex = 10;
+            // 
+            // txtNombreEmpresa
+            // 
+            this.txtNombreEmpresa.BackColor = System.Drawing.Color.Silver;
+            this.txtNombreEmpresa.Location = new System.Drawing.Point(227, 36);
+            this.txtNombreEmpresa.MaxLength = 100;
+            this.txtNombreEmpresa.Name = "txtNombreEmpresa";
+            this.txtNombreEmpresa.Size = new System.Drawing.Size(316, 32);
+            this.txtNombreEmpresa.TabIndex = 9;
             // 
             // lbFax
             // 
@@ -179,86 +180,85 @@
             this.lbFax.Text = "Fax";
             this.lbFax.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtNombreEmpresa
+            // lbTelefonos
             // 
-            this.txtNombreEmpresa.BackColor = System.Drawing.Color.Silver;
-            this.txtNombreEmpresa.Location = new System.Drawing.Point(227, 36);
-            this.txtNombreEmpresa.MaxLength = 100;
-            this.txtNombreEmpresa.Name = "txtNombreEmpresa";
-            this.txtNombreEmpresa.Size = new System.Drawing.Size(316, 32);
-            this.txtNombreEmpresa.TabIndex = 9;
+            this.lbTelefonos.AutoSize = true;
+            this.lbTelefonos.Location = new System.Drawing.Point(122, 286);
+            this.lbTelefonos.Name = "lbTelefonos";
+            this.lbTelefonos.Size = new System.Drawing.Size(101, 23);
+            this.lbTelefonos.TabIndex = 7;
+            this.lbTelefonos.Text = "Telefonos";
+            this.lbTelefonos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtRNC
+            // lbInstagram
             // 
-            this.txtRNC.BackColor = System.Drawing.Color.Silver;
-            this.txtRNC.Location = new System.Drawing.Point(227, 71);
-            this.txtRNC.MaxLength = 50;
-            this.txtRNC.Name = "txtRNC";
-            this.txtRNC.Size = new System.Drawing.Size(316, 32);
-            this.txtRNC.TabIndex = 10;
+            this.lbInstagram.AutoSize = true;
+            this.lbInstagram.Location = new System.Drawing.Point(115, 251);
+            this.lbInstagram.Name = "lbInstagram";
+            this.lbInstagram.Size = new System.Drawing.Size(108, 23);
+            this.lbInstagram.TabIndex = 6;
+            this.lbInstagram.Text = "Instagram";
+            this.lbInstagram.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtDireccion
+            // lbFacebook
             // 
-            this.txtDireccion.BackColor = System.Drawing.Color.Silver;
-            this.txtDireccion.Location = new System.Drawing.Point(227, 106);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(316, 32);
-            this.txtDireccion.TabIndex = 11;
+            this.lbFacebook.AutoSize = true;
+            this.lbFacebook.Location = new System.Drawing.Point(113, 215);
+            this.lbFacebook.Name = "lbFacebook";
+            this.lbFacebook.Size = new System.Drawing.Size(110, 23);
+            this.lbFacebook.TabIndex = 5;
+            this.lbFacebook.Text = "Facebook";
+            this.lbFacebook.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtEmail
+            // lbEmail2
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.Silver;
-            this.txtEmail.Location = new System.Drawing.Point(227, 141);
-            this.txtEmail.MaxLength = 50;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(316, 32);
-            this.txtEmail.TabIndex = 12;
+            this.lbEmail2.AutoSize = true;
+            this.lbEmail2.Location = new System.Drawing.Point(144, 180);
+            this.lbEmail2.Name = "lbEmail2";
+            this.lbEmail2.Size = new System.Drawing.Size(79, 23);
+            this.lbEmail2.TabIndex = 4;
+            this.lbEmail2.Text = "Email 2";
+            this.lbEmail2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtEmail2
+            // lbEmail
             // 
-            this.txtEmail2.BackColor = System.Drawing.Color.Silver;
-            this.txtEmail2.Location = new System.Drawing.Point(227, 176);
-            this.txtEmail2.MaxLength = 50;
-            this.txtEmail2.Name = "txtEmail2";
-            this.txtEmail2.Size = new System.Drawing.Size(316, 32);
-            this.txtEmail2.TabIndex = 13;
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(161, 146);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(62, 23);
+            this.lbEmail.TabIndex = 3;
+            this.lbEmail.Text = "Email";
+            this.lbEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtFacebook
+            // lbDireccion
             // 
-            this.txtFacebook.BackColor = System.Drawing.Color.Silver;
-            this.txtFacebook.Location = new System.Drawing.Point(227, 211);
-            this.txtFacebook.MaxLength = 50;
-            this.txtFacebook.Name = "txtFacebook";
-            this.txtFacebook.Size = new System.Drawing.Size(316, 32);
-            this.txtFacebook.TabIndex = 14;
+            this.lbDireccion.AutoSize = true;
+            this.lbDireccion.Location = new System.Drawing.Point(122, 110);
+            this.lbDireccion.Name = "lbDireccion";
+            this.lbDireccion.Size = new System.Drawing.Size(101, 23);
+            this.lbDireccion.TabIndex = 2;
+            this.lbDireccion.Text = "Dirección";
+            this.lbDireccion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtInstagram
+            // lbRNC
             // 
-            this.txtInstagram.BackColor = System.Drawing.Color.Silver;
-            this.txtInstagram.Location = new System.Drawing.Point(227, 246);
-            this.txtInstagram.MaxLength = 50;
-            this.txtInstagram.Name = "txtInstagram";
-            this.txtInstagram.Size = new System.Drawing.Size(316, 32);
-            this.txtInstagram.TabIndex = 15;
+            this.lbRNC.AutoSize = true;
+            this.lbRNC.Location = new System.Drawing.Point(170, 76);
+            this.lbRNC.Name = "lbRNC";
+            this.lbRNC.Size = new System.Drawing.Size(53, 23);
+            this.lbRNC.TabIndex = 1;
+            this.lbRNC.Text = "RNC";
+            this.lbRNC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtTelefonos
+            // lbNombreEmpresa
             // 
-            this.txtTelefonos.BackColor = System.Drawing.Color.Silver;
-            this.txtTelefonos.Location = new System.Drawing.Point(227, 281);
-            this.txtTelefonos.MaxLength = 100;
-            this.txtTelefonos.Name = "txtTelefonos";
-            this.txtTelefonos.Size = new System.Drawing.Size(316, 32);
-            this.txtTelefonos.TabIndex = 16;
-            // 
-            // txtFax
-            // 
-            this.txtFax.BackColor = System.Drawing.Color.Silver;
-            this.txtFax.Location = new System.Drawing.Point(227, 316);
-            this.txtFax.MaxLength = 50;
-            this.txtFax.Name = "txtFax";
-            this.txtFax.Size = new System.Drawing.Size(316, 32);
-            this.txtFax.TabIndex = 17;
-            this.txtFax.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.lbNombreEmpresa.AutoSize = true;
+            this.lbNombreEmpresa.Location = new System.Drawing.Point(9, 41);
+            this.lbNombreEmpresa.Name = "lbNombreEmpresa";
+            this.lbNombreEmpresa.Size = new System.Drawing.Size(214, 23);
+            this.lbNombreEmpresa.TabIndex = 0;
+            this.lbNombreEmpresa.Text = "Nombre de Empresa";
+            this.lbNombreEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox2
             // 
@@ -317,19 +317,6 @@
             this.txtClaveSeguridad.TabIndex = 18;
             this.txtClaveSeguridad.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // cbCambiarLogo
-            // 
-            this.cbCambiarLogo.AutoSize = true;
-            this.cbCambiarLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbCambiarLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbCambiarLogo.Location = new System.Drawing.Point(570, 297);
-            this.cbCambiarLogo.Name = "cbCambiarLogo";
-            this.cbCambiarLogo.Size = new System.Drawing.Size(168, 27);
-            this.cbCambiarLogo.TabIndex = 19;
-            this.cbCambiarLogo.Text = "Cambiar Logo";
-            this.cbCambiarLogo.UseVisualStyleBackColor = true;
-            this.cbCambiarLogo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // btnBucaImagen
             // 
             this.btnBucaImagen.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -344,12 +331,25 @@
             this.toolTip1.SetToolTip(this.btnBucaImagen, "Buscar Logo");
             this.btnBucaImagen.UseVisualStyleBackColor = true;
             // 
+            // cbCambiarLogo
+            // 
+            this.cbCambiarLogo.AutoSize = true;
+            this.cbCambiarLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCambiarLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbCambiarLogo.Location = new System.Drawing.Point(570, 297);
+            this.cbCambiarLogo.Name = "cbCambiarLogo";
+            this.cbCambiarLogo.Size = new System.Drawing.Size(168, 27);
+            this.cbCambiarLogo.TabIndex = 19;
+            this.cbCambiarLogo.Text = "Cambiar Logo";
+            this.cbCambiarLogo.UseVisualStyleBackColor = true;
+            this.cbCambiarLogo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // InformacionEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1076, 384);
             this.ControlBox = false;
             this.Controls.Add(this.btnBucaImagen);
