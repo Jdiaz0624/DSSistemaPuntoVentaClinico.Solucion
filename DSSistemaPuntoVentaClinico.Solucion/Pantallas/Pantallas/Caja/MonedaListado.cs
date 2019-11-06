@@ -85,9 +85,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
         private void MonedaListado_Load(object sender, EventArgs e)
         {
             SacarDatosEmpresa(1);
-            gbBuscar.ForeColor = Color.White;
-            gbListado.ForeColor = Color.White;
-            gbOpciones.ForeColor = Color.White;
+            gbBuscar.ForeColor = Color.Black;
+            gbListado.ForeColor = Color.Black;
+            gbOpciones.ForeColor = Color.Black;
             dtListado.ForeColor = Color.Black;
             ListadoMonedas();
             txtClaveSeguridad.PasswordChar = '•';

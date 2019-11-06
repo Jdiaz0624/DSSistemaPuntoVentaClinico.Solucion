@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtMoneda = new System.Windows.Forms.TextBox();
-            this.txtSigla = new System.Windows.Forms.TextBox();
-            this.txtTasa = new System.Windows.Forms.TextBox();
-            this.cbEstatus = new System.Windows.Forms.CheckBox();
             this.cbPorDefecto = new System.Windows.Forms.CheckBox();
+            this.cbEstatus = new System.Windows.Forms.CheckBox();
+            this.txtTasa = new System.Windows.Forms.TextBox();
+            this.txtSigla = new System.Windows.Forms.TextBox();
+            this.txtMoneda = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnAccion = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -59,60 +59,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de la Moneda";
             // 
-            // label1
+            // cbPorDefecto
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Moneda";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Sigla";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 23);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Tasa";
-            // 
-            // txtMoneda
-            // 
-            this.txtMoneda.BackColor = System.Drawing.Color.LightGray;
-            this.txtMoneda.Location = new System.Drawing.Point(106, 25);
-            this.txtMoneda.MaxLength = 100;
-            this.txtMoneda.Name = "txtMoneda";
-            this.txtMoneda.Size = new System.Drawing.Size(342, 32);
-            this.txtMoneda.TabIndex = 3;
-            // 
-            // txtSigla
-            // 
-            this.txtSigla.BackColor = System.Drawing.Color.LightGray;
-            this.txtSigla.Location = new System.Drawing.Point(106, 61);
-            this.txtSigla.MaxLength = 100;
-            this.txtSigla.Name = "txtSigla";
-            this.txtSigla.Size = new System.Drawing.Size(342, 32);
-            this.txtSigla.TabIndex = 4;
-            // 
-            // txtTasa
-            // 
-            this.txtTasa.BackColor = System.Drawing.Color.LightGray;
-            this.txtTasa.Location = new System.Drawing.Point(106, 97);
-            this.txtTasa.MaxLength = 100;
-            this.txtTasa.Name = "txtTasa";
-            this.txtTasa.Size = new System.Drawing.Size(342, 32);
-            this.txtTasa.TabIndex = 5;
-            this.txtTasa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTasa_KeyPress);
+            this.cbPorDefecto.AutoSize = true;
+            this.cbPorDefecto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbPorDefecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbPorDefecto.Location = new System.Drawing.Point(205, 135);
+            this.cbPorDefecto.Name = "cbPorDefecto";
+            this.cbPorDefecto.Size = new System.Drawing.Size(142, 27);
+            this.cbPorDefecto.TabIndex = 7;
+            this.cbPorDefecto.Text = "Por Defecto";
+            this.cbPorDefecto.UseVisualStyleBackColor = true;
+            this.cbPorDefecto.CheckedChanged += new System.EventHandler(this.cbPorDefecto_CheckedChanged);
             // 
             // cbEstatus
             // 
@@ -127,18 +85,60 @@
             this.cbEstatus.UseVisualStyleBackColor = true;
             this.cbEstatus.CheckedChanged += new System.EventHandler(this.cbEstatus_CheckedChanged);
             // 
-            // cbPorDefecto
+            // txtTasa
             // 
-            this.cbPorDefecto.AutoSize = true;
-            this.cbPorDefecto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbPorDefecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPorDefecto.Location = new System.Drawing.Point(205, 135);
-            this.cbPorDefecto.Name = "cbPorDefecto";
-            this.cbPorDefecto.Size = new System.Drawing.Size(142, 27);
-            this.cbPorDefecto.TabIndex = 7;
-            this.cbPorDefecto.Text = "Por Defecto";
-            this.cbPorDefecto.UseVisualStyleBackColor = true;
-            this.cbPorDefecto.CheckedChanged += new System.EventHandler(this.cbPorDefecto_CheckedChanged);
+            this.txtTasa.BackColor = System.Drawing.Color.LightGray;
+            this.txtTasa.Location = new System.Drawing.Point(106, 97);
+            this.txtTasa.MaxLength = 100;
+            this.txtTasa.Name = "txtTasa";
+            this.txtTasa.Size = new System.Drawing.Size(342, 32);
+            this.txtTasa.TabIndex = 5;
+            this.txtTasa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTasa_KeyPress);
+            // 
+            // txtSigla
+            // 
+            this.txtSigla.BackColor = System.Drawing.Color.LightGray;
+            this.txtSigla.Location = new System.Drawing.Point(106, 61);
+            this.txtSigla.MaxLength = 100;
+            this.txtSigla.Name = "txtSigla";
+            this.txtSigla.Size = new System.Drawing.Size(342, 32);
+            this.txtSigla.TabIndex = 4;
+            // 
+            // txtMoneda
+            // 
+            this.txtMoneda.BackColor = System.Drawing.Color.LightGray;
+            this.txtMoneda.Location = new System.Drawing.Point(106, 25);
+            this.txtMoneda.MaxLength = 100;
+            this.txtMoneda.Name = "txtMoneda";
+            this.txtMoneda.Size = new System.Drawing.Size(342, 32);
+            this.txtMoneda.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(47, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 23);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Tasa";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 23);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Sigla";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Moneda";
             // 
             // btnAccion
             // 
@@ -168,14 +168,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(483, 240);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAccion);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MonedaMantenimiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MonedaMantenimiento";

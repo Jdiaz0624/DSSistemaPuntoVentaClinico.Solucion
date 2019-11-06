@@ -77,9 +77,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
         private void MonedaMantenimiento_Load(object sender, EventArgs e)
         {
             SacarDatosEmpresa(1);
-            groupBox1.ForeColor = Color.White;
-            btnAccion.ForeColor = Color.White;
-            button1.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
+            btnAccion.ForeColor = Color.Black;
+            button1.ForeColor = Color.Black;
             txtMoneda.ForeColor = Color.Black;
             txtSigla.ForeColor = Color.Black;
             txtTasa.ForeColor = Color.Black;
