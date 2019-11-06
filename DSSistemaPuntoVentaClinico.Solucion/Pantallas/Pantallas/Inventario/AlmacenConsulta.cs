@@ -96,14 +96,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
         {
             SacarDatosUsuario(VariablesGlobales.IdUsuario);
             SacarDatosAlmacenes();
-            gbBuscar.ForeColor = Color.White;
-            gbListado.ForeColor = Color.White;
-            gbOpciones.ForeColor = Color.White;
+            gbBuscar.ForeColor = Color.Black;
+            gbListado.ForeColor = Color.Black;
+            gbOpciones.ForeColor = Color.Black;
             txtCodigo.ForeColor = Color.Black;
             txtNombre.ForeColor = Color.Black;
             txtClaveSeguridad.ForeColor = Color.Black;
-            lbNumeroRegistros.ForeColor = Color.White;
-            lbNumeroPagina.ForeColor = Color.White;
+            lbNumeroRegistros.ForeColor = Color.Black;
+            lbNumeroPagina.ForeColor = Color.Black;
             dtListado.ForeColor = Color.Black;
         }
 

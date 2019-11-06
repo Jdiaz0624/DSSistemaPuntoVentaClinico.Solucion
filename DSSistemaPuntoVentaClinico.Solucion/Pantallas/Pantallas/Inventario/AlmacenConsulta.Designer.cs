@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lbPerfilUsuarioConectado = new System.Windows.Forms.Label();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
@@ -53,25 +54,39 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbIdUsuario = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.gbOpciones.SuspendLayout();
             this.gbBuscar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1135, 45);
             this.panel1.TabIndex = 0;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(1086, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 21;
+            this.btnCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.btnCerrar, "Cerrar");
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lbPerfilUsuarioConectado
             // 
@@ -158,7 +173,7 @@
             this.dtListado.AllowUserToDeleteRows = false;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.dtListado.BackgroundColor = System.Drawing.Color.DimGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -350,26 +365,12 @@
             this.lbIdUsuario.Text = "IdUsuario";
             this.lbIdUsuario.Visible = false;
             // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1086, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 21;
-            this.btnCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.btnCerrar, "Cerrar");
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // AlmacenConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1135, 552);
             this.Controls.Add(this.lbIdUsuario);
             this.Controls.Add(this.lbPerfilUsuarioConectado);
@@ -392,6 +393,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AlmacenConsulta_FormClosing);
             this.Load += new System.EventHandler(this.AlmacenConsulta_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.gbListado.ResumeLayout(false);
@@ -400,7 +402,6 @@
             this.gbOpciones.PerformLayout();
             this.gbBuscar.ResumeLayout(false);
             this.gbBuscar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

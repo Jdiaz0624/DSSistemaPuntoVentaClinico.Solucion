@@ -22,7 +22,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
 
         private void SubMenuInventario_Load(object sender, EventArgs e)
         {
-            gbOpciones.ForeColor = Color.White;
+            gbOpciones.ForeColor = Color.Black;
             gbOpciones.Text = VariablesGlobales.NombreSistema;
             lbIdUsuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
         }

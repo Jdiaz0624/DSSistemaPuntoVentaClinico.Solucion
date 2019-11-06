@@ -75,7 +75,7 @@
             // 
             // pMenuIzquierda
             // 
-            this.pMenuIzquierda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.pMenuIzquierda.BackColor = System.Drawing.Color.Maroon;
             this.pMenuIzquierda.Controls.Add(this.btnInventario);
             this.pMenuIzquierda.Controls.Add(this.btnCerrarSesion2);
             this.pMenuIzquierda.Controls.Add(this.btnCerrarSesion);
@@ -431,7 +431,7 @@
             // 
             // pSuperior
             // 
-            this.pSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.pSuperior.BackColor = System.Drawing.Color.Maroon;
             this.pSuperior.Controls.Add(this.lbiDUSUARIO);
             this.pSuperior.Controls.Add(this.lbPerfilUsuarioConectado);
             this.pSuperior.Controls.Add(this.lbUsuarioConectado);
@@ -553,7 +553,7 @@
             // pContenedor
             // 
             this.pContenedor.AutoSize = true;
-            this.pContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.pContenedor.BackColor = System.Drawing.Color.DimGray;
             this.pContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pContenedor.Location = new System.Drawing.Point(318, 92);
             this.pContenedor.Name = "pContenedor";

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.gbMantenimiento = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
+            this.cbEstatus = new System.Windows.Forms.CheckBox();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,6 +45,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRestablecer = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
@@ -49,10 +53,6 @@
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cbEstatus = new System.Windows.Forms.CheckBox();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.txtConfirmarClave = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.gbMantenimiento.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -81,12 +81,41 @@
             this.gbMantenimiento.TabStop = false;
             this.gbMantenimiento.Text = "Controles";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 25);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Confirmar";
+            // 
+            // txtConfirmarClave
+            // 
+            this.txtConfirmarClave.Location = new System.Drawing.Point(83, 79);
+            this.txtConfirmarClave.MaxLength = 20;
+            this.txtConfirmarClave.Name = "txtConfirmarClave";
+            this.txtConfirmarClave.Size = new System.Drawing.Size(319, 30);
+            this.txtConfirmarClave.TabIndex = 5;
+            // 
+            // cbEstatus
+            // 
+            this.cbEstatus.AutoSize = true;
+            this.cbEstatus.Location = new System.Drawing.Point(83, 115);
+            this.cbEstatus.Name = "cbEstatus";
+            this.cbEstatus.Size = new System.Drawing.Size(99, 29);
+            this.cbEstatus.TabIndex = 4;
+            this.cbEstatus.Text = "Estatus";
+            this.cbEstatus.UseVisualStyleBackColor = true;
+            this.cbEstatus.Visible = false;
+            this.cbEstatus.CheckedChanged += new System.EventHandler(this.cbEstatus_CheckedChanged);
+            // 
             // txtClave
             // 
             this.txtClave.Location = new System.Drawing.Point(83, 50);
             this.txtClave.MaxLength = 20;
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(319, 26);
+            this.txtClave.Size = new System.Drawing.Size(319, 30);
             this.txtClave.TabIndex = 3;
             // 
             // txtUsuario
@@ -97,7 +126,7 @@
             this.txtUsuario.FormattingEnabled = true;
             this.txtUsuario.Location = new System.Drawing.Point(83, 19);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(319, 28);
+            this.txtUsuario.Size = new System.Drawing.Size(319, 33);
             this.txtUsuario.TabIndex = 2;
             // 
             // label2
@@ -105,7 +134,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(31, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.Size = new System.Drawing.Size(63, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Clave";
             // 
@@ -114,12 +143,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 20);
+            this.label1.Size = new System.Drawing.Size(79, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -161,7 +191,7 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(175, 96);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(48, 20);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(63, 25);
             this.lbClaveSeguridad.TabIndex = 4;
             this.lbClaveSeguridad.Text = "Clave";
             this.lbClaveSeguridad.Visible = false;
@@ -172,7 +202,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(227, 93);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 26);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 30);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -227,6 +257,18 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Location = new System.Drawing.Point(6, 29);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(141, 49);
+            this.btnConsultar.TabIndex = 3;
+            this.btnConsultar.Text = "Buscar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
             // txtNumeroRegistros
             // 
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
@@ -238,7 +280,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 26);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
             this.txtNumeroRegistros.TabIndex = 29;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -251,7 +293,7 @@
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(231, 509);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(101, 20);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(123, 25);
             this.lbNumeroRegistros.TabIndex = 28;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -266,7 +308,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 26);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
             this.txtNumeroPagina.TabIndex = 27;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -279,7 +321,7 @@
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(34, 511);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
             this.lbNumeroPagina.TabIndex = 26;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -299,7 +341,7 @@
             this.dtListado.AllowUserToDeleteRows = false;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.dtListado.BackgroundColor = System.Drawing.Color.DimGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -308,11 +350,11 @@
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.dtListado.Location = new System.Drawing.Point(3, 22);
+            this.dtListado.Location = new System.Drawing.Point(3, 26);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1026, 273);
+            this.dtListado.Size = new System.Drawing.Size(1026, 269);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -325,54 +367,13 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 60;
-            // 
-            // cbEstatus
-            // 
-            this.cbEstatus.AutoSize = true;
-            this.cbEstatus.Location = new System.Drawing.Point(83, 115);
-            this.cbEstatus.Name = "cbEstatus";
-            this.cbEstatus.Size = new System.Drawing.Size(83, 24);
-            this.cbEstatus.TabIndex = 4;
-            this.cbEstatus.Text = "Estatus";
-            this.cbEstatus.UseVisualStyleBackColor = true;
-            this.cbEstatus.Visible = false;
-            this.cbEstatus.CheckedChanged += new System.EventHandler(this.cbEstatus_CheckedChanged);
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultar.Location = new System.Drawing.Point(6, 29);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(141, 49);
-            this.btnConsultar.TabIndex = 3;
-            this.btnConsultar.Text = "Buscar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // txtConfirmarClave
-            // 
-            this.txtConfirmarClave.Location = new System.Drawing.Point(83, 79);
-            this.txtConfirmarClave.MaxLength = 20;
-            this.txtConfirmarClave.Name = "txtConfirmarClave";
-            this.txtConfirmarClave.Size = new System.Drawing.Size(319, 26);
-            this.txtConfirmarClave.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 20);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Confirmar";
+            this.Select.Width = 73;
             // 
             // ClaveSeguridad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1055, 546);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.lbNumeroRegistros);

@@ -56,7 +56,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void ClienteMantenimiento_Load(object sender, EventArgs e)
         {
-            groupBox1.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
             txtApellido.ForeColor = Color.Black;
             txtComentario.ForeColor = Color.Black;
             txtDireccion.ForeColor = Color.Black;
@@ -67,8 +67,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             txtTelefonos.ForeColor = Color.Black;
             txtTipoCliente.ForeColor = Color.Black;
             txtTipoDeIdentificacion.ForeColor = Color.Black;
-            btnAccion.ForeColor = Color.White;
-            btnCerrar.ForeColor = Color.White;
+            btnAccion.ForeColor = Color.Black;
+            btnCerrar.ForeColor = Color.Black;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

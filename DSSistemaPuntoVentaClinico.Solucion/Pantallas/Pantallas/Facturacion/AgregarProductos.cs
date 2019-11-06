@@ -182,21 +182,21 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void AgregarProductos_Load(object sender, EventArgs e)
         {
-            gbBuscarproductos.ForeColor = Color.White;
-            gbListadoProductos.ForeColor = Color.White;
-            gbProductosAgregados.ForeColor = Color.White;
-            lbcantidadDisponible.ForeColor = Color.White;
-            lbCantidadUsar.ForeColor = Color.White;
-            lbCantidaRegistros.ForeColor = Color.White;
-            lbDescuento.ForeColor = Color.White;
-            lbNumeroPagina.ForeColor = Color.White;
-            lbNumeroRegistros.ForeColor = Color.White;
-            lbPrecio.ForeColor = Color.White;
-            lbProducto.ForeColor = Color.White;
-            lbSegundoPrecio.ForeColor = Color.White;
-            lbTercerPrecio.ForeColor = Color.White;
-            lbTipoProducto.ForeColor = Color.White;
-            btnAgregar.ForeColor = Color.White;
+            gbBuscarproductos.ForeColor = Color.Black;
+            gbListadoProductos.ForeColor = Color.Black;
+            gbProductosAgregados.ForeColor = Color.Black;
+            lbcantidadDisponible.ForeColor = Color.Black;
+            lbCantidadUsar.ForeColor = Color.Black;
+            lbCantidaRegistros.ForeColor = Color.Black;
+            lbDescuento.ForeColor = Color.Black;
+            lbNumeroPagina.ForeColor = Color.Black;
+            lbNumeroRegistros.ForeColor = Color.Black;
+            lbPrecio.ForeColor = Color.Black;
+            lbProducto.ForeColor = Color.Black;
+            lbSegundoPrecio.ForeColor = Color.Black;
+            lbTercerPrecio.ForeColor = Color.Black;
+            lbTipoProducto.ForeColor = Color.Black;
+            btnAgregar.ForeColor = Color.Black;
             txtCantidadDisponible.ForeColor = Color.Black;
             txtCantidadUsar.ForeColor = Color.Black;
             txtCodigo.ForeColor = Color.Black;

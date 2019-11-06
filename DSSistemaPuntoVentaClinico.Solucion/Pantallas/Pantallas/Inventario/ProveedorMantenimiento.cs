@@ -76,8 +76,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             txtFax.ForeColor = Color.Black;
             txtNombre.ForeColor = Color.Black;
             txtTelefonos.ForeColor = Color.Black;
-            btnAccion.ForeColor = Color.White;
-            btnCerrar.ForeColor = Color.White;
+            btnAccion.ForeColor = Color.Black;
+            btnCerrar.ForeColor = Color.Black;
             CargarTipoProveedores();
             if (VariablesGlobales.AccionTomar != "INSERT")
             {

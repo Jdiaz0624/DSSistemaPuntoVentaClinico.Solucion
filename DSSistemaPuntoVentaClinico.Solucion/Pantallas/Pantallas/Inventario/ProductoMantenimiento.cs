@@ -139,7 +139,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void ProductoMantenimiento_Load(object sender, EventArgs e)
         {
-            groupBox1.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
             txtCantidadAlmacen.ForeColor = Color.Black;
             txtCodigoBarras.ForeColor = Color.Black;
             txtDescripcion.ForeColor = Color.Black;
@@ -148,8 +148,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             txtPrecioVenta.ForeColor = Color.Black;
             cbEstatus.ForeColor = Color.Red;
             cbLlevaDescuento.ForeColor = Color.Red;
-            btnAccion.ForeColor = Color.White;
-            btnCerrar.ForeColor = Color.White;
+            btnAccion.ForeColor = Color.Black;
             SacarDatosEmpresa(1);
             CargarAlmacenes();
             CargarTipoPriveedor();
@@ -158,11 +157,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             CargarTipoProducto();
             cbEstatus.Checked = true;
             cbEstatus.Visible = false;
-            txtAlmacen.ForeColor = Color.White;
-            txtTipoProveedor.ForeColor = Color.White;
-            txtProveedor.ForeColor = Color.White;
-            txtTipoEmpaque.ForeColor = Color.White;
-            txtTipoProducto.ForeColor = Color.White;
+            txtAlmacen.ForeColor = Color.Black;
+            txtTipoProveedor.ForeColor = Color.Black;
+            txtProveedor.ForeColor = Color.Black;
+            txtTipoEmpaque.ForeColor = Color.Black;
+            txtTipoProducto.ForeColor = Color.Black;
             if (VariablesGlobales.AccionTomar!= "INSERT")
             {
                 var SacarDatos = ObjdataInventario.Value.BuscaProducto(
@@ -225,7 +224,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            CerrarPantalla();
+            
         }
 
         private void txtTipoProveedor_SelectedIndexChanged(object sender, EventArgs e)
@@ -301,6 +300,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
                     e.Cancel = true;
                     break;
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            CerrarPantalla();
         }
     }
 }

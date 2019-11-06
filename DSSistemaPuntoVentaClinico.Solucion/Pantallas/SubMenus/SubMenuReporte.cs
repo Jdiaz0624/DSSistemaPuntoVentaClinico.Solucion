@@ -24,7 +24,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
 
         private void SubMenuReporte_Load(object sender, EventArgs e)
         {
-            gbOpciones.ForeColor = Color.White;
+            gbOpciones.ForeColor = Color.Black;
         }
     }
 }

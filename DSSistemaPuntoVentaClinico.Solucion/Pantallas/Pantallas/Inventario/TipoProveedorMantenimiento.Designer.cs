@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbDatos = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTipoProveedor = new System.Windows.Forms.TextBox();
             this.cbEstatus = new System.Windows.Forms.CheckBox();
+            this.txtTipoProveedor = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAccion = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -51,24 +51,6 @@
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos del Tipo de Proveedor";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Descripción";
-            // 
-            // txtTipoProveedor
-            // 
-            this.txtTipoProveedor.BackColor = System.Drawing.Color.Silver;
-            this.txtTipoProveedor.Location = new System.Drawing.Point(138, 34);
-            this.txtTipoProveedor.MaxLength = 100;
-            this.txtTipoProveedor.Name = "txtTipoProveedor";
-            this.txtTipoProveedor.Size = new System.Drawing.Size(358, 32);
-            this.txtTipoProveedor.TabIndex = 1;
-            // 
             // cbEstatus
             // 
             this.cbEstatus.AutoSize = true;
@@ -81,6 +63,24 @@
             this.cbEstatus.Text = "Estatus";
             this.cbEstatus.UseVisualStyleBackColor = true;
             this.cbEstatus.CheckedChanged += new System.EventHandler(this.cbEstatus_CheckedChanged);
+            // 
+            // txtTipoProveedor
+            // 
+            this.txtTipoProveedor.BackColor = System.Drawing.Color.Silver;
+            this.txtTipoProveedor.Location = new System.Drawing.Point(138, 34);
+            this.txtTipoProveedor.MaxLength = 100;
+            this.txtTipoProveedor.Name = "txtTipoProveedor";
+            this.txtTipoProveedor.Size = new System.Drawing.Size(358, 32);
+            this.txtTipoProveedor.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Descripción";
             // 
             // btnCerrar
             // 
@@ -112,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(534, 184);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAccion);

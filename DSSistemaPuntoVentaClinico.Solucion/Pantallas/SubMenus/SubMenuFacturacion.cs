@@ -34,7 +34,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
 
         private void SubMenuFacturacion_Load(object sender, EventArgs e)
         {
-            gbOpciones.ForeColor = Color.White;
+            gbOpciones.ForeColor = Color.Black;
             lbUsuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
         }
 

@@ -90,12 +90,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void MantenimientoAlmacen_Load(object sender, EventArgs e)
         {
-            groupBox1.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
             txtNombre.ForeColor = Color.Black;
             txtDireccion.ForeColor = Color.Black;
             txtTelefonos.ForeColor = Color.Black;
-            btnAccion.ForeColor = Color.White;
-            btnCerrar.ForeColor = Color.White;
+            btnAccion.ForeColor = Color.Black;
+            btnCerrar.ForeColor = Color.Black;
 
             SacarDatosEmpresa(1);
             cbEstatus.Checked = true;

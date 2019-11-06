@@ -120,11 +120,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void TipoEmpaqueConsulta_Load(object sender, EventArgs e)
         {
-            gbBuscar.ForeColor = Color.White;
-            gbListado.ForeColor = Color.White;
-            gbOpciones.ForeColor = Color.White;
-            lbNumeroPagina.ForeColor = Color.White;
-            lbNumeroRegistros.ForeColor = Color.White;
+            gbBuscar.ForeColor = Color.Black;
+            gbListado.ForeColor = Color.Black;
+            gbOpciones.ForeColor = Color.Black;
+            lbNumeroPagina.ForeColor = Color.Black;
+            lbNumeroRegistros.ForeColor = Color.Black;
             txtClaveSeguridad.ForeColor = Color.Black;
             txtCodigo.ForeColor = Color.Black;
             txtDescripcion.ForeColor = Color.Black;

@@ -49,9 +49,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 #endregion
         private void CentroSaludMantenimiento_Load(object sender, EventArgs e)
         {
-            gbDatos.ForeColor = Color.White;
-            btnAccion.ForeColor = Color.White;
-            btnCerrar.ForeColor = Color.White;
+            gbDatos.ForeColor = Color.Black;
+            btnAccion.ForeColor = Color.Black;
+            btnCerrar.ForeColor = Color.Black;
             txtDireccion.ForeColor = Color.Black;
             txtNombre.ForeColor = Color.Black;
             txttelefonos.ForeColor = Color.Black;

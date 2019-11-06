@@ -79,11 +79,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void MantenimientoTipoPago_Load(object sender, EventArgs e)
         {
-            groupBox1.ForeColor = Color.White;
-            groupBox2.ForeColor = Color.White;
-            gbOpciones.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
+            groupBox2.ForeColor = Color.Black;
+            gbOpciones.ForeColor = Color.Black;
             dataGridView1.ForeColor = Color.Black;
-            txtTipoPago.ForeColor = Color.White;
+            txtTipoPago.ForeColor = Color.Black;
             SacarInformacionEmpresa(1);
             txtClaveSeguridad.PasswordChar = '•';
             cbEstatus.Checked = true;

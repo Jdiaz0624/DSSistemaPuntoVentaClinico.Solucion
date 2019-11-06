@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTipoProducto = new System.Windows.Forms.TextBox();
             this.cbEstatus = new System.Windows.Forms.CheckBox();
+            this.txtTipoProducto = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAccion = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -49,24 +49,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Tipo de Producto";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Descripcion";
-            // 
-            // txtTipoProducto
-            // 
-            this.txtTipoProducto.BackColor = System.Drawing.Color.Silver;
-            this.txtTipoProducto.Location = new System.Drawing.Point(130, 43);
-            this.txtTipoProducto.MaxLength = 100;
-            this.txtTipoProducto.Name = "txtTipoProducto";
-            this.txtTipoProducto.Size = new System.Drawing.Size(266, 30);
-            this.txtTipoProducto.TabIndex = 1;
-            // 
             // cbEstatus
             // 
             this.cbEstatus.AutoSize = true;
@@ -78,6 +60,24 @@
             this.cbEstatus.Text = "Estatus";
             this.cbEstatus.UseVisualStyleBackColor = true;
             this.cbEstatus.CheckedChanged += new System.EventHandler(this.cbEstatus_CheckedChanged);
+            // 
+            // txtTipoProducto
+            // 
+            this.txtTipoProducto.BackColor = System.Drawing.Color.Silver;
+            this.txtTipoProducto.Location = new System.Drawing.Point(130, 43);
+            this.txtTipoProducto.MaxLength = 100;
+            this.txtTipoProducto.Name = "txtTipoProducto";
+            this.txtTipoProducto.Size = new System.Drawing.Size(266, 30);
+            this.txtTipoProducto.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Descripcion";
             // 
             // btnCerrar
             // 
@@ -108,7 +108,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(444, 200);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAccion);
@@ -117,6 +117,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TipoProductoMantenimiento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TipoProductoMantenimiento";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TipoProductoMantenimiento_FormClosing);
             this.Load += new System.EventHandler(this.TipoProductoMantenimiento_Load);

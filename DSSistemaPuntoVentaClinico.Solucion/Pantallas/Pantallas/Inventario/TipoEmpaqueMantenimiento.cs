@@ -51,10 +51,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
         private void TipoEmpaqueMantenimiento_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);
-            gbDatos.ForeColor = Color.White;
+            gbDatos.ForeColor = Color.Black;
             txtTipoEmpaque.ForeColor = Color.Black;
-            btnAccion.ForeColor = Color.White;
-            btnCerrar.ForeColor = Color.White;
+            btnAccion.ForeColor = Color.Black;
+            btnCerrar.ForeColor = Color.Black;
             cbEstatus.Checked = true;
             cbEstatus.Visible = false;
             if (VariablesGlobales.AccionTomar != "INSERT")

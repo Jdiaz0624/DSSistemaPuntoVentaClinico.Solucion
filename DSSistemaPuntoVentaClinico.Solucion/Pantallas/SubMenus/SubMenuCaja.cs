@@ -19,7 +19,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
 
         private void SubMenuCaja_Load(object sender, EventArgs e)
         {
-            gbOpciones.ForeColor = Color.White;
+            gbOpciones.ForeColor = Color.Black;
 
             lbusuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
         }

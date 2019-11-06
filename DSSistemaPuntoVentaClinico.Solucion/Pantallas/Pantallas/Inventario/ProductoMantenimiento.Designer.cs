@@ -66,12 +66,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnAccion = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -144,7 +148,7 @@
             // 
             // txtTipoProducto
             // 
-            this.txtTipoProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.txtTipoProducto.BackColor = System.Drawing.Color.DimGray;
             this.txtTipoProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtTipoProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTipoProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -327,7 +331,7 @@
             // 
             // txtTipoEmpaque
             // 
-            this.txtTipoEmpaque.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.txtTipoEmpaque.BackColor = System.Drawing.Color.DimGray;
             this.txtTipoEmpaque.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtTipoEmpaque.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTipoEmpaque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -339,7 +343,7 @@
             // 
             // txtProveedor
             // 
-            this.txtProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.txtProveedor.BackColor = System.Drawing.Color.DimGray;
             this.txtProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -352,7 +356,7 @@
             // 
             // txtTipoProveedor
             // 
-            this.txtTipoProveedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.txtTipoProveedor.BackColor = System.Drawing.Color.DimGray;
             this.txtTipoProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtTipoProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtTipoProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -365,7 +369,7 @@
             // 
             // txtAlmacen
             // 
-            this.txtAlmacen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.txtAlmacen.BackColor = System.Drawing.Color.DimGray;
             this.txtAlmacen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtAlmacen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtAlmacen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -478,27 +482,26 @@
             this.btnAccion.UseVisualStyleBackColor = true;
             this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
             // 
-            // btnCerrar
+            // pictureBox1
             // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(817, 589);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(141, 49);
-            this.btnCerrar.TabIndex = 5;
-            this.btnCerrar.Text = "Cerrar";
-            this.toolTip1.SetToolTip(this.btnCerrar, "Buscar Registros");
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.pictureBox1.Location = new System.Drawing.Point(919, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ProductoMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(969, 649);
-            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAccion);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -512,8 +515,10 @@
             this.Text = "ProductoMantenimiento";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductoMantenimiento_FormClosing);
             this.Load += new System.EventHandler(this.ProductoMantenimiento_Load);
+            this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -545,7 +550,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnAgregarAlmacen;
         public System.Windows.Forms.Button btnAccion;
-        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnAgregarTipoEmpaque;
         private System.Windows.Forms.Button btnAgregarProveedor;
         private System.Windows.Forms.Button btnAgregarTipoProveedor;
@@ -558,5 +562,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox txtTipoProducto;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

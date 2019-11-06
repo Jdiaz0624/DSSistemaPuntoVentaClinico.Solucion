@@ -122,16 +122,16 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void ProductoConsulta_Load(object sender, EventArgs e)
         {
-            gbProductoConsulta.ForeColor = Color.White;
-            gbOpciones.ForeColor = Color.White;
-            gbListadoProductos.ForeColor = Color.White;
+            gbProductoConsulta.ForeColor = Color.Black;
+            gbOpciones.ForeColor = Color.Black;
+            gbListadoProductos.ForeColor = Color.Black;
             txtClaveSeguridad.ForeColor = Color.Black;
             txtCodigoProducto.ForeColor = Color.Black;
             txtDescripcion.ForeColor = Color.Black;
             txtNumeroPagina.ForeColor = Color.Black;
             txtNumeroRegistros.ForeColor = Color.Black;
-            lbNumeroPagina.ForeColor = Color.White;
-            lbNumeroRegistros.ForeColor = Color.White;
+            lbNumeroPagina.ForeColor = Color.Black;
+            lbNumeroRegistros.ForeColor = Color.Black;
             dtProductos.ForeColor = Color.Black;
             txtClaveSeguridad.PasswordChar = '•';
             SacarDatosEmpresa(1);

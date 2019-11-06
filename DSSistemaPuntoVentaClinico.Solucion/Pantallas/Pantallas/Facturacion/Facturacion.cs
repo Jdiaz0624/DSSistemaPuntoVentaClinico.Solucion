@@ -428,12 +428,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             CargarEstatusCirugia();
             VariablesGlobales.ModoCotizacion = false;
             // VariablesGlobales.GenerarConector = true;
-            groupBox2.ForeColor = Color.White;
-            groupBox3.ForeColor = Color.White;
-            groupBox4.ForeColor = Color.White;
+            groupBox2.ForeColor = Color.Black;
+            groupBox3.ForeColor = Color.Black;
+            groupBox4.ForeColor = Color.Black;
             rbCotizar.ForeColor = Color.Red;
             rbFacturar.ForeColor = Color.Red;
-            gbGeneral.ForeColor = Color.White;
+            gbGeneral.ForeColor = Color.Black;
             
             ddlCentroSalud.ForeColor = Color.Black;
             ddlMedico.ForeColor = Color.Black;
@@ -451,7 +451,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             txtSala.ForeColor = Color.Black;
             txtTelefono.ForeColor = Color.Black;
             rbFacturar.Checked = true;
-            button1.ForeColor = Color.White;
+            button1.ForeColor = Color.Black;
             SacarInformacionEmpresa(1);
             CargarComprobantes();
             CargarTipoIdentificacion();

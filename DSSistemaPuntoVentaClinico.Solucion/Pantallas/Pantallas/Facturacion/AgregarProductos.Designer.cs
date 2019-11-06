@@ -283,7 +283,7 @@
             this.dtSeleccionarproducto.AllowUserToDeleteRows = false;
             this.dtSeleccionarproducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtSeleccionarproducto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtSeleccionarproducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.dtSeleccionarproducto.BackgroundColor = System.Drawing.Color.DimGray;
             this.dtSeleccionarproducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtSeleccionarproducto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -484,7 +484,7 @@
             this.dtProductosAgregados.AllowUserToDeleteRows = false;
             this.dtProductosAgregados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtProductosAgregados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtProductosAgregados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.dtProductosAgregados.BackgroundColor = System.Drawing.Color.DimGray;
             this.dtProductosAgregados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtProductosAgregados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewButtonColumn1});
@@ -585,7 +585,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1184, 727);
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.rbAgregarTercerprecio);

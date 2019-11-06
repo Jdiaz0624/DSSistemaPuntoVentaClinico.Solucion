@@ -60,13 +60,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         private void MedicosMantenimiento_Load(object sender, EventArgs e)
         {
             SacarDataInformacionEmpresa(1);
-            groupBox1.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
             ddlCentroSalud.ForeColor = Color.Black;
             txtCorreo.ForeColor = Color.Black;
             txtNombre.ForeColor = Color.Black;
          //   txtTelefono.ForeColor = Color.Black;
-            btnAccion.ForeColor = Color.White;
-            btnCerrar.ForeColor = Color.White;
+            btnAccion.ForeColor = Color.Black;
+            btnCerrar.ForeColor = Color.Black;
             CargarCentroalud();
             if (VariablesGlobales.AccionTomar != "INSERT")
             {

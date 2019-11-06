@@ -42,9 +42,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 #endregion
         private void TipoProveedorMantenimiento_Load(object sender, EventArgs e)
         {
-            gbDatos.ForeColor = Color.White;
-            btnAccion.ForeColor = Color.White;
-            btnCerrar.ForeColor = Color.White;
+            gbDatos.ForeColor = Color.Black;
+            btnAccion.ForeColor = Color.Black;
+            btnCerrar.ForeColor = Color.Black;
             txtTipoProveedor.ForeColor = Color.Black;
             SacarInformacionEmpresa(1);
             cbEstatus.Checked = true;

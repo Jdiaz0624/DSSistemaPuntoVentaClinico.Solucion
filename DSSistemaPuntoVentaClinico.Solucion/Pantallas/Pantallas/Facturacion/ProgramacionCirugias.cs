@@ -260,9 +260,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         {
             rbBuscarPorNumeroFactura.Checked = true;
             SacarDatosInformacionEmpresa(1);
-            gbDatosPaciente.ForeColor = Color.White;
-            gbProductosAgregados.ForeColor = Color.White;
-            gbProgramacionCirugia.ForeColor = Color.White;
+            gbDatosPaciente.ForeColor = Color.Black;
+            gbProductosAgregados.ForeColor = Color.Black;
+            gbProgramacionCirugia.ForeColor = Color.Black;
             txtComentario.ForeColor = Color.Black;
             txtDireccion.ForeColor = Color.Black;
             txtEmail.ForeColor = Color.Black;

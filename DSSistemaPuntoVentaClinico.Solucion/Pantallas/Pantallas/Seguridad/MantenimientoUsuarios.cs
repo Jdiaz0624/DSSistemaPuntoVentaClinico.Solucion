@@ -99,7 +99,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
         private void MantenimientoUsuarios_Load(object sender, EventArgs e)
         {
             SacarNombreEmpresa(1);
-            groupBox1.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
             txtUsuario.ForeColor = Color.Black;
             txtClave.ForeColor = Color.Black;
             txtClaveSeguridad.ForeColor = Color.Black;

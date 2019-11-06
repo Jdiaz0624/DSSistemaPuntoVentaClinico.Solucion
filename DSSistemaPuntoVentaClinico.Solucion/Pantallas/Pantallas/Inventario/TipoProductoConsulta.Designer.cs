@@ -37,6 +37,8 @@
             this.lbUsuarioConectado = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.lbClave = new System.Windows.Forms.Label();
+            this.txtClave = new System.Windows.Forms.TextBox();
             this.btnDeshabilitar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRestablecer = new System.Windows.Forms.Button();
@@ -51,8 +53,6 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.lbPerfilUsuarioConectado = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtClave = new System.Windows.Forms.TextBox();
-            this.lbClave = new System.Windows.Forms.Label();
             this.gbBuscar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -94,6 +94,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.lbUsuarioConectado);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -144,6 +145,26 @@
             this.gbOpciones.TabIndex = 2;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Opciones";
+            // 
+            // lbClave
+            // 
+            this.lbClave.AutoSize = true;
+            this.lbClave.Location = new System.Drawing.Point(181, 96);
+            this.lbClave.Name = "lbClave";
+            this.lbClave.Size = new System.Drawing.Size(63, 25);
+            this.lbClave.TabIndex = 2;
+            this.lbClave.Text = "Clave";
+            this.lbClave.Visible = false;
+            // 
+            // txtClave
+            // 
+            this.txtClave.BackColor = System.Drawing.Color.Silver;
+            this.txtClave.Location = new System.Drawing.Point(249, 93);
+            this.txtClave.MaxLength = 100;
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(217, 30);
+            this.txtClave.TabIndex = 2;
+            this.txtClave.Visible = false;
             // 
             // btnDeshabilitar
             // 
@@ -229,7 +250,7 @@
             this.dtListado.AllowUserToDeleteRows = false;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.dtListado.BackgroundColor = System.Drawing.Color.DimGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -324,32 +345,12 @@
             this.lbPerfilUsuarioConectado.TabIndex = 11;
             this.lbPerfilUsuarioConectado.Text = "Perfil de Usuario";
             // 
-            // txtClave
-            // 
-            this.txtClave.BackColor = System.Drawing.Color.Silver;
-            this.txtClave.Location = new System.Drawing.Point(249, 93);
-            this.txtClave.MaxLength = 100;
-            this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(217, 30);
-            this.txtClave.TabIndex = 2;
-            this.txtClave.Visible = false;
-            // 
-            // lbClave
-            // 
-            this.lbClave.AutoSize = true;
-            this.lbClave.Location = new System.Drawing.Point(181, 96);
-            this.lbClave.Name = "lbClave";
-            this.lbClave.Size = new System.Drawing.Size(63, 25);
-            this.lbClave.TabIndex = 2;
-            this.lbClave.Text = "Clave";
-            this.lbClave.Visible = false;
-            // 
             // TipoProductoConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1125, 566);
             this.Controls.Add(this.lbPerfilUsuarioConectado);
             this.Controls.Add(this.txtNumeroRegistros);

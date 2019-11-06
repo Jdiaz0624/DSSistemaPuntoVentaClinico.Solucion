@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnDeshabilitar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnRestablecer = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
@@ -40,11 +45,6 @@
             this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
-            this.btnDeshabilitar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnRestablecer = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnConsultar = new System.Windows.Forms.Button();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -61,6 +61,70 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnDeshabilitar
+            // 
+            this.btnDeshabilitar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeshabilitar.Enabled = false;
+            this.btnDeshabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeshabilitar.Location = new System.Drawing.Point(6, 84);
+            this.btnDeshabilitar.Name = "btnDeshabilitar";
+            this.btnDeshabilitar.Size = new System.Drawing.Size(141, 49);
+            this.btnDeshabilitar.TabIndex = 6;
+            this.btnDeshabilitar.Text = "Deshabilitar";
+            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Deshabilitar Registros");
+            this.btnDeshabilitar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.Enabled = false;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Location = new System.Drawing.Point(447, 28);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(141, 49);
+            this.btnModificar.TabIndex = 4;
+            this.btnModificar.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnModificar, "Modificar Registros Seleccionados");
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnRestablecer
+            // 
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.Enabled = false;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestablecer.Location = new System.Drawing.Point(300, 28);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(141, 49);
+            this.btnRestablecer.TabIndex = 5;
+            this.btnRestablecer.Text = "Restablecer";
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Establecer Pantalla");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Location = new System.Drawing.Point(153, 28);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(141, 49);
+            this.btnNuevo.TabIndex = 4;
+            this.btnNuevo.Text = "Nuevo";
+            this.toolTip1.SetToolTip(this.btnNuevo, "Crear Nuevo Registros");
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Location = new System.Drawing.Point(6, 29);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(141, 49);
+            this.btnConsultar.TabIndex = 3;
+            this.btnConsultar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnConsultar, "Consulta Registros");
+            this.btnConsultar.UseVisualStyleBackColor = true;
             // 
             // txtNumeroRegistros
             // 
@@ -134,7 +198,7 @@
             this.dtListado.AllowUserToDeleteRows = false;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.dtListado.BackgroundColor = System.Drawing.Color.DimGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -197,70 +261,6 @@
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
-            // btnDeshabilitar
-            // 
-            this.btnDeshabilitar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeshabilitar.Enabled = false;
-            this.btnDeshabilitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeshabilitar.Location = new System.Drawing.Point(6, 84);
-            this.btnDeshabilitar.Name = "btnDeshabilitar";
-            this.btnDeshabilitar.Size = new System.Drawing.Size(141, 49);
-            this.btnDeshabilitar.TabIndex = 6;
-            this.btnDeshabilitar.Text = "Deshabilitar";
-            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Deshabilitar Registros");
-            this.btnDeshabilitar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.Enabled = false;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Location = new System.Drawing.Point(447, 28);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(141, 49);
-            this.btnModificar.TabIndex = 4;
-            this.btnModificar.Text = "Modificar";
-            this.toolTip1.SetToolTip(this.btnModificar, "Modificar Registros Seleccionados");
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // btnRestablecer
-            // 
-            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestablecer.Enabled = false;
-            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestablecer.Location = new System.Drawing.Point(300, 28);
-            this.btnRestablecer.Name = "btnRestablecer";
-            this.btnRestablecer.Size = new System.Drawing.Size(141, 49);
-            this.btnRestablecer.TabIndex = 5;
-            this.btnRestablecer.Text = "Restablecer";
-            this.toolTip1.SetToolTip(this.btnRestablecer, "Establecer Pantalla");
-            this.btnRestablecer.UseVisualStyleBackColor = true;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Location = new System.Drawing.Point(153, 28);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(141, 49);
-            this.btnNuevo.TabIndex = 4;
-            this.btnNuevo.Text = "Nuevo";
-            this.toolTip1.SetToolTip(this.btnNuevo, "Crear Nuevo Registros");
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultar.Location = new System.Drawing.Point(6, 29);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(141, 49);
-            this.btnConsultar.TabIndex = 3;
-            this.btnConsultar.Text = "Buscar";
-            this.toolTip1.SetToolTip(this.btnConsultar, "Consulta Registros");
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            // 
             // gbBuscar
             // 
             this.gbBuscar.Controls.Add(this.label2);
@@ -312,6 +312,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -337,7 +338,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1125, 544);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.lbNumeroRegistros);

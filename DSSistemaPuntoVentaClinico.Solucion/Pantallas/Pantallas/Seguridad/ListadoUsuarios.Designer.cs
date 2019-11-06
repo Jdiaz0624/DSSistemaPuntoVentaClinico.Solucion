@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbConsulta = new System.Windows.Forms.GroupBox();
+            this.txtPersona = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtUsuaio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
@@ -48,8 +50,6 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.txtPersona = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.gbConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
@@ -74,6 +74,24 @@
             this.gbConsulta.TabIndex = 0;
             this.gbConsulta.TabStop = false;
             this.gbConsulta.Text = "Usuario - Consulta";
+            // 
+            // txtPersona
+            // 
+            this.txtPersona.Location = new System.Drawing.Point(103, 78);
+            this.txtPersona.Name = "txtPersona";
+            this.txtPersona.Size = new System.Drawing.Size(276, 30);
+            this.txtPersona.TabIndex = 3;
+            this.txtPersona.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 25);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Persona";
+            this.label2.Visible = false;
             // 
             // txtUsuaio
             // 
@@ -165,7 +183,7 @@
             this.dtListado.AllowUserToDeleteRows = false;
             this.dtListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.dtListado.BackgroundColor = System.Drawing.Color.DimGray;
             this.dtListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -294,6 +312,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -314,29 +333,11 @@
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // txtPersona
-            // 
-            this.txtPersona.Location = new System.Drawing.Point(103, 78);
-            this.txtPersona.Name = "txtPersona";
-            this.txtPersona.Size = new System.Drawing.Size(276, 30);
-            this.txtPersona.TabIndex = 3;
-            this.txtPersona.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 80);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 25);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Persona";
-            this.label2.Visible = false;
-            // 
             // ListadoUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1024, 588);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtNumeroRegistros);

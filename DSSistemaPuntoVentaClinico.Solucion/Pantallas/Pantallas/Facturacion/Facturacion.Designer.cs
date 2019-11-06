@@ -31,6 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.ddlEstatusCirugia = new System.Windows.Forms.ComboBox();
             this.rbQuitarDescuento = new System.Windows.Forms.RadioButton();
             this.rbAgregarDescuento = new System.Windows.Forms.RadioButton();
             this.txtCambio = new System.Windows.Forms.TextBox();
@@ -90,8 +92,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ddlEstatusCirugia = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
@@ -104,6 +104,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -162,6 +163,27 @@
             this.gbGeneral.TabStop = false;
             this.gbGeneral.Text = "Datos de Facturación";
             this.gbGeneral.Enter += new System.EventHandler(this.gbGeneral_Enter);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(793, 571);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(75, 23);
+            this.label21.TabIndex = 48;
+            this.label21.Text = "Estatus";
+            // 
+            // ddlEstatusCirugia
+            // 
+            this.ddlEstatusCirugia.BackColor = System.Drawing.Color.Silver;
+            this.ddlEstatusCirugia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlEstatusCirugia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlEstatusCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ddlEstatusCirugia.FormattingEnabled = true;
+            this.ddlEstatusCirugia.Location = new System.Drawing.Point(873, 567);
+            this.ddlEstatusCirugia.Name = "ddlEstatusCirugia";
+            this.ddlEstatusCirugia.Size = new System.Drawing.Size(294, 31);
+            this.ddlEstatusCirugia.TabIndex = 47;
             // 
             // rbQuitarDescuento
             // 
@@ -380,7 +402,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.DimGray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Quitar});
@@ -801,33 +823,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo de Paciente";
             // 
-            // ddlEstatusCirugia
-            // 
-            this.ddlEstatusCirugia.BackColor = System.Drawing.Color.Silver;
-            this.ddlEstatusCirugia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlEstatusCirugia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlEstatusCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ddlEstatusCirugia.FormattingEnabled = true;
-            this.ddlEstatusCirugia.Location = new System.Drawing.Point(873, 567);
-            this.ddlEstatusCirugia.Name = "ddlEstatusCirugia";
-            this.ddlEstatusCirugia.Size = new System.Drawing.Size(294, 31);
-            this.ddlEstatusCirugia.TabIndex = 47;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(793, 571);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(75, 23);
-            this.label21.TabIndex = 48;
-            this.label21.Text = "Estatus";
-            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1183, 738);
             this.Controls.Add(this.gbGeneral);
             this.Controls.Add(this.panel1);

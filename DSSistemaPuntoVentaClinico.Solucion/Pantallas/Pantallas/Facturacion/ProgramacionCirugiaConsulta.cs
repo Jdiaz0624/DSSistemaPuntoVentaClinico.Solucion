@@ -89,9 +89,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugiaConsulta Consulta = new ProgramacionCirugiaConsulta();
-            Consulta.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-            Consulta.ShowDialog();
+           
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

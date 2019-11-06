@@ -78,7 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 19);
+            this.label1.Size = new System.Drawing.Size(137, 23);
             this.label1.TabIndex = 3;
             this.label1.Text = "Tipo de Pago";
             // 
@@ -89,7 +89,7 @@
             this.cbBloquear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbBloquear.Location = new System.Drawing.Point(266, 82);
             this.cbBloquear.Name = "cbBloquear";
-            this.cbBloquear.Size = new System.Drawing.Size(142, 23);
+            this.cbBloquear.Size = new System.Drawing.Size(177, 27);
             this.cbBloquear.TabIndex = 2;
             this.cbBloquear.Text = "Bloquea Monto";
             this.cbBloquear.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbEstatus.Location = new System.Drawing.Point(158, 82);
             this.cbEstatus.Name = "cbEstatus";
-            this.cbEstatus.Size = new System.Drawing.Size(74, 23);
+            this.cbEstatus.Size = new System.Drawing.Size(93, 27);
             this.cbEstatus.TabIndex = 1;
             this.cbEstatus.Text = "Estatus";
             this.cbEstatus.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             this.txtTipoPago.BackColor = System.Drawing.Color.Silver;
             this.txtTipoPago.Location = new System.Drawing.Point(158, 44);
             this.txtTipoPago.Name = "txtTipoPago";
-            this.txtTipoPago.Size = new System.Drawing.Size(289, 27);
+            this.txtTipoPago.Size = new System.Drawing.Size(289, 32);
             this.txtTipoPago.TabIndex = 0;
             // 
             // gbOpciones
@@ -135,7 +135,7 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(153, 97);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(55, 19);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(68, 23);
             this.lbClaveSeguridad.TabIndex = 4;
             this.lbClaveSeguridad.Text = "Clave";
             this.lbClaveSeguridad.Visible = false;
@@ -146,7 +146,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(227, 93);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 27);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 32);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -229,17 +229,17 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.DimGray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 23);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1053, 256);
+            this.dataGridView1.Size = new System.Drawing.Size(1053, 251);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -252,7 +252,7 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 61;
+            this.Select.Width = 76;
             // 
             // txtNumeroRegistros
             // 
@@ -265,7 +265,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 32);
             this.txtNumeroRegistros.TabIndex = 46;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -279,7 +279,7 @@
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(204, 491);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(130, 23);
             this.lbNumeroRegistros.TabIndex = 45;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -294,7 +294,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 32);
             this.txtNumeroPagina.TabIndex = 44;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -308,12 +308,13 @@
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(9, 493);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(111, 23);
             this.lbNumeroPagina.TabIndex = 43;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -336,9 +337,9 @@
             // 
             // MantenimientoTipoPago
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1082, 531);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtNumeroRegistros);

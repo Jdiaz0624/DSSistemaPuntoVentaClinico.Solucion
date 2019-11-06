@@ -92,12 +92,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
 #endregion
         private void Login_Load(object sender, EventArgs e)
         {
-            groupBox1.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
             txtUsuario.ForeColor = Color.Black;
             txtClave.ForeColor = Color.Black;
-            lbHora.ForeColor = Color.White;
-            lbFecha.ForeColor = Color.White;
-            lbNombreEmpresa.ForeColor = Color.White;
+            lbHora.ForeColor = Color.Black;
+            lbFecha.ForeColor = Color.Black;
+            lbNombreEmpresa.ForeColor = Color.Black;
             txtClave.PasswordChar = '•';
             timer1.Start();
             SacarInformacionEmpresa(1);
@@ -141,6 +141,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
             {
                 ValidarUsuario();
             }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

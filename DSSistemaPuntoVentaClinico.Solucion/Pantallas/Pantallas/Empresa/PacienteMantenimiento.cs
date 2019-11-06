@@ -156,7 +156,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         #endregion
         private void PacienteMantenimiento_Load(object sender, EventArgs e)
         {
-            groupBox1.ForeColor = Color.White;
+            groupBox1.ForeColor = Color.Black;
             txtComentario.ForeColor = Color.Black;
             txtDireccion.ForeColor = Color.Black;
             txtEmail.ForeColor = Color.Black;

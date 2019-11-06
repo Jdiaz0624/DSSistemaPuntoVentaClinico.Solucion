@@ -92,14 +92,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void TipoProductoConsulta_Load(object sender, EventArgs e)
         {
-            gbBuscar.ForeColor = Color.White;
+            gbBuscar.ForeColor = Color.Black;
             txtDescripcion.ForeColor = Color.Black;
-            gbOpciones.ForeColor = Color.White;
-            gbListado.ForeColor = Color.White;
-            lbNumeroPagina.ForeColor = Color.White;
-            lbNumeroRegistros.ForeColor = Color.White;
-            lbUsuarioConectado.ForeColor = Color.White;
-            lbPerfilUsuarioConectado.ForeColor = Color.White;
+            gbOpciones.ForeColor = Color.Black;
+            gbListado.ForeColor = Color.Black;
+            lbNumeroPagina.ForeColor = Color.Black;
+            lbNumeroRegistros.ForeColor = Color.Black;
+            lbUsuarioConectado.ForeColor = Color.Black;
+            lbPerfilUsuarioConectado.ForeColor = Color.Black;
             ListadoTipoProducto();
             SacarInformacionEmpresa(1);
             txtClave.PasswordChar = '•';

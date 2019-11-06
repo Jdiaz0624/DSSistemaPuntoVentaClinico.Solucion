@@ -129,18 +129,18 @@
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Location = new System.Drawing.Point(437, 13);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(51, 20);
+            this.lbUsuario.Size = new System.Drawing.Size(64, 25);
             this.lbUsuario.TabIndex = 8;
             this.lbUsuario.Text = "label1";
             this.lbUsuario.Visible = false;
             // 
             // SubMenuFacturacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(744, 232);
             this.Controls.Add(this.lbUsuario);
             this.Controls.Add(this.btnCerrar);

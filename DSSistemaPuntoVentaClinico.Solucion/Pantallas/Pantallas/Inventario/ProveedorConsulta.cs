@@ -96,11 +96,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
         {
             CargarTipoProveedores();
             CargarProveedores();
-            gbListado.ForeColor = Color.White;
-            gbOpciones.ForeColor = Color.White;
-            groupBox1.ForeColor = Color.White;
-            lbNumeroPagina.ForeColor = Color.White;
-            lbNumeroRegistros.ForeColor = Color.White;
+            gbListado.ForeColor = Color.Black;
+            gbOpciones.ForeColor = Color.Black;
+            groupBox1.ForeColor = Color.Black;
+            lbNumeroPagina.ForeColor = Color.Black;
+            lbNumeroRegistros.ForeColor = Color.Black;
             txtClaveSeguridad.ForeColor = Color.Black;
             txtCodigo.ForeColor = Color.Black;
             txtNombre.ForeColor = Color.Black;
