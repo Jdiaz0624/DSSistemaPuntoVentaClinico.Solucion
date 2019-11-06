@@ -163,7 +163,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(222, 95);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(291, 30);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(305, 30);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
