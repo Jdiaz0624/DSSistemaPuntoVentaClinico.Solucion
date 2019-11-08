@@ -292,6 +292,7 @@
             this.btnModificar.Text = "Modificar";
             this.toolTip1.SetToolTip(this.btnModificar, "Modificar Información");
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnCerrar
             // 
@@ -330,6 +331,7 @@
             this.btnBucaImagen.Text = "...";
             this.toolTip1.SetToolTip(this.btnBucaImagen, "Buscar Logo");
             this.btnBucaImagen.UseVisualStyleBackColor = true;
+            this.btnBucaImagen.Click += new System.EventHandler(this.btnBucaImagen_Click);
             // 
             // cbCambiarLogo
             // 

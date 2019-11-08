@@ -37,6 +37,49 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             return Buscar;
         }
 
+        //MANTENMIENTO DE INFORMACION DE EMPRESA
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesConfiguracion.EMantenimientoInformacionEmpresa MantenimientoInformacionEmpresa(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesConfiguracion.EMantenimientoInformacionEmpresa Item, string Accion)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesConfiguracion.EMantenimientoInformacionEmpresa Mantenimiento = null;
+
+            var InformacionEmpresa = Objdata.SP_MANTENIMIENTO_INFORMACION_EMPRESA(
+                Item.IdInformacionEmpresa,
+                Item.CodigoInformacionEmpresa,
+                Item.NombreEmpresa,
+                Item.RNC,
+                Item.Direccion,
+                Item.Email,
+                Item.Email2,
+                Item.Facebook,
+                Item.Instagran,
+                Item.Telefonos,
+                Item.Fac,
+                Item.IdLogoEmpresa,
+                Accion);
+            if (InformacionEmpresa != null)
+            {
+                Mantenimiento = (from n in InformacionEmpresa
+                                 select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesConfiguracion.EMantenimientoInformacionEmpresa
+                                 {
+                                     IdInformacionEmpresa=n.IdInformacionEmpresa,
+                                     CodigoInformacionEmpresa=n.CodigoInformacionEmpresa,
+                                     NombreEmpresa=n.NombreEmpresa,
+                                     RNC=n.RNC,
+                                     Direccion=n.Direccion,
+                                     Email=n.Email,
+                                     Email2=n.Email2,
+                                     Facebook=n.Facebook,
+                                     Instagran=n.Instagran,
+                                     Telefonos=n.Telefonos,
+                                     Fac=n.Fac,
+                                     IdLogoEmpresa=n.IdLogoEmpresa
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+
         #endregion
 
         #region MANTENIMIENTO DE LA CONFIGURACION GENERAL DEL SISTEMA
