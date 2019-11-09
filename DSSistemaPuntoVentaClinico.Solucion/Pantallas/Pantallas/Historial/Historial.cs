@@ -19,6 +19,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjdataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales Variables = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL HISTORIAL
@@ -523,7 +524,33 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             Factura.CargarReporteExternoPantalla(NumeroConector);
             Factura.ShowDialog();
         }
-#endregion
+        #endregion
+
+        #region RESTABLECER LA PANTALLA
+        private void RestablecerPantalla()
+        {
+            rbGenerar.Checked = true;
+            cbNoagregarRangofecha.Checked = false;
+            txtNumeroPagina.Value = 1;
+            txtNumeroRegistros.Value = 10;
+            btnFacturar.Enabled = false;
+            MostrarHistorial();
+        }
+        #endregion
+
+        #region SACAR EL NOMBRE DE LA EMPRESA
+        private void SacarNombreEmpresa(int IdInformacionEmpresa)
+        {
+            var SacarInformacionEmpresa = ObjDataConfiguracion.Value.BuscaInformacionEmpresa(IdInformacionEmpresa);
+            foreach (var n in SacarInformacionEmpresa)
+            {
+                Variables.NombreSistema = n.NombreEmpresa;
+            }
+            
+
+            
+        }
+        #endregion
 
         private void Historial_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -549,6 +576,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         {
             this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
+            SacarNombreEmpresa(1);
             groupBox1.ForeColor = Color.Black;
             groupBox2.ForeColor = Color.Black;
             groupBox3.ForeColor = Color.Black;
@@ -845,12 +873,36 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                 dtListado.DataSource = BuscarProductoSeleccionado;
                 OcultarColumnas();
                 btnImprimir.Enabled = true;
+                int IdEstatus = 0;
+                foreach (var n in BuscarProductoSeleccionado)
+                {
+                    IdEstatus = Convert.ToInt32(n.IdEstatusFacturacion);
+                }
+                if (IdEstatus ==2)
+                {
+                    btnFacturar.Enabled = true;
+                }
             }
+            
+            
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             GenerarFacturaVentas(Variables.NumeroConector);
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Quieres facturar esta cotización?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RestablecerPantalla();
         }
     }
 }

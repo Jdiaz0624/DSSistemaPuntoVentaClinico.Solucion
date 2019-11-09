@@ -95,8 +95,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
             groupBox1.ForeColor = Color.Black;
             txtUsuario.ForeColor = Color.Black;
             txtClave.ForeColor = Color.Black;
-            lbHora.ForeColor = Color.Black;
-            lbFecha.ForeColor = Color.Black;
+            lbHora.ForeColor = Color.White;
+            lbFecha.ForeColor = Color.White;
             lbNombreEmpresa.ForeColor = Color.Black;
             txtClave.PasswordChar = '•';
             timer1.Start();

@@ -64,6 +64,7 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -299,7 +300,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnHistorial);
+            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.btnFacturar);
             this.groupBox3.Controls.Add(this.btnImprimir);
             this.groupBox3.Controls.Add(this.btnConsultar);
@@ -315,13 +316,14 @@
             this.btnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHistorial.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistorial.Location = new System.Drawing.Point(231, 79);
+            this.btnHistorial.Location = new System.Drawing.Point(231, 23);
             this.btnHistorial.Name = "btnHistorial";
             this.btnHistorial.Size = new System.Drawing.Size(219, 41);
             this.btnHistorial.TabIndex = 7;
             this.btnHistorial.Text = "Historial";
             this.toolTip1.SetToolTip(this.btnHistorial, "Mostrar todo el historial de Facturacion segun parametro seleccioado");
             this.btnHistorial.UseVisualStyleBackColor = true;
+            this.btnHistorial.Visible = false;
             this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
             // btnFacturar
@@ -337,6 +339,7 @@
             this.btnFacturar.Text = "Facturar";
             this.toolTip1.SetToolTip(this.btnFacturar, "Facturar una Cotización");
             this.btnFacturar.UseVisualStyleBackColor = true;
+            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
             // btnImprimir
             // 
@@ -358,7 +361,7 @@
             this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.Location = new System.Drawing.Point(6, 31);
+            this.btnConsultar.Location = new System.Drawing.Point(6, 32);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(219, 41);
             this.btnConsultar.TabIndex = 4;
@@ -394,6 +397,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnHistorial);
             this.groupBox4.Controls.Add(this.progressBar1);
             this.groupBox4.Location = new System.Drawing.Point(760, 187);
             this.groupBox4.Name = "groupBox4";
@@ -513,6 +517,20 @@
             this.lbNumeroPagina.TabIndex = 16;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(231, 79);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(219, 41);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Restablecer";
+            this.toolTip1.SetToolTip(this.button1, "Restablecer la pantalla");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -591,5 +609,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.RadioButton rbPaciente;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button1;
     }
 }
