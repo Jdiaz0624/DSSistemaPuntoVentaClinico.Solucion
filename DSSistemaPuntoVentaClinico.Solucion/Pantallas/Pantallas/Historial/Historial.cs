@@ -896,7 +896,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         {
             if (MessageBox.Show("¿Quieres facturar esta cotización?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-
+                int IdTipoComprobante = 0;
+                //SACAMOS EL TIPO DE COMPROBANTE PARA PODER AFECTARLO MEDIANTE EL NUMERO DE FACTURACION
+                /* VariablesGlobales.AccionTomar = "CHANGESTATUS";
+                    GuardarFacturacionCliente();
+                    AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
+                    AfectarCaja();
+                    MessageBox.Show("Proceso completado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);*/
             }
         }
 

@@ -171,11 +171,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal
         {
             pMenuIzquierda.Width = 230;
             AsignarLetrasBotones();
-            lbUsuarioConectado.ForeColor = Color.Black;
-            lbPerfilUsuarioConectado.ForeColor = Color.Black;
+            lbUsuarioConectado.ForeColor = Color.White;
+            lbPerfilUsuarioConectado.ForeColor = Color.White;
             timer1.Start();
-            lbHora.ForeColor = Color.Black;
-            lbFechaSistema.ForeColor = Color.Black;
+            lbHora.ForeColor = Color.White;
+            lbFechaSistema.ForeColor = Color.White;
             SacarDatosEmpresa(1);
             SacarDatosUsuarios(VariablesGlobales.IdUsuario);
             
