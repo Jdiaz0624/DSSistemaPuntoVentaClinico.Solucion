@@ -20,6 +20,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaFacturacion> ObjDataFacturacion = new Lazy<Logica.Logica.LogicaFacturacion>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaContabilidad> ObjdataContabilidad = new Lazy<Logica.Logica.LogicaContabilidad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales Variables = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL HISTORIAL
@@ -538,6 +541,31 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         }
         #endregion
 
+        #region GUARDAR LA FACTURACION COMPROBANTE
+        private void AfectarComprobante(decimal IdCOmprobante)
+        {
+            //SACAMOS LOS DATOS DEL COMPROBANTE
+            string Comprobante = "", TipoComprobante = "";
+            var SacarComprobante = ObjdataContabilidad.Value.GenerarComprobantesFiscales(IdCOmprobante);
+            foreach (var n in SacarComprobante)
+            {
+                Comprobante = n.Comprobante;
+                TipoComprobante = n.TipoComprobante;
+            }
+            //GUARDAMOS LOS DATOS DE LOS COMPROBANTES
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EGuardarFacturacionComprobante Guardar = new Logica.Entidades.EntidadFacturacion.EGuardarFacturacionComprobante();
+
+            Guardar.IdFacturacion = 0;
+            Guardar.CodigoFacturacion = "";
+            Guardar.NumeroConector = Variables.NumeroConector;
+            Guardar.TipoComprobante = TipoComprobante;
+            Guardar.Comprobante = Comprobante;
+
+            var MAN = ObjDataFacturacion.Value.GuardarFacturacionComprobante(Guardar, "INSERT");
+        }
+
+        #endregion
+
         #region SACAR EL NOMBRE DE LA EMPRESA
         private void SacarNombreEmpresa(int IdInformacionEmpresa)
         {
@@ -548,6 +576,35 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             }
             
 
+            
+        }
+        #endregion
+
+        #region AFECTAR LA CAJA
+        private void AfectarCaja(decimal Total,decimal IdTipoPago)
+        {
+            //INSERTAMOS LOS DATOS PARA HACER EL REGISTRO DENTRO DEL HISTORIAL DE LA CAJA
+
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EHistorialCaja Historial = new Logica.Entidades.EntidadesCaja.EHistorialCaja();
+
+                Historial.IdistorialCaja = 0;
+                Historial.IdCaja = 1;
+                Historial.Monto = Total;
+                Historial.Concepto = "FACTURACION";
+                Historial.Fecha0 = DateTime.Now;
+                Historial.IdUsuario = Variables.IdUsuario;
+                Historial.NumeroReferencia = Variables.NumeroConector;
+                Historial.IdTipoPago = IdTipoPago;
+
+                var MAN = ObjDataCaja.Value.MantenimientoHistorialCaja(Historial, "INSERT");
+
+                //ACTUALIZAR EL MONTO EN LACAJA
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.ECaja Caja = new Logica.Entidades.EntidadesCaja.ECaja();
+
+                Caja.IdCaja = 1;
+                Caja.MontoActual = Total;
+
+                var mam = ObjDataCaja.Value.MantenimientoCaja(Caja, "ADD");
             
         }
         #endregion
@@ -896,8 +953,23 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         {
             if (MessageBox.Show("¿Quieres facturar esta cotización?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int IdTipoComprobante = 0;
+                decimal IdTipoComprobante = 0;
                 //SACAMOS EL TIPO DE COMPROBANTE PARA PODER AFECTARLO MEDIANTE EL NUMERO DE FACTURACION
+                var SacarTipoFacturacion = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                    new Nullable<decimal>(),
+                    Variables.NumeroConector,
+                    null, null, null, null, null, null, null, null, null, null, 1, 1);
+                foreach (var n in SacarTipoFacturacion)
+                {
+                    IdTipoComprobante = Convert.ToDecimal(n.IdTipoFacturacion);
+                }
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes Facturar = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
+
+                Facturar.NumeroConector = Variables.NumeroConector;
+
+                var MANFacturar = ObjDataFacturacion.Value.GuararFacturacionCliete(Facturar, "CHANGESTATUS");
+                AfectarComprobante(IdTipoComprobante);
+
                 /* VariablesGlobales.AccionTomar = "CHANGESTATUS";
                     GuardarFacturacionCliente();
                     AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
