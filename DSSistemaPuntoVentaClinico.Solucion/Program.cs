@@ -17,7 +17,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad.Login());
-            //Creadogg hola
+            //Creadogg
         }
     }
 }
