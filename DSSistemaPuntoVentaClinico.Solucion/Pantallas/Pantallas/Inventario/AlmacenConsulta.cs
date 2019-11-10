@@ -124,25 +124,28 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccioanr este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                VariablesGlobales.IdMantenimiento = Convert.ToDecimal(dtListado.CurrentRow.Cells["IdAlmacen"].Value.ToString());
-                VariablesGlobales.CodigoMantenimiento = Convert.ToString(dtListado.CurrentRow.Cells["CodigoAlmacen"].Value.ToString());
-                btnNuevo.Enabled = false;
-                btnConsultar.Enabled = false;
-                btnRestablecer.Enabled = true;
-                btnModificar.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                txtClaveSeguridad.Visible = true;
-                lbClaveSeguridad.Visible = true;
-                txtClaveSeguridad.PasswordChar = '•';
+            try {
+                if (MessageBox.Show("¿Quieres seleccioanr este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    VariablesGlobales.IdMantenimiento = Convert.ToDecimal(dtListado.CurrentRow.Cells["IdAlmacen"].Value.ToString());
+                    VariablesGlobales.CodigoMantenimiento = Convert.ToString(dtListado.CurrentRow.Cells["CodigoAlmacen"].Value.ToString());
+                    btnNuevo.Enabled = false;
+                    btnConsultar.Enabled = false;
+                    btnRestablecer.Enabled = true;
+                    btnModificar.Enabled = true;
+                    btnDeshabilitar.Enabled = true;
+                    txtClaveSeguridad.Visible = true;
+                    lbClaveSeguridad.Visible = true;
+                    txtClaveSeguridad.PasswordChar = '•';
 
-                var SacarDatosAlmacenSeleccionado = ObjDataInventario.Value.BuscaAlmacen(
-                    VariablesGlobales.IdMantenimiento,
-                    null, null, 1, 1);
-                dtListado.DataSource = SacarDatosAlmacenSeleccionado;
-                OcultarColumnas();
+                    var SacarDatosAlmacenSeleccionado = ObjDataInventario.Value.BuscaAlmacen(
+                        VariablesGlobales.IdMantenimiento,
+                        null, null, 1, 1);
+                    dtListado.DataSource = SacarDatosAlmacenSeleccionado;
+                    OcultarColumnas();
+                }
             }
+            catch (Exception) { }
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)

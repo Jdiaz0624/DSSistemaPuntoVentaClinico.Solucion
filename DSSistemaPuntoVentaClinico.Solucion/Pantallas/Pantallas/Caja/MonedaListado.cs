@@ -194,27 +194,30 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdMoneda"].Value.ToString());
-                this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoMoneda"].Value.ToString());
+            try {
+                if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdMoneda"].Value.ToString());
+                    this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoMoneda"].Value.ToString());
 
-                var Buscar = ObjDataCaja.Value.BucaMoneda(
-                    VariablesGlobales.IdMantenimiento,
-                    VariablesGlobales.CodigoMantenimiento,
-                    null, 1, 1);
-                dtListado.DataSource = Buscar;
-                OcultarColumnas();
-                btnNuevo.Enabled = false;
-                btnConsultar.Enabled = false;
-                btnRestablecer.Enabled = true;
-                btnModificar.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                txtNumeroPagina.Enabled = true;
-                txtNumeroRegistros.Enabled = true;
-                lbClaveSeguridad.Visible = true;
-                txtClaveSeguridad.Visible = true;
+                    var Buscar = ObjDataCaja.Value.BucaMoneda(
+                        VariablesGlobales.IdMantenimiento,
+                        VariablesGlobales.CodigoMantenimiento,
+                        null, 1, 1);
+                    dtListado.DataSource = Buscar;
+                    OcultarColumnas();
+                    btnNuevo.Enabled = false;
+                    btnConsultar.Enabled = false;
+                    btnRestablecer.Enabled = true;
+                    btnModificar.Enabled = true;
+                    btnDeshabilitar.Enabled = true;
+                    txtNumeroPagina.Enabled = true;
+                    txtNumeroRegistros.Enabled = true;
+                    lbClaveSeguridad.Visible = true;
+                    txtClaveSeguridad.Visible = true;
+                }
             }
+            catch (Exception) { }
         }
 
         private void MonedaListado_FormClosing(object sender, FormClosingEventArgs e)

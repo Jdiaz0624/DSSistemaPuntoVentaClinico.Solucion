@@ -141,25 +141,28 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoProveedor"].Value.ToString());
-                this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoTipoProveedor"].Value.ToString());
+            try {
+                if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdTipoProveedor"].Value.ToString());
+                    this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoTipoProveedor"].Value.ToString());
 
-                //CONSULTAMOS EL REGISTRO
-                var Buscar = ObjDataInventario.Value.BuscaTipoProveedor(
-                    VariablesGlobales.IdMantenimiento,
-                    VariablesGlobales.CodigoMantenimiento,
-                    null, 1, 1);
-                dtListado.DataSource = Buscar;
-                OcultarColumnas();
-                btnNuevo.Enabled = false;
-                btnConsultar.Enabled = false;
-                btnModificar.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                lbClaveSeguridad.Visible = true;
-                txtClaveSeguridad.Visible = true;
+                    //CONSULTAMOS EL REGISTRO
+                    var Buscar = ObjDataInventario.Value.BuscaTipoProveedor(
+                        VariablesGlobales.IdMantenimiento,
+                        VariablesGlobales.CodigoMantenimiento,
+                        null, 1, 1);
+                    dtListado.DataSource = Buscar;
+                    OcultarColumnas();
+                    btnNuevo.Enabled = false;
+                    btnConsultar.Enabled = false;
+                    btnModificar.Enabled = true;
+                    btnDeshabilitar.Enabled = true;
+                    lbClaveSeguridad.Visible = true;
+                    txtClaveSeguridad.Visible = true;
+                }
             }
+            catch (Exception) { }
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)

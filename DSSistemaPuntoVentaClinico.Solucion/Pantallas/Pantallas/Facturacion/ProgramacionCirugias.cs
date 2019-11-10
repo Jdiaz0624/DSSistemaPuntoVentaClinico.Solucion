@@ -413,5 +413,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         {
 
         }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

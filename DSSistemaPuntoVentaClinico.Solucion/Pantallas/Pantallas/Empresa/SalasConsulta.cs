@@ -50,5 +50,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Mantenimiento de Salas";
         }
+
+        private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try { }
+            catch (Exception) { }
+        }
     }
 }

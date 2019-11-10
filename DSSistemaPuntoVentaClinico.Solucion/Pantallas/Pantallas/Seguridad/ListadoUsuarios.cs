@@ -147,29 +147,32 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres selccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdUsuario"].Value.ToString());
-                this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoUsuario"].Value.ToString());
+            try {
+                if (MessageBox.Show("¿Quieres selccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdUsuario"].Value.ToString());
+                    this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoUsuario"].Value.ToString());
 
-                //MOSTRAMOS EL REGISTRO SELECCIONADO
+                    //MOSTRAMOS EL REGISTRO SELECCIONADO
 
-                var Mostrar = ObjdataSeguridad.Value.BuscaUsuario(
-                    VariablesGlobales.IdMantenimiento,
-                    VariablesGlobales.CodigoMantenimiento,
-                    null, null, null, null, 1, 1);
-                dtListado.DataSource = Mostrar;
-                OcultarColumnas();
-                btnNuevo.Enabled = false;
-                btnConsultar.Enabled = false;
-                btnModificar.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-                btnRestablecer.Enabled = true;
-                lbClaveSeguridad.Visible = true;
-                txtClaveSeguridad.Visible = true;
+                    var Mostrar = ObjdataSeguridad.Value.BuscaUsuario(
+                        VariablesGlobales.IdMantenimiento,
+                        VariablesGlobales.CodigoMantenimiento,
+                        null, null, null, null, 1, 1);
+                    dtListado.DataSource = Mostrar;
+                    OcultarColumnas();
+                    btnNuevo.Enabled = false;
+                    btnConsultar.Enabled = false;
+                    btnModificar.Enabled = true;
+                    btnDeshabilitar.Enabled = true;
+                    txtNumeroPagina.Enabled = false;
+                    txtNumeroRegistros.Enabled = false;
+                    btnRestablecer.Enabled = true;
+                    lbClaveSeguridad.Visible = true;
+                    txtClaveSeguridad.Visible = true;
+                }
             }
+            catch (Exception) { }
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)

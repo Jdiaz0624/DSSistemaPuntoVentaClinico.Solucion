@@ -910,40 +910,41 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres selecionar este registro?", Variables.NombrePacienteHis, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Variables.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
+            try {
+                if (MessageBox.Show("¿Quieres selecionar este registro?", Variables.NombrePacienteHis, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.Variables.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
 
-                //BUSCAMOS EL REGISTRO MEDIANTE EL NUMERO DE CONECTOR
-                var BuscarProductoSeleccionado = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
-                    new Nullable<decimal>(),
-                    Variables.NumeroConector,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    1, 8000);
-                dtListado.DataSource = BuscarProductoSeleccionado;
-                OcultarColumnas();
-                btnImprimir.Enabled = true;
-                int IdEstatus = 0;
-                foreach (var n in BuscarProductoSeleccionado)
-                {
-                    IdEstatus = Convert.ToInt32(n.IdEstatusFacturacion);
-                }
-                if (IdEstatus ==2)
-                {
-                    btnFacturar.Enabled = true;
+                    //BUSCAMOS EL REGISTRO MEDIANTE EL NUMERO DE CONECTOR
+                    var BuscarProductoSeleccionado = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                        new Nullable<decimal>(),
+                        Variables.NumeroConector,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        1, 8000);
+                    dtListado.DataSource = BuscarProductoSeleccionado;
+                    OcultarColumnas();
+                    btnImprimir.Enabled = true;
+                    int IdEstatus = 0;
+                    foreach (var n in BuscarProductoSeleccionado)
+                    {
+                        IdEstatus = Convert.ToInt32(n.IdEstatusFacturacion);
+                    }
+                    if (IdEstatus == 2)
+                    {
+                        btnFacturar.Enabled = true;
+                    }
                 }
             }
-            
-            
+            catch (Exception) { }
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

@@ -148,21 +148,24 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.VariablesGlobales.NumeroFacturaMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NoFactura"].Value.ToString());
-                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdProgramacionCirugia"].Value.ToString());
-                btnNuevo.Enabled = false;
-                btnConsultar.Enabled = false;
-                btnModificar.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                lbClaveSeguridad.Visible = true;
-                txtClaveSeguridad.Visible = true;
-                btnRestablecer.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-                
+            try {
+                if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.VariablesGlobales.NumeroFacturaMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NoFactura"].Value.ToString());
+                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdProgramacionCirugia"].Value.ToString());
+                    btnNuevo.Enabled = false;
+                    btnConsultar.Enabled = false;
+                    btnModificar.Enabled = true;
+                    btnDeshabilitar.Enabled = true;
+                    lbClaveSeguridad.Visible = true;
+                    txtClaveSeguridad.Visible = true;
+                    btnRestablecer.Enabled = true;
+                    txtNumeroPagina.Enabled = false;
+                    txtNumeroRegistros.Enabled = false;
+
+                }
             }
+            catch (Exception) { }
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)

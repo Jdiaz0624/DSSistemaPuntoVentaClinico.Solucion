@@ -141,28 +141,31 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdARS"].Value.ToString());
-                this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoARS"].Value.ToString());
+            try {
+                if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdARS"].Value.ToString());
+                    this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoARS"].Value.ToString());
 
-                var Buscar = ObjDataEmpresa.Value.BuscaARS(
-                    VariablesGlobales.IdMantenimiento,
-                    VariablesGlobales.CodigoMantenimiento,
-                    null, 1, 1);
-                dtListado.DataSource = Buscar;
-                OcultarColumnas();
+                    var Buscar = ObjDataEmpresa.Value.BuscaARS(
+                        VariablesGlobales.IdMantenimiento,
+                        VariablesGlobales.CodigoMantenimiento,
+                        null, 1, 1);
+                    dtListado.DataSource = Buscar;
+                    OcultarColumnas();
 
-                btnNuevo.Enabled = false;
-                btnConsultar.Enabled = false;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-                btnRestablecer.Enabled = true;
-                btnModificar.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                lbClaveSeguridad.Visible = true;
-                txtClaveSeguridad.Visible = true;
+                    btnNuevo.Enabled = false;
+                    btnConsultar.Enabled = false;
+                    txtNumeroPagina.Enabled = false;
+                    txtNumeroRegistros.Enabled = false;
+                    btnRestablecer.Enabled = true;
+                    btnModificar.Enabled = true;
+                    btnDeshabilitar.Enabled = true;
+                    lbClaveSeguridad.Visible = true;
+                    txtClaveSeguridad.Visible = true;
+                }
             }
+            catch (Exception) { }
         }
 
         private void ARSConsulta_FormClosing(object sender, FormClosingEventArgs e)
@@ -173,6 +176,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     e.Cancel = true;
                     break;
             }
+        }
+
+        private void gbListado_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

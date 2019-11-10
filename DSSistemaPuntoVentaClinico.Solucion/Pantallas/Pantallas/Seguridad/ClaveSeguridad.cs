@@ -234,38 +234,41 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdUsuario"].Value.ToString());
+            try {
+                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdUsuario"].Value.ToString());
 
-            var Buscar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
-                null,
-                VariablesGlobales.IdMantenimiento, 1, 1);
-            dtListado.DataSource = Buscar;
-            OcultarColumnas();
-            foreach (var n in Buscar)
-            {
-                txtUsuario.Text = n.Persona;
-                txtClave.Text = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
-                txtConfirmarClave.Text = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
-                cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                var Buscar = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                    null,
+                    VariablesGlobales.IdMantenimiento, 1, 1);
+                dtListado.DataSource = Buscar;
+                OcultarColumnas();
+                foreach (var n in Buscar)
+                {
+                    txtUsuario.Text = n.Persona;
+                    txtClave.Text = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                    txtConfirmarClave.Text = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                    cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                }
+                if (cbEstatus.Checked == true)
+                {
+                    cbEstatus.Visible = false;
+                }
+                else
+                {
+                    cbEstatus.Visible = true;
+                }
+                btnConsultar.Enabled = false;
+                btnNuevo.Enabled = false;
+                btnModificar.Enabled = true;
+                btnDeshabilitar.Enabled = true;
+                lbClaveSeguridad.Visible = true;
+                txtClaveSeguridad.Visible = true;
+                txtNumeroPagina.Visible = false;
+                txtNumeroRegistros.Visible = false;
+                btnRestablecer.Enabled = true;
+                dtListado.Enabled = false;
             }
-            if (cbEstatus.Checked == true)
-            {
-                cbEstatus.Visible = false;
-            }
-            else
-            {
-                cbEstatus.Visible = true;
-            }
-            btnConsultar.Enabled = false;
-            btnNuevo.Enabled = false;
-            btnModificar.Enabled = true;
-            btnDeshabilitar.Enabled = true;
-            lbClaveSeguridad.Visible = true;
-            txtClaveSeguridad.Visible = true;
-            txtNumeroPagina.Visible = false;
-            txtNumeroRegistros.Visible = false;
-            btnRestablecer.Enabled = true;
-            dtListado.Enabled = false;
+            catch (Exception) { }
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)

@@ -150,29 +150,32 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCentroSalud"].Value.ToString());
-                this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoCentroSalud"].Value.ToString());
+            try {
+                if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdCentroSalud"].Value.ToString());
+                    this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoCentroSalud"].Value.ToString());
 
-                var Buscar = ObjDataEmpresa.Value.BuscaCentroSalus(
-                    VariablesGlobales.IdMantenimiento,
-                    VariablesGlobales.CodigoMantenimiento,
-                    null, 1, 1);
-                dtListado.DataSource = Buscar;
-                OcultarColumnas();
-                btnNuevo.Enabled = false;
-                btnConsultar.Enabled = false;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-                btnModificar.Enabled = true;
-                btnRestablecer.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                lbClaveSeguridad.Enabled = true;
-                txtClaveSeguridad.Enabled = true;
-                txtClaveSeguridad.Visible = true;
-                lbClaveSeguridad.Visible = true;
+                    var Buscar = ObjDataEmpresa.Value.BuscaCentroSalus(
+                        VariablesGlobales.IdMantenimiento,
+                        VariablesGlobales.CodigoMantenimiento,
+                        null, 1, 1);
+                    dtListado.DataSource = Buscar;
+                    OcultarColumnas();
+                    btnNuevo.Enabled = false;
+                    btnConsultar.Enabled = false;
+                    txtNumeroPagina.Enabled = false;
+                    txtNumeroRegistros.Enabled = false;
+                    btnModificar.Enabled = true;
+                    btnRestablecer.Enabled = true;
+                    btnDeshabilitar.Enabled = true;
+                    lbClaveSeguridad.Enabled = true;
+                    txtClaveSeguridad.Enabled = true;
+                    txtClaveSeguridad.Visible = true;
+                    lbClaveSeguridad.Visible = true;
+                }
             }
+            catch (Exception) { }
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)

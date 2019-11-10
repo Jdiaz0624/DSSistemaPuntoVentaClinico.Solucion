@@ -300,6 +300,7 @@
             this.dtListado.ReadOnly = true;
             this.dtListado.Size = new System.Drawing.Size(1062, 206);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // gbDatosPaciente
             // 

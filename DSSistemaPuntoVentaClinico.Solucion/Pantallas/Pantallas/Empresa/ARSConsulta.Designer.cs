@@ -50,9 +50,9 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.gbListado.SuspendLayout();
@@ -130,6 +130,7 @@
             this.gbListado.TabIndex = 38;
             this.gbListado.TabStop = false;
             this.gbListado.Text = "Listado de ARS";
+            this.gbListado.Enter += new System.EventHandler(this.gbListado_Enter);
             // 
             // dtListado
             // 
@@ -326,6 +327,15 @@
             this.panel1.Size = new System.Drawing.Size(1124, 45);
             this.panel1.TabIndex = 35;
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(12, 12);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.TabIndex = 43;
+            this.lbTitulo.Text = "label6";
+            // 
             // btnCerrar
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -338,15 +348,6 @@
             this.btnCerrar.TabIndex = 21;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(12, 12);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
-            this.lbTitulo.TabIndex = 43;
-            this.lbTitulo.Text = "label6";
             // 
             // ARSConsulta
             // 

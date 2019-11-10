@@ -297,39 +297,42 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres deshabilitar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dataGridView1.CurrentRow.Cells["IdTipoPago"].Value.ToString());
-                this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CodigoTipoPago"].Value.ToString());
+            try {
+                if (MessageBox.Show("¿Quieres deshabilitar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dataGridView1.CurrentRow.Cells["IdTipoPago"].Value.ToString());
+                    this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CodigoTipoPago"].Value.ToString());
 
-                var SacarDatos = ObjDataFacturacion.Value.ListadoTipoPago(
-                    VariablesGlobales.IdMantenimiento,
-                    VariablesGlobales.CodigoMantenimiento,
-                    null, 1, 1);
-                foreach (var n in SacarDatos)
-                {
-                    txtTipoPago.Text = n.TipoPago;
-                    cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
-                    cbBloquear.Checked = (n.BloqueaMontoPagar0.HasValue ? n.BloqueaMontoPagar0.Value : false);
+                    var SacarDatos = ObjDataFacturacion.Value.ListadoTipoPago(
+                        VariablesGlobales.IdMantenimiento,
+                        VariablesGlobales.CodigoMantenimiento,
+                        null, 1, 1);
+                    foreach (var n in SacarDatos)
+                    {
+                        txtTipoPago.Text = n.TipoPago;
+                        cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                        cbBloquear.Checked = (n.BloqueaMontoPagar0.HasValue ? n.BloqueaMontoPagar0.Value : false);
+                    }
+                    if (cbEstatus.Checked == true)
+                    {
+                        cbEstatus.Visible = false;
+                    }
+                    else
+                    {
+                        cbEstatus.Visible = true;
+                    }
+                    btnNuevo.Enabled = false;
+                    btnConsultar.Enabled = false;
+                    btnRestablecer.Enabled = true;
+                    btnModificar.Enabled = true;
+                    btnDeshabilitar.Enabled = true;
+                    txtNumeroPagina.Enabled = false;
+                    txtNumeroRegistros.Enabled = false;
+                    lbClaveSeguridad.Visible = true;
+                    txtClaveSeguridad.Visible = true;
                 }
-                if (cbEstatus.Checked == true)
-                {
-                    cbEstatus.Visible = false;
-                }
-                else
-                {
-                    cbEstatus.Visible = true;
-                }
-                btnNuevo.Enabled = false;
-                btnConsultar.Enabled = false;
-                btnRestablecer.Enabled = true;
-                btnModificar.Enabled = true;
-                btnDeshabilitar.Enabled = true;
-                txtNumeroPagina.Enabled = false;
-                txtNumeroRegistros.Enabled = false;
-                lbClaveSeguridad.Visible = true;
-                txtClaveSeguridad.Visible = true;
             }
+            catch (Exception) { }
         }
     }
 }
