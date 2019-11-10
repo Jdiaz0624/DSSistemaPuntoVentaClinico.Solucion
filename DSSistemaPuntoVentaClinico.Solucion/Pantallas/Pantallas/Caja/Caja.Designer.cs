@@ -48,6 +48,7 @@
             this.Monto = new System.Windows.Forms.Label();
             this.rbSacar = new System.Windows.Forms.RadioButton();
             this.rbIngresar = new System.Windows.Forms.RadioButton();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbDatosCaja.SuspendLayout();
@@ -57,6 +58,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -269,6 +271,15 @@
             this.rbIngresar.Text = "Ingresar Efectivo";
             this.rbIngresar.UseVisualStyleBackColor = true;
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(5, 7);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.TabIndex = 12;
+            this.lbTitulo.Text = "label6";
+            // 
             // Caja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -288,6 +299,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Caja_FormClosing);
             this.Load += new System.EventHandler(this.Caja_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.gbDatosCaja.ResumeLayout(false);
             this.gbDatosCaja.PerformLayout();
@@ -319,5 +331,6 @@
         private System.Windows.Forms.Label Monto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtConcepto;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }

@@ -26,7 +26,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
         private void CuadreCaja_Load(object sender, EventArgs e)
         {
             gbSeleccionar.ForeColor = Color.Black;
-            
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Cuadre de Caja";
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

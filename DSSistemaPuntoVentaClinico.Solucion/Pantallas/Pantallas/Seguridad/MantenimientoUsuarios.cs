@@ -99,6 +99,18 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
         private void MantenimientoUsuarios_Load(object sender, EventArgs e)
         {
             SacarNombreEmpresa(1);
+            lbTitulo.ForeColor = Color.White;
+            if (VariablesGlobales.AccionTomar != "INSERT")
+            {
+                lbTitulo.Text = "Modificar Usuario";
+                btnConsultar.Text = "Modificar";
+                
+            }
+            else
+            {
+                lbTitulo.Text = "Nuevo Usuario";
+                btnConsultar.Text = "Guardar";
+            }
             groupBox1.ForeColor = Color.Black;
             txtUsuario.ForeColor = Color.Black;
             txtClave.ForeColor = Color.Black;

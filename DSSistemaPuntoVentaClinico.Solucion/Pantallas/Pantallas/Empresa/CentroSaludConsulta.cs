@@ -91,6 +91,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             txtClaveSeguridad.Visible = false;
             lbClaveSeguridad.Visible = false;
             txtClaveSeguridad.PasswordChar = '•';
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Centro de Salud";
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

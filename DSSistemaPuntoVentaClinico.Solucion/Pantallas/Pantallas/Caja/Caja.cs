@@ -107,6 +107,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
             txtCodigoCaja.ForeColor = Color.Black;
             txtConcepto.ForeColor = Color.Black;
             txtMonto.ForeColor = Color.Black;
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Caja";
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

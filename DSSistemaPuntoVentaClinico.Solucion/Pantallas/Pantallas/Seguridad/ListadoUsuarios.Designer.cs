@@ -50,6 +50,7 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.gbConsulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
@@ -313,6 +314,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -332,6 +334,15 @@
             this.btnCerrar.TabIndex = 19;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(10, 19);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.TabIndex = 26;
+            this.lbTitulo.Text = "label6";
             // 
             // ListadoUsuarios
             // 
@@ -364,6 +375,7 @@
             this.gbOpciones.ResumeLayout(false);
             this.gbOpciones.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -394,5 +406,6 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.TextBox txtPersona;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }

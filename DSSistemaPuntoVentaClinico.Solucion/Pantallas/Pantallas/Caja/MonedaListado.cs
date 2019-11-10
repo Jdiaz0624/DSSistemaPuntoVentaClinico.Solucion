@@ -91,6 +91,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
             dtListado.ForeColor = Color.Black;
             ListadoMonedas();
             txtClaveSeguridad.PasswordChar = '•';
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Monedas";
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)

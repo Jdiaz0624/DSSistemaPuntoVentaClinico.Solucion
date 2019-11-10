@@ -426,6 +426,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             CargarEstatusCirugia();
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Facturación de Productos";
             VariablesGlobales.ModoCotizacion = false;
             // VariablesGlobales.GenerarConector = true;
             groupBox2.ForeColor = Color.Black;

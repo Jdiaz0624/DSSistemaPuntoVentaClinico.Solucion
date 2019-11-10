@@ -90,6 +90,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             cbEstatus.Visible = false;
             txtTipoPago.ForeColor = Color.Black;
             MostrarListado();
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Tipo de Pago";
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)

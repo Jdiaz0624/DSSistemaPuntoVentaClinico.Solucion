@@ -91,6 +91,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             txtNombre.ForeColor = Color.Black;
             ListadoMedicos();
             txtClaveSeguridad.PasswordChar = '•';
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Medicos";
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

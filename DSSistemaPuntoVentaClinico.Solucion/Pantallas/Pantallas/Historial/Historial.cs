@@ -639,6 +639,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             groupBox3.ForeColor = Color.Black;
             groupBox4.ForeColor = Color.Black;
             groupBox5.ForeColor = Color.Black;
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Historial de Facturación";
         }
 
         private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
@@ -954,6 +956,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             if (MessageBox.Show("¿Quieres facturar esta cotización?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 decimal IdTipoComprobante = 0;
+                decimal Total = 0;
+                decimal IdTpoPago = 0;
                 //SACAMOS EL TIPO DE COMPROBANTE PARA PODER AFECTARLO MEDIANTE EL NUMERO DE FACTURACION
                 var SacarTipoFacturacion = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
                     new Nullable<decimal>(),
@@ -962,6 +966,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                 foreach (var n in SacarTipoFacturacion)
                 {
                     IdTipoComprobante = Convert.ToDecimal(n.IdTipoFacturacion);
+                    Total = Convert.ToDecimal(n.Total);
+                    IdTpoPago = Convert.ToDecimal(n.IdTipoPago);
                 }
                 DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes Facturar = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
 
@@ -969,12 +975,16 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
 
                 var MANFacturar = ObjDataFacturacion.Value.GuararFacturacionCliete(Facturar, "CHANGESTATUS");
                 AfectarComprobante(IdTipoComprobante);
-
-                /* VariablesGlobales.AccionTomar = "CHANGESTATUS";
-                    GuardarFacturacionCliente();
-                    AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
-                    AfectarCaja();
-                    MessageBox.Show("Proceso completado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+                
+                AfectarCaja(Total, IdTpoPago);
+                MessageBox.Show("Registro Facturado exitosamente", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (MessageBox.Show("¿Quieres generar la factura de este registro?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //IMPRIMIMOS LA FACTURA
+                    GenerarFacturaVentas(Variables.NumeroConector);
+                    RestablecerPantalla();
+                }
+                RestablecerPantalla();
             }
         }
 

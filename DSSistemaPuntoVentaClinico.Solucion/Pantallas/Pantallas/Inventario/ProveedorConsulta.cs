@@ -95,6 +95,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
         private void ProveedorConsulta_Load(object sender, EventArgs e)
         {
             CargarTipoProveedores();
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Proveedores";
             CargarProveedores();
             gbListado.ForeColor = Color.Black;
             gbOpciones.ForeColor = Color.Black;

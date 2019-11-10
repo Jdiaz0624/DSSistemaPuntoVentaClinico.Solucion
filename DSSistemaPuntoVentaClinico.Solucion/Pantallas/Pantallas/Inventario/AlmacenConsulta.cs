@@ -105,6 +105,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             lbNumeroRegistros.ForeColor = Color.Black;
             lbNumeroPagina.ForeColor = Color.Black;
             dtListado.ForeColor = Color.Black;
+            lbTitulo.Text = "Mantenimiento de Almacen";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)

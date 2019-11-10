@@ -54,6 +54,7 @@
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.lbIdUsuario = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbProductoConsulta.SuspendLayout();
@@ -67,6 +68,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -372,6 +374,16 @@
             this.lbIdUsuario.Text = "IdUsuario";
             this.lbIdUsuario.Visible = false;
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitulo.Location = new System.Drawing.Point(12, 18);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.TabIndex = 18;
+            this.lbTitulo.Text = "label6";
+            // 
             // ProductoConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -397,6 +409,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductoConsulta_FormClosing);
             this.Load += new System.EventHandler(this.ProductoConsulta_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.gbProductoConsulta.ResumeLayout(false);
             this.gbProductoConsulta.PerformLayout();
@@ -438,5 +451,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridView dtProductos;
         private System.Windows.Forms.DataGridViewButtonColumn Selct;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }

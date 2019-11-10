@@ -50,6 +50,7 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -63,6 +64,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -238,7 +240,7 @@
             this.gbListado.Size = new System.Drawing.Size(863, 298);
             this.gbListado.TabIndex = 15;
             this.gbListado.TabStop = false;
-            this.gbListado.Text = "Listado de Almacenes";
+            this.gbListado.Text = "Listado de Cirugias Programadas";
             // 
             // dtListado
             // 
@@ -332,6 +334,15 @@
             this.lbNumeroPagina.TabIndex = 19;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(10, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.TabIndex = 23;
+            this.lbTitulo.Text = "label6";
+            // 
             // ProgramacionCirugiaConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -356,6 +367,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProgramacionCirugiaConsulta_FormClosing);
             this.Load += new System.EventHandler(this.ProgramacionCirugiaConsulta_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -394,5 +406,6 @@
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }

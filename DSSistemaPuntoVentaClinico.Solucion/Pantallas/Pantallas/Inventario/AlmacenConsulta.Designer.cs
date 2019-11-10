@@ -54,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbIdUsuario = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
@@ -67,6 +68,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -365,6 +367,15 @@
             this.lbIdUsuario.Text = "IdUsuario";
             this.lbIdUsuario.Visible = false;
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(13, 12);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.TabIndex = 21;
+            this.lbTitulo.Text = "label6";
+            // 
             // AlmacenConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -393,6 +404,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AlmacenConsulta_FormClosing);
             this.Load += new System.EventHandler(this.AlmacenConsulta_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
@@ -434,5 +446,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lbClaveSeguridad;
         private System.Windows.Forms.TextBox txtClaveSeguridad;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }

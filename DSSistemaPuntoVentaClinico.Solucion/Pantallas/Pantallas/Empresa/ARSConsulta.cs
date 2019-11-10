@@ -87,6 +87,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             dtListado.ForeColor = Color.Black;
             txtClaveSeguridad.PasswordChar = '•';
             ListadoARS();
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de ARS";
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

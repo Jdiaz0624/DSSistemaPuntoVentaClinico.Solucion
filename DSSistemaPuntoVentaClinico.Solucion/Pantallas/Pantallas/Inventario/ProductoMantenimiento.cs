@@ -139,6 +139,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void ProductoMantenimiento_Load(object sender, EventArgs e)
         {
+            lbTitulo.ForeColor = Color.White;
+            if (VariablesGlobales.AccionTomar != "INSERT")
+            {
+                lbTitulo.Text = "Modificar Productos";
+                btnAccion.Text = "Modificar";
+            }
+            else
+            {
+                lbTitulo.Text = "Nuevo Producto";
+                btnAccion.Text = "Guardar";
+            }
             groupBox1.ForeColor = Color.Black;
             txtCantidadAlmacen.ForeColor = Color.Black;
             txtCodigoBarras.ForeColor = Color.Black;

@@ -133,6 +133,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             SacarPerfilUsuario(VariablesGlobales.IdUsuario);
             ListadoTipoEmpaque();
             txtClaveSeguridad.PasswordChar = '•';
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Tipo de Empaque";
         }
 
         private void btnRestablecer_Click(object sender, EventArgs e)

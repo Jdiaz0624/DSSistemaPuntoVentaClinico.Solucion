@@ -42,5 +42,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             Mantenimiento.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Mantenimiento.ShowDialog();
         }
+
+        private void gbListado_Enter(object sender, EventArgs e)
+        {
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Salas";
+        }
     }
 }

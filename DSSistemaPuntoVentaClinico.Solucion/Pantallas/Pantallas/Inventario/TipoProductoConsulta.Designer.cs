@@ -53,6 +53,7 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.lbPerfilUsuarioConectado = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.gbBuscar.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -95,6 +96,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Controls.Add(this.lbUsuarioConectado);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -109,7 +111,7 @@
             // 
             this.lbUsuarioConectado.AutoSize = true;
             this.lbUsuarioConectado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsuarioConectado.Location = new System.Drawing.Point(3, 16);
+            this.lbUsuarioConectado.Location = new System.Drawing.Point(789, 16);
             this.lbUsuarioConectado.Name = "lbUsuarioConectado";
             this.lbUsuarioConectado.Size = new System.Drawing.Size(236, 28);
             this.lbUsuarioConectado.TabIndex = 10;
@@ -345,6 +347,15 @@
             this.lbPerfilUsuarioConectado.TabIndex = 11;
             this.lbPerfilUsuarioConectado.Text = "Perfil de Usuario";
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(3, 12);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
             // TipoProductoConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -413,5 +424,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lbClave;
         private System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }

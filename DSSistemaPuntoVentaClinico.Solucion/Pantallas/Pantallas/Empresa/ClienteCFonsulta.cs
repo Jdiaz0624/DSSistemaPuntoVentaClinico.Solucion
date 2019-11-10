@@ -100,6 +100,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             SacarinformacionEmpresa(1);
             MostrarPacientes();
             txtClaveSeguridad.PasswordChar = '•';
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Pacientes";
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

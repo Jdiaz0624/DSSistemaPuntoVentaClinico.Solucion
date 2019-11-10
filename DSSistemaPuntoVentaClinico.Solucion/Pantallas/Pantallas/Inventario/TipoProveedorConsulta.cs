@@ -128,6 +128,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             SacarPerfilUsuario(VariablesGlobales.IdUsuario);
             MostrarListadoTipoProveedores();
             txtClaveSeguridad.PasswordChar = '•';
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Tipo de Proveedor";
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)

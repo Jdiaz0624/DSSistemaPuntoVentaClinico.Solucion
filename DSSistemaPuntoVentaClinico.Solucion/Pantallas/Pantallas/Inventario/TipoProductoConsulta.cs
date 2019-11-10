@@ -104,6 +104,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             SacarInformacionEmpresa(1);
             txtClave.PasswordChar = '•';
             dtListado.ForeColor = Color.Black;
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Tipo de Producto";
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

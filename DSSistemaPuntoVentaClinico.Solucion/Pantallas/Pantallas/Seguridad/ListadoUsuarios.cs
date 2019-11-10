@@ -92,6 +92,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
             gbOpciones.ForeColor = Color.White;
             gbListado.ForeColor = Color.White;
             txtUsuaio.ForeColor = Color.Black;
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Usuarios";
             dtListado.ForeColor = Color.Black;
             txtClaveSeguridad.PasswordChar = '•';
         }

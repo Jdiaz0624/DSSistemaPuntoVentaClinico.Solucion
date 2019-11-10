@@ -137,6 +137,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             SacarDatosEmpresa(1);
             Listadoproductos();
             txtClaveSeguridad.PasswordChar = '•';
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Productos";
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)

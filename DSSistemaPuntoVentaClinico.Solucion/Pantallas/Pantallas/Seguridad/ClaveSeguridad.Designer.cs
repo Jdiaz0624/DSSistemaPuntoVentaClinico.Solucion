@@ -53,6 +53,7 @@
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.gbMantenimiento.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -150,6 +151,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -369,6 +371,15 @@
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 73;
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(8, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.TabIndex = 30;
+            this.lbTitulo.Text = "label6";
+            // 
             // ClaveSeguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -396,6 +407,7 @@
             this.gbMantenimiento.ResumeLayout(false);
             this.gbMantenimiento.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.gbOpciones.ResumeLayout(false);
             this.gbOpciones.PerformLayout();
@@ -435,5 +447,6 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtConfirmarClave;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }

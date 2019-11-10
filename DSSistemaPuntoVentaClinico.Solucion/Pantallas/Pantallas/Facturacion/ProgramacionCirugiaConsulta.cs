@@ -107,6 +107,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         {
             MostrarInformacionEmpresa(1);
             txtClaveSeguridad.PasswordChar = '•';
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Mantenimiento de Programación de cirugias";
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
