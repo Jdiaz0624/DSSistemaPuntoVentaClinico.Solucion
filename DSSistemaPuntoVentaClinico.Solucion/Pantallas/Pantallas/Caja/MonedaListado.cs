@@ -84,6 +84,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
 
         private void MonedaListado_Load(object sender, EventArgs e)
         {
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             SacarDatosEmpresa(1);
             gbBuscar.ForeColor = Color.Black;
             gbListado.ForeColor = Color.Black;

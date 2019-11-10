@@ -92,6 +92,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void TipoProductoConsulta_Load(object sender, EventArgs e)
         {
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             gbBuscar.ForeColor = Color.Black;
             txtDescripcion.ForeColor = Color.Black;
             gbOpciones.ForeColor = Color.Black;

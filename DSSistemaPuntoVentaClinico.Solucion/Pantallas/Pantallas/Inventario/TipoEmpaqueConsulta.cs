@@ -120,6 +120,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void TipoEmpaqueConsulta_Load(object sender, EventArgs e)
         {
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             gbBuscar.ForeColor = Color.Black;
             gbListado.ForeColor = Color.Black;
             gbOpciones.ForeColor = Color.Black;

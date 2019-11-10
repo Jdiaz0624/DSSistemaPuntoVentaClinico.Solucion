@@ -447,6 +447,7 @@
             this.btnAccion.TabIndex = 11;
             this.btnAccion.Text = "Guardar";
             this.btnAccion.UseVisualStyleBackColor = true;
+            this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
             // 
             // ClienteMantenimiento
             // 

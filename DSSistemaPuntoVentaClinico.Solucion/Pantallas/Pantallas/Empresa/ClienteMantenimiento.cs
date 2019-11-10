@@ -75,5 +75,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         {
             CerrarPantalla();
         }
+
+        private void btnAccion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

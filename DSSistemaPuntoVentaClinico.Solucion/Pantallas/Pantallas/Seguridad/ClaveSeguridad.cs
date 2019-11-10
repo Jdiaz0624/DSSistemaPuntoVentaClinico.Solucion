@@ -175,10 +175,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
 
         private void ClaveSeguridad_Load(object sender, EventArgs e)
         {
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             MostrarInformaicoNEmpresa(1);
-            gbMantenimiento.ForeColor = Color.White;
-            gbOpciones.ForeColor = Color.White;
-            gbListado.ForeColor = Color.White;
+            gbMantenimiento.ForeColor = Color.Black;
+            gbOpciones.ForeColor = Color.Black;
+            gbListado.ForeColor = Color.Black;
             txtClaveSeguridad.ForeColor = Color.Black;
             txtUsuario.ForeColor = Color.Black;
             dtListado.ForeColor = Color.Black;

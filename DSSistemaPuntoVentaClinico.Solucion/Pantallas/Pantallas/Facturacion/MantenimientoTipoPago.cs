@@ -79,6 +79,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void MantenimientoTipoPago_Load(object sender, EventArgs e)
         {
+            this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             groupBox1.ForeColor = Color.Black;
             groupBox2.ForeColor = Color.Black;
             gbOpciones.ForeColor = Color.Black;

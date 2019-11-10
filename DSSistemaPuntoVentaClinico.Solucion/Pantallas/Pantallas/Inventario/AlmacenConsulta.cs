@@ -74,7 +74,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             SacarDatosAlmacenes();
         }
 
-#endregion
+        #endregion
+        #region SACAR LOS DATOS DE LA EMPRESA
+        private void SacarDatosEmpresa(decimal IdInformacionEmpresa)
+        {
+            var Sa = ObjDataConfiguracion.Value.BuscaInformacionEmpresa(IdInformacionEmpresa);
+            foreach (var n in Sa)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
+        }
+        #endregion
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -94,6 +104,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
 
         private void AlmacenConsulta_Load(object sender, EventArgs e)
         {
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             SacarDatosUsuario(VariablesGlobales.IdUsuario);
             SacarDatosAlmacenes();
             gbBuscar.ForeColor = Color.Black;
@@ -107,6 +119,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             dtListado.ForeColor = Color.Black;
             lbTitulo.Text = "Mantenimiento de Almacen";
             lbTitulo.ForeColor = Color.White;
+            SacarDatosEmpresa(1);
         }
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -226,6 +239,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             {
                 SacarDatosAlmacenes();
             }
+        }
+
+        private void gbListado_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

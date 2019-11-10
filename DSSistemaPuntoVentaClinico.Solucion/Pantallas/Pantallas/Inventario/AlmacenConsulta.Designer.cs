@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lbPerfilUsuarioConectado = new System.Windows.Forms.Label();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
@@ -54,7 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbIdUsuario = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
@@ -75,6 +75,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1135, 45);
             this.panel1.TabIndex = 0;
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(13, 12);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.TabIndex = 21;
+            this.lbTitulo.Text = "label6";
             // 
             // btnCerrar
             // 
@@ -168,6 +177,7 @@
             this.gbListado.TabIndex = 14;
             this.gbListado.TabStop = false;
             this.gbListado.Text = "Listado de Almacenes";
+            this.gbListado.Enter += new System.EventHandler(this.gbListado_Enter);
             // 
             // dtListado
             // 
@@ -366,15 +376,6 @@
             this.lbIdUsuario.TabIndex = 20;
             this.lbIdUsuario.Text = "IdUsuario";
             this.lbIdUsuario.Visible = false;
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(13, 12);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
-            this.lbTitulo.TabIndex = 21;
-            this.lbTitulo.Text = "label6";
             // 
             // AlmacenConsulta
             // 

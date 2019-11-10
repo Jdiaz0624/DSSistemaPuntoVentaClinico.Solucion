@@ -19,6 +19,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaListas> objDataListas = new Lazy<Logica.Logica.LogicaListas>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjdataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region SACAR LOS DATOS DEL USUARIO
@@ -91,9 +92,22 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             this.dtListado.Columns["FechaModifica0"].Visible = false;
         }
         #endregion
+        #region SACAR LA DATA DE LA INFORMACION DE LA EMPRESA
+        private void SacarDataInformacionEmpresa(int IdInformacionEmpresa)
+        {
+            var sacarData = ObjdataConfiguracion.Value.BuscaInformacionEmpresa(IdInformacionEmpresa);
+            foreach (var n in sacarData)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
+        }
+        #endregion
 
         private void ProveedorConsulta_Load(object sender, EventArgs e)
         {
+            SacarDataInformacionEmpresa(1);
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             CargarTipoProveedores();
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Mantenimiento de Proveedores";

@@ -87,6 +87,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 #endregion
         private void ClienteCFonsulta_Load(object sender, EventArgs e)
         {
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             gbBuscar.ForeColor = Color.Black;
             gbListado.ForeColor = Color.Black;
             gbOpciones.ForeColor = Color.Black;

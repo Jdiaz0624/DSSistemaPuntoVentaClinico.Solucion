@@ -17,6 +17,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
             InitializeComponent();
         }
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region Sacar los datos de la caja
@@ -92,11 +93,16 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
         #region SACAR LOS DATOS DE LA EMPRESA
         private void SacarDatosEmpresa(decimal idInformacionEmpresa)
         {
-           
+            var SacarInformacionEmpresa = ObjDataConfiguracion.Value.BuscaInformacionEmpresa(1);
+            foreach (var n in SacarInformacionEmpresa)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
         }
 #endregion
         private void Caja_Load(object sender, EventArgs e)
         {
+            SacarDatosEmpresa(1);
             gbDatosCaja.ForeColor = Color.Black;
             txtCodigoCaja.Text = "1";
             SacarDatosCaja(Convert.ToDecimal(txtCodigoCaja.Text));

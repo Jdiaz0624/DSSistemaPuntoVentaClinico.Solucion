@@ -17,6 +17,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
             InitializeComponent();
         }
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL LISTADO DE LOS USUARIOS
@@ -70,7 +71,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
             lbClaveSeguridad.Visible = false;
             txtClaveSeguridad.Visible = false;
         }
-#endregion
+        #endregion
+        #region SACAR LOS DATOS DE LA EMPRESA
+        private void SacarDatosEmpresa(decimal IdInformacionEmpresa)
+        {
+            var Sa = ObjDataConfiguracion.Value.BuscaInformacionEmpresa(IdInformacionEmpresa);
+            foreach (var n in Sa)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
+        }
+        #endregion
         private void ListadoUsuarios_FormClosing(object sender, FormClosingEventArgs e)
         {
             switch (e.CloseReason)
@@ -88,9 +99,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
 
         private void ListadoUsuarios_Load(object sender, EventArgs e)
         {
-            gbConsulta.ForeColor = Color.White;
-            gbOpciones.ForeColor = Color.White;
-            gbListado.ForeColor = Color.White;
+            SacarDatosEmpresa(1);
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
+            gbConsulta.ForeColor = Color.Black;
+            gbOpciones.ForeColor = Color.Black;
+            gbListado.ForeColor = Color.Black;
             txtUsuaio.ForeColor = Color.Black;
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Mantenimiento de Usuarios";

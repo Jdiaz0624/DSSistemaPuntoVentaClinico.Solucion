@@ -258,6 +258,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         #endregion
         private void ProgramacionCirugias_Load(object sender, EventArgs e)
         {
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             rbBuscarPorNumeroFactura.Checked = true;
             SacarDatosInformacionEmpresa(1);
             gbDatosPaciente.ForeColor = Color.Black;

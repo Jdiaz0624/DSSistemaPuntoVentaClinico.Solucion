@@ -25,6 +25,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
         private void SubMenuConfiguracion_Load(object sender, EventArgs e)
         {
             gbOpciones.ForeColor = Color.Black;
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Configuración de Sistema";
         }
 
         private void btnInformacionEmpresa_Click(object sender, EventArgs e)

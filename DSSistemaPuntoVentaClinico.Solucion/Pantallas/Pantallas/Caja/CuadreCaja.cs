@@ -22,9 +22,21 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+        #region SACAR LA DATA DE LA INFORMACION DE LA EMPRESA
+        private void SacarNombreEmpresa(int IdInformacionEmpresa)
+        {
+            var SacarData = ObjdataConfiguracion.Value.BuscaInformacionEmpresa(IdInformacionEmpresa);
+            foreach (var n in SacarData)
+            {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
+        }
+        #endregion
+
 
         private void CuadreCaja_Load(object sender, EventArgs e)
         {
+            SacarNombreEmpresa(1);
             gbSeleccionar.ForeColor = Color.Black;
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Cuadre de Caja";

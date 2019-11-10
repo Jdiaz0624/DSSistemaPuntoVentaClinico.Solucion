@@ -79,6 +79,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         }
         private void MedicosConsulta_Load(object sender, EventArgs e)
         {
+            SacarDataInformacionEmpresa(1);
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             gbBuscar.ForeColor = Color.Black;
             gbListado.ForeColor = Color.Black;
             gbOpciones.ForeColor = Color.Black;
