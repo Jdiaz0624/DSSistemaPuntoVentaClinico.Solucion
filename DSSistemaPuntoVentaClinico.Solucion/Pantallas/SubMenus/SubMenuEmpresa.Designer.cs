@@ -159,13 +159,14 @@
             this.lbIdUsuario.AutoSize = true;
             this.lbIdUsuario.Location = new System.Drawing.Point(398, 258);
             this.lbIdUsuario.Name = "lbIdUsuario";
-            this.lbIdUsuario.Size = new System.Drawing.Size(64, 25);
+            this.lbIdUsuario.Size = new System.Drawing.Size(51, 20);
             this.lbIdUsuario.TabIndex = 12;
             this.lbIdUsuario.Text = "label1";
+            this.lbIdUsuario.Visible = false;
             // 
             // SubMenuEmpresa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(773, 302);

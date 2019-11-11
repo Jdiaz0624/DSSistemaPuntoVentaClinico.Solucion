@@ -148,9 +148,10 @@
             this.lbIdUsuario.AutoSize = true;
             this.lbIdUsuario.Location = new System.Drawing.Point(278, 257);
             this.lbIdUsuario.Name = "lbIdUsuario";
-            this.lbIdUsuario.Size = new System.Drawing.Size(64, 25);
+            this.lbIdUsuario.Size = new System.Drawing.Size(51, 20);
             this.lbIdUsuario.TabIndex = 9;
             this.lbIdUsuario.Text = "label1";
+            this.lbIdUsuario.Visible = false;
             // 
             // btnCerrar
             // 
@@ -166,7 +167,7 @@
             // 
             // SubMenuInventario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DimGray;
