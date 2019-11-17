@@ -40,8 +40,11 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lbIdUsuario = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbOpciones
@@ -71,6 +74,7 @@
             this.btnCorreos.Text = "Correo";
             this.toolTip1.SetToolTip(this.btnCorreos, "Enviar Correo Electronico");
             this.btnCorreos.UseVisualStyleBackColor = true;
+            this.btnCorreos.Visible = false;
             // 
             // btnSalas
             // 
@@ -137,8 +141,8 @@
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(230, 68);
             this.btnClientes.TabIndex = 0;
-            this.btnClientes.Text = "Clientes";
-            this.toolTip1.SetToolTip(this.btnClientes, "Mantenimiento de Clientes");
+            this.btnClientes.Text = "Pacientes";
+            this.toolTip1.SetToolTip(this.btnClientes, "Mantenimiento de Pacientes");
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
@@ -146,7 +150,7 @@
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(12, 12);
+            this.btnCerrar.Location = new System.Drawing.Point(696, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(39, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -159,19 +163,39 @@
             this.lbIdUsuario.AutoSize = true;
             this.lbIdUsuario.Location = new System.Drawing.Point(398, 258);
             this.lbIdUsuario.Name = "lbIdUsuario";
-            this.lbIdUsuario.Size = new System.Drawing.Size(51, 20);
+            this.lbIdUsuario.Size = new System.Drawing.Size(64, 25);
             this.lbIdUsuario.TabIndex = 12;
             this.lbIdUsuario.Text = "label1";
             this.lbIdUsuario.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(750, 44);
+            this.panel1.TabIndex = 13;
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(13, 10);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.TabIndex = 14;
+            this.lbTitulo.Text = "label6";
+            // 
             // SubMenuEmpresa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(773, 302);
+            this.ClientSize = new System.Drawing.Size(750, 248);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbIdUsuario);
-            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -185,6 +209,8 @@
             this.Load += new System.EventHandler(this.SubMenuEmpresa_Load);
             this.gbOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +228,7 @@
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label lbIdUsuario;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }

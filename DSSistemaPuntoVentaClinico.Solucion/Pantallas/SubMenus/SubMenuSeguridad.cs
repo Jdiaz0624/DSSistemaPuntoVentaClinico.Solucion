@@ -26,6 +26,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
         {
             gbOpciones.ForeColor = Color.Black;
             lbusuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
+            lbTitulo.Text = "Modulo de Seguridad";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)

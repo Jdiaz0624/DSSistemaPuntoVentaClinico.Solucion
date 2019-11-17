@@ -26,6 +26,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
         {
             gbOpciones.ForeColor = Color.Black;
             lbIdUsuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
+            lbTitulo.Text = "Modulo de Empresa";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void btnClientes_Click(object sender, EventArgs e)

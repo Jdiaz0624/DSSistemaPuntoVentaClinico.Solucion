@@ -36,6 +36,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
         {
             gbOpciones.ForeColor = Color.Black;
             lbUsuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "Modulo de Facturación";
         }
 
         private void btnFacturacion_Click(object sender, EventArgs e)

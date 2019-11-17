@@ -22,6 +22,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             gbOpciones.ForeColor = Color.Black;
 
             lbusuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
+            lbTitulo.Text = "Modulo de Caja";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

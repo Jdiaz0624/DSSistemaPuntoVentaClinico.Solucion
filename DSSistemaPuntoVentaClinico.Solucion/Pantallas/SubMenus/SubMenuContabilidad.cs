@@ -25,6 +25,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
         private void SubMenuContabilidad_Load(object sender, EventArgs e)
         {
             gbOpciones.ForeColor = Color.Black;
+            lbTitulo.Text = "Modulo de Contabiliad";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void btnControlApertura_Click(object sender, EventArgs e)

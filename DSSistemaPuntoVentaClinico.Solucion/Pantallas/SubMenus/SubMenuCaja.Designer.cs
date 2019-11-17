@@ -37,8 +37,11 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lbusuario = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbOpciones
@@ -100,7 +103,7 @@
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(12, 12);
+            this.btnCerrar.Location = new System.Drawing.Point(703, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(39, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -111,21 +114,41 @@
             // lbusuario
             // 
             this.lbusuario.AutoSize = true;
-            this.lbusuario.Location = new System.Drawing.Point(344, 33);
+            this.lbusuario.Location = new System.Drawing.Point(485, 10);
             this.lbusuario.Name = "lbusuario";
             this.lbusuario.Size = new System.Drawing.Size(64, 25);
             this.lbusuario.TabIndex = 10;
             this.lbusuario.Text = "label1";
             this.lbusuario.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Controls.Add(this.btnCerrar);
+            this.panel1.Controls.Add(this.lbusuario);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(745, 44);
+            this.panel1.TabIndex = 11;
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(7, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
+            // 
             // SubMenuCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(745, 183);
-            this.Controls.Add(this.lbusuario);
-            this.Controls.Add(this.btnCerrar);
+            this.ClientSize = new System.Drawing.Size(745, 179);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -139,8 +162,9 @@
             this.Load += new System.EventHandler(this.SubMenuCaja_Load);
             this.gbOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -153,5 +177,7 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbusuario;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }

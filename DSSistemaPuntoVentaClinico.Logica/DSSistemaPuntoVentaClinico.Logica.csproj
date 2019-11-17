@@ -61,6 +61,7 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EMantenimientoInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\EGeneraComprobanteFiscal.cs" />
+    <Compile Include="Entidades\EntidadesContabilidad\EMantenimientoComprobantesFiscales.cs" />
     <Compile Include="Entidades\EntidadFacturacion\EBuscaCalculosFactura.cs" />
     <Compile Include="Entidades\EntidadFacturacion\EBuscaDatosFacturacionEspejo.cs" />
     <Compile Include="Entidades\EntidadFacturacion\EBuscaProgramacionirugia.cs" />

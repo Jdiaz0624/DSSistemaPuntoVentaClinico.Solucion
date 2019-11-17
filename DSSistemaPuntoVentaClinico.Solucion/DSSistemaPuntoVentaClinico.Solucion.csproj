@@ -411,6 +411,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\InformacionEmpresa.resx">
       <DependentUpon>InformacionEmpresa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\SecuencialComprobantes.resx">
+      <DependentUpon>SecuencialComprobantes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\ARSConsulta.resx">
       <DependentUpon>ARSConsulta.cs</DependentUpon>
     </EmbeddedResource>

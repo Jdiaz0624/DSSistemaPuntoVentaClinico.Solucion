@@ -169,13 +169,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Seguridad
                         else
                         {
                             //VALIDAMOS LA CLAVE DE SEGURIDAD
-                            string Claves = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.Encriptar(txtClave.Text);
+                            string Claves = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.Encriptar(txtClaveSeguridad.Text);
 
                             var ValidarClave = ObjDataSeguridad.Value.BuscaClaveSeguridad(
-                                Claves, VariablesGlobales.IdUsuario, 1, 1);
+                                Claves, null, 1, 1);
                             if (ValidarClave.Count() < 1)
                             {
-                                MessageBox.Show("El campo clave de seguridad no puede estar vacio para deshabilitar este registro", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("La Clave de seguridad ingresada no es valida, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txtClaveSeguridad.Text = string.Empty;
+                                txtClaveSeguridad.Focus();
                             }
                             else
                             {

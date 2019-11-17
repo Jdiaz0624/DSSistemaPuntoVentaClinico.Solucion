@@ -102,6 +102,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Configuracion
             SacarinformacionEmpresa(1);
             SacarRutasReportes();
             lbTitulo.Text = "Configuración de ruta de reportes";
+            lbTitulo.ForeColor = Color.White;
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             txtClave.PasswordChar = '•';

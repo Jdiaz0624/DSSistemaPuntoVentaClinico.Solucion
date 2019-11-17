@@ -43,5 +43,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             Repirtes.VariablesGlobales.IdUsuario = Convert.ToInt32(lbUsuario.Text);
             Repirtes.ShowDialog();
         }
+
+        private void btnComprobantes_Click(object sender, EventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Configuracion.SecuencialComprobantes Comprobantes = new Pantallas.Configuracion.SecuencialComprobantes();
+            Comprobantes.VariablesGlobales.IdUsuario = Convert.ToInt32(lbUsuario.Text);
+            Comprobantes.ShowDialog();
+        }
     }
 }

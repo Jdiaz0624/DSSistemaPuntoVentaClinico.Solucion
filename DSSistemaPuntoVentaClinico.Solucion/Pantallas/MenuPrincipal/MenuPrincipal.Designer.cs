@@ -111,7 +111,7 @@
             this.btnInventario.ForeColor = System.Drawing.Color.White;
             this.btnInventario.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.venta;
             this.btnInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.Location = new System.Drawing.Point(11, 132);
+            this.btnInventario.Location = new System.Drawing.Point(8, 140);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(284, 40);
             this.btnInventario.TabIndex = 18;
@@ -196,7 +196,7 @@
             this.btnConfiguracion.ForeColor = System.Drawing.Color.White;
             this.btnConfiguracion.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.producto;
             this.btnConfiguracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfiguracion.Location = new System.Drawing.Point(11, 292);
+            this.btnConfiguracion.Location = new System.Drawing.Point(11, 278);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Size = new System.Drawing.Size(284, 40);
             this.btnConfiguracion.TabIndex = 14;
@@ -219,7 +219,7 @@
             this.btnSeguridad.ForeColor = System.Drawing.Color.White;
             this.btnSeguridad.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.producto;
             this.btnSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeguridad.Location = new System.Drawing.Point(11, 331);
+            this.btnSeguridad.Location = new System.Drawing.Point(12, 328);
             this.btnSeguridad.Name = "btnSeguridad";
             this.btnSeguridad.Size = new System.Drawing.Size(284, 40);
             this.btnSeguridad.TabIndex = 13;
@@ -242,7 +242,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.reportes;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(11, 250);
+            this.btnReportes.Location = new System.Drawing.Point(11, 478);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(284, 40);
             this.btnReportes.TabIndex = 12;
@@ -250,6 +250,7 @@
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.btnReportes, "Modulo de Reportes");
             this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Visible = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnHistorial
@@ -266,7 +267,7 @@
             this.btnHistorial.ForeColor = System.Drawing.Color.White;
             this.btnHistorial.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.producto;
             this.btnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorial.Location = new System.Drawing.Point(11, 390);
+            this.btnHistorial.Location = new System.Drawing.Point(8, 384);
             this.btnHistorial.Name = "btnHistorial";
             this.btnHistorial.Size = new System.Drawing.Size(284, 40);
             this.btnHistorial.TabIndex = 11;
@@ -339,7 +340,7 @@
             this.btnEmpresa.ForeColor = System.Drawing.Color.White;
             this.btnEmpresa.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.empleados;
             this.btnEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpresa.Location = new System.Drawing.Point(11, 210);
+            this.btnEmpresa.Location = new System.Drawing.Point(11, 232);
             this.btnEmpresa.Name = "btnEmpresa";
             this.btnEmpresa.Size = new System.Drawing.Size(284, 40);
             this.btnEmpresa.TabIndex = 8;
@@ -387,7 +388,7 @@
             this.btnCaja.ForeColor = System.Drawing.Color.White;
             this.btnCaja.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.pagos;
             this.btnCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCaja.Location = new System.Drawing.Point(11, 170);
+            this.btnCaja.Location = new System.Drawing.Point(10, 186);
             this.btnCaja.Name = "btnCaja";
             this.btnCaja.Size = new System.Drawing.Size(284, 40);
             this.btnCaja.TabIndex = 6;
