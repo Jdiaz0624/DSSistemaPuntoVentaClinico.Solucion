@@ -82,11 +82,29 @@
     <Compile Include="Pantallas\Pantallas\Caja\MonedaMantenimiento.Designer.cs">
       <DependentUpon>MonedaMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfiguracionReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\ConfiguracionReportes.Designer.cs">
+      <DependentUpon>ConfiguracionReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\InformacionEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\InformacionEmpresa.Designer.cs">
       <DependentUpon>InformacionEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\SecuencialComprobantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\SecuencialComprobantes.Designer.cs">
+      <DependentUpon>SecuencialComprobantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\SecuencialPantallas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\SecuencialPantallas.Designer.cs">
+      <DependentUpon>SecuencialPantallas.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\ARSConsulta.cs">
       <SubType>Form</SubType>
@@ -386,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Caja\MonedaMantenimiento.resx">
       <DependentUpon>MonedaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ConfiguracionReportes.resx">
+      <DependentUpon>ConfiguracionReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\InformacionEmpresa.resx">
       <DependentUpon>InformacionEmpresa.cs</DependentUpon>

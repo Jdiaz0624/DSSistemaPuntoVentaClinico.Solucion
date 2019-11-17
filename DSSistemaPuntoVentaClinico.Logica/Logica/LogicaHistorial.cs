@@ -84,11 +84,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             return SacarRuta;
         }
         //MATENIMIENTO DE RUTA DE REPORTE
-        public Entidades.EntidadReporte.ERutaReporte MantenimientoRutaReporte(Entidades.EntidadReporte.ERutaReporte Item, string Accion)
+        public Entidades.EntidadReporte.EMantenimientoRutaReporte MantenimientoRutaReporte(Entidades.EntidadReporte.EMantenimientoRutaReporte Item, string Accion)
         {
             ObjData.CommandTimeout = 999999999;
 
-            Entidades.EntidadReporte.ERutaReporte Mantenimiento = null;
+            Entidades.EntidadReporte.EMantenimientoRutaReporte Mantenimiento = null;
 
             var RutaReporte = ObjData.SP_MANTENIMIENTO_RUTA_REPORTES(
                 Mantenimiento.IdReporte,
@@ -98,7 +98,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             if (RutaReporte != null)
             {
                 Mantenimiento = (from n in RutaReporte
-                                 select new Entidades.EntidadReporte.ERutaReporte
+                                 select new Entidades.EntidadReporte.EMantenimientoRutaReporte
                                  {
                                      IdReporte=n.IdReporte,
                                      DescripcionReporte=n.DescripcionReporte,

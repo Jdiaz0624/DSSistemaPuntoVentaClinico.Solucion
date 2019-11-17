@@ -82,6 +82,7 @@
     <Compile Include="Entidades\EntidadInventario\ETipoProducto.cs" />
     <Compile Include="Entidades\EntidadInventario\ETipoProveedor.cs" />
     <Compile Include="Entidades\EntidadReporte\ECuadreCaja.cs" />
+    <Compile Include="Entidades\EntidadReporte\EMantenimientoRutaReporte.cs" />
     <Compile Include="Entidades\EntidadReporte\EReporteHistorialFacturacionCotizacion.cs" />
     <Compile Include="Entidades\EntidadReporte\ERutaReporte.cs" />
     <Compile Include="Entidades\EntidadSeguridad\EClaveSeguridad.cs" />

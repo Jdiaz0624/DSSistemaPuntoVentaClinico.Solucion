@@ -27,12 +27,21 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             gbOpciones.ForeColor = Color.Black;
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Configuración de Sistema";
+            lbUsuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
+            //lbUsuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
         }
 
         private void btnInformacionEmpresa_Click(object sender, EventArgs e)
         {
             DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Configuracion.InformacionEmpresa InformacionEmpresa = new Pantallas.Configuracion.InformacionEmpresa();
             InformacionEmpresa.ShowDialog();
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Configuracion.ConfiguracionReportes Repirtes = new Pantallas.Configuracion.ConfiguracionReportes();
+            Repirtes.VariablesGlobales.IdUsuario = Convert.ToInt32(lbUsuario.Text);
+            Repirtes.ShowDialog();
         }
     }
 }

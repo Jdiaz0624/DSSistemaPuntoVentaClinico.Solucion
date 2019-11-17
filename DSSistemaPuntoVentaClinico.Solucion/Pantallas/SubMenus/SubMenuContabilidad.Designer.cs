@@ -192,6 +192,7 @@
             this.btnControlApertura.Text = "Control de Apertura";
             this.toolTip1.SetToolTip(this.btnControlApertura, "Mantenimiento de Control de Apertura");
             this.btnControlApertura.UseVisualStyleBackColor = true;
+            this.btnControlApertura.Click += new System.EventHandler(this.btnControlApertura_Click);
             // 
             // SubMenuContabilidad
             // 

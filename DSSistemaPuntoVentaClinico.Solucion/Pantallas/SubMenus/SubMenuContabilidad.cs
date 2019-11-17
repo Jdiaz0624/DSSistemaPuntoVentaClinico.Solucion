@@ -26,5 +26,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
         {
             gbOpciones.ForeColor = Color.Black;
         }
+
+        private void btnControlApertura_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
