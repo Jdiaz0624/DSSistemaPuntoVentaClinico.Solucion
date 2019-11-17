@@ -89,6 +89,7 @@
     <Compile Include="Entidades\EntidadSeguridad\EEjecutarUsuarios.cs" />
     <Compile Include="Entidades\EntidadSeguridad\ELogonReporte.cs" />
     <Compile Include="Entidades\EntidadSeguridad\EMantenimientoUsuario.cs" />
+    <Compile Include="Entidades\EntidadSeguridad\EModificarLogonReporte.cs" />
     <Compile Include="Entidades\EntidadSeguridad\EUsuario.cs" />
     <Compile Include="Entidades\Listas\ECentroSalud.cs" />
     <Compile Include="Entidades\Listas\EEstatusCirugia.cs" />

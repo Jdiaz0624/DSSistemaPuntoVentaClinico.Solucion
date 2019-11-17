@@ -192,6 +192,31 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               }).ToList();
             return SacarDatos;
         }
-#endregion
+        #endregion
+        #region MODIFICAR LAS CREDENCIALES DEL USUARIO DE LA BASE DE DATOS
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadSeguridad.EModificarLogonReporte Credenciales(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadSeguridad.EModificarLogonReporte Item, string Accion)
+        {
+            ObData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadSeguridad.EModificarLogonReporte Modificar = null;
+
+            var CredencialesBD = ObData.SP_MODIFICAR_LOGON_REPORTE(
+                Item.IdLogonBd,
+                Item.Usuario,
+                Item.Clave,
+                Accion);
+            if (CredencialesBD != null)
+            {
+                Modificar = (from n in CredencialesBD
+                             select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadSeguridad.EModificarLogonReporte
+                             {
+                                 IdLogonBd=n.IdLogonBd,
+                                 Usuario=n.Usuario,
+                                 Clave=n.Clave
+                             }).FirstOrDefault();
+            }
+            return Modificar;
+        }
+        #endregion
     }
 }

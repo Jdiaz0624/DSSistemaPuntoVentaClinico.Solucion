@@ -33,7 +33,7 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
     #endregion
 		
 		public BDSeguridadDataContext() : 
-				base(global::DSSistemaPuntoVentaClinico.Data.Properties.Settings.Default.SistemaFacturacionMedicoConnectionString, mappingSource)
+				base(global::DSSistemaPuntoVentaClinico.Data.Properties.Settings.Default.SistemaFacturacionMedicoConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -109,6 +109,13 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, codigoUsuario, idPerfil, usuario, clave, persona, estatus, idusuarioCrea, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_USUARIOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Seguridad.SP_MODIFICAR_LOGON_REPORTE")]
+		public ISingleResult<SP_MODIFICAR_LOGON_REPORTEResult> SP_MODIFICAR_LOGON_REPORTE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdLogonBd", DbType="Decimal(20,0)")] System.Nullable<decimal> idLogonBd, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Usuario", DbType="VarChar(20)")] string usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Clave", DbType="VarChar(8000)")] string clave, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idLogonBd, usuario, clave, accion);
+			return ((ISingleResult<SP_MODIFICAR_LOGON_REPORTEResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1243,6 +1250,68 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._FechaModifica != value))
 				{
 					this._FechaModifica = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MODIFICAR_LOGON_REPORTEResult
+	{
+		
+		private System.Nullable<decimal> _IdLogonBd;
+		
+		private string _Usuario;
+		
+		private string _Clave;
+		
+		public SP_MODIFICAR_LOGON_REPORTEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLogonBd", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdLogonBd
+		{
+			get
+			{
+				return this._IdLogonBd;
+			}
+			set
+			{
+				if ((this._IdLogonBd != value))
+				{
+					this._IdLogonBd = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(20)")]
+		public string Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				if ((this._Usuario != value))
+				{
+					this._Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Clave", DbType="VarChar(8000)")]
+		public string Clave
+		{
+			get
+			{
+				return this._Clave;
+			}
+			set
+			{
+				if ((this._Clave != value))
+				{
+					this._Clave = value;
 				}
 			}
 		}
