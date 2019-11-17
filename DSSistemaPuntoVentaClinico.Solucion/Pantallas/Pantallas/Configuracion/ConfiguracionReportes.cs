@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Configuracion
 {
@@ -67,6 +68,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Configuracion
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             groupBox2.Enabled = false;
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -117,6 +119,58 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Configuracion
                 MANRutaReportes("UPDATE");
                 MessageBox.Show("Registro modificado exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Restablecerpantalla();
+            }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    txtRutaReporte.Text = openFileDialog1.FileName;
+                 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar el archivo: " + ex.Message);
+                }
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbCredenciales.Checked)
+            {
+                lbUsuario.Visible = true;
+                txtUsuario.Visible = true;
+                lbClave.Visible = true;
+                txtClave.Visible = true;
+                lbClaveSeguridad.Visible = true;
+                txtclaveSeguridad.Visible = true;
+                btnGuardarCredenciales.Visible = true;
+            }
+            else
+            {
+                lbUsuario.Visible = false;
+                txtUsuario.Visible = false;
+                lbClave.Visible = false;
+                txtClave.Visible = false;
+                lbClaveSeguridad.Visible = false;
+                txtclaveSeguridad.Visible = false;
+                btnGuardarCredenciales.Visible = false;
+                txtUsuario.Text = string.Empty;
+                txtClave.Text = string.Empty;
+                txtclaveSeguridad.Text = string.Empty;
+
             }
         }
     }

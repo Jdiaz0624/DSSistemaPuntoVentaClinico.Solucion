@@ -88,24 +88,26 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         {
             ObjData.CommandTimeout = 999999999;
 
-            Entidades.EntidadReporte.EMantenimientoRutaReporte Mantenimiento = null;
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EMantenimientoRutaReporte Mantenimiento = null;
 
             var RutaReporte = ObjData.SP_MANTENIMIENTO_RUTA_REPORTES(
-                Mantenimiento.IdReporte,
-                Mantenimiento.DescripcionReporte,
-                Mantenimiento.RutaReporte,
+                Item.IdReporte,
+                Item.DescripcionReporte,
+                Item.RutaReporte,
                 Accion);
             if (RutaReporte != null)
             {
                 Mantenimiento = (from n in RutaReporte
-                                 select new Entidades.EntidadReporte.EMantenimientoRutaReporte
+                                 select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EMantenimientoRutaReporte
                                  {
-                                     IdReporte=n.IdReporte,
-                                     DescripcionReporte=n.DescripcionReporte,
-                                     RutaReporte=n.RutaReporte
+                                     IdReporte = n.IdReporte,
+                                     DescripcionReporte = n.DescripcionReporte,
+                                     RutaReporte = n.RutaReporte
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
+
+
         }
         #endregion
         #region MANTENIMIENTO DE HISTORIAL DE FACTURACION COTIZACION

@@ -30,25 +30,33 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNombreReporte = new System.Windows.Forms.TextBox();
-            this.txtRutaReporte = new System.Windows.Forms.TextBox();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.txtRutaReporte = new System.Windows.Forms.TextBox();
+            this.txtNombreReporte = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cbCredenciales = new System.Windows.Forms.CheckBox();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.lbClave = new System.Windows.Forms.Label();
+            this.lbUsuario = new System.Windows.Forms.Label();
+            this.btnGuardarCredenciales = new System.Windows.Forms.Button();
+            this.txtclaveSeguridad = new System.Windows.Forms.TextBox();
+            this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,6 +70,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1027, 47);
             this.panel1.TabIndex = 17;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.pictureBox1.Location = new System.Drawing.Point(973, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar Pantalla");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lbTitulo
             // 
@@ -117,6 +138,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.AutoSize = true;
+            this.groupBox2.Controls.Add(this.lbClaveSeguridad);
+            this.groupBox2.Controls.Add(this.txtclaveSeguridad);
+            this.groupBox2.Controls.Add(this.btnGuardarCredenciales);
+            this.groupBox2.Controls.Add(this.txtClave);
+            this.groupBox2.Controls.Add(this.txtUsuario);
+            this.groupBox2.Controls.Add(this.lbClave);
+            this.groupBox2.Controls.Add(this.lbUsuario);
+            this.groupBox2.Controls.Add(this.cbCredenciales);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btnCerrar);
@@ -126,67 +156,23 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(6, 383);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1003, 177);
+            this.groupBox2.Size = new System.Drawing.Size(1003, 331);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Configuración de Reporte";
+            this.toolTip1.SetToolTip(this.groupBox2, "Guardar la Credenciales de base de datos");
             // 
-            // label1
+            // button2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre de Reporte";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.pictureBox1.Location = new System.Drawing.Point(973, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Cerrar Pantalla");
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Ruta de Reporte";
-            // 
-            // txtNombreReporte
-            // 
-            this.txtNombreReporte.Location = new System.Drawing.Point(201, 47);
-            this.txtNombreReporte.Name = "txtNombreReporte";
-            this.txtNombreReporte.Size = new System.Drawing.Size(744, 30);
-            this.txtNombreReporte.TabIndex = 2;
-            // 
-            // txtRutaReporte
-            // 
-            this.txtRutaReporte.Location = new System.Drawing.Point(201, 83);
-            this.txtRutaReporte.Name = "txtRutaReporte";
-            this.txtRutaReporte.Size = new System.Drawing.Size(744, 30);
-            this.txtRutaReporte.TabIndex = 3;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(951, 80);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(46, 33);
-            this.btnCerrar.TabIndex = 8;
-            this.btnCerrar.Text = "...";
-            this.toolTip1.SetToolTip(this.btnCerrar, "Seleccionar Reporte");
-            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(804, 119);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(141, 49);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Restablecer";
+            this.toolTip1.SetToolTip(this.button2, "Restablecer Pantalla");
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -201,24 +187,141 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnCerrar
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(804, 119);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 49);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Restablecer";
-            this.toolTip1.SetToolTip(this.button2, "Restablecer Pantalla");
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Location = new System.Drawing.Point(951, 80);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(46, 33);
+            this.btnCerrar.TabIndex = 8;
+            this.btnCerrar.Text = "...";
+            this.toolTip1.SetToolTip(this.btnCerrar, "Seleccionar Reporte");
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // txtRutaReporte
+            // 
+            this.txtRutaReporte.Location = new System.Drawing.Point(201, 83);
+            this.txtRutaReporte.Name = "txtRutaReporte";
+            this.txtRutaReporte.Size = new System.Drawing.Size(744, 30);
+            this.txtRutaReporte.TabIndex = 3;
+            // 
+            // txtNombreReporte
+            // 
+            this.txtNombreReporte.Location = new System.Drawing.Point(201, 47);
+            this.txtNombreReporte.Name = "txtNombreReporte";
+            this.txtNombreReporte.Size = new System.Drawing.Size(744, 30);
+            this.txtNombreReporte.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(43, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(152, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Ruta de Reporte";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(181, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre de Reporte";
+            // 
+            // cbCredenciales
+            // 
+            this.cbCredenciales.AutoSize = true;
+            this.cbCredenciales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCredenciales.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbCredenciales.Location = new System.Drawing.Point(19, 170);
+            this.cbCredenciales.Name = "cbCredenciales";
+            this.cbCredenciales.Size = new System.Drawing.Size(387, 29);
+            this.cbCredenciales.TabIndex = 11;
+            this.cbCredenciales.Text = "Modificar Credenciales de Base de datos";
+            this.cbCredenciales.UseVisualStyleBackColor = true;
+            this.cbCredenciales.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // txtClave
+            // 
+            this.txtClave.Location = new System.Drawing.Point(99, 238);
+            this.txtClave.MaxLength = 50;
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(463, 30);
+            this.txtClave.TabIndex = 15;
+            this.txtClave.Visible = false;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(99, 205);
+            this.txtUsuario.MaxLength = 20;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(463, 30);
+            this.txtUsuario.TabIndex = 14;
+            this.txtUsuario.Visible = false;
+            // 
+            // lbClave
+            // 
+            this.lbClave.AutoSize = true;
+            this.lbClave.Location = new System.Drawing.Point(30, 241);
+            this.lbClave.Name = "lbClave";
+            this.lbClave.Size = new System.Drawing.Size(63, 25);
+            this.lbClave.TabIndex = 13;
+            this.lbClave.Text = "Clave";
+            this.lbClave.Visible = false;
+            // 
+            // lbUsuario
+            // 
+            this.lbUsuario.AutoSize = true;
+            this.lbUsuario.Location = new System.Drawing.Point(14, 208);
+            this.lbUsuario.Name = "lbUsuario";
+            this.lbUsuario.Size = new System.Drawing.Size(79, 25);
+            this.lbUsuario.TabIndex = 12;
+            this.lbUsuario.Text = "Usuario";
+            this.lbUsuario.Visible = false;
+            // 
+            // btnGuardarCredenciales
+            // 
+            this.btnGuardarCredenciales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarCredenciales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarCredenciales.Location = new System.Drawing.Point(568, 205);
+            this.btnGuardarCredenciales.Name = "btnGuardarCredenciales";
+            this.btnGuardarCredenciales.Size = new System.Drawing.Size(141, 66);
+            this.btnGuardarCredenciales.TabIndex = 16;
+            this.btnGuardarCredenciales.Text = "Guardar Credenciales";
+            this.toolTip1.SetToolTip(this.btnGuardarCredenciales, "Guardar Registros");
+            this.btnGuardarCredenciales.UseVisualStyleBackColor = true;
+            this.btnGuardarCredenciales.Visible = false;
+            // 
+            // txtclaveSeguridad
+            // 
+            this.txtclaveSeguridad.Location = new System.Drawing.Point(205, 272);
+            this.txtclaveSeguridad.MaxLength = 50;
+            this.txtclaveSeguridad.Name = "txtclaveSeguridad";
+            this.txtclaveSeguridad.Size = new System.Drawing.Size(357, 30);
+            this.txtclaveSeguridad.TabIndex = 17;
+            this.txtclaveSeguridad.Visible = false;
+            // 
+            // lbClaveSeguridad
+            // 
+            this.lbClaveSeguridad.AutoSize = true;
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(14, 275);
+            this.lbClaveSeguridad.Name = "lbClaveSeguridad";
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(185, 25);
+            this.lbClaveSeguridad.TabIndex = 18;
+            this.lbClaveSeguridad.Text = "Clave de Seguridad";
+            this.lbClaveSeguridad.Visible = false;
             // 
             // ConfiguracionReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1027, 567);
+            this.ClientSize = new System.Drawing.Size(1027, 718);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -234,12 +337,13 @@
             this.Load += new System.EventHandler(this.ConfiguracionReportes_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -260,5 +364,13 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label lbClaveSeguridad;
+        private System.Windows.Forms.TextBox txtclaveSeguridad;
+        private System.Windows.Forms.Button btnGuardarCredenciales;
+        private System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.Label lbClave;
+        private System.Windows.Forms.Label lbUsuario;
+        private System.Windows.Forms.CheckBox cbCredenciales;
     }
 }
