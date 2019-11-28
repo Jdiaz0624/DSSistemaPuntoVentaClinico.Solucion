@@ -272,6 +272,7 @@
             // 
             // pbLogo
             // 
+            this.pbLogo.BackColor = System.Drawing.Color.LightGray;
             this.pbLogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbLogo.Location = new System.Drawing.Point(3, 28);
             this.pbLogo.Name = "pbLogo";
@@ -351,7 +352,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1076, 384);
             this.ControlBox = false;
             this.Controls.Add(this.btnBucaImagen);

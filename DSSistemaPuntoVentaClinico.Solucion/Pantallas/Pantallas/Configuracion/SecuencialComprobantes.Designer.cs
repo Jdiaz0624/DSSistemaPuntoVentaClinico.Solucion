@@ -117,7 +117,7 @@
             this.dtComprobantes.AllowUserToDeleteRows = false;
             this.dtComprobantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtComprobantes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtComprobantes.BackgroundColor = System.Drawing.Color.DimGray;
+            this.dtComprobantes.BackgroundColor = System.Drawing.Color.LightGray;
             this.dtComprobantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtComprobantes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select});
@@ -410,7 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(984, 764);
             this.Controls.Add(this.gnConfiguracion);
             this.Controls.Add(this.groupBox1);

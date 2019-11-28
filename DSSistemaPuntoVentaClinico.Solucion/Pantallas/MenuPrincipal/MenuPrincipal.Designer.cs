@@ -554,7 +554,7 @@
             // pContenedor
             // 
             this.pContenedor.AutoSize = true;
-            this.pContenedor.BackColor = System.Drawing.Color.DimGray;
+            this.pContenedor.BackColor = System.Drawing.Color.LightGray;
             this.pContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pContenedor.Location = new System.Drawing.Point(318, 92);
             this.pContenedor.Name = "pContenedor";

@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubMenuFacturacion));
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.lbUsuario = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCotizacion = new System.Windows.Forms.Button();
             this.btnFinanciamiento = new System.Windows.Forms.Button();
             this.btnFacturacion = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.lbUsuario = new System.Windows.Forms.Label();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbOpciones.SuspendLayout();
@@ -58,6 +58,16 @@
             this.gbOpciones.TabIndex = 0;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Facturación - Seleccionar Opcion";
+            // 
+            // lbUsuario
+            // 
+            this.lbUsuario.AutoSize = true;
+            this.lbUsuario.Location = new System.Drawing.Point(610, 126);
+            this.lbUsuario.Name = "lbUsuario";
+            this.lbUsuario.Size = new System.Drawing.Size(64, 25);
+            this.lbUsuario.TabIndex = 8;
+            this.lbUsuario.Text = "label1";
+            this.lbUsuario.Visible = false;
             // 
             // button1
             // 
@@ -128,16 +138,6 @@
             this.toolTip1.SetToolTip(this.btnCerrar, "Salir del Sistema");
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // lbUsuario
-            // 
-            this.lbUsuario.AutoSize = true;
-            this.lbUsuario.Location = new System.Drawing.Point(610, 126);
-            this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(64, 25);
-            this.lbUsuario.TabIndex = 8;
-            this.lbUsuario.Text = "label1";
-            this.lbUsuario.Visible = false;
-            // 
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
@@ -164,7 +164,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(744, 232);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);

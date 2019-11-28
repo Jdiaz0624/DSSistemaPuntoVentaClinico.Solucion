@@ -85,7 +85,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(230, 68);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Proveedor";
+            this.button2.Text = "Proveedores";
             this.toolTip1.SetToolTip(this.button2, "Mantenimiento de Proveedores");
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -194,7 +194,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(748, 246);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);

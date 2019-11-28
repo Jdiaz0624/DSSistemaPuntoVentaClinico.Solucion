@@ -151,6 +151,7 @@
             this.ddlTipoProveedor.Name = "ddlTipoProveedor";
             this.ddlTipoProveedor.Size = new System.Drawing.Size(299, 31);
             this.ddlTipoProveedor.TabIndex = 6;
+            this.ddlTipoProveedor.Visible = false;
             // 
             // label6
             // 
@@ -205,6 +206,7 @@
             this.label1.Size = new System.Drawing.Size(201, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo de Proveedor *";
+            this.label1.Visible = false;
             // 
             // btnCerrar
             // 
@@ -234,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(584, 362);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAccion);
