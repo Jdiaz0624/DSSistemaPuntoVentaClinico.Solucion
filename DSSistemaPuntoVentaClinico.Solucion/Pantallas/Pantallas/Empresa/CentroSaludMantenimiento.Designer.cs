@@ -106,19 +106,19 @@
             // txttelefonos
             // 
             this.txttelefonos.BackColor = System.Drawing.Color.Silver;
-            this.txttelefonos.Location = new System.Drawing.Point(138, 110);
+            this.txttelefonos.Location = new System.Drawing.Point(151, 110);
             this.txttelefonos.MaxLength = 100;
             this.txttelefonos.Name = "txttelefonos";
-            this.txttelefonos.Size = new System.Drawing.Size(358, 32);
+            this.txttelefonos.Size = new System.Drawing.Size(345, 32);
             this.txttelefonos.TabIndex = 9;
             // 
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.Silver;
-            this.txtDireccion.Location = new System.Drawing.Point(138, 72);
+            this.txtDireccion.Location = new System.Drawing.Point(151, 72);
             this.txtDireccion.MaxLength = 100;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(358, 32);
+            this.txtDireccion.Size = new System.Drawing.Size(345, 32);
             this.txtDireccion.TabIndex = 8;
             // 
             // cbEstatus
@@ -126,7 +126,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbEstatus.Location = new System.Drawing.Point(138, 148);
+            this.cbEstatus.Location = new System.Drawing.Point(151, 146);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(93, 27);
             this.cbEstatus.TabIndex = 7;
@@ -137,10 +137,10 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.Silver;
-            this.txtNombre.Location = new System.Drawing.Point(138, 34);
+            this.txtNombre.Location = new System.Drawing.Point(151, 34);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(358, 32);
+            this.txtNombre.Size = new System.Drawing.Size(345, 32);
             this.txtNombre.TabIndex = 1;
             // 
             // label1
@@ -148,9 +148,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(41, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 23);
+            this.label1.Size = new System.Drawing.Size(104, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre *";
             // 
             // CentroSaludMantenimiento
             // 

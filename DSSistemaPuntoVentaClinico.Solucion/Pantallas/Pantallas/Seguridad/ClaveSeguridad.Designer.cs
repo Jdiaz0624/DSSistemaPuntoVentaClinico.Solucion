@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.gbMantenimiento.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -87,16 +87,16 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 25);
+            this.label3.Size = new System.Drawing.Size(110, 25);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Confirmar";
+            this.label3.Text = "Confirmar *";
             // 
             // txtConfirmarClave
             // 
-            this.txtConfirmarClave.Location = new System.Drawing.Point(83, 79);
+            this.txtConfirmarClave.Location = new System.Drawing.Point(119, 79);
             this.txtConfirmarClave.MaxLength = 20;
             this.txtConfirmarClave.Name = "txtConfirmarClave";
-            this.txtConfirmarClave.Size = new System.Drawing.Size(319, 30);
+            this.txtConfirmarClave.Size = new System.Drawing.Size(283, 30);
             this.txtConfirmarClave.TabIndex = 5;
             // 
             // cbEstatus
@@ -113,10 +113,10 @@
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(83, 50);
+            this.txtClave.Location = new System.Drawing.Point(119, 50);
             this.txtClave.MaxLength = 20;
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(319, 30);
+            this.txtClave.Size = new System.Drawing.Size(283, 30);
             this.txtClave.TabIndex = 3;
             // 
             // txtUsuario
@@ -125,9 +125,9 @@
             this.txtUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.txtUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.txtUsuario.FormattingEnabled = true;
-            this.txtUsuario.Location = new System.Drawing.Point(83, 19);
+            this.txtUsuario.Location = new System.Drawing.Point(119, 19);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(319, 33);
+            this.txtUsuario.Size = new System.Drawing.Size(283, 33);
             this.txtUsuario.TabIndex = 2;
             // 
             // label2
@@ -135,18 +135,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(31, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 25);
+            this.label2.Size = new System.Drawing.Size(76, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Clave";
+            this.label2.Text = "Clave *";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 25);
+            this.label1.Size = new System.Drawing.Size(92, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Usuario";
+            this.label1.Text = "Usuario *";
             // 
             // panel1
             // 
@@ -158,6 +158,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1055, 48);
             this.panel1.TabIndex = 1;
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(8, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.TabIndex = 30;
+            this.lbTitulo.Text = "label6";
             // 
             // btnCerrar
             // 
@@ -370,15 +379,6 @@
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 73;
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(8, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
-            this.lbTitulo.TabIndex = 30;
-            this.lbTitulo.Text = "label6";
             // 
             // ClaveSeguridad
             // 

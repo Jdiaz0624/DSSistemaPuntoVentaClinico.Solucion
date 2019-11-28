@@ -257,7 +257,7 @@
             // lbEstatus
             // 
             this.lbEstatus.AutoSize = true;
-            this.lbEstatus.Location = new System.Drawing.Point(520, 105);
+            this.lbEstatus.Location = new System.Drawing.Point(556, 105);
             this.lbEstatus.Name = "lbEstatus";
             this.lbEstatus.Size = new System.Drawing.Size(77, 25);
             this.lbEstatus.TabIndex = 13;
@@ -269,7 +269,7 @@
             this.ddlEstatusCirugia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlEstatusCirugia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlEstatusCirugia.FormattingEnabled = true;
-            this.ddlEstatusCirugia.Location = new System.Drawing.Point(588, 101);
+            this.ddlEstatusCirugia.Location = new System.Drawing.Point(639, 102);
             this.ddlEstatusCirugia.Name = "ddlEstatusCirugia";
             this.ddlEstatusCirugia.Size = new System.Drawing.Size(245, 33);
             this.ddlEstatusCirugia.TabIndex = 12;
@@ -527,7 +527,7 @@
             // 
             // txtReferencia
             // 
-            this.txtReferencia.Location = new System.Drawing.Point(411, 102);
+            this.txtReferencia.Location = new System.Drawing.Point(444, 102);
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(105, 30);
             this.txtReferencia.TabIndex = 9;
@@ -538,13 +538,13 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(320, 105);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 25);
+            this.label5.Size = new System.Drawing.Size(118, 25);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Referencia";
+            this.label5.Text = "Referencia *";
             // 
             // txtNumeroFactura
             // 
-            this.txtNumeroFactura.Location = new System.Drawing.Point(171, 102);
+            this.txtNumeroFactura.Location = new System.Drawing.Point(209, 102);
             this.txtNumeroFactura.Name = "txtNumeroFactura";
             this.txtNumeroFactura.Size = new System.Drawing.Size(105, 30);
             this.txtNumeroFactura.TabIndex = 7;
@@ -553,11 +553,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 105);
+            this.label4.Location = new System.Drawing.Point(12, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(179, 25);
+            this.label4.Size = new System.Drawing.Size(192, 25);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Numero de Factura";
+            this.label4.Text = "Numero de Factura *";
             // 
             // label3
             // 

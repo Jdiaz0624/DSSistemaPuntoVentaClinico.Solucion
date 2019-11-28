@@ -88,29 +88,29 @@
             // txtTasa
             // 
             this.txtTasa.BackColor = System.Drawing.Color.LightGray;
-            this.txtTasa.Location = new System.Drawing.Point(106, 97);
+            this.txtTasa.Location = new System.Drawing.Point(121, 97);
             this.txtTasa.MaxLength = 100;
             this.txtTasa.Name = "txtTasa";
-            this.txtTasa.Size = new System.Drawing.Size(342, 32);
+            this.txtTasa.Size = new System.Drawing.Size(327, 32);
             this.txtTasa.TabIndex = 5;
             this.txtTasa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTasa_KeyPress);
             // 
             // txtSigla
             // 
             this.txtSigla.BackColor = System.Drawing.Color.LightGray;
-            this.txtSigla.Location = new System.Drawing.Point(106, 61);
+            this.txtSigla.Location = new System.Drawing.Point(121, 61);
             this.txtSigla.MaxLength = 100;
             this.txtSigla.Name = "txtSigla";
-            this.txtSigla.Size = new System.Drawing.Size(342, 32);
+            this.txtSigla.Size = new System.Drawing.Size(327, 32);
             this.txtSigla.TabIndex = 4;
             // 
             // txtMoneda
             // 
             this.txtMoneda.BackColor = System.Drawing.Color.LightGray;
-            this.txtMoneda.Location = new System.Drawing.Point(106, 25);
+            this.txtMoneda.Location = new System.Drawing.Point(121, 25);
             this.txtMoneda.MaxLength = 100;
             this.txtMoneda.Name = "txtMoneda";
-            this.txtMoneda.Size = new System.Drawing.Size(342, 32);
+            this.txtMoneda.Size = new System.Drawing.Size(327, 32);
             this.txtMoneda.TabIndex = 3;
             // 
             // label3
@@ -118,27 +118,27 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(47, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 23);
+            this.label3.Size = new System.Drawing.Size(68, 23);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Tasa";
+            this.label3.Text = "Tasa *";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(44, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 23);
+            this.label2.Size = new System.Drawing.Size(71, 23);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Sigla";
+            this.label2.Text = "Sigla *";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 23);
+            this.label1.Size = new System.Drawing.Size(107, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Moneda";
+            this.label1.Text = "Moneda *";
             // 
             // btnAccion
             // 

@@ -167,17 +167,17 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(14, 275);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(185, 25);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(198, 25);
             this.lbClaveSeguridad.TabIndex = 18;
-            this.lbClaveSeguridad.Text = "Clave de Seguridad";
+            this.lbClaveSeguridad.Text = "Clave de Seguridad *";
             this.lbClaveSeguridad.Visible = false;
             // 
             // txtclaveSeguridad
             // 
-            this.txtclaveSeguridad.Location = new System.Drawing.Point(205, 272);
+            this.txtclaveSeguridad.Location = new System.Drawing.Point(218, 272);
             this.txtclaveSeguridad.MaxLength = 50;
             this.txtclaveSeguridad.Name = "txtclaveSeguridad";
-            this.txtclaveSeguridad.Size = new System.Drawing.Size(357, 30);
+            this.txtclaveSeguridad.Size = new System.Drawing.Size(344, 30);
             this.txtclaveSeguridad.TabIndex = 17;
             this.txtclaveSeguridad.Visible = false;
             // 
@@ -197,19 +197,19 @@
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(99, 238);
+            this.txtClave.Location = new System.Drawing.Point(112, 238);
             this.txtClave.MaxLength = 50;
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(463, 30);
+            this.txtClave.Size = new System.Drawing.Size(450, 30);
             this.txtClave.TabIndex = 15;
             this.txtClave.Visible = false;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(99, 205);
+            this.txtUsuario.Location = new System.Drawing.Point(112, 205);
             this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(463, 30);
+            this.txtUsuario.Size = new System.Drawing.Size(450, 30);
             this.txtUsuario.TabIndex = 14;
             this.txtUsuario.Visible = false;
             // 
@@ -218,9 +218,9 @@
             this.lbClave.AutoSize = true;
             this.lbClave.Location = new System.Drawing.Point(30, 241);
             this.lbClave.Name = "lbClave";
-            this.lbClave.Size = new System.Drawing.Size(63, 25);
+            this.lbClave.Size = new System.Drawing.Size(76, 25);
             this.lbClave.TabIndex = 13;
-            this.lbClave.Text = "Clave";
+            this.lbClave.Text = "Clave *";
             this.lbClave.Visible = false;
             // 
             // lbUsuario
@@ -228,9 +228,9 @@
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Location = new System.Drawing.Point(14, 208);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(79, 25);
+            this.lbUsuario.Size = new System.Drawing.Size(92, 25);
             this.lbUsuario.TabIndex = 12;
-            this.lbUsuario.Text = "Usuario";
+            this.lbUsuario.Text = "Usuario *";
             this.lbUsuario.Visible = false;
             // 
             // cbCredenciales
@@ -287,16 +287,16 @@
             // 
             // txtRutaReporte
             // 
-            this.txtRutaReporte.Location = new System.Drawing.Point(201, 83);
+            this.txtRutaReporte.Location = new System.Drawing.Point(205, 83);
             this.txtRutaReporte.Name = "txtRutaReporte";
-            this.txtRutaReporte.Size = new System.Drawing.Size(744, 30);
+            this.txtRutaReporte.Size = new System.Drawing.Size(740, 30);
             this.txtRutaReporte.TabIndex = 3;
             // 
             // txtNombreReporte
             // 
-            this.txtNombreReporte.Location = new System.Drawing.Point(201, 47);
+            this.txtNombreReporte.Location = new System.Drawing.Point(205, 47);
             this.txtNombreReporte.Name = "txtNombreReporte";
-            this.txtNombreReporte.Size = new System.Drawing.Size(744, 30);
+            this.txtNombreReporte.Size = new System.Drawing.Size(740, 30);
             this.txtNombreReporte.TabIndex = 2;
             // 
             // lbRutaReporte
@@ -304,18 +304,18 @@
             this.lbRutaReporte.AutoSize = true;
             this.lbRutaReporte.Location = new System.Drawing.Point(43, 88);
             this.lbRutaReporte.Name = "lbRutaReporte";
-            this.lbRutaReporte.Size = new System.Drawing.Size(152, 25);
+            this.lbRutaReporte.Size = new System.Drawing.Size(165, 25);
             this.lbRutaReporte.TabIndex = 1;
-            this.lbRutaReporte.Text = "Ruta de Reporte";
+            this.lbRutaReporte.Text = "Ruta de Reporte *";
             // 
             // lbNombreReporte
             // 
             this.lbNombreReporte.AutoSize = true;
             this.lbNombreReporte.Location = new System.Drawing.Point(14, 50);
             this.lbNombreReporte.Name = "lbNombreReporte";
-            this.lbNombreReporte.Size = new System.Drawing.Size(181, 25);
+            this.lbNombreReporte.Size = new System.Drawing.Size(194, 25);
             this.lbNombreReporte.TabIndex = 0;
-            this.lbNombreReporte.Text = "Nombre de Reporte";
+            this.lbNombreReporte.Text = "Nombre de Reporte *";
             // 
             // ConfiguracionReportes
             // 

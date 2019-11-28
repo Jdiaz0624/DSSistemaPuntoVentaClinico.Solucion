@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbGeneral = new System.Windows.Forms.GroupBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -92,7 +93,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
@@ -114,6 +114,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1183, 38);
             this.panel1.TabIndex = 0;
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
             // 
             // btnCerrar
             // 
@@ -171,9 +180,9 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(793, 571);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(75, 23);
+            this.label21.Size = new System.Drawing.Size(90, 23);
             this.label21.TabIndex = 48;
-            this.label21.Text = "Estatus";
+            this.label21.Text = "Estatus *";
             // 
             // ddlEstatusCirugia
             // 
@@ -182,9 +191,9 @@
             this.ddlEstatusCirugia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlEstatusCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlEstatusCirugia.FormattingEnabled = true;
-            this.ddlEstatusCirugia.Location = new System.Drawing.Point(873, 567);
+            this.ddlEstatusCirugia.Location = new System.Drawing.Point(888, 567);
             this.ddlEstatusCirugia.Name = "ddlEstatusCirugia";
-            this.ddlEstatusCirugia.Size = new System.Drawing.Size(294, 31);
+            this.ddlEstatusCirugia.Size = new System.Drawing.Size(279, 31);
             this.ddlEstatusCirugia.TabIndex = 47;
             // 
             // rbQuitarDescuento
@@ -259,9 +268,9 @@
             // txtMontoPagar
             // 
             this.txtMontoPagar.BackColor = System.Drawing.Color.Silver;
-            this.txtMontoPagar.Location = new System.Drawing.Point(872, 529);
+            this.txtMontoPagar.Location = new System.Drawing.Point(888, 529);
             this.txtMontoPagar.Name = "txtMontoPagar";
-            this.txtMontoPagar.Size = new System.Drawing.Size(180, 32);
+            this.txtMontoPagar.Size = new System.Drawing.Size(164, 32);
             this.txtMontoPagar.TabIndex = 40;
             this.txtMontoPagar.TextChanged += new System.EventHandler(this.txtMontoPagar_TextChanged);
             this.txtMontoPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
@@ -273,9 +282,9 @@
             this.ddltIPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddltIPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddltIPago.FormattingEnabled = true;
-            this.ddltIPago.Location = new System.Drawing.Point(872, 494);
+            this.ddltIPago.Location = new System.Drawing.Point(888, 494);
             this.ddltIPago.Name = "ddltIPago";
-            this.ddltIPago.Size = new System.Drawing.Size(181, 31);
+            this.ddltIPago.Size = new System.Drawing.Size(201, 31);
             this.ddltIPago.TabIndex = 29;
             this.ddltIPago.SelectedIndexChanged += new System.EventHandler(this.ddltIPago_SelectedIndexChanged);
             // 
@@ -283,35 +292,35 @@
             // 
             this.txtTotal.BackColor = System.Drawing.Color.Silver;
             this.txtTotal.Enabled = false;
-            this.txtTotal.Location = new System.Drawing.Point(873, 460);
+            this.txtTotal.Location = new System.Drawing.Point(888, 460);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(180, 32);
+            this.txtTotal.Size = new System.Drawing.Size(165, 32);
             this.txtTotal.TabIndex = 39;
             // 
             // txtImpuesto
             // 
             this.txtImpuesto.BackColor = System.Drawing.Color.Silver;
             this.txtImpuesto.Enabled = false;
-            this.txtImpuesto.Location = new System.Drawing.Point(873, 425);
+            this.txtImpuesto.Location = new System.Drawing.Point(888, 425);
             this.txtImpuesto.Name = "txtImpuesto";
-            this.txtImpuesto.Size = new System.Drawing.Size(180, 32);
+            this.txtImpuesto.Size = new System.Drawing.Size(165, 32);
             this.txtImpuesto.TabIndex = 38;
             // 
             // txtSubtotal
             // 
             this.txtSubtotal.BackColor = System.Drawing.Color.Silver;
             this.txtSubtotal.Enabled = false;
-            this.txtSubtotal.Location = new System.Drawing.Point(873, 391);
+            this.txtSubtotal.Location = new System.Drawing.Point(888, 391);
             this.txtSubtotal.Name = "txtSubtotal";
-            this.txtSubtotal.Size = new System.Drawing.Size(180, 32);
+            this.txtSubtotal.Size = new System.Drawing.Size(165, 32);
             this.txtSubtotal.TabIndex = 37;
             // 
             // txtTotalDescuento
             // 
             this.txtTotalDescuento.BackColor = System.Drawing.Color.Silver;
-            this.txtTotalDescuento.Location = new System.Drawing.Point(873, 356);
+            this.txtTotalDescuento.Location = new System.Drawing.Point(888, 356);
             this.txtTotalDescuento.Name = "txtTotalDescuento";
-            this.txtTotalDescuento.Size = new System.Drawing.Size(180, 32);
+            this.txtTotalDescuento.Size = new System.Drawing.Size(165, 32);
             this.txtTotalDescuento.TabIndex = 36;
             this.txtTotalDescuento.TextChanged += new System.EventHandler(this.txtTotalDescuento_TextChanged);
             this.txtTotalDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
@@ -320,9 +329,9 @@
             // 
             this.txtCantidadArtiuclos.BackColor = System.Drawing.Color.Silver;
             this.txtCantidadArtiuclos.Enabled = false;
-            this.txtCantidadArtiuclos.Location = new System.Drawing.Point(873, 321);
+            this.txtCantidadArtiuclos.Location = new System.Drawing.Point(888, 321);
             this.txtCantidadArtiuclos.Name = "txtCantidadArtiuclos";
-            this.txtCantidadArtiuclos.Size = new System.Drawing.Size(180, 32);
+            this.txtCantidadArtiuclos.Size = new System.Drawing.Size(165, 32);
             this.txtCantidadArtiuclos.TabIndex = 29;
             // 
             // label20
@@ -330,9 +339,9 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(714, 533);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(153, 23);
+            this.label20.Size = new System.Drawing.Size(168, 23);
             this.label20.TabIndex = 35;
-            this.label20.Text = "Monto a Pagar";
+            this.label20.Text = "Monto a Pagar *";
             // 
             // label19
             // 
@@ -548,9 +557,9 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(721, 167);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 23);
+            this.label13.Size = new System.Drawing.Size(72, 23);
             this.label13.TabIndex = 28;
-            this.label13.Text = "Sexo";
+            this.label13.Text = "Sexo *";
             // 
             // ddlSexo
             // 
@@ -559,9 +568,9 @@
             this.ddlSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSexo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlSexo.FormattingEnabled = true;
-            this.ddlSexo.Location = new System.Drawing.Point(787, 162);
+            this.ddlSexo.Location = new System.Drawing.Point(799, 162);
             this.ddlSexo.Name = "ddlSexo";
-            this.ddlSexo.Size = new System.Drawing.Size(296, 31);
+            this.ddlSexo.Size = new System.Drawing.Size(284, 31);
             this.ddlSexo.TabIndex = 27;
             // 
             // label12
@@ -576,17 +585,17 @@
             // txtComentario
             // 
             this.txtComentario.BackColor = System.Drawing.Color.Silver;
-            this.txtComentario.Location = new System.Drawing.Point(786, 231);
+            this.txtComentario.Location = new System.Drawing.Point(799, 231);
             this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(295, 32);
+            this.txtComentario.Size = new System.Drawing.Size(282, 32);
             this.txtComentario.TabIndex = 25;
             // 
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.Silver;
-            this.txtEmail.Location = new System.Drawing.Point(786, 196);
+            this.txtEmail.Location = new System.Drawing.Point(799, 196);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(295, 32);
+            this.txtEmail.Size = new System.Drawing.Size(282, 32);
             this.txtEmail.TabIndex = 24;
             // 
             // label11
@@ -601,9 +610,9 @@
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.Silver;
-            this.txtDireccion.Location = new System.Drawing.Point(786, 127);
+            this.txtDireccion.Location = new System.Drawing.Point(799, 127);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(295, 32);
+            this.txtDireccion.Size = new System.Drawing.Size(282, 32);
             this.txtDireccion.TabIndex = 22;
             // 
             // label10
@@ -618,9 +627,9 @@
             // txtIdentificacion
             // 
             this.txtIdentificacion.BackColor = System.Drawing.Color.Silver;
-            this.txtIdentificacion.Location = new System.Drawing.Point(787, 92);
+            this.txtIdentificacion.Location = new System.Drawing.Point(799, 92);
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(295, 32);
+            this.txtIdentificacion.Size = new System.Drawing.Size(283, 32);
             this.txtIdentificacion.TabIndex = 20;
             this.txtIdentificacion.Visible = false;
             // 
@@ -636,9 +645,9 @@
             "RNC",
             "Pasaporte",
             "Otro"});
-            this.ddlTipoIdentificacion.Location = new System.Drawing.Point(787, 58);
+            this.ddlTipoIdentificacion.Location = new System.Drawing.Point(799, 58);
             this.ddlTipoIdentificacion.Name = "ddlTipoIdentificacion";
-            this.ddlTipoIdentificacion.Size = new System.Drawing.Size(296, 31);
+            this.ddlTipoIdentificacion.Size = new System.Drawing.Size(284, 31);
             this.ddlTipoIdentificacion.TabIndex = 19;
             this.ddlTipoIdentificacion.SelectedIndexChanged += new System.EventHandler(this.ddlTipoIdentificacion_SelectedIndexChanged);
             // 
@@ -647,9 +656,9 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(561, 62);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(222, 23);
+            this.label9.Size = new System.Drawing.Size(237, 23);
             this.label9.TabIndex = 18;
-            this.label9.Text = "Tipo de Identificacion";
+            this.label9.Text = "Tipo de Identificacion *";
             // 
             // button1
             // 
@@ -682,17 +691,17 @@
             this.ddlMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlMedico.FormattingEnabled = true;
-            this.ddlMedico.Location = new System.Drawing.Point(241, 234);
+            this.ddlMedico.Location = new System.Drawing.Point(258, 234);
             this.ddlMedico.Name = "ddlMedico";
-            this.ddlMedico.Size = new System.Drawing.Size(296, 31);
+            this.ddlMedico.Size = new System.Drawing.Size(279, 31);
             this.ddlMedico.TabIndex = 15;
             // 
             // txtSala
             // 
             this.txtSala.BackColor = System.Drawing.Color.Silver;
-            this.txtSala.Location = new System.Drawing.Point(241, 198);
+            this.txtSala.Location = new System.Drawing.Point(258, 198);
             this.txtSala.Name = "txtSala";
-            this.txtSala.Size = new System.Drawing.Size(295, 32);
+            this.txtSala.Size = new System.Drawing.Size(278, 32);
             this.txtSala.TabIndex = 14;
             // 
             // ddlCentroSalud
@@ -702,26 +711,26 @@
             this.ddlCentroSalud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlCentroSalud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlCentroSalud.FormattingEnabled = true;
-            this.ddlCentroSalud.Location = new System.Drawing.Point(241, 164);
+            this.ddlCentroSalud.Location = new System.Drawing.Point(258, 164);
             this.ddlCentroSalud.Name = "ddlCentroSalud";
-            this.ddlCentroSalud.Size = new System.Drawing.Size(296, 31);
+            this.ddlCentroSalud.Size = new System.Drawing.Size(279, 31);
             this.ddlCentroSalud.TabIndex = 13;
             this.ddlCentroSalud.SelectedIndexChanged += new System.EventHandler(this.ddlCentroSalud_SelectedIndexChanged);
             // 
             // txtTelefono
             // 
             this.txtTelefono.BackColor = System.Drawing.Color.Silver;
-            this.txtTelefono.Location = new System.Drawing.Point(242, 128);
+            this.txtTelefono.Location = new System.Drawing.Point(258, 128);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(295, 32);
+            this.txtTelefono.Size = new System.Drawing.Size(279, 32);
             this.txtTelefono.TabIndex = 12;
             // 
             // txtNombrePaciente
             // 
             this.txtNombrePaciente.BackColor = System.Drawing.Color.Silver;
-            this.txtNombrePaciente.Location = new System.Drawing.Point(242, 92);
+            this.txtNombrePaciente.Location = new System.Drawing.Point(258, 92);
             this.txtNombrePaciente.Name = "txtNombrePaciente";
-            this.txtNombrePaciente.Size = new System.Drawing.Size(295, 32);
+            this.txtNombrePaciente.Size = new System.Drawing.Size(279, 32);
             this.txtNombrePaciente.TabIndex = 11;
             // 
             // ddlTipoFacturacion
@@ -731,25 +740,25 @@
             this.ddlTipoFacturacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTipoFacturacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlTipoFacturacion.FormattingEnabled = true;
-            this.ddlTipoFacturacion.Location = new System.Drawing.Point(242, 58);
+            this.ddlTipoFacturacion.Location = new System.Drawing.Point(258, 58);
             this.ddlTipoFacturacion.Name = "ddlTipoFacturacion";
-            this.ddlTipoFacturacion.Size = new System.Drawing.Size(296, 31);
+            this.ddlTipoFacturacion.Size = new System.Drawing.Size(280, 31);
             this.ddlTipoFacturacion.TabIndex = 10;
             // 
             // txtNoCotizacion
             // 
             this.txtNoCotizacion.BackColor = System.Drawing.Color.Silver;
-            this.txtNoCotizacion.Location = new System.Drawing.Point(786, 23);
+            this.txtNoCotizacion.Location = new System.Drawing.Point(799, 23);
             this.txtNoCotizacion.Name = "txtNoCotizacion";
-            this.txtNoCotizacion.Size = new System.Drawing.Size(295, 32);
+            this.txtNoCotizacion.Size = new System.Drawing.Size(282, 32);
             this.txtNoCotizacion.TabIndex = 9;
             // 
             // txtCodigoCliente
             // 
             this.txtCodigoCliente.BackColor = System.Drawing.Color.Silver;
-            this.txtCodigoCliente.Location = new System.Drawing.Point(243, 23);
+            this.txtCodigoCliente.Location = new System.Drawing.Point(258, 23);
             this.txtCodigoCliente.Name = "txtCodigoCliente";
-            this.txtCodigoCliente.Size = new System.Drawing.Size(295, 32);
+            this.txtCodigoCliente.Size = new System.Drawing.Size(280, 32);
             this.txtCodigoCliente.TabIndex = 8;
             this.txtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoCliente_KeyPress);
             // 
@@ -758,9 +767,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(152, 237);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 23);
+            this.label8.Size = new System.Drawing.Size(100, 23);
             this.label8.TabIndex = 7;
-            this.label8.Text = "Medico";
+            this.label8.Text = "Medico *";
             // 
             // label7
             // 
@@ -776,9 +785,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(70, 168);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(167, 23);
+            this.label6.Size = new System.Drawing.Size(182, 23);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Centro de Salud";
+            this.label6.Text = "Centro de Salud *";
             // 
             // label5
             // 
@@ -794,18 +803,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(24, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 23);
+            this.label4.Size = new System.Drawing.Size(228, 23);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Nombre de Paciente";
+            this.label4.Text = "Nombre de Paciente *";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(34, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 23);
+            this.label3.Size = new System.Drawing.Size(218, 23);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Tipo de Facturación";
+            this.label3.Text = "Tipo de Facturación *";
             // 
             // label2
             // 
@@ -824,15 +833,6 @@
             this.label1.Size = new System.Drawing.Size(207, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo de Paciente";
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(15, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
             // 
             // Facturacion
             // 

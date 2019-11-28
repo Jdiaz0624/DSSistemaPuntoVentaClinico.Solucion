@@ -61,7 +61,7 @@
             // 
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbEstatus.Location = new System.Drawing.Point(198, 139);
+            this.cbEstatus.Location = new System.Drawing.Point(215, 136);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(93, 27);
             this.cbEstatus.TabIndex = 8;
@@ -71,9 +71,9 @@
             // txtCorreo
             // 
             this.txtCorreo.BackColor = System.Drawing.Color.Silver;
-            this.txtCorreo.Location = new System.Drawing.Point(198, 101);
+            this.txtCorreo.Location = new System.Drawing.Point(215, 101);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(300, 32);
+            this.txtCorreo.Size = new System.Drawing.Size(283, 32);
             this.txtCorreo.TabIndex = 7;
             // 
             // ddlCentroSalud
@@ -82,17 +82,17 @@
             this.ddlCentroSalud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlCentroSalud.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlCentroSalud.FormattingEnabled = true;
-            this.ddlCentroSalud.Location = new System.Drawing.Point(198, 66);
+            this.ddlCentroSalud.Location = new System.Drawing.Point(215, 66);
             this.ddlCentroSalud.Name = "ddlCentroSalud";
-            this.ddlCentroSalud.Size = new System.Drawing.Size(300, 31);
+            this.ddlCentroSalud.Size = new System.Drawing.Size(283, 31);
             this.ddlCentroSalud.TabIndex = 6;
             // 
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.Silver;
-            this.txtNombre.Location = new System.Drawing.Point(198, 29);
+            this.txtNombre.Location = new System.Drawing.Point(215, 29);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(300, 32);
+            this.txtNombre.Size = new System.Drawing.Size(283, 32);
             this.txtNombre.TabIndex = 4;
             // 
             // label4
@@ -109,18 +109,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(28, 71);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 23);
+            this.label3.Size = new System.Drawing.Size(182, 23);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Centro de Salud";
+            this.label3.Text = "Centro de Salud *";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(105, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 23);
+            this.label1.Size = new System.Drawing.Size(104, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre *";
             // 
             // btnCerrar
             // 

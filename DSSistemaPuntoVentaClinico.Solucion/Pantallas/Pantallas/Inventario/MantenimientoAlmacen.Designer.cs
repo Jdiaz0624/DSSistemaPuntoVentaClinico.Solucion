@@ -66,7 +66,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbEstatus.Location = new System.Drawing.Point(128, 137);
+            this.cbEstatus.Location = new System.Drawing.Point(142, 134);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(93, 27);
             this.cbEstatus.TabIndex = 6;
@@ -77,25 +77,25 @@
             // txtTelefonos
             // 
             this.txtTelefonos.BackColor = System.Drawing.Color.Silver;
-            this.txtTelefonos.Location = new System.Drawing.Point(124, 102);
+            this.txtTelefonos.Location = new System.Drawing.Point(142, 102);
             this.txtTelefonos.Name = "txtTelefonos";
-            this.txtTelefonos.Size = new System.Drawing.Size(450, 32);
+            this.txtTelefonos.Size = new System.Drawing.Size(432, 32);
             this.txtTelefonos.TabIndex = 5;
             // 
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.Silver;
-            this.txtDireccion.Location = new System.Drawing.Point(124, 66);
+            this.txtDireccion.Location = new System.Drawing.Point(142, 66);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(450, 32);
+            this.txtDireccion.Size = new System.Drawing.Size(432, 32);
             this.txtDireccion.TabIndex = 4;
             // 
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.Silver;
-            this.txtNombre.Location = new System.Drawing.Point(124, 30);
+            this.txtNombre.Location = new System.Drawing.Point(142, 30);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(450, 32);
+            this.txtNombre.Size = new System.Drawing.Size(432, 32);
             this.txtNombre.TabIndex = 3;
             // 
             // label3
@@ -121,9 +121,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(32, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 23);
+            this.label1.Size = new System.Drawing.Size(104, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Nombre *";
             // 
             // btnAccion
             // 

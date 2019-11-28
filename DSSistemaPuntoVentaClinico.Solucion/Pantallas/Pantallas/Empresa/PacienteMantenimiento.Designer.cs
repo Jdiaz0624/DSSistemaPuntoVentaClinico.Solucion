@@ -98,7 +98,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbEstatus.Location = new System.Drawing.Point(258, 448);
+            this.cbEstatus.Location = new System.Drawing.Point(271, 449);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(93, 27);
             this.cbEstatus.TabIndex = 24;
@@ -109,17 +109,17 @@
             // txtEmail
             // 
             this.txtEmail.BackColor = System.Drawing.Color.Silver;
-            this.txtEmail.Location = new System.Drawing.Point(255, 412);
+            this.txtEmail.Location = new System.Drawing.Point(271, 412);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(357, 32);
+            this.txtEmail.Size = new System.Drawing.Size(341, 32);
             this.txtEmail.TabIndex = 23;
             // 
             // txtComentario
             // 
             this.txtComentario.BackColor = System.Drawing.Color.Silver;
-            this.txtComentario.Location = new System.Drawing.Point(254, 376);
+            this.txtComentario.Location = new System.Drawing.Point(271, 376);
             this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(357, 32);
+            this.txtComentario.Size = new System.Drawing.Size(340, 32);
             this.txtComentario.TabIndex = 22;
             // 
             // ddlSexo
@@ -127,25 +127,25 @@
             this.ddlSexo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlSexo.FormattingEnabled = true;
-            this.ddlSexo.Location = new System.Drawing.Point(254, 342);
+            this.ddlSexo.Location = new System.Drawing.Point(271, 342);
             this.ddlSexo.Name = "ddlSexo";
-            this.ddlSexo.Size = new System.Drawing.Size(357, 31);
+            this.ddlSexo.Size = new System.Drawing.Size(340, 31);
             this.ddlSexo.TabIndex = 21;
             // 
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.Silver;
-            this.txtDireccion.Location = new System.Drawing.Point(253, 307);
+            this.txtDireccion.Location = new System.Drawing.Point(271, 307);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(357, 32);
+            this.txtDireccion.Size = new System.Drawing.Size(339, 32);
             this.txtDireccion.TabIndex = 20;
             // 
             // txtIdentificacion
             // 
             this.txtIdentificacion.BackColor = System.Drawing.Color.Silver;
-            this.txtIdentificacion.Location = new System.Drawing.Point(253, 272);
+            this.txtIdentificacion.Location = new System.Drawing.Point(271, 272);
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(357, 32);
+            this.txtIdentificacion.Size = new System.Drawing.Size(339, 32);
             this.txtIdentificacion.TabIndex = 19;
             // 
             // ddlTipoIdentificacion
@@ -153,9 +153,9 @@
             this.ddlTipoIdentificacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlTipoIdentificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTipoIdentificacion.FormattingEnabled = true;
-            this.ddlTipoIdentificacion.Location = new System.Drawing.Point(253, 238);
+            this.ddlTipoIdentificacion.Location = new System.Drawing.Point(271, 238);
             this.ddlTipoIdentificacion.Name = "ddlTipoIdentificacion";
-            this.ddlTipoIdentificacion.Size = new System.Drawing.Size(357, 31);
+            this.ddlTipoIdentificacion.Size = new System.Drawing.Size(339, 31);
             this.ddlTipoIdentificacion.TabIndex = 18;
             this.ddlTipoIdentificacion.SelectedIndexChanged += new System.EventHandler(this.ddlTipoIdentificacion_SelectedIndexChanged);
             // 
@@ -164,17 +164,17 @@
             this.ddlMedico.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlMedico.FormattingEnabled = true;
-            this.ddlMedico.Location = new System.Drawing.Point(252, 204);
+            this.ddlMedico.Location = new System.Drawing.Point(269, 204);
             this.ddlMedico.Name = "ddlMedico";
-            this.ddlMedico.Size = new System.Drawing.Size(357, 31);
+            this.ddlMedico.Size = new System.Drawing.Size(340, 31);
             this.ddlMedico.TabIndex = 17;
             // 
             // txtSala
             // 
             this.txtSala.BackColor = System.Drawing.Color.Silver;
-            this.txtSala.Location = new System.Drawing.Point(252, 169);
+            this.txtSala.Location = new System.Drawing.Point(269, 169);
             this.txtSala.Name = "txtSala";
-            this.txtSala.Size = new System.Drawing.Size(356, 32);
+            this.txtSala.Size = new System.Drawing.Size(339, 32);
             this.txtSala.TabIndex = 16;
             // 
             // ddlCentroSalud
@@ -182,26 +182,26 @@
             this.ddlCentroSalud.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlCentroSalud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlCentroSalud.FormattingEnabled = true;
-            this.ddlCentroSalud.Location = new System.Drawing.Point(251, 136);
+            this.ddlCentroSalud.Location = new System.Drawing.Point(269, 136);
             this.ddlCentroSalud.Name = "ddlCentroSalud";
-            this.ddlCentroSalud.Size = new System.Drawing.Size(357, 31);
+            this.ddlCentroSalud.Size = new System.Drawing.Size(339, 31);
             this.ddlCentroSalud.TabIndex = 15;
             this.ddlCentroSalud.SelectedIndexChanged += new System.EventHandler(this.ddlCentroSalud_SelectedIndexChanged);
             // 
             // txtTelefonopaciente
             // 
             this.txtTelefonopaciente.BackColor = System.Drawing.Color.Silver;
-            this.txtTelefonopaciente.Location = new System.Drawing.Point(251, 101);
+            this.txtTelefonopaciente.Location = new System.Drawing.Point(268, 101);
             this.txtTelefonopaciente.Name = "txtTelefonopaciente";
-            this.txtTelefonopaciente.Size = new System.Drawing.Size(356, 32);
+            this.txtTelefonopaciente.Size = new System.Drawing.Size(339, 32);
             this.txtTelefonopaciente.TabIndex = 14;
             // 
             // txtNombrePaciente
             // 
             this.txtNombrePaciente.BackColor = System.Drawing.Color.Silver;
-            this.txtNombrePaciente.Location = new System.Drawing.Point(251, 66);
+            this.txtNombrePaciente.Location = new System.Drawing.Point(268, 66);
             this.txtNombrePaciente.Name = "txtNombrePaciente";
-            this.txtNombrePaciente.Size = new System.Drawing.Size(356, 32);
+            this.txtNombrePaciente.Size = new System.Drawing.Size(339, 32);
             this.txtNombrePaciente.TabIndex = 13;
             // 
             // ddlTipoComprobante
@@ -209,9 +209,9 @@
             this.ddlTipoComprobante.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTipoComprobante.FormattingEnabled = true;
-            this.ddlTipoComprobante.Location = new System.Drawing.Point(250, 32);
+            this.ddlTipoComprobante.Location = new System.Drawing.Point(268, 32);
             this.ddlTipoComprobante.Name = "ddlTipoComprobante";
-            this.ddlTipoComprobante.Size = new System.Drawing.Size(357, 31);
+            this.ddlTipoComprobante.Size = new System.Drawing.Size(339, 31);
             this.ddlTipoComprobante.TabIndex = 12;
             // 
             // label12
@@ -237,9 +237,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(193, 346);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 23);
+            this.label10.Size = new System.Drawing.Size(72, 23);
             this.label10.TabIndex = 9;
-            this.label10.Text = "Sexo";
+            this.label10.Text = "Sexo *";
             // 
             // label9
             // 
@@ -264,18 +264,18 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(28, 242);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(222, 23);
+            this.label7.Size = new System.Drawing.Size(237, 23);
             this.label7.TabIndex = 6;
-            this.label7.Text = "Tipo de Identificación";
+            this.label7.Text = "Tipo de Identificación *";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(163, 208);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 23);
+            this.label6.Size = new System.Drawing.Size(100, 23);
             this.label6.TabIndex = 5;
-            this.label6.Text = "Medico";
+            this.label6.Text = "Medico *";
             // 
             // label5
             // 
@@ -291,9 +291,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(81, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(167, 23);
+            this.label4.Size = new System.Drawing.Size(182, 23);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Centro de Salud";
+            this.label4.Text = "Centro de Salud *";
             // 
             // label3
             // 
@@ -309,18 +309,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(159, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
+            this.label2.Size = new System.Drawing.Size(104, 23);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre";
+            this.label2.Text = "Nombre *";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(23, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 23);
+            this.label1.Size = new System.Drawing.Size(239, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tipo de Comprobante";
+            this.label1.Text = "Tipo de Comprobante *";
             // 
             // btnCerrar
             // 

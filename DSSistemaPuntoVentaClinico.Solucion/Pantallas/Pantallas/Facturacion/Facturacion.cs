@@ -559,22 +559,22 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void ddlTipoIdentificacion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlTipoIdentificacion.Text == "Cedula")
+            if (ddlTipoIdentificacion.Text == "Cedula *")
             {
                 txtIdentificacion.Visible = true;
                 txtIdentificacion.Mask = "000-0000000-0";
             }
-            else if (ddlTipoIdentificacion.Text == "Pasaporte")
+            else if (ddlTipoIdentificacion.Text == "Pasaporte *")
             {
                 txtIdentificacion.Visible = true;
                 txtIdentificacion.Mask = "";
             }
-            else if (ddlTipoIdentificacion.Text == "RNC")
+            else if (ddlTipoIdentificacion.Text == "RNC *")
             {
                 txtIdentificacion.Visible = true;
                 txtIdentificacion.Mask = "";
             }
-            else if (ddlTipoIdentificacion.Text == "Otro")
+            else if (ddlTipoIdentificacion.Text == "Otro *")
             {
                 txtIdentificacion.Visible = true;
                 txtIdentificacion.Mask = "";

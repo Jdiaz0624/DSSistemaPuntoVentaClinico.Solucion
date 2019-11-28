@@ -93,10 +93,10 @@
             // txtTipoEmpaque
             // 
             this.txtTipoEmpaque.BackColor = System.Drawing.Color.Silver;
-            this.txtTipoEmpaque.Location = new System.Drawing.Point(138, 34);
+            this.txtTipoEmpaque.Location = new System.Drawing.Point(155, 34);
             this.txtTipoEmpaque.MaxLength = 100;
             this.txtTipoEmpaque.Name = "txtTipoEmpaque";
-            this.txtTipoEmpaque.Size = new System.Drawing.Size(358, 32);
+            this.txtTipoEmpaque.Size = new System.Drawing.Size(341, 32);
             this.txtTipoEmpaque.TabIndex = 1;
             // 
             // label1
@@ -104,9 +104,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 23);
+            this.label1.Size = new System.Drawing.Size(141, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Descripción";
+            this.label1.Text = "Descripción *";
             // 
             // TipoEmpaqueMantenimiento
             // 

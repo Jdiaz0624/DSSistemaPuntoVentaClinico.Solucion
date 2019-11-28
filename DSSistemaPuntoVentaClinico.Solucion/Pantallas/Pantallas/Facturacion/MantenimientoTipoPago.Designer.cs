@@ -49,8 +49,8 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.gbOpciones.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -79,9 +79,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 23);
+            this.label1.Size = new System.Drawing.Size(152, 23);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Tipo de Pago";
+            this.label1.Text = "Tipo de Pago *";
             // 
             // cbBloquear
             // 
@@ -110,9 +110,9 @@
             // txtTipoPago
             // 
             this.txtTipoPago.BackColor = System.Drawing.Color.Silver;
-            this.txtTipoPago.Location = new System.Drawing.Point(158, 44);
+            this.txtTipoPago.Location = new System.Drawing.Point(173, 44);
             this.txtTipoPago.Name = "txtTipoPago";
-            this.txtTipoPago.Size = new System.Drawing.Size(289, 32);
+            this.txtTipoPago.Size = new System.Drawing.Size(274, 32);
             this.txtTipoPago.TabIndex = 0;
             // 
             // gbOpciones
@@ -136,18 +136,18 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(153, 97);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(68, 23);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(83, 23);
             this.lbClaveSeguridad.TabIndex = 4;
-            this.lbClaveSeguridad.Text = "Clave";
+            this.lbClaveSeguridad.Text = "Clave *";
             this.lbClaveSeguridad.Visible = false;
             // 
             // txtClaveSeguridad
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(227, 93);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(242, 93);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 32);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(256, 32);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -324,6 +324,15 @@
             this.panel1.Size = new System.Drawing.Size(1082, 45);
             this.panel1.TabIndex = 47;
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(8, 12);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.TabIndex = 48;
+            this.lbTitulo.Text = "label6";
+            // 
             // btnCerrar
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -336,15 +345,6 @@
             this.btnCerrar.TabIndex = 21;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(8, 12);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
-            this.lbTitulo.TabIndex = 48;
-            this.lbTitulo.Text = "label6";
             // 
             // MantenimientoTipoPago
             // 

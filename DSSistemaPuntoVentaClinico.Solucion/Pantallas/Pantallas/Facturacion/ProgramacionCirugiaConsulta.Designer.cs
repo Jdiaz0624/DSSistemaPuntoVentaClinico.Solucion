@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -50,7 +51,6 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -72,6 +72,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(885, 45);
             this.panel1.TabIndex = 0;
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(10, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.TabIndex = 23;
+            this.lbTitulo.Text = "label6";
             // 
             // btnCerrar
             // 
@@ -154,18 +163,18 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(153, 97);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(63, 25);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(76, 25);
             this.lbClaveSeguridad.TabIndex = 4;
-            this.lbClaveSeguridad.Text = "Clave";
+            this.lbClaveSeguridad.Text = "Clave *";
             this.lbClaveSeguridad.Visible = false;
             // 
             // txtClaveSeguridad
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(222, 95);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(230, 95);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(305, 30);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(310, 30);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -333,15 +342,6 @@
             this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
             this.lbNumeroPagina.TabIndex = 19;
             this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(10, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
-            this.lbTitulo.TabIndex = 23;
-            this.lbTitulo.Text = "label6";
             // 
             // ProgramacionCirugiaConsulta
             // 

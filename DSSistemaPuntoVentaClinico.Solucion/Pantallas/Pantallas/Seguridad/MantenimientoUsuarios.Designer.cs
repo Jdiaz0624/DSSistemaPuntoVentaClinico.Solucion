@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -62,6 +62,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(491, 55);
             this.panel1.TabIndex = 0;
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(7, 12);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.TabIndex = 13;
+            this.lbTitulo.Text = "label6";
             // 
             // btnCerrar
             // 
@@ -99,10 +108,10 @@
             // 
             // txtClaveSeguridad
             // 
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(196, 234);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(209, 234);
             this.txtClaveSeguridad.MaxLength = 20;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(256, 30);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(243, 30);
             this.txtClaveSeguridad.TabIndex = 12;
             // 
             // label6
@@ -110,48 +119,48 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(9, 238);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(181, 25);
+            this.label6.Size = new System.Drawing.Size(194, 25);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Clave de seguridad";
+            this.label6.Text = "Clave de seguridad *";
             // 
             // txtPersona
             // 
-            this.txtPersona.Location = new System.Drawing.Point(139, 168);
+            this.txtPersona.Location = new System.Drawing.Point(154, 168);
             this.txtPersona.MaxLength = 100;
             this.txtPersona.Name = "txtPersona";
-            this.txtPersona.Size = new System.Drawing.Size(313, 30);
+            this.txtPersona.Size = new System.Drawing.Size(298, 30);
             this.txtPersona.TabIndex = 10;
             // 
             // txtConfirmar
             // 
-            this.txtConfirmar.Location = new System.Drawing.Point(139, 134);
+            this.txtConfirmar.Location = new System.Drawing.Point(154, 134);
             this.txtConfirmar.MaxLength = 20;
             this.txtConfirmar.Name = "txtConfirmar";
-            this.txtConfirmar.Size = new System.Drawing.Size(313, 30);
+            this.txtConfirmar.Size = new System.Drawing.Size(298, 30);
             this.txtConfirmar.TabIndex = 9;
             // 
             // txtClave
             // 
-            this.txtClave.Location = new System.Drawing.Point(139, 101);
+            this.txtClave.Location = new System.Drawing.Point(154, 101);
             this.txtClave.MaxLength = 20;
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(313, 30);
+            this.txtClave.Size = new System.Drawing.Size(298, 30);
             this.txtClave.TabIndex = 8;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(139, 68);
+            this.txtUsuario.Location = new System.Drawing.Point(154, 68);
             this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(313, 30);
+            this.txtUsuario.Size = new System.Drawing.Size(298, 30);
             this.txtUsuario.TabIndex = 7;
             // 
             // txtPerfil
             // 
             this.txtPerfil.FormattingEnabled = true;
-            this.txtPerfil.Location = new System.Drawing.Point(139, 32);
+            this.txtPerfil.Location = new System.Drawing.Point(154, 32);
             this.txtPerfil.Name = "txtPerfil";
-            this.txtPerfil.Size = new System.Drawing.Size(313, 33);
+            this.txtPerfil.Size = new System.Drawing.Size(298, 33);
             this.txtPerfil.TabIndex = 6;
             this.txtPerfil.Visible = false;
             // 
@@ -159,7 +168,7 @@
             // 
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbEstatus.Location = new System.Drawing.Point(139, 204);
+            this.cbEstatus.Location = new System.Drawing.Point(154, 199);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(96, 29);
             this.cbEstatus.TabIndex = 5;
@@ -171,36 +180,36 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(50, 170);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 25);
+            this.label5.Size = new System.Drawing.Size(98, 25);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Persona";
+            this.label5.Text = "Persona *";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(38, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 25);
+            this.label4.Size = new System.Drawing.Size(110, 25);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Confirmar";
+            this.label4.Text = "Confirmar *";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(73, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 25);
+            this.label3.Size = new System.Drawing.Size(76, 25);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Clave";
+            this.label3.Text = "Clave *";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(58, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 25);
+            this.label2.Size = new System.Drawing.Size(92, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Usuario";
+            this.label2.Text = "Usuario *";
             // 
             // label1
             // 
@@ -223,15 +232,6 @@
             this.btnConsultar.Text = "Completar Operación";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(7, 12);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
-            this.lbTitulo.TabIndex = 13;
-            this.lbTitulo.Text = "label6";
             // 
             // MantenimientoUsuarios
             // 

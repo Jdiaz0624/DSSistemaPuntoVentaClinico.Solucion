@@ -89,7 +89,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbEstatus.Location = new System.Drawing.Point(225, 247);
+            this.cbEstatus.Location = new System.Drawing.Point(240, 247);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(93, 27);
             this.cbEstatus.TabIndex = 12;
@@ -100,45 +100,45 @@
             // txtContacto
             // 
             this.txtContacto.BackColor = System.Drawing.Color.Silver;
-            this.txtContacto.Location = new System.Drawing.Point(224, 211);
+            this.txtContacto.Location = new System.Drawing.Point(240, 211);
             this.txtContacto.MaxLength = 100;
             this.txtContacto.Name = "txtContacto";
-            this.txtContacto.Size = new System.Drawing.Size(315, 32);
+            this.txtContacto.Size = new System.Drawing.Size(299, 32);
             this.txtContacto.TabIndex = 11;
             // 
             // txtFax
             // 
             this.txtFax.BackColor = System.Drawing.Color.Silver;
-            this.txtFax.Location = new System.Drawing.Point(224, 176);
+            this.txtFax.Location = new System.Drawing.Point(240, 176);
             this.txtFax.MaxLength = 20;
             this.txtFax.Name = "txtFax";
-            this.txtFax.Size = new System.Drawing.Size(315, 32);
+            this.txtFax.Size = new System.Drawing.Size(299, 32);
             this.txtFax.TabIndex = 10;
             // 
             // txtTelefonos
             // 
             this.txtTelefonos.BackColor = System.Drawing.Color.Silver;
-            this.txtTelefonos.Location = new System.Drawing.Point(224, 140);
+            this.txtTelefonos.Location = new System.Drawing.Point(240, 140);
             this.txtTelefonos.MaxLength = 100;
             this.txtTelefonos.Name = "txtTelefonos";
-            this.txtTelefonos.Size = new System.Drawing.Size(315, 32);
+            this.txtTelefonos.Size = new System.Drawing.Size(299, 32);
             this.txtTelefonos.TabIndex = 9;
             // 
             // txtDireccion
             // 
             this.txtDireccion.BackColor = System.Drawing.Color.Silver;
-            this.txtDireccion.Location = new System.Drawing.Point(224, 104);
+            this.txtDireccion.Location = new System.Drawing.Point(240, 104);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(315, 32);
+            this.txtDireccion.Size = new System.Drawing.Size(299, 32);
             this.txtDireccion.TabIndex = 8;
             // 
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.Silver;
-            this.txtNombre.Location = new System.Drawing.Point(224, 69);
+            this.txtNombre.Location = new System.Drawing.Point(240, 69);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(315, 32);
+            this.txtNombre.Size = new System.Drawing.Size(299, 32);
             this.txtNombre.TabIndex = 7;
             // 
             // ddlTipoProveedor
@@ -147,9 +147,9 @@
             this.ddlTipoProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTipoProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlTipoProveedor.FormattingEnabled = true;
-            this.ddlTipoProveedor.Location = new System.Drawing.Point(224, 34);
+            this.ddlTipoProveedor.Location = new System.Drawing.Point(240, 34);
             this.ddlTipoProveedor.Name = "ddlTipoProveedor";
-            this.ddlTipoProveedor.Size = new System.Drawing.Size(315, 31);
+            this.ddlTipoProveedor.Size = new System.Drawing.Size(299, 31);
             this.ddlTipoProveedor.TabIndex = 6;
             // 
             // label6
@@ -193,18 +193,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(131, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
+            this.label2.Size = new System.Drawing.Size(104, 23);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre";
+            this.label2.Text = "Nombre *";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(33, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 23);
+            this.label1.Size = new System.Drawing.Size(201, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tipo de Proveedor";
+            this.label1.Text = "Tipo de Proveedor *";
             // 
             // btnCerrar
             // 

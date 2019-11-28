@@ -81,7 +81,7 @@
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbEstatus.Location = new System.Drawing.Point(138, 72);
+            this.cbEstatus.Location = new System.Drawing.Point(155, 72);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(93, 27);
             this.cbEstatus.TabIndex = 7;
@@ -91,10 +91,10 @@
             // txtSala
             // 
             this.txtSala.BackColor = System.Drawing.Color.Silver;
-            this.txtSala.Location = new System.Drawing.Point(138, 34);
+            this.txtSala.Location = new System.Drawing.Point(155, 34);
             this.txtSala.MaxLength = 100;
             this.txtSala.Name = "txtSala";
-            this.txtSala.Size = new System.Drawing.Size(358, 32);
+            this.txtSala.Size = new System.Drawing.Size(341, 32);
             this.txtSala.TabIndex = 1;
             // 
             // label1
@@ -102,9 +102,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 23);
+            this.label1.Size = new System.Drawing.Size(141, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Descripción";
+            this.label1.Text = "Descripción *";
             // 
             // SalasMantenimiento
             // 

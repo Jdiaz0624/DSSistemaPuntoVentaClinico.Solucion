@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbDatosCaja = new System.Windows.Forms.GroupBox();
             this.txtCodigoCaja = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.Monto = new System.Windows.Forms.Label();
             this.rbSacar = new System.Windows.Forms.RadioButton();
             this.rbIngresar = new System.Windows.Forms.RadioButton();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbDatosCaja.SuspendLayout();
@@ -66,6 +66,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(803, 38);
             this.panel1.TabIndex = 1;
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(5, 7);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.TabIndex = 12;
+            this.lbTitulo.Text = "label6";
             // 
             // btnCerrar
             // 
@@ -239,11 +248,11 @@
             // Monto
             // 
             this.Monto.AutoSize = true;
-            this.Monto.Location = new System.Drawing.Point(46, 86);
+            this.Monto.Location = new System.Drawing.Point(31, 84);
             this.Monto.Name = "Monto";
-            this.Monto.Size = new System.Drawing.Size(72, 23);
+            this.Monto.Size = new System.Drawing.Size(87, 23);
             this.Monto.TabIndex = 8;
-            this.Monto.Text = "Monto";
+            this.Monto.Text = "Monto *";
             // 
             // rbSacar
             // 
@@ -270,15 +279,6 @@
             this.rbIngresar.TabStop = true;
             this.rbIngresar.Text = "Ingresar Efectivo";
             this.rbIngresar.UseVisualStyleBackColor = true;
-            // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Location = new System.Drawing.Point(5, 7);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
-            this.lbTitulo.TabIndex = 12;
-            this.lbTitulo.Text = "label6";
             // 
             // Caja
             // 
