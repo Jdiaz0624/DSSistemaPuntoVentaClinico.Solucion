@@ -214,6 +214,7 @@
             this.btnDeshabilitar.Text = "Deshabilitar";
             this.toolTip1.SetToolTip(this.btnDeshabilitar, "Deshabilitar Registros");
             this.btnDeshabilitar.UseVisualStyleBackColor = true;
+            this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
             // 
             // btnModificar
             // 

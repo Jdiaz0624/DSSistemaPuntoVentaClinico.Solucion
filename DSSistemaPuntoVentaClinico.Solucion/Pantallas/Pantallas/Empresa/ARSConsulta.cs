@@ -30,38 +30,31 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                 VariablesGlobales.NombreSistema = n.NombreEmpresa;
             }
         }
+
+        #region MOSTRAMOS EL LISTADO DE LA ARS
+        private void MostrarListadoARS()
+        {
+            string _Nombre = string.IsNullOrEmpty(txtNombre.Text.Trim()) ? null : txtNombre.Text.Trim();
+            string _Codigo = string.IsNullOrEmpty(txtCodigo.Text.Trim()) ? null : txtCodigo.Text.Trim();
+
+            var Listado = ObjDataEmpresa.Value.BuscaARS(
+                new Nullable<decimal>(),
+                _Codigo,
+                _Nombre,
+                Convert.ToInt32(txtNumeroPagina.Value),
+                Convert.ToInt32(txtNumeroRegistros.Value));
+            dtListado.DataSource = Listado;
+            OcultarColumnas();
+        }
+        #endregion
         private void RestablecerPantalla()
         {
-            btnNuevo.Enabled = true;
-            btnConsultar.Enabled = true;
-            txtNumeroPagina.Enabled = true;
-            txtNumeroRegistros.Enabled = true;
-            btnRestablecer.Enabled = false;
-            btnModificar.Enabled = false;
-            btnDeshabilitar.Enabled = false;
-            lbClaveSeguridad.Visible = false;
-            txtClaveSeguridad.Visible = false;
-            txtNumeroPagina.Value = 1;
-            txtNumeroRegistros.Value = 10;
-            txtCodigo.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtClaveSeguridad.Text = string.Empty;
-            ListadoARS();
+
         }
         #region MOSTRAR EL LISTADO DE ARS
         private void ListadoARS()
         {
-            string _Codigo = string.IsNullOrEmpty(txtCodigo.Text.Trim()) ? null : txtCodigo.Text.Trim();
-            string _Descripcion = string.IsNullOrEmpty(txtNombre.Text.Trim()) ? null : txtNombre.Text.Trim();
-
-            var Buscar = ObjDataEmpresa.Value.BuscaARS(
-                new Nullable<decimal>(),
-                _Codigo,
-                _Descripcion,
-                Convert.ToInt32(txtNumeroPagina.Value),
-                Convert.ToInt32(txtNumeroRegistros.Value));
-            dtListado.DataSource = Buscar;
-            OcultarColumnas();
+   
         }
         private void OcultarColumnas()
         {
@@ -75,22 +68,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 #endregion
         private void ARSConsulta_Load(object sender, EventArgs e)
         {
-            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
-            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             SacarDataInformacionEmpresa(1);
-            gbBuscar.ForeColor = Color.Black;
-            gbListado.ForeColor = Color.Black;
-            gbOpciones.ForeColor = Color.Black;
-            lbNumeroPagina.ForeColor = Color.Black;
-            lbNumeroRegistros.ForeColor = Color.Black;
-            txtClaveSeguridad.ForeColor = Color.Black;
-            txtCodigo.ForeColor = Color.Black;
-            txtNombre.ForeColor = Color.Black;
-            dtListado.ForeColor = Color.Black;
-            txtClaveSeguridad.PasswordChar = '•';
-            ListadoARS();
-            lbTitulo.ForeColor = Color.White;
-            lbTitulo.Text = "Mantenimiento de ARS";
+            MostrarListadoARS();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -108,20 +87,20 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            ListadoARS();
+            MostrarListadoARS();
         }
 
         private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
         {
             if (txtNumeroPagina.Value < 1)
             {
-                MessageBox.Show("El numero de paginas no puede ser menor a 1", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El numero de pagina no puede ser menor a 1", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNumeroPagina.Value = 1;
-                ListadoARS();
+                MostrarListadoARS();
             }
             else
             {
-                ListadoARS();
+                MostrarListadoARS();
             }
         }
 
@@ -131,41 +110,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             {
                 MessageBox.Show("El numero de registros no puede ser menor a 1", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNumeroRegistros.Value = 10;
-                ListadoARS();
+                MostrarListadoARS();
             }
             else
             {
-                ListadoARS();
+                MostrarListadoARS();
             }
         }
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try {
-                if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdARS"].Value.ToString());
-                    this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoARS"].Value.ToString());
-
-                    var Buscar = ObjDataEmpresa.Value.BuscaARS(
-                        VariablesGlobales.IdMantenimiento,
-                        VariablesGlobales.CodigoMantenimiento,
-                        null, 1, 1);
-                    dtListado.DataSource = Buscar;
-                    OcultarColumnas();
-
-                    btnNuevo.Enabled = false;
-                    btnConsultar.Enabled = false;
-                    txtNumeroPagina.Enabled = false;
-                    txtNumeroRegistros.Enabled = false;
-                    btnRestablecer.Enabled = true;
-                    btnModificar.Enabled = true;
-                    btnDeshabilitar.Enabled = true;
-                    lbClaveSeguridad.Visible = true;
-                    txtClaveSeguridad.Visible = true;
-                }
-            }
-            catch (Exception) { }
+            
         }
 
         private void ARSConsulta_FormClosing(object sender, FormClosingEventArgs e)
@@ -179,6 +134,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         }
 
         private void gbListado_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeshabilitar_Click(object sender, EventArgs e)
         {
 
         }

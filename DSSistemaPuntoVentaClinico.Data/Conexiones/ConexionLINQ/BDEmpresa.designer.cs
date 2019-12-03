@@ -76,20 +76,6 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			return ((ISingleResult<SP_BUSCA_CENTRO_SALUDResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_MANTENIMIENTO_ARS")]
-		public ISingleResult<SP_MANTENIMIENTO_ARSResult> SP_MANTENIMIENTO_ARS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdArs", DbType="Decimal(18,0)")] System.Nullable<decimal> idArs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoARS", DbType="VarChar(100)")] string codigoARS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(18,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idArs, codigoARS, descripcion, estatus, idUsuario, accion);
-			return ((ISingleResult<SP_MANTENIMIENTO_ARSResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_BUSCA_ARS")]
-		public ISingleResult<SP_BUSCA_ARSResult> SP_BUSCA_ARS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdARS", DbType="Decimal(18,0)")] System.Nullable<decimal> idARS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoARS", DbType="VarChar(100)")] string codigoARS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPaina", DbType="Int")] System.Nullable<int> numeroPaina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idARS, codigoARS, descripcion, numeroPaina, numeroRegistros);
-			return ((ISingleResult<SP_BUSCA_ARSResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_MANTENIMIENTO_SALAS")]
 		public ISingleResult<SP_MANTENIMIENTO_SALASResult> SP_MANTENIMIENTO_SALAS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdSala", DbType="Decimal(18,0)")] System.Nullable<decimal> idSala, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoSala", DbType="VarChar(100)")] string codigoSala, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(18,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
@@ -147,6 +133,20 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idMedico, codigoMedico, nombreMedico, idCentroSalud, email, estatus, idUsuario, telefono, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_MEDICOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_BUSCA_ARS")]
+		public ISingleResult<SP_BUSCA_ARSResult> SP_BUSCA_ARS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdARS", DbType="Decimal(18,0)")] System.Nullable<decimal> idARS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoARS", DbType="VarChar(100)")] string codigoARS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPaina", DbType="Int")] System.Nullable<int> numeroPaina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idARS, codigoARS, descripcion, numeroPaina, numeroRegistros);
+			return ((ISingleResult<SP_BUSCA_ARSResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Empresa.SP_MANTENIMIENTO_ARS")]
+		public ISingleResult<SP_MANTENIMIENTO_ARSResult> SP_MANTENIMIENTO_ARS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdArs", DbType="Decimal(18,0)")] System.Nullable<decimal> idArs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoARS", DbType="VarChar(100)")] string codigoARS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="Bit")] System.Nullable<bool> estatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(18,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Representante", DbType="VarChar(100)")] string representante, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RNC", DbType="VarChar(50)")] string rNC, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Telefono", DbType="VarChar(20)")] string telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Correo", DbType="VarChar(100)")] string correo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Direccion", DbType="VarChar(8000)")] string direccion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idArs, codigoARS, descripcion, estatus, idUsuario, representante, rNC, telefono, correo, direccion, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_ARSResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -451,400 +451,6 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._Telefonos != value))
 				{
 					this._Telefonos = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus0", DbType="Bit")]
-		public System.Nullable<bool> Estatus0
-		{
-			get
-			{
-				return this._Estatus0;
-			}
-			set
-			{
-				if ((this._Estatus0 != value))
-				{
-					this._Estatus0 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
-		public string Estatus
-		{
-			get
-			{
-				return this._Estatus;
-			}
-			set
-			{
-				if ((this._Estatus != value))
-				{
-					this._Estatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> UsuarioAdiciona
-		{
-			get
-			{
-				return this._UsuarioAdiciona;
-			}
-			set
-			{
-				if ((this._UsuarioAdiciona != value))
-				{
-					this._UsuarioAdiciona = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreadoPor", DbType="VarChar(1000)")]
-		public string CreadoPor
-		{
-			get
-			{
-				return this._CreadoPor;
-			}
-			set
-			{
-				if ((this._CreadoPor != value))
-				{
-					this._CreadoPor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona0", DbType="Date")]
-		public System.Nullable<System.DateTime> FechaAdiciona0
-		{
-			get
-			{
-				return this._FechaAdiciona0;
-			}
-			set
-			{
-				if ((this._FechaAdiciona0 != value))
-				{
-					this._FechaAdiciona0 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="NVarChar(30)")]
-		public string FechaAdiciona
-		{
-			get
-			{
-				return this._FechaAdiciona;
-			}
-			set
-			{
-				if ((this._FechaAdiciona != value))
-				{
-					this._FechaAdiciona = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioModifica", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> UsuarioModifica
-		{
-			get
-			{
-				return this._UsuarioModifica;
-			}
-			set
-			{
-				if ((this._UsuarioModifica != value))
-				{
-					this._UsuarioModifica = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModificadoPor", DbType="VarChar(1000)")]
-		public string ModificadoPor
-		{
-			get
-			{
-				return this._ModificadoPor;
-			}
-			set
-			{
-				if ((this._ModificadoPor != value))
-				{
-					this._ModificadoPor = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica0", DbType="Date")]
-		public System.Nullable<System.DateTime> FechaModifica0
-		{
-			get
-			{
-				return this._FechaModifica0;
-			}
-			set
-			{
-				if ((this._FechaModifica0 != value))
-				{
-					this._FechaModifica0 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="NVarChar(30)")]
-		public string FechaModifica
-		{
-			get
-			{
-				return this._FechaModifica;
-			}
-			set
-			{
-				if ((this._FechaModifica != value))
-				{
-					this._FechaModifica = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_MANTENIMIENTO_ARSResult
-	{
-		
-		private System.Nullable<decimal> _IdArs;
-		
-		private string _CodigoARS;
-		
-		private string _Descripcion;
-		
-		private System.Nullable<bool> _Estatus;
-		
-		private System.Nullable<decimal> _UsuarioAdiciona;
-		
-		private System.Nullable<System.DateTime> _FechaAdiciona;
-		
-		private System.Nullable<decimal> _UsuarioModifica;
-		
-		private System.Nullable<System.DateTime> _FechaModifica;
-		
-		public SP_MANTENIMIENTO_ARSResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdArs", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> IdArs
-		{
-			get
-			{
-				return this._IdArs;
-			}
-			set
-			{
-				if ((this._IdArs != value))
-				{
-					this._IdArs = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoARS", DbType="VarChar(100)")]
-		public string CodigoARS
-		{
-			get
-			{
-				return this._CodigoARS;
-			}
-			set
-			{
-				if ((this._CodigoARS != value))
-				{
-					this._CodigoARS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
-		public string Descripcion
-		{
-			get
-			{
-				return this._Descripcion;
-			}
-			set
-			{
-				if ((this._Descripcion != value))
-				{
-					this._Descripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
-		public System.Nullable<bool> Estatus
-		{
-			get
-			{
-				return this._Estatus;
-			}
-			set
-			{
-				if ((this._Estatus != value))
-				{
-					this._Estatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> UsuarioAdiciona
-		{
-			get
-			{
-				return this._UsuarioAdiciona;
-			}
-			set
-			{
-				if ((this._UsuarioAdiciona != value))
-				{
-					this._UsuarioAdiciona = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="Date")]
-		public System.Nullable<System.DateTime> FechaAdiciona
-		{
-			get
-			{
-				return this._FechaAdiciona;
-			}
-			set
-			{
-				if ((this._FechaAdiciona != value))
-				{
-					this._FechaAdiciona = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioModifica", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> UsuarioModifica
-		{
-			get
-			{
-				return this._UsuarioModifica;
-			}
-			set
-			{
-				if ((this._UsuarioModifica != value))
-				{
-					this._UsuarioModifica = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="Date")]
-		public System.Nullable<System.DateTime> FechaModifica
-		{
-			get
-			{
-				return this._FechaModifica;
-			}
-			set
-			{
-				if ((this._FechaModifica != value))
-				{
-					this._FechaModifica = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_BUSCA_ARSResult
-	{
-		
-		private System.Nullable<decimal> _IdArs;
-		
-		private string _CodigoARS;
-		
-		private string _ARS;
-		
-		private System.Nullable<bool> _Estatus0;
-		
-		private string _Estatus;
-		
-		private System.Nullable<decimal> _UsuarioAdiciona;
-		
-		private string _CreadoPor;
-		
-		private System.Nullable<System.DateTime> _FechaAdiciona0;
-		
-		private string _FechaAdiciona;
-		
-		private System.Nullable<decimal> _UsuarioModifica;
-		
-		private string _ModificadoPor;
-		
-		private System.Nullable<System.DateTime> _FechaModifica0;
-		
-		private string _FechaModifica;
-		
-		public SP_BUSCA_ARSResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdArs", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> IdArs
-		{
-			get
-			{
-				return this._IdArs;
-			}
-			set
-			{
-				if ((this._IdArs != value))
-				{
-					this._IdArs = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoARS", DbType="VarChar(100)")]
-		public string CodigoARS
-		{
-			get
-			{
-				return this._CodigoARS;
-			}
-			set
-			{
-				if ((this._CodigoARS != value))
-				{
-					this._CodigoARS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ARS", DbType="VarChar(100)")]
-		public string ARS
-		{
-			get
-			{
-				return this._ARS;
-			}
-			set
-			{
-				if ((this._ARS != value))
-				{
-					this._ARS = value;
 				}
 			}
 		}
@@ -2799,6 +2405,580 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._Telefono != value))
 				{
 					this._Telefono = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_ARSResult
+	{
+		
+		private System.Nullable<decimal> _IdArs;
+		
+		private string _CodigoARS;
+		
+		private string _ARS;
+		
+		private string _Representante;
+		
+		private string _RNC;
+		
+		private string _Telefono;
+		
+		private string _Correo;
+		
+		private string _Direccion;
+		
+		private System.Nullable<bool> _Estatus0;
+		
+		private string _Estatus;
+		
+		private System.Nullable<decimal> _UsuarioAdiciona;
+		
+		private string _CreadoPor;
+		
+		private System.Nullable<System.DateTime> _FechaAdiciona0;
+		
+		private string _FechaAdiciona;
+		
+		private System.Nullable<decimal> _UsuarioModifica;
+		
+		private string _ModificadoPor;
+		
+		private System.Nullable<System.DateTime> _FechaModifica0;
+		
+		private string _FechaModifica;
+		
+		public SP_BUSCA_ARSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdArs", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> IdArs
+		{
+			get
+			{
+				return this._IdArs;
+			}
+			set
+			{
+				if ((this._IdArs != value))
+				{
+					this._IdArs = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoARS", DbType="VarChar(100)")]
+		public string CodigoARS
+		{
+			get
+			{
+				return this._CodigoARS;
+			}
+			set
+			{
+				if ((this._CodigoARS != value))
+				{
+					this._CodigoARS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ARS", DbType="VarChar(100)")]
+		public string ARS
+		{
+			get
+			{
+				return this._ARS;
+			}
+			set
+			{
+				if ((this._ARS != value))
+				{
+					this._ARS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Representante", DbType="VarChar(100)")]
+		public string Representante
+		{
+			get
+			{
+				return this._Representante;
+			}
+			set
+			{
+				if ((this._Representante != value))
+				{
+					this._Representante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RNC", DbType="VarChar(50)")]
+		public string RNC
+		{
+			get
+			{
+				return this._RNC;
+			}
+			set
+			{
+				if ((this._RNC != value))
+				{
+					this._RNC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(20)")]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correo", DbType="VarChar(100)")]
+		public string Correo
+		{
+			get
+			{
+				return this._Correo;
+			}
+			set
+			{
+				if ((this._Correo != value))
+				{
+					this._Correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus0", DbType="Bit")]
+		public System.Nullable<bool> Estatus0
+		{
+			get
+			{
+				return this._Estatus0;
+			}
+			set
+			{
+				if ((this._Estatus0 != value))
+				{
+					this._Estatus0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> UsuarioAdiciona
+		{
+			get
+			{
+				return this._UsuarioAdiciona;
+			}
+			set
+			{
+				if ((this._UsuarioAdiciona != value))
+				{
+					this._UsuarioAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreadoPor", DbType="VarChar(1000)")]
+		public string CreadoPor
+		{
+			get
+			{
+				return this._CreadoPor;
+			}
+			set
+			{
+				if ((this._CreadoPor != value))
+				{
+					this._CreadoPor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaAdiciona0
+		{
+			get
+			{
+				return this._FechaAdiciona0;
+			}
+			set
+			{
+				if ((this._FechaAdiciona0 != value))
+				{
+					this._FechaAdiciona0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="NVarChar(30)")]
+		public string FechaAdiciona
+		{
+			get
+			{
+				return this._FechaAdiciona;
+			}
+			set
+			{
+				if ((this._FechaAdiciona != value))
+				{
+					this._FechaAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioModifica", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> UsuarioModifica
+		{
+			get
+			{
+				return this._UsuarioModifica;
+			}
+			set
+			{
+				if ((this._UsuarioModifica != value))
+				{
+					this._UsuarioModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModificadoPor", DbType="VarChar(1000)")]
+		public string ModificadoPor
+		{
+			get
+			{
+				return this._ModificadoPor;
+			}
+			set
+			{
+				if ((this._ModificadoPor != value))
+				{
+					this._ModificadoPor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaModifica0
+		{
+			get
+			{
+				return this._FechaModifica0;
+			}
+			set
+			{
+				if ((this._FechaModifica0 != value))
+				{
+					this._FechaModifica0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="NVarChar(30)")]
+		public string FechaModifica
+		{
+			get
+			{
+				return this._FechaModifica;
+			}
+			set
+			{
+				if ((this._FechaModifica != value))
+				{
+					this._FechaModifica = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_ARSResult
+	{
+		
+		private System.Nullable<decimal> _IdArs;
+		
+		private string _CodigoARS;
+		
+		private string _Descripcion;
+		
+		private System.Nullable<bool> _Estatus;
+		
+		private System.Nullable<decimal> _UsuarioAdiciona;
+		
+		private System.Nullable<System.DateTime> _FechaAdiciona;
+		
+		private System.Nullable<decimal> _UsuarioModifica;
+		
+		private System.Nullable<System.DateTime> _FechaModifica;
+		
+		private string _Representante;
+		
+		private string _RNC;
+		
+		private string _Telefono;
+		
+		private string _Correo;
+		
+		private string _Direccion;
+		
+		public SP_MANTENIMIENTO_ARSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdArs", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> IdArs
+		{
+			get
+			{
+				return this._IdArs;
+			}
+			set
+			{
+				if ((this._IdArs != value))
+				{
+					this._IdArs = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoARS", DbType="VarChar(100)")]
+		public string CodigoARS
+		{
+			get
+			{
+				return this._CodigoARS;
+			}
+			set
+			{
+				if ((this._CodigoARS != value))
+				{
+					this._CodigoARS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="Bit")]
+		public System.Nullable<bool> Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioAdiciona", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> UsuarioAdiciona
+		{
+			get
+			{
+				return this._UsuarioAdiciona;
+			}
+			set
+			{
+				if ((this._UsuarioAdiciona != value))
+				{
+					this._UsuarioAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaAdiciona
+		{
+			get
+			{
+				return this._FechaAdiciona;
+			}
+			set
+			{
+				if ((this._FechaAdiciona != value))
+				{
+					this._FechaAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioModifica", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> UsuarioModifica
+		{
+			get
+			{
+				return this._UsuarioModifica;
+			}
+			set
+			{
+				if ((this._UsuarioModifica != value))
+				{
+					this._UsuarioModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaModifica
+		{
+			get
+			{
+				return this._FechaModifica;
+			}
+			set
+			{
+				if ((this._FechaModifica != value))
+				{
+					this._FechaModifica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Representante", DbType="VarChar(100)")]
+		public string Representante
+		{
+			get
+			{
+				return this._Representante;
+			}
+			set
+			{
+				if ((this._Representante != value))
+				{
+					this._Representante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RNC", DbType="VarChar(50)")]
+		public string RNC
+		{
+			get
+			{
+				return this._RNC;
+			}
+			set
+			{
+				if ((this._RNC != value))
+				{
+					this._RNC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(20)")]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this._Telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correo", DbType="VarChar(100)")]
+		public string Correo
+		{
+			get
+			{
+				return this._Correo;
+			}
+			set
+			{
+				if ((this._Correo != value))
+				{
+					this._Correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
 				}
 			}
 		}

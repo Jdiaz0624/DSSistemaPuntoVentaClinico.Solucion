@@ -162,7 +162,12 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               UsuarioModifica=n.UsuarioModifica,
                               ModificadoPor=n.ModificadoPor,
                               FechaModifica0=n.FechaModifica0,
-                              FechaModifica=n.FechaModifica
+                              FechaModifica=n.FechaModifica,
+                              Representante=n.Representante,
+                              RNC=n.RNC,
+                              Telefono=n.Telefono,
+                              Correo=n.Correo,
+                              Direccion=n.Direccion
                           }).ToList();
             return Buscar;
         }
@@ -178,6 +183,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.ARS,
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
+                Item.Representante,
+                Item.RNC,
+                Item.Telefono,
+                Item.Correo,
+                Item.Direccion,
                 Accion);
             if (ARS != null)
             {
@@ -191,7 +201,12 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      UsuarioAdiciona=n.UsuarioAdiciona,
                                      FechaAdiciona0=n.FechaAdiciona,
                                      UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica0=n.FechaModifica
+                                     FechaModifica0=n.FechaModifica,
+                                     Representante=n.Representante,
+                                     RNC=n.RNC,
+                                     Telefono=n.Telefono,
+                                     Correo=n.Correo,
+                                     Direccion=n.Direccion
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

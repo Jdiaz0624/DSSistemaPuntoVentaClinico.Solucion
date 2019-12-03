@@ -46,46 +46,6 @@
       <Column Name="FechaModifica" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="Empresa.SP_MANTENIMIENTO_ARS" Method="SP_MANTENIMIENTO_ARS">
-    <Parameter Name="IdArs" Parameter="idArs" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="CodigoARS" Parameter="codigoARS" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
-    <ElementType Name="SP_MANTENIMIENTO_ARSResult">
-      <Column Name="IdArs" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="CodigoARS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="FechaAdiciona" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="FechaModifica" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Empresa.SP_BUSCA_ARS" Method="SP_BUSCA_ARS">
-    <Parameter Name="IdARS" Parameter="idARS" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="CodigoARS" Parameter="codigoARS" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="NumeroPaina" Parameter="numeroPaina" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
-    <ElementType Name="SP_BUSCA_ARSResult">
-      <Column Name="IdArs" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="CodigoARS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="ARS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
-      <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="FechaAdiciona0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="FechaAdiciona" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-      <Column Name="ModificadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="FechaModifica0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="FechaModifica" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Empresa.SP_MANTENIMIENTO_SALAS" Method="SP_MANTENIMIENTO_SALAS">
     <Parameter Name="IdSala" Parameter="idSala" Type="System.Decimal" DbType="Decimal(18,0)" />
     <Parameter Name="CodigoSala" Parameter="codigoSala" Type="System.String" DbType="VarChar(100)" />
@@ -256,6 +216,61 @@
       <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
       <Column Name="FechaModifica" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="Telefono" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Empresa.SP_BUSCA_ARS" Method="SP_BUSCA_ARS">
+    <Parameter Name="IdARS" Parameter="idARS" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="CodigoARS" Parameter="codigoARS" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NumeroPaina" Parameter="numeroPaina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_ARSResult">
+      <Column Name="IdArs" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CodigoARS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ARS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Representante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RNC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="FechaAdiciona0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ModificadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="FechaModifica0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Empresa.SP_MANTENIMIENTO_ARS" Method="SP_MANTENIMIENTO_ARS">
+    <Parameter Name="IdArs" Parameter="idArs" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="CodigoARS" Parameter="codigoARS" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="Representante" Parameter="representante" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="RNC" Parameter="rNC" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Correo" Parameter="correo" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_ARSResult">
+      <Column Name="IdArs" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CodigoARS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Representante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RNC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
