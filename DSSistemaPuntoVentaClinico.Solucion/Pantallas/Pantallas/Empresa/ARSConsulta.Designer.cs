@@ -228,6 +228,7 @@
             this.btnModificar.Text = "Modificar";
             this.toolTip1.SetToolTip(this.btnModificar, "Modificar Registros Seleccionados");
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnRestablecer
             // 

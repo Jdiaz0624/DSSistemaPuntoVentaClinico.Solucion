@@ -74,9 +74,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Hide();
             DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa.ARSMantenimiento Mantenimiento = new ARSMantenimiento();
             Mantenimiento.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Mantenimiento.VariablesGlobales.IdMantenimiento = 0;
+            Mantenimiento.VariablesGlobales.CodigoMantenimiento = "";
+            Mantenimiento.VariablesGlobales.AccionTomar = "INSERT";
             Mantenimiento.ShowDialog();
         }
 
@@ -140,7 +143,36 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void btnDeshabilitar_Click(object sender, EventArgs e)
         {
+            //validamos la clave de seguridad
+            var Validar = ObjdataSeguridad.Value.BuscaClaveSeguridad(
+                DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.Encriptar(txtClaveSeguridad.Text),
+                null, 1, 1);
+            if (Validar.Count() < 1)
+            {
+                MessageBox.Show("La clave de seguridad no es valida", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtClaveSeguridad.Text = string.Empty;
+                txtClaveSeguridad.Focus();
+            }
+            else
+            {
+                if (MessageBox.Show("¿Quieres deshabilitar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //DESABILITAMos
 
+           
+                }
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa.ARSMantenimiento Mantenimiento = new ARSMantenimiento();
+            Mantenimiento.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Mantenimiento.VariablesGlobales.IdMantenimiento = VariablesGlobales.IdMantenimiento;
+            Mantenimiento.VariablesGlobales.CodigoMantenimiento = VariablesGlobales.CodigoMantenimiento;
+            Mantenimiento.VariablesGlobales.AccionTomar = "UPDATE";
+            Mantenimiento.ShowDialog();
         }
     }
 }
