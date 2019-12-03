@@ -242,6 +242,7 @@
             this.btnRestablecer.Text = "Restablecer";
             this.toolTip1.SetToolTip(this.btnRestablecer, "Establecer Pantalla");
             this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
             // btnNuevo
             // 

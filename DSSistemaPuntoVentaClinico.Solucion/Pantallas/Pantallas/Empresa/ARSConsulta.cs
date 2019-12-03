@@ -49,7 +49,22 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         #endregion
         private void RestablecerPantalla()
         {
-
+            lbClaveSeguridad.Visible = false;
+            txtClaveSeguridad.Visible = false;
+            txtClaveSeguridad.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtCodigo.Text = string.Empty;
+            btnNuevo.Enabled = true;
+            btnConsultar.Enabled = true;
+            btnModificar.Enabled = false;
+            btnDeshabilitar.Enabled = false;
+            btnRestablecer.Enabled = false;
+            txtNumeroPagina.Value = 1;
+            txtNumeroRegistros.Value = 10;
+            txtNumeroRegistros.Enabled = true;
+            txtNumeroPagina.Enabled = true;
+            dtListado.Enabled = true;
+            MostrarListadoARS();
         }
         #region MOSTRAR EL LISTADO DE ARS
         private void ListadoARS()
@@ -70,6 +85,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         {
             SacarDataInformacionEmpresa(1);
             MostrarListadoARS();
+            txtClaveSeguridad.PasswordChar = '•';
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -123,7 +139,29 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdArs"].Value.ToString());
+                this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtListado.CurrentRow.Cells["CodigoARS"].Value.ToString());
+
+                var Buscar = ObjDataEmpresa.Value.BuscaARS(
+                    VariablesGlobales.IdMantenimiento,
+                    VariablesGlobales.CodigoMantenimiento,
+                    null, 1, 1);
+                dtListado.DataSource = Buscar;
+
+
+                lbClaveSeguridad.Visible = true;
+                txtClaveSeguridad.Visible = true;
+                btnNuevo.Enabled = false;
+                btnConsultar.Enabled = false;
+                btnModificar.Enabled = true;
+                btnDeshabilitar.Enabled = true;
+                btnRestablecer.Enabled = true;
+                txtNumeroRegistros.Enabled = false;
+                txtNumeroPagina.Enabled = false;
+                dtListado.Enabled = false;
+            }
         }
 
         private void ARSConsulta_FormClosing(object sender, FormClosingEventArgs e)
@@ -143,23 +181,50 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void btnDeshabilitar_Click(object sender, EventArgs e)
         {
-            //validamos la clave de seguridad
-            var Validar = ObjdataSeguridad.Value.BuscaClaveSeguridad(
-                DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.Encriptar(txtClaveSeguridad.Text),
-                null, 1, 1);
-            if (Validar.Count() < 1)
+            if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
             {
-                MessageBox.Show("La clave de seguridad no es valida", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtClaveSeguridad.Text = string.Empty;
-                txtClaveSeguridad.Focus();
+                MessageBox.Show("El campo clave de seguridad no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if (MessageBox.Show("¿Quieres deshabilitar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //validamos la clave de seguridad
+                var Validar = ObjdataSeguridad.Value.BuscaClaveSeguridad(
+                    DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.Encriptar(txtClaveSeguridad.Text),
+                    null, 1, 1);
+                if (Validar.Count() < 1)
                 {
-                    //DESABILITAMos
+                    MessageBox.Show("La clave de seguridad no es valida", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtClaveSeguridad.Text = string.Empty;
+                    txtClaveSeguridad.Focus();
+                }
+                else
+                {
+                    if (MessageBox.Show("¿Quieres deshabilitar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            //DESHABILITAMOS
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EArs Deshabilitar = new Logica.Entidades.EntidadEmpresa.EArs();
 
-           
+                            Deshabilitar.IdArs = VariablesGlobales.IdMantenimiento;
+                            Deshabilitar.CodigoARS = VariablesGlobales.CodigoMantenimiento;
+                            Deshabilitar.UsuarioAdiciona = VariablesGlobales.IdUsuario;
+                            Deshabilitar.FechaAdiciona0 = DateTime.Now;
+                            Deshabilitar.UsuarioModifica = VariablesGlobales.IdUsuario;
+                            Deshabilitar.FechaModifica0 = DateTime.Now;
+
+                            var MAn = ObjDataEmpresa.Value.MantenimientoARs(Deshabilitar, "DISABLES");
+
+                            MessageBox.Show("Registro deshabilitado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            RestablecerPantalla();
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Error al deshabilitar este registro", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+
+                    }
                 }
             }
         }
@@ -173,6 +238,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             Mantenimiento.VariablesGlobales.CodigoMantenimiento = VariablesGlobales.CodigoMantenimiento;
             Mantenimiento.VariablesGlobales.AccionTomar = "UPDATE";
             Mantenimiento.ShowDialog();
+        }
+
+        private void btnRestablecer_Click(object sender, EventArgs e)
+        {
+            RestablecerPantalla();
         }
     }
 }
