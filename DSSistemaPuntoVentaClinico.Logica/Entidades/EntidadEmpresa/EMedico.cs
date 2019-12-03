@@ -15,6 +15,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa
 
         public string NombreMedico {get;set;}
 
+        public string Telefono {get;set;}
+
         public System.Nullable<decimal> IdCentroSalud {get;set;}
 
         public string CentroSalud {get;set;}

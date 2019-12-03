@@ -80,6 +80,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     txtCorreo.Text = n.Email;
                     ddlCentroSalud.Text = n.CentroSalud;
                     cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
+                    txtTelefono.Text = n.Telefono;
                 }
                 if (cbEstatus.Checked == true)
                 {
@@ -107,7 +108,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             {
                 DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EMedico Mantenimiento = new Logica.Entidades.EntidadEmpresa.EMedico();
 
-                Mantenimiento.IdCentroSalud = VariablesGlobales.IdMantenimiento;
+                Mantenimiento.IdMedico = VariablesGlobales.IdMantenimiento;
                 Mantenimiento.CodigoMedico = VariablesGlobales.CodigoMantenimiento;
                 Mantenimiento.NombreMedico = txtNombre.Text;
                 Mantenimiento.IdCentroSalud = Convert.ToDecimal(ddlCentroSalud.SelectedValue);
@@ -117,6 +118,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                 Mantenimiento.FechaAdiciona0 = DateTime.Now;
                 Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
                 Mantenimiento.fechaModifica0 = DateTime.Now;
+                Mantenimiento.Telefono = txtTelefono.Text;
 
                 var MAN = ObjDataEmpresa.Value.Mantenimientomedicos(Mantenimiento, VariablesGlobales.AccionTomar);
 

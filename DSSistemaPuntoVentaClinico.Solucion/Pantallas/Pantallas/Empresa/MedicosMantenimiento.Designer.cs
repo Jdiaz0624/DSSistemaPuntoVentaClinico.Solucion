@@ -38,11 +38,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAccion = new System.Windows.Forms.Button();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.cbEstatus);
             this.groupBox1.Controls.Add(this.txtCorreo);
             this.groupBox1.Controls.Add(this.ddlCentroSalud);
@@ -52,7 +56,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(508, 169);
+            this.groupBox1.Size = new System.Drawing.Size(508, 199);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Del Medico";
@@ -61,7 +65,7 @@
             // 
             this.cbEstatus.AutoSize = true;
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbEstatus.Location = new System.Drawing.Point(215, 136);
+            this.cbEstatus.Location = new System.Drawing.Point(215, 173);
             this.cbEstatus.Name = "cbEstatus";
             this.cbEstatus.Size = new System.Drawing.Size(93, 27);
             this.cbEstatus.TabIndex = 8;
@@ -126,7 +130,7 @@
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(379, 185);
+            this.btnCerrar.Location = new System.Drawing.Point(379, 217);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(141, 49);
             this.btnCerrar.TabIndex = 14;
@@ -138,7 +142,7 @@
             // 
             this.btnAccion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccion.Location = new System.Drawing.Point(12, 185);
+            this.btnAccion.Location = new System.Drawing.Point(12, 217);
             this.btnAccion.Name = "btnAccion";
             this.btnAccion.Size = new System.Drawing.Size(187, 49);
             this.btnAccion.TabIndex = 13;
@@ -146,12 +150,29 @@
             this.btnAccion.UseVisualStyleBackColor = true;
             this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
             // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(215, 135);
+            this.txtTelefono.Mask = "(000)-000-0000";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(283, 32);
+            this.txtTelefono.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(117, 138);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 23);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Telefono";
+            // 
             // MedicosMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(532, 244);
+            this.ClientSize = new System.Drawing.Size(532, 278);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAccion);
             this.Controls.Add(this.groupBox1);
@@ -183,5 +204,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCerrar;
         public System.Windows.Forms.Button btnAccion;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
     }
 }

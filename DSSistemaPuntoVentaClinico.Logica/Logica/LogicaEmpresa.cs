@@ -85,6 +85,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               IdMedico=n.IdMedico,
                               CodigoMedico=n.CodigoMedico,
                               NombreMedico=n.NombreMedico,
+                              Telefono=n.Telefono,
                               IdCentroSalud=n.IdCentroSalud,
                               CentroSalud=n.CentroSalud,
                               Email=n.Email,
@@ -117,6 +118,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.Email,
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
+                Item.Telefono,
                 Accion);
             if (Medicos != null)
             {
@@ -132,7 +134,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      UsuarioAdiciona=n.UsuarioAdiciona,
                                      FechaAdiciona0=n.FechaAdiciona,
                                      UsuarioModifica=n.UsuarioModifica,
-                                     fechaModifica0=n.FechaModifica
+                                     fechaModifica0=n.FechaModifica,
+                                     Telefono=n.Telefono
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
