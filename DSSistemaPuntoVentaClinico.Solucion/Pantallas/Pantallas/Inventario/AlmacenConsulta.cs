@@ -38,7 +38,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
         private void SacarDatosAlmacenes()
         {
             string _Nombre = string.IsNullOrEmpty(txtNombre.Text.Trim()) ? null : txtNombre.Text.Trim();
-            string _Codigo = string.IsNullOrEmpty(txtCodigo.Text.Trim()) ? null : txtCodigo.Text.Trim();
+            string _Codigo = string.IsNullOrEmpty(txtRNC.Text.Trim()) ? null : txtRNC.Text.Trim();
 
             var Buscar = ObjDataInventario.Value.BuscaAlmacen(
                 new Nullable<decimal>(),
@@ -71,7 +71,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             lbClaveSeguridad.Visible = false;
             txtClaveSeguridad.Text = string.Empty;
             txtNombre.Text = string.Empty;
-            txtCodigo.Text = string.Empty;
+            txtRNC.Text = string.Empty;
             SacarDatosAlmacenes();
         }
 
@@ -112,7 +112,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             gbBuscar.ForeColor = Color.Black;
             gbListado.ForeColor = Color.Black;
             gbOpciones.ForeColor = Color.Black;
-            txtCodigo.ForeColor = Color.Black;
+            txtRNC.ForeColor = Color.Black;
             txtNombre.ForeColor = Color.Black;
             txtClaveSeguridad.ForeColor = Color.Black;
             lbNumeroRegistros.ForeColor = Color.Black;

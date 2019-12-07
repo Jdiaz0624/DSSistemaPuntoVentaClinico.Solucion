@@ -50,7 +50,7 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.gbBuscar = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtRNC = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbIdUsuario = new System.Windows.Forms.Label();
@@ -320,7 +320,7 @@
             // gbBuscar
             // 
             this.gbBuscar.Controls.Add(this.label2);
-            this.gbBuscar.Controls.Add(this.txtCodigo);
+            this.gbBuscar.Controls.Add(this.txtRNC);
             this.gbBuscar.Controls.Add(this.txtNombre);
             this.gbBuscar.Controls.Add(this.label1);
             this.gbBuscar.Location = new System.Drawing.Point(12, 51);
@@ -333,20 +333,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 80);
+            this.label2.Location = new System.Drawing.Point(85, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 23);
+            this.label2.Size = new System.Drawing.Size(53, 23);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Codigo";
+            this.label2.Text = "RNC";
             // 
-            // txtCodigo
+            // txtRNC
             // 
-            this.txtCodigo.BackColor = System.Drawing.Color.Silver;
-            this.txtCodigo.Location = new System.Drawing.Point(142, 76);
-            this.txtCodigo.MaxLength = 100;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(351, 32);
-            this.txtCodigo.TabIndex = 2;
+            this.txtRNC.BackColor = System.Drawing.Color.Silver;
+            this.txtRNC.Location = new System.Drawing.Point(142, 76);
+            this.txtRNC.MaxLength = 100;
+            this.txtRNC.Name = "txtRNC";
+            this.txtRNC.Size = new System.Drawing.Size(351, 32);
+            this.txtRNC.TabIndex = 2;
             // 
             // txtNombre
             // 
@@ -439,7 +439,7 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.GroupBox gbBuscar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.TextBox txtRNC;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbIdUsuario;
