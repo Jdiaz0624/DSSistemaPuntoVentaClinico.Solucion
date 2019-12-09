@@ -539,6 +539,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             btnFacturar.Enabled = false;
             btnAnular.Enabled = false;
             MostrarHistorial();
+            txtMonto.Text = string.Empty;
         }
         #endregion
 
@@ -914,6 +915,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             try {
                 if (MessageBox.Show("¿Quieres selecionar este registro?", Variables.NombrePacienteHis, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    
+
                     this.Variables.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
 
                     //BUSCAMOS EL REGISTRO MEDIANTE EL NUMERO DE CONECTOR
@@ -934,17 +937,42 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                     dtListado.DataSource = BuscarProductoSeleccionado;
                     OcultarColumnas();
                     btnImprimir.Enabled = true;
-                    btnAnular.Enabled = true;
+                    
                     int IdEstatus = 0;
                     foreach (var n in BuscarProductoSeleccionado)
                     {
                         IdEstatus = Convert.ToInt32(n.IdEstatusFacturacion);
+                        Variables.IdEstatusFacturacion = Convert.ToDecimal(n.IdEstatusFacturacion);
                     }
                     if (IdEstatus == 2)
                     {
                         btnFacturar.Enabled = true;
+
+                       
                     }
+                    //else 
+                    //SACAMOS EL MONTO
+                    var Monto = ObjdataHistorial.Value.MontoFacturacionCotizacion(Variables.NumeroConector);
+                    foreach (var n in Monto)
+                    {
+                        txtMonto.Text = n.Total.ToString();
+                    }
+
+                    decimal MontoSacado = Convert.ToDecimal(txtMonto.Text);
+
+                    //VERIFICAMOS EL ESTATUS
+                    if (Variables.IdEstatusFacturacion == 1)
+                    {
+                        if (MontoSacado >= 1)
+                        {
+                            btnAnular.Enabled = true;
+                        }
+                    }
+                    
                 }
+
+               
+                
             }
             catch (Exception) { }
         }

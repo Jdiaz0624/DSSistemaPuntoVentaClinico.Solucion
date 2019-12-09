@@ -75,6 +75,7 @@
     <Compile Include="Entidades\EntidadFacturacion\ESacarCalculosFacturacion.cs" />
     <Compile Include="Entidades\EntidadFacturacion\ETipoPago.cs" />
     <Compile Include="Entidades\EntidadHistorial\EHistorialFacturacionCotizacion.cs" />
+    <Compile Include="Entidades\EntidadHistorial\EMontoFacturacionCotizacion.cs" />
     <Compile Include="Entidades\EntidadInventario\EAlmacen.cs" />
     <Compile Include="Entidades\EntidadInventario\EContarProductos.cs" />
     <Compile Include="Entidades\EntidadInventario\EPRoducto.cs" />

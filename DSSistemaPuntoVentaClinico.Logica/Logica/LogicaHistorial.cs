@@ -216,6 +216,17 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             }
             return Mantenimiento;
         }
+        public List<Entidades.EntidadHistorial.EMontoFacturacionCotizacion> MontoFacturacionCotizacion(decimal? NumeroConector = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+         
+            var Buscar = (from n in ObjData.SP_MONTO_FACTURACION_COTIZACION(NumeroConector)
+                          select new Entidades.EntidadHistorial.EMontoFacturacionCotizacion
+                          {
+                              Total = n.Total
+                      }).ToList();
+            return Buscar;
+        }
         #endregion
         #region MANTENIMIENTO DE CUADRE DE CAJA
         //MANTENIMIENT DE CUADRE DE CAJA

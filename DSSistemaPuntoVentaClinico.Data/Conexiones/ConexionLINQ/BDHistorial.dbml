@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaFacturacionMedico" Class="BDHistorialDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JUANMARCELINOMD;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.8;Initial Catalog=SistemaFacturacionMedico;User ID=SA" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString3" Provider="System.Data.SqlClient" />
   <Function Name="Reporte.SP_SACAR_RUTA_REPORTE" Method="SP_SACAR_RUTA_REPORTE">
     <Parameter Name="IdReporte" Parameter="idReporte" Type="System.Decimal" DbType="Decimal(20,0)" />
     <ElementType Name="SP_SACAR_RUTA_REPORTEResult">
@@ -198,6 +198,12 @@
       <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="IdEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="EstatusCirugia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Historial.SP_MONTO_FACTURACION_COTIZACION" Method="SP_MONTO_FACTURACION_COTIZACION">
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_MONTO_FACTURACION_COTIZACIONResult">
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
