@@ -60,8 +60,74 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                 1, 1);
             foreach (var n in SacarDatosFacturas)
             {
+
+                txtTipoFacturacion.Text = n.TipoComprobante;
                 txtNombrePaciente.Text = n.NombrePaciente;
+                txtTelefono.Text = n.Telefono;
+                txtCentroSalud.Text = n.CentroSalud;
+                txtSala.Text = n.Sala;
+                txtMedico.Text = n.Medico;
+                txtTotalDescuento.Text = n.TotalDescuento.ToString();
+                txtSubtotal.Text = n.Subtotal.ToString();
+                txtTotal.Text = n.Total.ToString();
+                txtEstatus.Text = n.Estatus;
+                txtTipoIdentificacion.Text = n.TipoIdentificacion;
+                txtIdentificacion.Text = n.NumeroIdentificacion;
+                txtDireccion.Text = n.Direccion;
+                txtsexo.Text = n.Sexo;
+                txtEmail.Text = n.Email;
+                txtComentario.Text = n.ComentarioPaciente;
+                txtCantidadArtiuclos.Text = n.CantidadArticulos.ToString();
+                txtImpuesto.Text = n.Impuesto.ToString();
+                txtTipoPago.Text = n.TipoPago;
+                txtMontoPagar.Text = n.MontoPagado.ToString();
             }
+            dataGridView1.DataSource = SacarDatosFacturas;
+            OcultarColumnas();
+        }
+        #endregion
+        #region OCULTAR COLUMNAS
+        private void OcultarColumnas()
+        {
+            dataGridView1.Columns["NumeroFactura"].Visible = false;
+            dataGridView1.Columns["NombrePaciente"].Visible = false;
+            dataGridView1.Columns["IdTipoIdentificacion"].Visible = false;
+            dataGridView1.Columns["TipoIdentificacion"].Visible = false;
+            dataGridView1.Columns["NumeroIdentificacion"].Visible = false;
+            dataGridView1.Columns["IdEstatusFacturacion"].Visible = false;
+            dataGridView1.Columns["Estatus"].Visible = false;
+            dataGridView1.Columns["CodigoFacturacion"].Visible = false;
+            dataGridView1.Columns["NumeroConector"].Visible = false;
+            dataGridView1.Columns["IdTipoFacturacion"].Visible = false;
+            dataGridView1.Columns["TipoComprobante"].Visible = false;
+            dataGridView1.Columns["ValidoHasta"].Visible = false;
+            dataGridView1.Columns["Comprobante"].Visible = false;
+            dataGridView1.Columns["Telefono"].Visible = false;
+            dataGridView1.Columns["IdCentroSalud"].Visible = false;
+            dataGridView1.Columns["CentroSalud"].Visible = false;
+            dataGridView1.Columns["Sala"].Visible = false;
+            dataGridView1.Columns["IdMedico"].Visible = false;
+            dataGridView1.Columns["Medico"].Visible = false;
+            dataGridView1.Columns["Direccion"].Visible = false;
+            dataGridView1.Columns["IdSexo"].Visible = false;
+            dataGridView1.Columns["Email"].Visible = false;
+            dataGridView1.Columns["ComentarioPaciente"].Visible = false;
+            dataGridView1.Columns["FechaFacturacion0"].Visible = false;
+            dataGridView1.Columns["FechaFacturacion"].Visible = false;
+            dataGridView1.Columns["IdUsuario"].Visible = false;
+            dataGridView1.Columns["CreadoPor"].Visible = false;
+            dataGridView1.Columns["IdProducto"].Visible = false;
+            dataGridView1.Columns["Total"].Visible = false;
+            dataGridView1.Columns["TotalDescuento"].Visible = false;
+            dataGridView1.Columns["Subtotal"].Visible = false;
+            dataGridView1.Columns["Impuesto"].Visible = false;
+            dataGridView1.Columns["TotalGeneral"].Visible = false;
+            dataGridView1.Columns["IdTipoPago"].Visible = false;
+            dataGridView1.Columns["TipoPago"].Visible = false;
+            dataGridView1.Columns["MontoPagado"].Visible = false;
+            dataGridView1.Columns["IdEstatusCirugia"].Visible = false;
+            dataGridView1.Columns["EstatusCirugia"].Visible = false;
+            dataGridView1.Columns["Sexo"].Visible = false;
         }
         #endregion
         private void AnularFactura_FormClosing(object sender, FormClosingEventArgs e)
@@ -81,6 +147,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             SacarInformacionEmpresa(1);
             txtClaveSeguridad.PasswordChar = '•';
             SacarDatosFactura(VariablesGlobales.NumeroConector);
+            this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
