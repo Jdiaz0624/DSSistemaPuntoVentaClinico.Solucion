@@ -34,19 +34,21 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         #region MOSTRAR EL LISTADO DE LOS PACIENTES
         private void MostrarPacientes()
         {
-            string _Nombre = string.IsNullOrEmpty(txtNombre.Text.Trim()) ? null : txtNombre.Text.Trim();
-            string _Codigo = string.IsNullOrEmpty(txtCodigo.Text.Trim()) ? null : txtCodigo.Text.Trim();
+            string _NombrePaciente = string.IsNullOrEmpty(txtNombre.Text.Trim()) ? null : txtNombre.Text.Trim();
+            string _RNC = string.IsNullOrEmpty(txtRNC.Text.Trim()) ? null : txtRNC.Text.Trim();
 
-            var Consultar = ObjdataEmpres.Value.BuscaClientes(
+            var Listado = ObjdataEmpres.Value.BuscaClientes(
                 new Nullable<decimal>(),
-                _Codigo,
-                null,
-                _Nombre,
                 null,
                 null,
+                _NombrePaciente,
+                null,
+                null,
+                _RNC,
                 Convert.ToInt32(txtNumeroPagina.Value),
                 Convert.ToInt32(txtNumeroRegistros.Value));
-            dtListado.DataSource = Consultar;
+            dtListado.DataSource = Listado;
+            
             OcultarColumnas();
         }
         private void OcultarColumnas()
@@ -68,7 +70,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         #region RESTABLECER PANTALLA
         private void Restablecerpantalla()
         {
-            txtCodigo.Text = string.Empty;
+            txtRNC.Text = string.Empty;
             txtNombre.Text = string.Empty;
             btnNuevo.Enabled = true;
             btnConsultar.Enabled = true;
@@ -97,7 +99,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             lbNumeroPagina.ForeColor = Color.Black;
             lbNumeroRegistros.ForeColor = Color.Black;
             txtClaveSeguridad.ForeColor = Color.Black;
-            txtCodigo.ForeColor = Color.Black;
+            txtRNC.ForeColor = Color.Black;
             txtNombre.ForeColor = Color.Black;
             SacarinformacionEmpresa(1);
             MostrarPacientes();
@@ -166,7 +168,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     var Buscar = ObjdataEmpres.Value.BuscaClientes(
                         VariablesGlobales.IdMantenimiento,
                         VariablesGlobales.CodigoMantenimiento,
-                        null, null, null, null, 1, 1);
+                        null, null, null, null, null,1, 1);
                     dtListado.DataSource = Buscar;
                     OcultarColumnas();
 

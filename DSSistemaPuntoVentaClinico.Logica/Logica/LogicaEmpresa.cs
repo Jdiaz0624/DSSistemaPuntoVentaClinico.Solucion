@@ -273,11 +273,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
 
         #region MANTENIMIENTO DE PACIENTES
         //LISTADO DE PACIENTES
-        public List<Entidades.EntidadEmpresa.EPacientes> BuscaClientes(decimal? IdPaciente = null, string CodigoPaciente = null, decimal? IdComprobante = null, string Nombre = null, decimal? IdCentroSalud = null, decimal? IdMedico = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        public List<Entidades.EntidadEmpresa.EPacientes> BuscaClientes(decimal? IdPaciente = null, string CodigoPaciente = null, decimal? IdComprobante = null, string Nombre = null, decimal? IdCentroSalud = null, decimal? IdMedico = null,string TipoIdentificacion = null, int? NumeroPagina = null, int? NumeroRegistros = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var Buscar = (from n in ObjData.SP_BUSCA_PACIENTES(IdPaciente, CodigoPaciente, IdComprobante, Nombre, IdCentroSalud, IdMedico, NumeroPagina, NumeroRegistros)
+            var Buscar = (from n in ObjData.SP_BUSCA_PACIENTES(IdPaciente, CodigoPaciente, IdComprobante, Nombre, IdCentroSalud, IdMedico, TipoIdentificacion, NumeroPagina, NumeroRegistros)
                           select new Entidades.EntidadEmpresa.EPacientes
                           {
                               IdPaciente=n.IdPaciente,

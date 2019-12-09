@@ -208,6 +208,12 @@
     <Compile Include="Pantallas\Pantallas\Facturacion\ProgramacionCirugias.Designer.cs">
       <DependentUpon>ProgramacionCirugias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\AnularFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Historial\AnularFactura.Designer.cs">
+      <DependentUpon>AnularFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Historial\Historial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -464,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Facturacion\ProgramacionCirugias.resx">
       <DependentUpon>ProgramacionCirugias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Historial\AnularFactura.resx">
+      <DependentUpon>AnularFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Historial\Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>

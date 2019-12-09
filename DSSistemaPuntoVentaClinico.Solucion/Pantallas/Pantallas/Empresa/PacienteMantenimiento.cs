@@ -181,7 +181,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     null,
                     null,
                     null,
-                    null, 1, 1);
+                    null, null,1, 1);
                 foreach (var n in GetData)
                 {
                     ddlTipoComprobante.Text = n.Comprobante;

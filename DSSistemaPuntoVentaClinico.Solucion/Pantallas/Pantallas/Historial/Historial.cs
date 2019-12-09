@@ -537,6 +537,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             txtNumeroPagina.Value = 1;
             txtNumeroRegistros.Value = 10;
             btnFacturar.Enabled = false;
+            btnAnular.Enabled = false;
             MostrarHistorial();
         }
         #endregion
@@ -637,7 +638,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             groupBox1.ForeColor = Color.Black;
             groupBox2.ForeColor = Color.Black;
             groupBox3.ForeColor = Color.Black;
-            groupBox4.ForeColor = Color.Black;
+            //groupBox4.ForeColor = Color.Black;
             groupBox5.ForeColor = Color.Black;
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Historial de Facturación";
@@ -933,6 +934,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                     dtListado.DataSource = BuscarProductoSeleccionado;
                     OcultarColumnas();
                     btnImprimir.Enabled = true;
+                    btnAnular.Enabled = true;
                     int IdEstatus = 0;
                     foreach (var n in BuscarProductoSeleccionado)
                     {
@@ -992,6 +994,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         private void button1_Click(object sender, EventArgs e)
         {
             RestablecerPantalla();
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial.AnularFactura Anular = new AnularFactura();
+            Anular.VariablesGlobales.IdUsuario = Variables.IdUsuario;
+            Anular.VariablesGlobales.NumeroConector = Variables.NumeroConector;
+            Anular.ShowDialog();
         }
     }
 }

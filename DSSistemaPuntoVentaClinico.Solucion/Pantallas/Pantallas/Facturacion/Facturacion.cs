@@ -220,7 +220,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                 var Validar = ObjDataEmpresa.Value.BuscaClientes(
                     new Nullable<decimal>(),
                     _CodigoCliente,
-                    null, null, null, null, 1, 1);
+                    null, null, null, null, null,1, 1);
                 if (Validar.Count() < 1)
                 {
                     MessageBox.Show("El codigo de cliente ingresado no es valido favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);

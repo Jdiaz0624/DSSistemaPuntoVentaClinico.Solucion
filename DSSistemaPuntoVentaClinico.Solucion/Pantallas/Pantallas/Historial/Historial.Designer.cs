@@ -52,12 +52,8 @@
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnHistorial = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -66,16 +62,18 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAnularFactura = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.btnAnular = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -301,13 +299,15 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnAnular);
+            this.groupBox3.Controls.Add(this.btnAnularFactura);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.btnFacturar);
             this.groupBox3.Controls.Add(this.btnImprimir);
             this.groupBox3.Controls.Add(this.btnConsultar);
             this.groupBox3.Location = new System.Drawing.Point(760, 61);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(462, 125);
+            this.groupBox3.Size = new System.Drawing.Size(462, 180);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opciones";
@@ -370,21 +370,6 @@
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // btnHistorial
-            // 
-            this.btnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorial.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistorial.Location = new System.Drawing.Point(231, 23);
-            this.btnHistorial.Name = "btnHistorial";
-            this.btnHistorial.Size = new System.Drawing.Size(219, 41);
-            this.btnHistorial.TabIndex = 7;
-            this.btnHistorial.Text = "Historial";
-            this.toolTip1.SetToolTip(this.btnHistorial, "Mostrar todo el historial de Facturacion segun parametro seleccioado");
-            this.btnHistorial.UseVisualStyleBackColor = true;
-            this.btnHistorial.Visible = false;
-            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
@@ -405,37 +390,6 @@
             this.lbTitulo.Size = new System.Drawing.Size(72, 23);
             this.lbTitulo.TabIndex = 20;
             this.lbTitulo.Text = "label6";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1184, 12);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 23;
-            this.btnCerrar.TabStop = false;
-            this.toolTip1.SetToolTip(this.btnCerrar, "Cerrar Pantalla");
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnHistorial);
-            this.groupBox4.Controls.Add(this.progressBar1);
-            this.groupBox4.Location = new System.Drawing.Point(760, 187);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(462, 115);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(9, 23);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(447, 81);
-            this.progressBar1.TabIndex = 9;
             // 
             // groupBox5
             // 
@@ -542,6 +496,51 @@
             this.lbNumeroPagina.TabIndex = 16;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
+            // btnAnularFactura
+            // 
+            this.btnAnularFactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnularFactura.Enabled = false;
+            this.btnAnularFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnularFactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularFactura.Location = new System.Drawing.Point(6, 126);
+            this.btnAnularFactura.Name = "btnAnularFactura";
+            this.btnAnularFactura.Size = new System.Drawing.Size(219, 41);
+            this.btnAnularFactura.TabIndex = 7;
+            this.btnAnularFactura.Text = "Anular";
+            this.toolTip1.SetToolTip(this.btnAnularFactura, "Anular Factura Seleccionada");
+            this.btnAnularFactura.UseVisualStyleBackColor = true;
+            this.btnAnularFactura.Visible = false;
+            this.btnAnularFactura.Click += new System.EventHandler(this.btnHistorial_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(1184, 12);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 23;
+            this.btnCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.btnCerrar, "Cerrar Pantalla");
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnAnular
+            // 
+            this.btnAnular.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnular.Enabled = false;
+            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnular.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnular.Location = new System.Drawing.Point(231, 126);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(219, 41);
+            this.btnAnular.TabIndex = 8;
+            this.btnAnular.Text = "Anular";
+            this.toolTip1.SetToolTip(this.btnAnular, "Anular Factura Seleccionada");
+            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
+            // 
             // Historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -553,7 +552,6 @@
             this.Controls.Add(this.txtNumeroPagina);
             this.Controls.Add(this.lbNumeroPagina);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -573,12 +571,11 @@
             this.groupBox3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -604,13 +601,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnHistorial;
         private System.Windows.Forms.Button btnFacturar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView dtListado;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
@@ -620,8 +615,9 @@
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.RadioButton rbPaciente;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lbTitulo;
+        private System.Windows.Forms.Button btnAnularFactura;
+        private System.Windows.Forms.Button btnAnular;
     }
 }
