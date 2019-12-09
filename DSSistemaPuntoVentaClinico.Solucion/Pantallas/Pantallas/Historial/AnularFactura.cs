@@ -155,5 +155,113 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         {
             CerrarPantalla();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtClaveSeguridad.Text.Trim()))
+            {
+                MessageBox.Show("El campo clave de seguridad no puede estar vacio", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                //VALIDAMOS LA CLAVE DE SEGURIDAD
+                var ValidarCoalev = ObjDataSeguridad.Value.BuscaClaveSeguridad(
+                    DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.Encriptar(txtClaveSeguridad.Text),
+                    null, 1, 1);
+                if (ValidarCoalev.Count() < 1)
+                {
+                    MessageBox.Show("La clave de seguridad ingresada no es valida", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtClaveSeguridad.Text = string.Empty;
+                    txtClaveSeguridad.Focus();
+                }
+                else
+                {
+                    //GUARDAMOS LOS DATOS PARA REALIZAR LA NOTA DE CREDITO
+
+                    try {
+                        var GuardarDatos = ObjDataHistorial.Value.HistorialFacturacionCotizacion(
+                                 new Nullable<decimal>(),
+                                 VariablesGlobales.NumeroConector,
+                                 null,
+                                 null,
+                                 null,
+                                 null,
+                                 null,
+                                 null,
+                                 null,
+                                 null,
+                                 null,
+                                 null,
+                                 1, 1);
+                        foreach (var n in GuardarDatos)
+                        {
+                            //GUARDAMOS LOS DATOS DE LOS CLIENTES
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes DatoCliente = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
+                            DatoCliente.NumeroFactura = 0;
+                            DatoCliente.IdEstatusFacturacion = 3;
+                            DatoCliente.CodigoFacturacion = "";
+                            DatoCliente.NumeroConector = n.NumeroConector;
+                            DatoCliente.IdTipoFacturacion = 4;
+                            DatoCliente.NombrePaciente = n.NombrePaciente;
+                            DatoCliente.Telefono = n.Telefono;
+                            DatoCliente.IdCentroSalud = n.IdCentroSalud;
+                            DatoCliente.Sala = n.Sala;
+                            DatoCliente.IdMedico = n.IdMedico;
+                            DatoCliente.IdTipoIdentificacion = n.IdTipoIdentificacion;
+                            DatoCliente.NumeroIdentificacion = n.NumeroIdentificacion;
+                            DatoCliente.Direccion = n.Direccion;
+                            DatoCliente.IdSexo = n.IdSexo;
+                            DatoCliente.Email = n.Email;
+                            DatoCliente.ComentarioPaciente = n.ComentarioPaciente;
+                            DatoCliente.FechaFacturacion = n.FechaFacturacion0;
+                            DatoCliente.IdUsuario = VariablesGlobales.IdUsuario;
+
+                            var MAN = ObjDataFacturacion.Value.GuararFacturacionCliete(DatoCliente, "INSERT");
+
+                            //GUARDAMOS LOS DATOS DE LOS PRODUCTOS PARA HACER LA NOTA DE CREDITO
+                            var BuscarProductosAgregados = ObjDataFacturacion.Value.BuscarProductosAgregados(VariablesGlobales.NumeroConector);
+                            foreach (var n2 in BuscarProductosAgregados)
+                            {
+                                //GUARDAMOS LOS PRODUCTOS
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionProductos Guararproducto = new Logica.Entidades.EntidadFacturacion.EFacturacionProductos();
+
+                                Guararproducto.NumeroConector = VariablesGlobales.NumeroConector;
+                                Guararproducto.IdProducto = n2.IdProducto;
+                                Guararproducto.Precio = n2.Precio;
+                                Guararproducto.Cantidad = n2.Cantidad;
+                                Guararproducto.DescuentoAplicado = n2.DescuentoAplicado;
+                                Guararproducto.Total = n2.Total;
+                                Guararproducto.Secuencial = n2.Secuencial;
+                                Guararproducto.NumeroPago = n2.NumeroPago;
+
+                                var MANProducto = ObjDataFacturacion.Value.GuardarFacturacionProductos(Guararproducto, "INSERT");
+                            }
+
+                            //GUARDAMOS LOS DATOS DE LOS CALCULOS
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionCalculos GuardarCalculos = new Logica.Entidades.EntidadFacturacion.EFacturacionCalculos();
+
+                            GuardarCalculos.NumeroConector = n.NumeroConector;
+                            GuardarCalculos.CantidadArticulos = n.CantidadArticulos;
+                            GuardarCalculos.TotalDescuento = (n.TotalDescuento * -1);
+                            GuardarCalculos.Subtotal = (n.Subtotal * -1);
+                            GuardarCalculos.Impuesto = (n.Impuesto * -1);
+                            GuardarCalculos.Total = (n.Total * -1);
+                            GuardarCalculos.IdTipoPago = n.IdTipoPago;
+                            GuardarCalculos.MontoPagado = (n.MontoPagado * -1);
+                            GuardarCalculos.IdEstatusCirugia = n.IdEstatusCirugia;
+
+                            var MANCalculos = ObjDataFacturacion.Value.GuardarFacturacionCalculos(GuardarCalculos, "INSERT");
+                        }
+                        //GUARDAMOS LOS DATOS DEL CLIENTE
+                        
+
+                       
+
+
+                    }
+                    catch (Exception ex) { }
+                }
+            }
+        }
     }
 }
