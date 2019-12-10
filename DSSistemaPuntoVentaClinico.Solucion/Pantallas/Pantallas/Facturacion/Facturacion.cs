@@ -422,7 +422,55 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                 var mam = ObjDataCaja.Value.MantenimientoCaja(Caja, "ADD");
             }
         }
-#endregion
+        #endregion
+        #region TERMINAR PROCESO
+        private void TerminarProceso()
+        {
+            //GUARDAMOS LOS DATOS
+            VariablesGlobales.AccionTomar = "INSERT";
+            GuardarFacturacionCliente();
+            GuardarDatosFacturaconCalculos();
+            AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
+            AfectarCaja();
+            MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ImprimirFactura(VariablesGlobales.NumeroConector);
+            this.Dispose();
+        }
+        #endregion
+        #region DEVOLVER PRODUCTOS
+        private void DevolverProductos()
+        {
+            try {
+                decimal IdProducto = 0;
+                int Cantidad = 0;
+                string Codigoproducto = "";
+                var Devolver = ObjDataFacturacion.Value.BuscarProductosAgregados(
+                    VariablesGlobales.NumeroConector, null);
+                foreach (var n in Devolver)
+                {
+                    IdProducto = Convert.ToDecimal(n.IdProducto);
+                    Cantidad = Convert.ToInt32(n.Cantidad);
+                    Codigoproducto = n.CodigoProducto;
+
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EPRoducto Devolverproducto = new Logica.Entidades.EntidadInventario.EPRoducto();
+
+                    Devolverproducto.IdProducto = IdProducto;
+                    Devolverproducto.CodigoProducto = Codigoproducto;
+                    Devolverproducto.CantidadAlmacen = Cantidad;
+                    Devolverproducto.UsuarioAdiciona = VariablesGlobales.IdUsuario;
+                    Devolverproducto.FechaAdiciona0 = DateTime.Now;
+                    Devolverproducto.UsuarioModifica = VariablesGlobales.IdUsuario;
+                    Devolverproducto.FechaModifica0 = DateTime.Now;
+
+                    var MAN = ObjDataInventario.Value.MantenimientoProducto(Devolverproducto, "ADD");
+
+                }
+            }
+            catch (Exception) {
+                MessageBox.Show("Error al devolver los productos al inventario", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
@@ -435,8 +483,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             groupBox2.ForeColor = Color.Black;
             groupBox3.ForeColor = Color.Black;
             groupBox4.ForeColor = Color.Black;
-            rbCotizar.ForeColor = Color.Red;
-            rbFacturar.ForeColor = Color.Red;
+            rbCotizar.ForeColor = Color.SpringGreen;
+            rbFacturar.ForeColor = Color.SpringGreen;
             gbGeneral.ForeColor = Color.Black;
             
             ddlCentroSalud.ForeColor = Color.Black;
@@ -533,7 +581,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         {
             if (rbFacturar.Checked)
             {
-                rbFacturar.ForeColor = Color.White;
+                rbFacturar.ForeColor = Color.SpringGreen;
                 VariablesGlobales.IdEstatusFacturacion = 1;
             }
             else
@@ -547,7 +595,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         {
             if (rbCotizar.Checked)
             {
-                rbCotizar.ForeColor = Color.White;
+                rbCotizar.ForeColor = Color.SpringGreen;
                 VariablesGlobales.IdEstatusFacturacion = 2;
             }
             else
@@ -662,19 +710,23 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                             if (TipoPago == 1)
                             {
                                 //VALIDAMOS EL MONTO
-                                
+                                decimal Monto = Convert.ToDecimal(txtMontoPagar.Text);
+                                decimal Total = Convert.ToDecimal(txtTotal.Text);
+
+                                if (Monto < Total)
+                                {
+                                    MessageBox.Show("El monto ingresado es menor al total a pagar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+                                    //GUARDAMOS LOS DATOS
+                                    TerminarProceso();
+                                }
                             }
                             else
                             {
                                 //GUARDAMOS LOS DATOS
-                                VariablesGlobales.AccionTomar = "INSERT";
-                                GuardarFacturacionCliente();
-                                GuardarDatosFacturaconCalculos();
-                                AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
-                                AfectarCaja();
-                                MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                ImprimirFactura(VariablesGlobales.NumeroConector);
-                                this.Dispose();
+                                TerminarProceso();
 
                             }
                         }
@@ -683,7 +735,20 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                 }
                 else if (rbCotizar.Checked)
                 {
-
+                    if (string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()))
+                    {
+                        txtNombrePaciente.Text = "CLIENTE FACTURACION";
+                    }
+                    DevolverProductos();
+                    //GUARDAMOS LOS DATOS
+                    VariablesGlobales.AccionTomar = "INSERT";
+                    GuardarFacturacionCliente();
+                    GuardarDatosFacturaconCalculos();
+                   //  AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
+                   // AfectarCaja();
+                    MessageBox.Show("Cotización realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ImprimirFactura(VariablesGlobales.NumeroConector);
+                    this.Dispose();
                 }
 
                 //PROCESAMOS EN BASE A COTIZAR
@@ -784,7 +849,39 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (MessageBox.Show("¿Quieres devolver este producto al inventario?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try {
+                    decimal IdProducto = Convert.ToDecimal(this.dataGridView1.CurrentRow.Cells["IdProducto"].Value.ToString());
+                    string CodigoProducto = Convert.ToString(this.dataGridView1.CurrentRow.Cells["CodigoProducto"].Value.ToString());
+                    int Cantidad = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells["Cantidad"].Value.ToString());
+                    decimal Secuencial = Convert.ToDecimal(this.dataGridView1.CurrentRow.Cells["Secuencial"].Value.ToString());
+                    //DEVOLVEMOS LOS PRODUCTOS AL INVENTARIO
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EPRoducto Devolver = new Logica.Entidades.EntidadInventario.EPRoducto();
 
+                    Devolver.IdProducto = IdProducto;
+                    Devolver.CodigoProducto = CodigoProducto;
+                    Devolver.CantidadAlmacen = Cantidad;
+
+                    var MAN = ObjDataInventario.Value.MantenimientoProducto(Devolver, "ADD");
+
+
+                    //ELIMINAMOS EL PRODUCTO
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionProductos Producto = new Logica.Entidades.EntidadFacturacion.EFacturacionProductos();
+
+                    Producto.NumeroConector = VariablesGlobales.NumeroConector;
+                    Producto.Secuencial = Secuencial;
+
+                    var MAN2 = ObjDataFacturacion.Value.GuardarFacturacionProductos(Producto, "DELETE");
+
+                    //ACTUALIZAMOS LOS DATOS EN EL GRID Y EN LOS CALCULOS
+                    MostrarListadoProductosAgregados(VariablesGlobales.NumeroConector);
+                    SacarDatosCalculos(VariablesGlobales.NumeroConector);
+                }
+                catch (Exception) {
+                    MessageBox.Show("Error al devolver el este registro al inventario", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void ddltIPago_SelectedIndexChanged(object sender, EventArgs e)
