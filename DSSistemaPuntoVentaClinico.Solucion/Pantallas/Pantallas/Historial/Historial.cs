@@ -983,7 +983,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                     decimal MontoSacado = Convert.ToDecimal(txtMonto.Text);
 
                     //VERIFICAMOS EL ESTATUS
-                    if (Variables.IdEstatusFacturacion == 1)
+                    if (IdEstatus == 1)
                     {
                         if (MontoSacado >= 1)
                         {
