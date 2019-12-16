@@ -17,6 +17,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             InitializeComponent();
         }
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjdataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
@@ -611,6 +612,27 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         }
         #endregion
 
+        #region AFECTAR PRODUCTOS EN EL INVENTARIO
+        private void AfectarProductoInventario(decimal IdProducto,string CodigoProducto, int Cantidad)
+        {
+            try {
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EPRoducto LessProduct = new Logica.Entidades.EntidadInventario.EPRoducto();
+
+                LessProduct.IdProducto = IdProducto;
+                LessProduct.CodigoProducto = CodigoProducto;
+                LessProduct.CantidadAlmacen = Cantidad;
+                LessProduct.UsuarioAdiciona = Variables.IdUsuario;
+                LessProduct.FechaAdiciona0 = DateTime.Now;
+                LessProduct.UsuarioModifica = Variables.IdUsuario;
+                LessProduct.FechaModifica0 = DateTime.Now;
+
+                var MAN = ObjDataInventario.Value.MantenimientoProducto(LessProduct, "LESS");
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al afectar inventario - " + ex.Message, Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         private void Historial_FormClosing(object sender, FormClosingEventArgs e)
         {
             switch (e.CloseReason)
@@ -984,6 +1006,24 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
+            //SACAMOS LOS LA CANTIDAD DEL PRODUCTO PARA AFECTAR EL INVENTARIO
+            var SacarProductos = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                null, Variables.NumeroConector,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                1, 1000);
+            foreach (var n in SacarProductos)
+            {
+
+            }
             if (MessageBox.Show("¿Quieres facturar esta cotización?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 decimal IdTipoComprobante = 0;
