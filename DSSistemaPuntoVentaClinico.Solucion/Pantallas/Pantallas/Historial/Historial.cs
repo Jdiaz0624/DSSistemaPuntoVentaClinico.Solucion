@@ -1006,26 +1006,37 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            //SACAMOS LOS LA CANTIDAD DEL PRODUCTO PARA AFECTAR EL INVENTARIO
-            var SacarProductos = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
-                null, Variables.NumeroConector,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                1, 1000);
-            foreach (var n in SacarProductos)
-            {
-
-            }
+            
             if (MessageBox.Show("¿Quieres facturar esta cotización?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                //SACAMOS LOS LA CANTIDAD DEL PRODUCTO PARA AFECTAR EL INVENTARIO
+                var SacarProductos = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                    null, Variables.NumeroConector,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    1, 1000);
+                foreach (var n in SacarProductos)
+                {
+                    var SacarCodigoProducto = ObjDataInventario.Value.BuscaProducto(
+                        Convert.ToDecimal(n.IdProducto),
+                        null, null, null, null, null, null, null, null, null, 1, 1);
+                    foreach (var n2 in SacarCodigoProducto)
+                    {
+                        AfectarProductoInventario(
+                        Convert.ToDecimal(n.IdProducto),
+                        n2.CodigoProducto,
+                        Convert.ToInt32(n.Cantidad));
+                    }
+                }
+
                 decimal IdTipoComprobante = 0;
                 decimal Total = 0;
                 decimal IdTpoPago = 0;
