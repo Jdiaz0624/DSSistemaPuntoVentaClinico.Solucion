@@ -445,6 +445,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Columns["IdUsuario"].Visible = false;
             this.dtListado.Columns["IdProducto"].Visible = false;
             this.dtListado.Columns["IdTipoPago"].Visible = false;
+            this.dtListado.Columns["NumeroConector"].Visible = false;
         }
         #endregion
 
@@ -940,6 +941,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                     
 
                     this.Variables.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
+                    this.Variables.Numerofactura = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroFactura"].Value.ToString());
 
                     //BUSCAMOS EL REGISTRO MEDIANTE EL NUMERO DE CONECTOR
                     var BuscarProductoSeleccionado = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
@@ -988,7 +990,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                         if (MontoSacado >= 1)
                         {
                             btnAnular.Enabled = true;
+                            Variables.IdEstatusFacturacion = IdEstatus;
                         }
+                    }
+                    else if (IdEstatus == 2)
+                    {
+                        btnAnular.Enabled = true;
+                        Variables.IdEstatusFacturacion = IdEstatus;
                     }
                     
                 }
@@ -1081,6 +1089,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial.AnularFactura Anular = new AnularFactura();
             Anular.VariablesGlobales.IdUsuario = Variables.IdUsuario;
             Anular.VariablesGlobales.NumeroConector = Variables.NumeroConector;
+            Anular.VariablesGlobales.Numerofactura = Variables.Numerofactura;
+            Anular.VariablesGlobales.IdEstatusFacturacion = Variables.IdEstatusFacturacion;
             Anular.ShowDialog();
         }
     }

@@ -128,6 +128,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             dataGridView1.Columns["IdEstatusCirugia"].Visible = false;
             dataGridView1.Columns["EstatusCirugia"].Visible = false;
             dataGridView1.Columns["Sexo"].Visible = false;
+            
         }
         #endregion
         private void AnularFactura_FormClosing(object sender, FormClosingEventArgs e)
@@ -149,6 +150,16 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             SacarDatosFactura(VariablesGlobales.NumeroConector);
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
+            if (VariablesGlobales.IdEstatusFacturacion == 1)
+            {
+                lbTitulo.Text = "Anulación de factura";
+                button1.Text = "Anular Factura";
+            }
+            else
+            {
+                lbTitulo.Text = "Eliminar Cotización";
+                button1.Text = "Eliminar Cotización";
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -176,7 +187,23 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                 }
                 else
                 {
-                    
+                    //ANULAR FACTURA
+                    if (VariablesGlobales.IdEstatusFacturacion == 1)
+                    {
+                        //CAMBIAMOS EL ESTATUS DE LA FACTURACION A CANCELADA
+                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes Changestatus = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
+
+                        Changestatus.NumeroConector = VariablesGlobales.NumeroConector;
+                        Changestatus.NumeroFactura = VariablesGlobales.Numerofactura;
+                        Changestatus.IdUsuario = VariablesGlobales.IdUsuario;
+
+                        var MAN = ObjDataFacturacion.Value.GuararFacturacionCliete(Changestatus, "BILLCANCEL");
+                    }
+                    //ELIMIANR COTIZACION
+                    else if (VariablesGlobales.IdEstatusFacturacion == 2)
+                    {
+
+                    }
                 }
             }
         }
