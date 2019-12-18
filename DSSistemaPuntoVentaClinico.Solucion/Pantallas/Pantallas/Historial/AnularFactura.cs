@@ -20,6 +20,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaFacturacion> ObjDataFacturacion = new Lazy<Logica.Logica.LogicaFacturacion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaInventario> ObjDataInventario = new Lazy<Logica.Logica.LogicaInventario>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CERRAR PANTALLA
@@ -131,6 +132,30 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             
         }
         #endregion
+        #region DEVOLVER LOS PRODUCTOS AL INVENTARIO AL ANULAR LA FACTURA
+        private void DevolverProductosInventario()
+        {
+            decimal IdProducto = 0;
+            string CodigoProducto = "";
+            int Cantidad = 0;
+
+            var BuscarProductos = ObjDataFacturacion.Value.BuscarProductosAgregados(VariablesGlobales.NumeroConector, null);
+            foreach (var n in BuscarProductos)
+            {
+                IdProducto = Convert.ToDecimal(n.IdProducto);
+                CodigoProducto = n.CodigoProducto;
+                Cantidad = Convert.ToInt32(n.Cantidad);
+
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EPRoducto Devolver = new Logica.Entidades.EntidadInventario.EPRoducto();
+
+                Devolver.IdProducto = IdProducto;
+                Devolver.CodigoProducto = CodigoProducto;
+                Devolver.CantidadAlmacen = Cantidad;
+
+                var MAN = ObjDataInventario.Value.MantenimientoProducto(Devolver, "ADD");
+            }
+        }
+        #endregion
         private void AnularFactura_FormClosing(object sender, FormClosingEventArgs e)
         {
             switch (e.CloseReason)
@@ -190,6 +215,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                     //ANULAR FACTURA
                     if (VariablesGlobales.IdEstatusFacturacion == 1)
                     {
+                        DevolverProductosInventario();
                         //CAMBIAMOS EL ESTATUS DE LA FACTURACION A CANCELADA
                         DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes Changestatus = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
 
@@ -198,11 +224,23 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                         Changestatus.IdUsuario = VariablesGlobales.IdUsuario;
 
                         var MAN = ObjDataFacturacion.Value.GuararFacturacionCliete(Changestatus, "BILLCANCEL");
+                        MessageBox.Show("Anulacion de la factura " + VariablesGlobales.Numerofactura + " fue anulada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CerrarPantalla();
                     }
                     //ELIMIANR COTIZACION
                     else if (VariablesGlobales.IdEstatusFacturacion == 2)
                     {
+                        //ELIMINAMOS LA COTIZACION
+                        if (MessageBox.Show("¿Quieres eliminar esta cotización?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes Changestatus = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
 
+                            Changestatus.NumeroConector = VariablesGlobales.NumeroConector;
+
+                            var MAN = ObjDataFacturacion.Value.GuararFacturacionCliete(Changestatus, "DELETEBILL");
+                            MessageBox.Show("Cotización realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CerrarPantalla();
+                        }
                     }
                 }
             }

@@ -30,6 +30,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         private void MostrarHistorial()
         {
             try {
+                btnAnular.Text = "Anular Factura";
                 //HACEMOS LA CONSULTA CUANDO EL RADIO BUTTON GENERAL ESTA SELECCIONADO
                 if (rbGenerar.Checked)
                 {
@@ -666,6 +667,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             groupBox5.ForeColor = Color.Black;
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Historial de Facturación";
+            btnAnular.Text = "Anular Factura";
         }
 
         private void txtParametro_KeyPress(object sender, KeyPressEventArgs e)
@@ -991,12 +993,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                         {
                             btnAnular.Enabled = true;
                             Variables.IdEstatusFacturacion = IdEstatus;
+                            btnAnular.Text = "Anular Factura";
                         }
                     }
                     else if (IdEstatus == 2)
                     {
                         btnAnular.Enabled = true;
                         Variables.IdEstatusFacturacion = IdEstatus;
+                        btnAnular.Text = "Eliminar Cotización";
                     }
                     
                 }

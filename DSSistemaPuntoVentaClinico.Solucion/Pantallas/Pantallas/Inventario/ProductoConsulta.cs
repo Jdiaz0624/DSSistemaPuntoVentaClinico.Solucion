@@ -65,6 +65,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             this.dtProductos.Columns["UsuarioModifica"].Visible = false;
             this.dtProductos.Columns["FechaModifica0"].Visible = false;
             this.dtProductos.Columns["IdTipoProducto0"].Visible = false;
+            this.dtProductos.Columns["TipoProveedor"].Visible = false;
         }
         #endregion
 

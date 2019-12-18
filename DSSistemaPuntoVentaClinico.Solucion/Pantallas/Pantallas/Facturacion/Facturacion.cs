@@ -564,6 +564,28 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            //INICIALMOS EL PROCESO PARA DEVOLVER TODOS LOS PRODUCTOS AL INVENTARIO NUEVAMENTE
+            //RECORREMOS LA TABLA DE FACTURACION PRODUCTOS SEGUN EL NUMERO DE CONECTOR SELECCIONADO
+
+            decimal IdProducto = 0;
+            string CodigoProducto = "";
+            int Cantidad = 0;
+
+            var BuscarProductos = ObjDataFacturacion.Value.BuscarProductosAgregados(VariablesGlobales.NumeroConector, null);
+            foreach (var n in BuscarProductos)
+            {
+                IdProducto = Convert.ToDecimal(n.IdProducto);
+                CodigoProducto = n.CodigoProducto;
+                Cantidad = Convert.ToInt32(n.Cantidad);
+
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EPRoducto Devolver = new Logica.Entidades.EntidadInventario.EPRoducto();
+
+                Devolver.IdProducto = IdProducto;
+                Devolver.CodigoProducto = CodigoProducto;
+                Devolver.CantidadAlmacen = Cantidad;
+
+                var MAN = ObjDataInventario.Value.MantenimientoProducto(Devolver, "ADD");
+            }
             this.Dispose();
         }
 
