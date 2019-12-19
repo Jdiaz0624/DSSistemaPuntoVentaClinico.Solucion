@@ -59,7 +59,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
 
         private void btnProcesar_Click(object sender, EventArgs e)
         {
-            try {
+            //LEEMOS DESDE EL PROCEDURE [Caja].[SP_MOSTRAR_HISTORIAL_CAJA]
+            try
+            {
                 DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.ECuadreCaja Borrar = new Logica.Entidades.EntidadReporte.ECuadreCaja();
                 Borrar.IdUsuario = VariablesGlobales.IdUsuario;
                 var MAN2 = ObjDataHistorial.Value.CuadreCaja(Borrar, "DELETE");
@@ -70,6 +72,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                     Convert.ToDateTime(txtFechaHasta.Text));
                 foreach (var n in SacarDatos)
                 {
+                    //GUARDAMOS LOS DATOS UTILIZANDO EL PROCEDURE SP_MANTENIMIENTO_CUADRE_CAJA
                     DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.ECuadreCaja Cuadrar = new Logica.Entidades.EntidadReporte.ECuadreCaja();
 
                     Cuadrar.IdUsuario = VariablesGlobales.IdUsuario;

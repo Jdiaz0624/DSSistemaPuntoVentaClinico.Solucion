@@ -136,6 +136,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                           {
                               IdistorialCaja = n.IdistorialCaja,
                               IdCaja = n.IdCaja,
+                              CantidadFacturado=n.CantidadFacturado,
+                              Anuladas=n.Anuladas,
+                              TotalCantidadFacturado=n.TotalCantidadFacturado,
+                              CantidadCotizaciones=n.CantidadCotizaciones,
+                              CantidadCirugiasProgramadas=n.CantidadCirugiasProgramadas,
                               Caja = n.Caja,
                               Monto = n.Monto,
                               Concepto = n.Concepto,

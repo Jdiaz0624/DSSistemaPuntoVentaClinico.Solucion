@@ -62,5 +62,15 @@ namespace DSSistemaPuntoVentaClinico.Data.Properties {
                 return ((string)(this["SistemaFacturacionMedicoConnectionString3"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=172.26.24.199;Initial Catalog=SistemaFacturacionMedico;User ID=sa")]
+        public string SistemaFacturacionMedicoConnectionString4 {
+            get {
+                return ((string)(this["SistemaFacturacionMedicoConnectionString4"]));
+            }
+        }
     }
 }
