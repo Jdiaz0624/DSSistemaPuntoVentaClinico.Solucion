@@ -157,6 +157,7 @@
             this.button1.Text = "Calculos";
             this.toolTip1.SetToolTip(this.button1, "Mostrar los calculos realizados");
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // lbNumeroReferencia

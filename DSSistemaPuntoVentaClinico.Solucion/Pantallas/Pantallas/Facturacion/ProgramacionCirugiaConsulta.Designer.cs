@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
@@ -51,6 +52,8 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
+            this.cbBuscarTodo = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -93,17 +96,19 @@
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 23;
             this.btnCerrar.TabStop = false;
+            this.toolTip1.SetToolTip(this.btnCerrar, "Cerrar");
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbBuscarTodo);
             this.groupBox1.Controls.Add(this.txtFechaHasta);
             this.groupBox1.Controls.Add(this.txtFechaDesde);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(259, 144);
+            this.groupBox1.Size = new System.Drawing.Size(259, 158);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cirugia Consulta";
@@ -188,6 +193,7 @@
             this.btnDeshabilitar.Size = new System.Drawing.Size(141, 49);
             this.btnDeshabilitar.TabIndex = 6;
             this.btnDeshabilitar.Text = "Eliminar";
+            this.toolTip1.SetToolTip(this.btnDeshabilitar, "Eliminar un registro seleccionado");
             this.btnDeshabilitar.UseVisualStyleBackColor = true;
             this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
             // 
@@ -201,6 +207,7 @@
             this.btnModificar.Size = new System.Drawing.Size(141, 49);
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Restablecer";
+            this.toolTip1.SetToolTip(this.btnModificar, "Restablecer Pantalla");
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
@@ -214,6 +221,7 @@
             this.btnRestablecer.Size = new System.Drawing.Size(141, 49);
             this.btnRestablecer.TabIndex = 5;
             this.btnRestablecer.Text = "Modificar";
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Modificar un registro seleccionado");
             this.btnRestablecer.UseVisualStyleBackColor = true;
             this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
@@ -226,6 +234,7 @@
             this.btnNuevo.Size = new System.Drawing.Size(141, 49);
             this.btnNuevo.TabIndex = 4;
             this.btnNuevo.Text = "Nuevo";
+            this.toolTip1.SetToolTip(this.btnNuevo, "Crear un nuevo registro");
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -238,15 +247,16 @@
             this.btnConsultar.Size = new System.Drawing.Size(141, 49);
             this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnConsultar, "Buscar Registros");
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // gbListado
             // 
             this.gbListado.Controls.Add(this.dtListado);
-            this.gbListado.Location = new System.Drawing.Point(12, 203);
+            this.gbListado.Location = new System.Drawing.Point(12, 217);
             this.gbListado.Name = "gbListado";
-            this.gbListado.Size = new System.Drawing.Size(863, 298);
+            this.gbListado.Size = new System.Drawing.Size(863, 284);
             this.gbListado.TabIndex = 15;
             this.gbListado.TabStop = false;
             this.gbListado.Text = "Listado de Cirugias Programadas";
@@ -270,7 +280,7 @@
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(857, 269);
+            this.dtListado.Size = new System.Drawing.Size(857, 255);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -298,6 +308,7 @@
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
             this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
             this.txtNumeroRegistros.TabIndex = 22;
+            this.toolTip1.SetToolTip(this.txtNumeroRegistros, "Numero de registros mostrados");
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
             0,
@@ -327,6 +338,7 @@
             this.txtNumeroPagina.Name = "txtNumeroPagina";
             this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
             this.txtNumeroPagina.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.txtNumeroPagina, "Numero de paginas mostradas");
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
             0,
@@ -342,6 +354,19 @@
             this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
             this.lbNumeroPagina.TabIndex = 19;
             this.lbNumeroPagina.Text = "No.Pagina";
+            // 
+            // cbBuscarTodo
+            // 
+            this.cbBuscarTodo.AutoSize = true;
+            this.cbBuscarTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbBuscarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbBuscarTodo.Location = new System.Drawing.Point(25, 126);
+            this.cbBuscarTodo.Name = "cbBuscarTodo";
+            this.cbBuscarTodo.Size = new System.Drawing.Size(143, 29);
+            this.cbBuscarTodo.TabIndex = 4;
+            this.cbBuscarTodo.Text = "Buscar Todo";
+            this.toolTip1.SetToolTip(this.cbBuscarTodo, "Mostrar todo el historial ");
+            this.cbBuscarTodo.UseVisualStyleBackColor = true;
             // 
             // ProgramacionCirugiaConsulta
             // 
@@ -407,5 +432,7 @@
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.Label lbTitulo;
+        private System.Windows.Forms.CheckBox cbBuscarTodo;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

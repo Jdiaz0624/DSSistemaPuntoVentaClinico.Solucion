@@ -115,7 +115,23 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            MostrarHistorialCirugias();
+            if (cbBuscarTodo.Checked)
+            {
+                var MostrarListado = ObjDataFActuracion.Value.BuscaProgramacionCirugia(
+             new Nullable<decimal>(),
+             null,
+             null,
+             null, null, null, null,
+             Convert.ToInt32(txtNumeroPagina.Value),
+             Convert.ToInt32(txtNumeroRegistros.Value));
+                dtListado.DataSource = MostrarListado;
+                OcultarColumnas();
+            }
+            else
+            {
+                MostrarHistorialCirugias();
+            }
+           
         }
 
         private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)

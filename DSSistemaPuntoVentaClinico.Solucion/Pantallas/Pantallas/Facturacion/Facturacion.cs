@@ -483,8 +483,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             groupBox2.ForeColor = Color.Black;
             groupBox3.ForeColor = Color.Black;
             groupBox4.ForeColor = Color.Black;
-            rbCotizar.ForeColor = Color.SpringGreen;
-            rbFacturar.ForeColor = Color.SpringGreen;
+          //  rbCotizar.ForeColor = Color.SpringGreen;
+           // rbFacturar.ForeColor = Color.SpringGreen;
             gbGeneral.ForeColor = Color.Black;
             
             ddlCentroSalud.ForeColor = Color.Black;
@@ -603,12 +603,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         {
             if (rbFacturar.Checked)
             {
-                rbFacturar.ForeColor = Color.SpringGreen;
+             //   rbFacturar.ForeColor = Color.SpringGreen;
                 VariablesGlobales.IdEstatusFacturacion = 1;
             }
             else
             {
-                rbFacturar.ForeColor = Color.Red;
+              //  rbFacturar.ForeColor = Color.Red;
                 VariablesGlobales.IdEstatusFacturacion = 0;
             }
         }
@@ -617,12 +617,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         {
             if (rbCotizar.Checked)
             {
-                rbCotizar.ForeColor = Color.SpringGreen;
+               // rbCotizar.ForeColor = Color.SpringGreen;
                 VariablesGlobales.IdEstatusFacturacion = 2;
             }
             else
             {
-                rbCotizar.ForeColor = Color.Red;
+               // rbCotizar.ForeColor = Color.Red;
                 VariablesGlobales.IdEstatusFacturacion = 0;
             }
         }
