@@ -12,12 +12,22 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte
 
         public string Caja { get; set; }
 
+        public System.Nullable<int> CantidadFacturado { get; set; }
+
+        public System.Nullable<int> Anuladas { get; set; }
+
+        public System.Nullable<int> TotalCantidadFacturado { get; set; }
+
+        public System.Nullable<int> CantidadCotizaciones { get; set; }
+
+        public System.Nullable<int> CantidadCirugiasProgramadas { get; set; }
+
         public System.Nullable<decimal> Monto { get; set; }
 
         public string Concepto { get; set; }
 
         public string Fecha { get; set; }
-    
+
         public string CreadoPor { get; set; }
 
         public System.Nullable<decimal> NumeroReferencia { get; set; }

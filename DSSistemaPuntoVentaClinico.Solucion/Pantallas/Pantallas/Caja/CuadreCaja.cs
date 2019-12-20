@@ -77,6 +77,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
 
                     Cuadrar.IdUsuario = VariablesGlobales.IdUsuario;
                     Cuadrar.Caja = n.Caja;
+                    Cuadrar.CantidadFacturado = Convert.ToInt32(n.CantidadFacturado);
+                    Cuadrar.Anuladas = Convert.ToInt32(n.Anuladas);
+                    Cuadrar.TotalCantidadFacturado = Convert.ToInt32(n.TotalCantidadFacturado);
+                    Cuadrar.CantidadCotizaciones = Convert.ToInt32(n.CantidadCotizaciones);
+                    Cuadrar.CantidadCirugiasProgramadas = Convert.ToInt32(n.CantidadCirugiasProgramadas);
                     Cuadrar.Monto = Convert.ToDecimal(n.Monto);
                     Cuadrar.Concepto = n.Concepto;
                     Cuadrar.Fecha = n.Fecha;

@@ -631,7 +631,6 @@
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(283, 32);
             this.txtIdentificacion.TabIndex = 20;
-            this.txtIdentificacion.Visible = false;
             // 
             // ddlTipoIdentificacion
             // 
