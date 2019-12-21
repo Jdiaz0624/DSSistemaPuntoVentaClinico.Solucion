@@ -938,7 +938,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try {
-                if (MessageBox.Show("¿Quieres selecionar este registro?", Variables.NombrePacienteHis, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Quieres selecionar este registro?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     
 
