@@ -215,15 +215,21 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
             else
             {
-                string _CodigoCliente = string.IsNullOrEmpty(txtCodigoCliente.Text.Trim()) ? null : txtCodigoCliente.Text.Trim();
+                string _RNC = string.IsNullOrEmpty(txtCodigoCliente.Text.Trim()) ? null : txtCodigoCliente.Text.Trim();
 
                 var Validar = ObjDataEmpresa.Value.BuscaClientes(
                     new Nullable<decimal>(),
-                    _CodigoCliente,
-                    null, null, null, null, null,1, 1);
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    _RNC,
+                    1,
+                    1);
                 if (Validar.Count() < 1)
                 {
-                    MessageBox.Show("El codigo de cliente ingresado no es valido favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El rnc de cliente ingresado no es valido favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
