@@ -99,7 +99,6 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     lbEstatus.Visible = true;
                     ddlEstatusCirugia.Visible = true;
                     gbProductosAgregados.Visible = true;
-                    gbReferencia.Visible = true;
                     gbDatosPaciente.Visible = true;
                     btnCompletarRegistro.Visible = true;
                     lbEstatus.Visible = true;
@@ -116,9 +115,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         txtSexo.Text = n.Sexo;
                         txtEmail.Text = n.Email;
                         txtDireccion.Text = n.Direccion;
-                        txtComentario.Text = n.ComentarioPaciente;
                         lbNumeroFactura.Text = n.NumeroFactura.ToString();
-                        lbNumeroReferencia.Text = n.NumeroConector.ToString();
                         ddlEstatusCirugia.Text = n.EstatusCirugia;
                         ddlCentroSalud.Text = n.CentroSalud;
                         ddlMedico.Text = n.Medico;

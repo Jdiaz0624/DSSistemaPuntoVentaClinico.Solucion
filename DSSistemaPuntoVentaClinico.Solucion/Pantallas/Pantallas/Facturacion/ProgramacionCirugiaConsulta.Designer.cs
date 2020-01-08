@@ -33,6 +33,7 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbBuscarTodo = new System.Windows.Forms.CheckBox();
             this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,8 +53,8 @@
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.cbBuscarTodo = new System.Windows.Forms.CheckBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -113,6 +114,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cirugia Consulta";
             // 
+            // cbBuscarTodo
+            // 
+            this.cbBuscarTodo.AutoSize = true;
+            this.cbBuscarTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbBuscarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbBuscarTodo.Location = new System.Drawing.Point(25, 126);
+            this.cbBuscarTodo.Name = "cbBuscarTodo";
+            this.cbBuscarTodo.Size = new System.Drawing.Size(143, 29);
+            this.cbBuscarTodo.TabIndex = 4;
+            this.cbBuscarTodo.Text = "Buscar Todo";
+            this.toolTip1.SetToolTip(this.cbBuscarTodo, "Mostrar todo el historial ");
+            this.cbBuscarTodo.UseVisualStyleBackColor = true;
+            // 
             // txtFechaHasta
             // 
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -149,6 +163,7 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.button1);
             this.gbOpciones.Controls.Add(this.lbClaveSeguridad);
             this.gbOpciones.Controls.Add(this.txtClaveSeguridad);
             this.gbOpciones.Controls.Add(this.btnDeshabilitar);
@@ -166,7 +181,7 @@
             // lbClaveSeguridad
             // 
             this.lbClaveSeguridad.AutoSize = true;
-            this.lbClaveSeguridad.Location = new System.Drawing.Point(153, 97);
+            this.lbClaveSeguridad.Location = new System.Drawing.Point(308, 106);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
             this.lbClaveSeguridad.Size = new System.Drawing.Size(76, 25);
             this.lbClaveSeguridad.TabIndex = 4;
@@ -176,10 +191,10 @@
             // txtClaveSeguridad
             // 
             this.txtClaveSeguridad.BackColor = System.Drawing.Color.Silver;
-            this.txtClaveSeguridad.Location = new System.Drawing.Point(230, 95);
+            this.txtClaveSeguridad.Location = new System.Drawing.Point(386, 103);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(310, 30);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(206, 30);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -355,18 +370,18 @@
             this.lbNumeroPagina.TabIndex = 19;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
-            // cbBuscarTodo
+            // button1
             // 
-            this.cbBuscarTodo.AutoSize = true;
-            this.cbBuscarTodo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbBuscarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbBuscarTodo.Location = new System.Drawing.Point(25, 126);
-            this.cbBuscarTodo.Name = "cbBuscarTodo";
-            this.cbBuscarTodo.Size = new System.Drawing.Size(143, 29);
-            this.cbBuscarTodo.TabIndex = 4;
-            this.cbBuscarTodo.Text = "Buscar Todo";
-            this.toolTip1.SetToolTip(this.cbBuscarTodo, "Mostrar todo el historial ");
-            this.cbBuscarTodo.UseVisualStyleBackColor = true;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Enabled = false;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(153, 86);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 49);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Gastos";
+            this.toolTip1.SetToolTip(this.button1, "Hoja de Gastos de Cirugia");
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // ProgramacionCirugiaConsulta
             // 
@@ -434,5 +449,6 @@
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.CheckBox cbBuscarTodo;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button1;
     }
 }
