@@ -196,12 +196,23 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             var SacarCalculos = ObjDataFacturacion.Value.SacarCalculosFacturacion(NumeroConector);
             foreach (var n in SacarCalculos)
             {
-                txtCantidadArtiuclos.Text = n.CantidadArticulos.ToString();
-                txtTotalDescuento.Text = n.ToTalDescuento.ToString();
-                txtSubtotal.Text = n.SubTotal.ToString();
-                txtImpuesto.Text = n.Impuesto.ToString();
+                int CantidadArticulos = Convert.ToInt32(n.CantidadArticulos);
+                txtCantidadArtiuclos.Text = CantidadArticulos.ToString("N2");
+
+                decimal ToTalDescuento = Convert.ToDecimal(n.ToTalDescuento);
+                txtTotalDescuento.Text = ToTalDescuento.ToString("N2");
+
+
+                decimal SubTotal = Convert.ToDecimal(n.SubTotal);
+                txtSubtotal.Text = SubTotal.ToString("N2");
+
+                decimal Impuesto = Convert.ToDecimal(n.Impuesto);
+                txtImpuesto.Text = Impuesto.ToString("N2");
+
                 txtPorcientoImpuesto.Text = n.PorcientoAplicado.ToString();
-                txtTotal.Text = n.Total.ToString();
+
+                decimal TotalFinal = Convert.ToDecimal(n.Total);
+                txtTotal.Text = TotalFinal.ToString("N2");
 
             }
         }

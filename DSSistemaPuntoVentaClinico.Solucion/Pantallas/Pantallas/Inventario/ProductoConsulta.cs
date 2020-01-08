@@ -170,7 +170,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
                 {
                     VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtProductos.CurrentRow.Cells["IdProducto"].Value.ToString());
                     VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtProductos.CurrentRow.Cells["CodigoProducto"].Value.ToString());
-
+                    btnAgregar.Enabled = true;
                     var Buscar = ObjdataInventario.Value.BuscaProducto(
                         VariablesGlobales.IdMantenimiento,
                         VariablesGlobales.CodigoMantenimiento,
@@ -247,6 +247,16 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
                     e.Cancel = true;
                     break;
             }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario.AgregarQuitarProductos AgregarQuitar = new AgregarQuitarProductos();
+            AgregarQuitar.VariablesBlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            AgregarQuitar.VariablesBlobales.IdMantenimiento = VariablesGlobales.IdMantenimiento;
+            AgregarQuitar.VariablesBlobales.CodigoMantenimiento = VariablesGlobales.CodigoMantenimiento;
+            AgregarQuitar.ShowDialog();
         }
     }
 }
