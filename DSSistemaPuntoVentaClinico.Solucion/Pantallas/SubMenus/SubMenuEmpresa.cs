@@ -64,5 +64,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             Consulta.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             Consulta.ShowDialog();
         }
+
+        private void btnAsistentes_Click(object sender, EventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa.AsistentesConsulta Asistentes = new Pantallas.Empresa.AsistentesConsulta();
+            Asistentes.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
+            Asistentes.ShowDialog();
+        }
     }
 }

@@ -119,11 +119,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         ddlEstatusCirugia.Text = n.EstatusCirugia;
                         ddlCentroSalud.Text = n.CentroSalud;
                         ddlMedico.Text = n.Medico;
+                        lbNumeroReferencia.Text = n.NumeroConector.ToString();
                     }
                     //MOSTRAMOS LOS PRODUCTOS AGREGADOS
                     var ProductosAgregados = ObjDataFacturacion.Value.BuscarProductosAgregados(
                         Convert.ToDecimal(lbNumeroReferencia.Text), null);
-                    dtListado.DataSource = ProductosAgregados;
+                    dtListado.DataSource = ProductosAgregados; 
                     OcultarColumnas();
                 }
             }
