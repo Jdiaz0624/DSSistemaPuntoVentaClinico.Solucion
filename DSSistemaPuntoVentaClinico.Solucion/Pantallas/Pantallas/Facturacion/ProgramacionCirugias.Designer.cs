@@ -30,9 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbProgramacionCirugia = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lbNumeroReferencia = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.lbNumeroFactura = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.ddlHoraCirugia = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.txtComentario = new System.Windows.Forms.MaskedTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.ddlAsistenteCirugia = new System.Windows.Forms.ComboBox();
             this.rbBuscarPorNumeroReferencia = new System.Windows.Forms.RadioButton();
             this.rbBuscarPorNumeroFactura = new System.Windows.Forms.RadioButton();
             this.btnCerrar = new System.Windows.Forms.Button();
@@ -72,15 +81,6 @@
             this.txtFechaCirugia = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtComentario = new System.Windows.Forms.MaskedTextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.lbNumeroReferencia = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.gbProgramacionCirugia.SuspendLayout();
             this.gbProductosAgregados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -96,12 +96,12 @@
             this.gbProgramacionCirugia.Controls.Add(this.lbNumeroFactura);
             this.gbProgramacionCirugia.Controls.Add(this.label19);
             this.gbProgramacionCirugia.Controls.Add(this.label18);
-            this.gbProgramacionCirugia.Controls.Add(this.comboBox2);
+            this.gbProgramacionCirugia.Controls.Add(this.ddlHoraCirugia);
             this.gbProgramacionCirugia.Controls.Add(this.label16);
             this.gbProgramacionCirugia.Controls.Add(this.txtComentario);
             this.gbProgramacionCirugia.Controls.Add(this.label15);
             this.gbProgramacionCirugia.Controls.Add(this.label17);
-            this.gbProgramacionCirugia.Controls.Add(this.comboBox1);
+            this.gbProgramacionCirugia.Controls.Add(this.ddlAsistenteCirugia);
             this.gbProgramacionCirugia.Controls.Add(this.rbBuscarPorNumeroReferencia);
             this.gbProgramacionCirugia.Controls.Add(this.rbBuscarPorNumeroFactura);
             this.gbProgramacionCirugia.Controls.Add(this.btnCerrar);
@@ -129,6 +129,31 @@
             this.gbProgramacionCirugia.Text = "Programación de Cirugia";
             this.gbProgramacionCirugia.Enter += new System.EventHandler(this.gbProgramacionCirugia_Enter);
             // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(669, 629);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(254, 36);
+            this.button3.TabIndex = 56;
+            this.button3.Text = "Facturas sin cirugias";
+            this.toolTip1.SetToolTip(this.button3, "Mostrar el listado de las facturas que no tienen cirugias programadas");
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // lbNumeroReferencia
+            // 
+            this.lbNumeroReferencia.AutoSize = true;
+            this.lbNumeroReferencia.Location = new System.Drawing.Point(890, 139);
+            this.lbNumeroReferencia.Name = "lbNumeroReferencia";
+            this.lbNumeroReferencia.Size = new System.Drawing.Size(105, 25);
+            this.lbNumeroReferencia.TabIndex = 3;
+            this.lbNumeroReferencia.Text = "Referencia";
+            this.lbNumeroReferencia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolTip1.SetToolTip(this.lbNumeroReferencia, "Numero de referencia");
+            this.lbNumeroReferencia.Visible = false;
+            // 
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -154,6 +179,36 @@
             this.lbNumeroFactura.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.toolTip1.SetToolTip(this.lbNumeroFactura, "Numero de Factura");
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(883, 108);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(140, 25);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "No. Referencia";
+            this.label19.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(312, 70);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(148, 25);
+            this.label18.TabIndex = 55;
+            this.label18.Text = "Hora de Cirugia";
+            // 
+            // ddlHoraCirugia
+            // 
+            this.ddlHoraCirugia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlHoraCirugia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlHoraCirugia.FormattingEnabled = true;
+            this.ddlHoraCirugia.Location = new System.Drawing.Point(463, 67);
+            this.ddlHoraCirugia.Name = "ddlHoraCirugia";
+            this.ddlHoraCirugia.Size = new System.Drawing.Size(125, 33);
+            this.ddlHoraCirugia.TabIndex = 54;
+            this.toolTip1.SetToolTip(this.ddlHoraCirugia, "Seleccionar Asistente de cirugia");
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -162,6 +217,43 @@
             this.label16.Size = new System.Drawing.Size(113, 25);
             this.label16.TabIndex = 0;
             this.label16.Text = "No. Factura";
+            // 
+            // txtComentario
+            // 
+            this.txtComentario.BackColor = System.Drawing.Color.Silver;
+            this.txtComentario.Location = new System.Drawing.Point(126, 360);
+            this.txtComentario.Name = "txtComentario";
+            this.txtComentario.Size = new System.Drawing.Size(948, 30);
+            this.txtComentario.TabIndex = 53;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(9, 363);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(113, 25);
+            this.label15.TabIndex = 52;
+            this.label15.Text = "Comentario";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(608, 70);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(93, 25);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "Asistente";
+            // 
+            // ddlAsistenteCirugia
+            // 
+            this.ddlAsistenteCirugia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlAsistenteCirugia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlAsistenteCirugia.FormattingEnabled = true;
+            this.ddlAsistenteCirugia.Location = new System.Drawing.Point(704, 66);
+            this.ddlAsistenteCirugia.Name = "ddlAsistenteCirugia";
+            this.ddlAsistenteCirugia.Size = new System.Drawing.Size(274, 33);
+            this.ddlAsistenteCirugia.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.ddlAsistenteCirugia, "Seleccionar Asistente de cirugia");
             // 
             // rbBuscarPorNumeroReferencia
             // 
@@ -560,98 +652,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha de Cirugia";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(704, 66);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(274, 33);
-            this.comboBox1.TabIndex = 19;
-            this.toolTip1.SetToolTip(this.comboBox1, "Seleccionar Asistente de cirugia");
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(608, 70);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(93, 25);
-            this.label17.TabIndex = 20;
-            this.label17.Text = "Asistente";
-            // 
-            // txtComentario
-            // 
-            this.txtComentario.BackColor = System.Drawing.Color.Silver;
-            this.txtComentario.Location = new System.Drawing.Point(126, 360);
-            this.txtComentario.Name = "txtComentario";
-            this.txtComentario.Size = new System.Drawing.Size(948, 30);
-            this.txtComentario.TabIndex = 53;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(9, 363);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(113, 25);
-            this.label15.TabIndex = 52;
-            this.label15.Text = "Comentario";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(463, 67);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(125, 33);
-            this.comboBox2.TabIndex = 54;
-            this.toolTip1.SetToolTip(this.comboBox2, "Seleccionar Asistente de cirugia");
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(312, 70);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(148, 25);
-            this.label18.TabIndex = 55;
-            this.label18.Text = "Hora de Cirugia";
-            // 
-            // button3
-            // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(669, 629);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(254, 36);
-            this.button3.TabIndex = 56;
-            this.button3.Text = "Facturas sin cirugias";
-            this.toolTip1.SetToolTip(this.button3, "Mostrar el listado de las facturas que no tienen cirugias programadas");
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // lbNumeroReferencia
-            // 
-            this.lbNumeroReferencia.AutoSize = true;
-            this.lbNumeroReferencia.Location = new System.Drawing.Point(890, 139);
-            this.lbNumeroReferencia.Name = "lbNumeroReferencia";
-            this.lbNumeroReferencia.Size = new System.Drawing.Size(105, 25);
-            this.lbNumeroReferencia.TabIndex = 3;
-            this.lbNumeroReferencia.Text = "Referencia";
-            this.lbNumeroReferencia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolTip1.SetToolTip(this.lbNumeroReferencia, "Numero de referencia");
-            this.lbNumeroReferencia.Visible = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(883, 108);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(140, 25);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "No. Referencia";
-            this.label19.Visible = false;
-            // 
             // ProgramacionCirugias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -728,11 +728,11 @@
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.TextBox txtNumeroFactura;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox ddlHoraCirugia;
         private System.Windows.Forms.MaskedTextBox txtComentario;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ddlAsistenteCirugia;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lbNumeroReferencia;
         private System.Windows.Forms.Label label19;

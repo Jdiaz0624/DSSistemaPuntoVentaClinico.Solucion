@@ -203,5 +203,35 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                            }).ToList();
             return Listado;
         }
+
+        //LISTADO DE LAS HOTAS
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaHoras> BuscaHoras(decimal? IdHora = null, string Hora = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_LISTAS_HORAS(IdHora, Hora)
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaHoras
+                           {
+                               IdHora=n.IdHora,
+                               Hora=n.Hora,
+                               Estatus=n.Estatus,
+                               Estatus0=n.Estatus0
+                           }).ToList();
+            return Listado;
+        }
+
+        //LISTADO DE ASISTENTE DE CIRUGIA
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaAsistenteCirugia> BuscaAsistenteCirugia()
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Listado = (from n in ObjData.SP_CARGAR_LISTAS_ASISTENTE_CIRUGIA()
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaAsistenteCirugia
+                           {
+                               IdAsistenteCirugia=n.IdAsistenteCirugia,
+                               Nombre=n.Nombre
+                           }).ToList();
+            return Listado;
+        }
     }
 }

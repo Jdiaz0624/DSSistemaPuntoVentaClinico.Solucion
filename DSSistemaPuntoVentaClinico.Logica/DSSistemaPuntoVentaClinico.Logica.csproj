@@ -96,8 +96,10 @@
     <Compile Include="Entidades\EntidadSeguridad\EUsuario.cs" />
     <Compile Include="Entidades\Listas\ECentroSalud.cs" />
     <Compile Include="Entidades\Listas\EEstatusCirugia.cs" />
+    <Compile Include="Entidades\Listas\EListaAsistenteCirugia.cs" />
     <Compile Include="Entidades\Listas\EListaComprobantesFiscales.cs" />
     <Compile Include="Entidades\Listas\EListaEsatusFacturacion.cs" />
+    <Compile Include="Entidades\Listas\EListaHoras.cs" />
     <Compile Include="Entidades\Listas\EListaMedicos.cs" />
     <Compile Include="Entidades\Listas\EListaProveedor.cs" />
     <Compile Include="Entidades\Listas\EListasAlmacen.cs" />

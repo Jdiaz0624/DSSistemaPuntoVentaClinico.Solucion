@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaFacturacionMedico" Class="BDListasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JUANMARCELINOMD;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString2" Provider="System.Data.SqlClient" />
   <Function Name="Listas.SP_BUSCA_TIPO_PROVEEDORES" Method="SP_BUSCA_TIPO_PROVEEDORES">
     <ElementType Name="SP_BUSCA_TIPO_PROVEEDORESResult">
       <Column Name="IdTipoProveedor" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
@@ -86,6 +86,22 @@
       <Column Name="IdEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Estatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTAS_HORAS" Method="SP_LISTAS_HORAS">
+    <Parameter Name="IdHora" Parameter="idHora" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Hora" Parameter="hora" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="SP_LISTAS_HORASResult">
+      <Column Name="IdHora" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Hora" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_CARGAR_LISTAS_ASISTENTE_CIRUGIA" Method="SP_CARGAR_LISTAS_ASISTENTE_CIRUGIA">
+    <ElementType Name="SP_CARGAR_LISTAS_ASISTENTE_CIRUGIAResult">
+      <Column Name="IdAsistenteCirugia" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

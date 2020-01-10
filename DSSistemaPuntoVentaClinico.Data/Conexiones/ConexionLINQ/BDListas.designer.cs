@@ -33,7 +33,7 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
     #endregion
 		
 		public BDListasDataContext() : 
-				base(global::DSSistemaPuntoVentaClinico.Data.Properties.Settings.Default.SistemaFacturacionMedicoConnectionString, mappingSource)
+				base(global::DSSistemaPuntoVentaClinico.Data.Properties.Settings.Default.SistemaFacturacionMedicoConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -158,6 +158,20 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_LISTA_ESTATUS_CIRUGIAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTAS_HORAS")]
+		public ISingleResult<SP_LISTAS_HORASResult> SP_LISTAS_HORAS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdHora", DbType="Decimal(20,0)")] System.Nullable<decimal> idHora, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Hora", DbType="VarChar(20)")] string hora)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idHora, hora);
+			return ((ISingleResult<SP_LISTAS_HORASResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_CARGAR_LISTAS_ASISTENTE_CIRUGIA")]
+		public ISingleResult<SP_CARGAR_LISTAS_ASISTENTE_CIRUGIAResult> SP_CARGAR_LISTAS_ASISTENTE_CIRUGIA()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_CARGAR_LISTAS_ASISTENTE_CIRUGIAResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -808,6 +822,130 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._Estatus != value))
 				{
 					this._Estatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTAS_HORASResult
+	{
+		
+		private decimal _IdHora;
+		
+		private string _Hora;
+		
+		private System.Nullable<bool> _Estatus0;
+		
+		private string _Estatus;
+		
+		public SP_LISTAS_HORASResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdHora", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdHora
+		{
+			get
+			{
+				return this._IdHora;
+			}
+			set
+			{
+				if ((this._IdHora != value))
+				{
+					this._IdHora = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hora", DbType="VarChar(20)")]
+		public string Hora
+		{
+			get
+			{
+				return this._Hora;
+			}
+			set
+			{
+				if ((this._Hora != value))
+				{
+					this._Hora = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus0", DbType="Bit")]
+		public System.Nullable<bool> Estatus0
+		{
+			get
+			{
+				return this._Estatus0;
+			}
+			set
+			{
+				if ((this._Estatus0 != value))
+				{
+					this._Estatus0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_CARGAR_LISTAS_ASISTENTE_CIRUGIAResult
+	{
+		
+		private decimal _IdAsistenteCirugia;
+		
+		private string _Nombre;
+		
+		public SP_CARGAR_LISTAS_ASISTENTE_CIRUGIAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdAsistenteCirugia", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdAsistenteCirugia
+		{
+			get
+			{
+				return this._IdAsistenteCirugia;
+			}
+			set
+			{
+				if ((this._IdAsistenteCirugia != value))
+				{
+					this._IdAsistenteCirugia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(100)")]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this._Nombre = value;
 				}
 			}
 		}

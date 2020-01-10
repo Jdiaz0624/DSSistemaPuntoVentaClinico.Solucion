@@ -254,6 +254,26 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Consulta.ShowDialog();
         }
         #endregion
+
+        #region CARGAR LAS LISTAS DESPLEGABLES
+        private void CargarHoras()
+        {
+            var Horas = ObjDataListas.Value.BuscaHoras(
+                new Nullable<decimal>(),
+                null);
+            ddlHoraCirugia.DataSource = Horas;
+            ddlHoraCirugia.ValueMember = "IdHora";
+            ddlHoraCirugia.DisplayMember = "Hora";
+            
+        }
+        private void CargarAsistenteCirugia()
+        {
+            var AsistenteCirugia = ObjDataListas.Value.BuscaAsistenteCirugia();
+            ddlAsistenteCirugia.DataSource = AsistenteCirugia;
+            ddlAsistenteCirugia.ValueMember = "IdAsistenteCirugia";
+            ddlAsistenteCirugia.DisplayMember = "Nombre";
+        }
+        #endregion
         private void ProgramacionCirugias_Load(object sender, EventArgs e)
         {
             this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
@@ -277,6 +297,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             CargarCentroSalud();
             CargarMedicos();
             CargarEstatusCirugia();
+            CargarHoras();
+            CargarAsistenteCirugia();
             if (VariablesGlobales.AccionTomar != "INSERT")
             {
                 SacarDatosprogramacionCirugia(VariablesGlobales.NumeroFacturaMantenimiento);
