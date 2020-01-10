@@ -49,6 +49,7 @@
     <Compile Include="Comunes\ValidarControles.cs" />
     <Compile Include="Comunes\VariablesGlobales.cs" />
     <Compile Include="Entidades\EntidadEmpresa\EArs.cs" />
+    <Compile Include="Entidades\EntidadEmpresa\EAsistenteCirugia.cs" />
     <Compile Include="Entidades\EntidadEmpresa\ECentroSalud.cs" />
     <Compile Include="Entidades\EntidadEmpresa\EMedico.cs" />
     <Compile Include="Entidades\EntidadEmpresa\EPacientes.cs" />

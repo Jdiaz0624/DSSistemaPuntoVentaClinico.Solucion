@@ -43,7 +43,7 @@
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbClave = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.btnDeshabilitar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(10, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
             this.lbTitulo.TabIndex = 23;
             this.lbTitulo.Text = "label6";
             // 
@@ -93,6 +93,7 @@
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 23;
             this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // gbAsistenteCirugiaConsulta
             // 
@@ -110,7 +111,7 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(14, 41);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(65, 20);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(81, 25);
             this.lbClaveSeguridad.TabIndex = 5;
             this.lbClaveSeguridad.Text = "Nombre";
             this.lbClaveSeguridad.Visible = false;
@@ -121,9 +122,8 @@
             this.txtNombreConsulta.Location = new System.Drawing.Point(92, 38);
             this.txtNombreConsulta.MaxLength = 100;
             this.txtNombreConsulta.Name = "txtNombreConsulta";
-            this.txtNombreConsulta.Size = new System.Drawing.Size(206, 26);
+            this.txtNombreConsulta.Size = new System.Drawing.Size(206, 30);
             this.txtNombreConsulta.TabIndex = 6;
-            this.txtNombreConsulta.Visible = false;
             // 
             // txtNumeroRegistros
             // 
@@ -136,20 +136,21 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 26);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
             this.txtNumeroRegistros.TabIndex = 56;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // lbNumeroRegistros
             // 
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(208, 513);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(101, 20);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(123, 25);
             this.lbNumeroRegistros.TabIndex = 55;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -164,20 +165,21 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 26);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
             this.txtNumeroPagina.TabIndex = 54;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(13, 515);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
             this.lbNumeroPagina.TabIndex = 53;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -206,12 +208,13 @@
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.dtListado.Location = new System.Drawing.Point(3, 22);
+            this.dtListado.Location = new System.Drawing.Point(3, 26);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1107, 273);
+            this.dtListado.Size = new System.Drawing.Size(1107, 269);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // Select
             // 
@@ -222,11 +225,11 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 60;
+            this.Select.Width = 73;
             // 
             // gbOpciones
             // 
-            this.gbOpciones.Controls.Add(this.label1);
+            this.gbOpciones.Controls.Add(this.lbClave);
             this.gbOpciones.Controls.Add(this.txtClaveSeguridad);
             this.gbOpciones.Controls.Add(this.btnDeshabilitar);
             this.gbOpciones.Controls.Add(this.btnModificar);
@@ -240,15 +243,15 @@
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Opciones";
             // 
-            // label1
+            // lbClave
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(153, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Clave";
-            this.label1.Visible = false;
+            this.lbClave.AutoSize = true;
+            this.lbClave.Location = new System.Drawing.Point(153, 97);
+            this.lbClave.Name = "lbClave";
+            this.lbClave.Size = new System.Drawing.Size(63, 25);
+            this.lbClave.TabIndex = 4;
+            this.lbClave.Text = "Clave";
+            this.lbClave.Visible = false;
             // 
             // txtClaveSeguridad
             // 
@@ -256,7 +259,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(227, 93);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 26);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 30);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -272,6 +275,7 @@
             this.btnDeshabilitar.Text = "Deshabilitar";
             this.toolTip1.SetToolTip(this.btnDeshabilitar, "Deshabilitar Registro Seleccionado");
             this.btnDeshabilitar.UseVisualStyleBackColor = true;
+            this.btnDeshabilitar.Click += new System.EventHandler(this.btnDeshabilitar_Click);
             // 
             // btnModificar
             // 
@@ -285,6 +289,7 @@
             this.btnModificar.Text = "Modificar";
             this.toolTip1.SetToolTip(this.btnModificar, "Modificar Registro Seleccionado");
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnRestablecer
             // 
@@ -298,6 +303,7 @@
             this.btnRestablecer.Text = "Restablecer";
             this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
             this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.btnRestablecer_Click);
             // 
             // btnNuevo
             // 
@@ -310,6 +316,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.toolTip1.SetToolTip(this.btnNuevo, "Crear Nuevo Registro");
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnConsultar
             // 
@@ -322,10 +329,11 @@
             this.btnConsultar.Text = "Buscar";
             this.toolTip1.SetToolTip(this.btnConsultar, "Consultar Registros");
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // AsistentesConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1140, 549);
@@ -345,6 +353,7 @@
             this.Name = "AsistentesConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AsistentesConsulta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AsistentesConsulta_FormClosing);
             this.Load += new System.EventHandler(this.AsistentesConsulta_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -378,7 +387,7 @@
         private System.Windows.Forms.DataGridView dtListado;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.GroupBox gbOpciones;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbClave;
         private System.Windows.Forms.TextBox txtClaveSeguridad;
         private System.Windows.Forms.Button btnDeshabilitar;
         private System.Windows.Forms.ToolTip toolTip1;

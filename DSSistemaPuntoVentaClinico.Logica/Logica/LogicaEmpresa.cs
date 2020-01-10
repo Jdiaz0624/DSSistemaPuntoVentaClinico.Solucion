@@ -366,6 +366,78 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             }
             return Mantenimiento;
         }
-#endregion
+        #endregion
+
+        #region MANTENIMIENTO DE ASISTENTE DE CIRUGIA
+        //LISTADO DE ASISTENTE DE CIRUGIA
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EAsistenteCirugia> BuscaAsistenteCirugia(decimal? IdAsistenteCirugia = null, string CodigoAsistenteCirugia = null, string Nombre = null, int? NumeroPaina = null, int? NumeroRegistros = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_ASISTENTE_CIRUGIA(IdAsistenteCirugia, CodigoAsistenteCirugia, Nombre, NumeroPaina, NumeroRegistros)
+                          select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EAsistenteCirugia
+                          {
+                              IdAsistenteCirugia=n.IdAsistenteCirugia,
+                              CodigoAsistenteCirugia=n.CodigoAsistenteCirugia,
+                              Nombre=n.Nombre,
+                              TipoIdentificacion=n.TipoIdentificacion,
+                              NumeroIdentificacion=n.NumeroIdentificacion,
+                              Telefono=n.Telefono,
+                              Direccion=n.Direccion,
+                              Estatus0=n.Estatus0,
+                              Estatus=n.Estatus,
+                              UsuarioAdiciona=n.UsuarioAdiciona,
+                              CreadoPor=n.CreadoPor,
+                              FechaAdiciona0=n.FechaAdiciona0,
+                              FechaAdiciona=n.FechaAdiciona,
+                              UsuarioModifica=n.UsuarioModifica,
+                              ModificadoPor=n.ModificadoPor,
+                              FechaModifica0=n.FechaModifica0,
+                              FechaModifica=n.FechaModifica
+                          }).ToList();
+            return Buscar;
+        }
+
+        //MANTENIMIENTO DE ASISTENTE DE CIRUGIA
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EAsistenteCirugia MantenimeintoAsistenteCirugia(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EAsistenteCirugia Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EAsistenteCirugia Mantenimiento = null;
+
+            var AsistenteCirugia = ObjData.SP_MANTENIMIENTO_ASISTENTE_CIRUGIA(
+                Item.IdAsistenteCirugia,
+                Item.CodigoAsistenteCirugia,
+                Item.Nombre,
+                Item.TipoIdentificacion,
+                Item.NumeroIdentificacion,
+                Item.Telefono,
+                Item.Direccion,
+                Item.Estatus0,
+                Item.UsuarioAdiciona,
+                Accion);
+            if (AsistenteCirugia != null)
+            {
+                Mantenimiento = (from n in AsistenteCirugia
+                                 select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EAsistenteCirugia
+                                 {
+                                     IdAsistenteCirugia=n.IdAsistenteCirugia,
+                                     CodigoAsistenteCirugia=n.CodigoAsistenteCirugia,
+                                     Nombre=n.Nombre,
+                                     TipoIdentificacion=n.TipoIdentificacion,
+                                     NumeroIdentificacion=n.NumeroIdentificacion,
+                                     Telefono=n.Telefono,
+                                     Direccion=n.Direccion,
+                                     Estatus0=n.Estatus,
+                                     UsuarioAdiciona=n.UsuarioAdiciona,
+                                     FechaAdiciona0=n.FechaAdiciona,
+                                     UsuarioModifica=n.UsuarioModifica,
+                                     FechaModifica0=n.FechaModifica
+                                 }).FirstOrDefault();
+               
+            }
+            return Mantenimiento;
+        }
+        #endregion
     }
 }
