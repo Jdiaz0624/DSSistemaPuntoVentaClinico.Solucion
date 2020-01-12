@@ -275,5 +275,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     break;
             }
         }
+
+        private void btnGastosCirugia_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.GastoCirugia Gastos = new GastoCirugia();
+            Gastos.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Gastos.VariablesGlobales.IdMantenimiento = VariablesGlobales.IdMantenimiento;
+            Gastos.VariablesGlobales.IdMantenimiento2 = VariablesGlobales.IdMantenimiento2;
+            Gastos.ShowDialog();
+        }
     }
 }

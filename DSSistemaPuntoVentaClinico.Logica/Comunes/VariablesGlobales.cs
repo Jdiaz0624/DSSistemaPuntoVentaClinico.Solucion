@@ -18,6 +18,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Comunes
         public int Contador { get; set; }
         public int CantidadIntentos { get; set; }
         public decimal IdMantenimiento { get; set; }
+        public decimal IdMantenimiento2 { get; set; }
         public string CodigoMantenimiento { get; set; }
         public string AccionTomar { get; set; }
         public decimal NumeroFacturacion { get; set; }

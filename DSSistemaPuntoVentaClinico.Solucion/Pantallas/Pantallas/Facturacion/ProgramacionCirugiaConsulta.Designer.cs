@@ -190,6 +190,7 @@
             this.btnGastosCirugia.Text = "Gastos";
             this.toolTip1.SetToolTip(this.btnGastosCirugia, "Hoja de Gastos de Cirugia");
             this.btnGastosCirugia.UseVisualStyleBackColor = true;
+            this.btnGastosCirugia.Click += new System.EventHandler(this.btnGastosCirugia_Click);
             // 
             // lbClaveSeguridad
             // 

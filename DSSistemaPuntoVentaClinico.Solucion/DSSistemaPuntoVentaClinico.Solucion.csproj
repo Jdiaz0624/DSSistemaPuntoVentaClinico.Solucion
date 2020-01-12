@@ -196,6 +196,12 @@
     <Compile Include="Pantallas\Pantallas\Facturacion\Facturacion.Designer.cs">
       <DependentUpon>Facturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Facturacion\GastoCirugia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Facturacion\GastoCirugia.Designer.cs">
+      <DependentUpon>GastoCirugia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Facturacion\MantenimientoTipoPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -482,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Facturacion\Facturacion.resx">
       <DependentUpon>Facturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Facturacion\GastoCirugia.resx">
+      <DependentUpon>GastoCirugia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Facturacion\MantenimientoTipoPago.resx">
       <DependentUpon>MantenimientoTipoPago.cs</DependentUpon>
