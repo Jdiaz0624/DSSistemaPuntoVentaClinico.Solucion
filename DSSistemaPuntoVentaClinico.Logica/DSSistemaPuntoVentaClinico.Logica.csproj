@@ -71,6 +71,7 @@
     <Compile Include="Entidades\EntidadFacturacion\EFacturacionCalculos.cs" />
     <Compile Include="Entidades\EntidadFacturacion\EFacturacionClientes.cs" />
     <Compile Include="Entidades\EntidadFacturacion\EFacturacionProductos.cs" />
+    <Compile Include="Entidades\EntidadFacturacion\EGastosCirugia.cs" />
     <Compile Include="Entidades\EntidadFacturacion\EGuardarFacturacionComprobante.cs" />
     <Compile Include="Entidades\EntidadFacturacion\EMantenimientoProgramacionCirugia.cs" />
     <Compile Include="Entidades\EntidadFacturacion\ESacarCalculosFacturacion.cs" />

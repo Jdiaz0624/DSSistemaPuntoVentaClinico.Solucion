@@ -222,6 +222,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Mantenimiento.FechaCirugia = Convert.ToDateTime(txtFechaCirugia.Text);
             Mantenimiento.IdCentroSalud = Convert.ToDecimal(ddlCentroSalud.SelectedValue);
             Mantenimiento.IdMedico = Convert.ToDecimal(ddlMedico.SelectedValue);
+            Mantenimiento.IdAuxiliarCirugia = Convert.ToDecimal(ddlAsistenteCirugia.SelectedValue);
+            Mantenimiento.IdHoraCirugia = Convert.ToDecimal(ddlHoraCirugia.SelectedValue);
             Mantenimiento.IdEstatusCirugia = Convert.ToDecimal(ddlEstatusCirugia.SelectedValue);
             Mantenimiento.NoFactura = Convert.ToDecimal(lbNumeroFactura.Text);
             Mantenimiento.NoReferencia = Convert.ToDecimal(lbNumeroReferencia.Text);
@@ -229,6 +231,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Mantenimiento.FechaAdiciona = DateTime.Now;
             Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
             Mantenimiento.FechaModifica = DateTime.Now;
+            Mantenimiento.Comentario = txtComentario.Text;
 
             var MAN = ObjDataFacturacion.Value.MantenimientoProgramacionCirugia(Mantenimiento, VariablesGlobales.AccionTomar);
             if (VariablesGlobales.AccionTomar != "INSERT")
@@ -311,6 +314,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     txtFechaCirugia.Text = n.FechaCirugia0.ToString();
                     ddlCentroSalud.Text = n.CentroSalud;
                     ddlMedico.Text = n.NombreMedico;
+                    ddlHoraCirugia.Text = n.Hora;
+                    ddlAsistenteCirugia.Text = n.AuxiliarCirugia;
+                    txtComentario.Text = n.Comentario;
                     ddlEstatusCirugia.Text = n.Estatus;
                 }
             }

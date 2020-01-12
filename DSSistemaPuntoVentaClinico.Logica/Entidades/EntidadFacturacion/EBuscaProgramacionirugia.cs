@@ -8,8 +8,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
 {
     public class EBuscaProgramacionirugia
     {
-        public decimal? IdProgramacionCirugia {get;set;}
-        public System.Nullable<System.DateTime> FechaCirugia0 { get; set; }
+        public decimal IdProgramacionCirugia {get;set;}
+
+        public System.Nullable<System.DateTime> FechaCirugia0 {get;set;}
 
         public string FechaCirugia {get;set;}
 
@@ -18,6 +19,14 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
         public string CentroSalud {get;set;}
 
         public System.Nullable<decimal> IdMedico {get;set;}
+
+        public System.Nullable<decimal> IdAuxiliarCirugia {get;set;}
+
+        public string AuxiliarCirugia {get;set;}
+
+        public System.Nullable<decimal> IdHoraCirugia {get;set;}
+
+        public string Hora {get;set;}
 
         public string NombreMedico {get;set;}
 
@@ -78,5 +87,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
         public string FechaFacturacion {get;set;}
 
         public System.Nullable<decimal> IdUsuario {get;set;}
+
+        public string Comentario {get;set;}
     }
 }

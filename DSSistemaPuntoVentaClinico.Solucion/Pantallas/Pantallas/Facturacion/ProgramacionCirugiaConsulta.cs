@@ -45,6 +45,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             this.dtListado.Columns["IdProgramacionCirugia"].Visible = false;
             this.dtListado.Columns["IdCentroSalud"].Visible = false;
             this.dtListado.Columns["IdMedico"].Visible = false;
+            this.dtListado.Columns["IdAuxiliarCirugia"].Visible = false;
+            this.dtListado.Columns["IdHoraCirugia"].Visible = false;
             this.dtListado.Columns["IdEstatusCirugia"].Visible = false;
             this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
             this.dtListado.Columns["FechaAdiciona0"].Visible = false;
@@ -78,6 +80,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             lbClaveSeguridad.Visible = false;
             txtClaveSeguridad.Visible = false;
             txtClaveSeguridad.Text = string.Empty;
+            btnGastosCirugia.Enabled = false;
         }
         #endregion
 
@@ -178,7 +181,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     btnRestablecer.Enabled = true;
                     txtNumeroPagina.Enabled = false;
                     txtNumeroRegistros.Enabled = false;
-
+                    btnGastosCirugia.Enabled = true;
                 }
             }
             catch (Exception) { }

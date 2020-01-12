@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnGastosCirugia = new System.Windows.Forms.Button();
             this.lbClaveSeguridad = new System.Windows.Forms.Label();
             this.txtClaveSeguridad = new System.Windows.Forms.TextBox();
             this.btnDeshabilitar = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -163,7 +163,7 @@
             // 
             // gbOpciones
             // 
-            this.gbOpciones.Controls.Add(this.button1);
+            this.gbOpciones.Controls.Add(this.btnGastosCirugia);
             this.gbOpciones.Controls.Add(this.lbClaveSeguridad);
             this.gbOpciones.Controls.Add(this.txtClaveSeguridad);
             this.gbOpciones.Controls.Add(this.btnDeshabilitar);
@@ -177,6 +177,19 @@
             this.gbOpciones.TabIndex = 14;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Opciones";
+            // 
+            // btnGastosCirugia
+            // 
+            this.btnGastosCirugia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGastosCirugia.Enabled = false;
+            this.btnGastosCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGastosCirugia.Location = new System.Drawing.Point(153, 84);
+            this.btnGastosCirugia.Name = "btnGastosCirugia";
+            this.btnGastosCirugia.Size = new System.Drawing.Size(141, 49);
+            this.btnGastosCirugia.TabIndex = 7;
+            this.btnGastosCirugia.Text = "Gastos";
+            this.toolTip1.SetToolTip(this.btnGastosCirugia, "Hoja de Gastos de Cirugia");
+            this.btnGastosCirugia.UseVisualStyleBackColor = true;
             // 
             // lbClaveSeguridad
             // 
@@ -370,19 +383,6 @@
             this.lbNumeroPagina.TabIndex = 19;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Enabled = false;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(153, 86);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 49);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Gastos";
-            this.toolTip1.SetToolTip(this.button1, "Hoja de Gastos de Cirugia");
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // ProgramacionCirugiaConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -449,6 +449,6 @@
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.CheckBox cbBuscarTodo;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGastosCirugia;
     }
 }

@@ -386,6 +386,10 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               CentroSalud=n.CentroSalud,
                               IdMedico=n.IdMedico,
                               NombreMedico=n.NombreMedico,
+                              IdAuxiliarCirugia=n.IdAuxiliarCirugia,
+                              AuxiliarCirugia=n.AuxiliarCirugia,
+                              IdHoraCirugia=n.IdHoraCirugia,
+                              Hora=n.Hora,
                               IdEstatusCirugia=n.IdEstatusCirugia,
                               Estatus=n.Estatus,
                               NoFactura=n.NoFactura,
@@ -414,7 +418,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               ComentarioPaciente=n.ComentarioPaciente,
                               FechaFacturacion0=n.FechaFacturacion0,
                               FechaFacturacion=n.FechaFacturacion,
-                              IdUsuario=n.IdUsuario
+                              IdUsuario=n.IdUsuario,
+                              Comentario=n.Comentario
                           }).ToList();
             return Buscar;
         }
@@ -431,10 +436,13 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.FechaCirugia,
                 Item.IdCentroSalud,
                 Item.IdMedico,
+                Item.IdAuxiliarCirugia,
+                Item.IdHoraCirugia,
                 Item.IdEstatusCirugia,
                 Item.NoFactura,
                 Item.NoReferencia,
                 Item.UsuarioAdiciona,
+                Item.Comentario,
                 Accion);
             if (ProgramacionCirugia != null)
             {
@@ -445,16 +453,67 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      FechaCirugia=n.FechaCirugia,
                                      IdCentroSalud=n.IdCentroSalud,
                                      IdMedico=n.IdMedico,
+                                     IdAuxiliarCirugia=n.IdAuxiliarCirugia,
+                                     IdHoraCirugia=n.IdHoraCirugia,
                                      IdEstatusCirugia=n.IdEstatusCirugia,
                                      NoFactura=n.NoFactura,
                                      NoReferencia=n.NoReferencia,
                                      UsuarioAdiciona=n.UsuarioAdiciona,
                                      FechaAdiciona=n.FechaAdiciona,
                                      UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica=n.FechaModifica
+                                     FechaModifica=n.FechaModifica,
+                                     Comentario=n.Comentario
                                  }).FirstOrDefault();
             }
             return Mantenimiento = null;
+        }
+        #endregion
+
+        #region MANTENIMIENTO DE GASTOS DE CIRUGIA
+        //LISTADO DE GASTOS DE CIRUGIA
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EGastosCirugia> BuscaGastoCirugia(decimal? IdGastosCirugia = null, decimal? IdProgramacionCirugia = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_GASTOS_CIRUGIA(IdGastosCirugia, IdProgramacionCirugia, NumeroPagina, NumeroRegistros)
+                          select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EGastosCirugia
+                          {
+                              IdGastosCirugia=n.IdGastosCirugia,
+                              IdProgramacionCirugia=n.IdProgramacionCirugia,
+                              Descripcion=n.Descripcion,
+                              Cantidad=n.Cantidad,
+                              Comentario=n.Comentario
+                          }).ToList();
+            return Buscar;
+        }
+
+        //MANTENIMIENTO DE GASTOS DE CIRUGIA
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EGastosCirugia MantenimientoGastosCirugia(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EGastosCirugia Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EGastosCirugia Mantenimiento = null;
+
+            var GastoCirugia = ObjData.SP_MANTENIMIENTO_GASTOS_CIRUGIA(
+                Item.IdGastosCirugia,
+                Item.IdProgramacionCirugia,
+                Item.Descripcion,
+                Item.Cantidad,
+                Item.Comentario,
+                Accion);
+            if (GastoCirugia != null)
+            {
+                Mantenimiento = (from n in GastoCirugia
+                                 select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EGastosCirugia
+                                 {
+                                     IdGastosCirugia=n.IdGastosCirugia,
+                                     IdProgramacionCirugia=n.IdProgramacionCirugia,
+                                     Descripcion=n.Descripcion,
+                                     Cantidad=n.Cantidad,
+                                     Comentario=n.Comentario
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
         }
         #endregion
 
