@@ -81,6 +81,8 @@
             this.txtFechaCirugia = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbCirugiaProgramadaTitulo = new System.Windows.Forms.Label();
+            this.lbCirugiaProgramada = new System.Windows.Forms.Label();
             this.gbProgramacionCirugia.SuspendLayout();
             this.gbProductosAgregados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -90,6 +92,8 @@
             // gbProgramacionCirugia
             // 
             this.gbProgramacionCirugia.AutoSize = true;
+            this.gbProgramacionCirugia.Controls.Add(this.lbCirugiaProgramada);
+            this.gbProgramacionCirugia.Controls.Add(this.lbCirugiaProgramadaTitulo);
             this.gbProgramacionCirugia.Controls.Add(this.button3);
             this.gbProgramacionCirugia.Controls.Add(this.lbNumeroReferencia);
             this.gbProgramacionCirugia.Controls.Add(this.button2);
@@ -123,7 +127,7 @@
             this.gbProgramacionCirugia.Controls.Add(this.label1);
             this.gbProgramacionCirugia.Location = new System.Drawing.Point(12, 12);
             this.gbProgramacionCirugia.Name = "gbProgramacionCirugia";
-            this.gbProgramacionCirugia.Size = new System.Drawing.Size(1084, 694);
+            this.gbProgramacionCirugia.Size = new System.Drawing.Size(1143, 694);
             this.gbProgramacionCirugia.TabIndex = 0;
             this.gbProgramacionCirugia.TabStop = false;
             this.gbProgramacionCirugia.Text = "Programación de Cirugia";
@@ -171,7 +175,7 @@
             // lbNumeroFactura
             // 
             this.lbNumeroFactura.AutoSize = true;
-            this.lbNumeroFactura.Location = new System.Drawing.Point(799, 108);
+            this.lbNumeroFactura.Location = new System.Drawing.Point(958, 107);
             this.lbNumeroFactura.Name = "lbNumeroFactura";
             this.lbNumeroFactura.Size = new System.Drawing.Size(78, 25);
             this.lbNumeroFactura.TabIndex = 1;
@@ -182,7 +186,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(883, 108);
+            this.label19.Location = new System.Drawing.Point(997, 31);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(140, 25);
             this.label19.TabIndex = 2;
@@ -212,7 +216,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(680, 108);
+            this.label16.Location = new System.Drawing.Point(849, 107);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(113, 25);
             this.label16.TabIndex = 0;
@@ -259,7 +263,7 @@
             // 
             this.rbBuscarPorNumeroReferencia.AutoSize = true;
             this.rbBuscarPorNumeroReferencia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbBuscarPorNumeroReferencia.Location = new System.Drawing.Point(355, 104);
+            this.rbBuscarPorNumeroReferencia.Location = new System.Drawing.Point(302, 104);
             this.rbBuscarPorNumeroReferencia.Name = "rbBuscarPorNumeroReferencia";
             this.rbBuscarPorNumeroReferencia.Size = new System.Drawing.Size(328, 29);
             this.rbBuscarPorNumeroReferencia.TabIndex = 17;
@@ -272,7 +276,7 @@
             // 
             this.rbBuscarPorNumeroFactura.AutoSize = true;
             this.rbBuscarPorNumeroFactura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbBuscarPorNumeroFactura.Location = new System.Drawing.Point(54, 104);
+            this.rbBuscarPorNumeroFactura.Location = new System.Drawing.Point(6, 104);
             this.rbBuscarPorNumeroFactura.Name = "rbBuscarPorNumeroFactura";
             this.rbBuscarPorNumeroFactura.Size = new System.Drawing.Size(301, 29);
             this.rbBuscarPorNumeroFactura.TabIndex = 16;
@@ -652,6 +656,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha de Cirugia";
             // 
+            // lbCirugiaProgramadaTitulo
+            // 
+            this.lbCirugiaProgramadaTitulo.AutoSize = true;
+            this.lbCirugiaProgramadaTitulo.Location = new System.Drawing.Point(625, 106);
+            this.lbCirugiaProgramadaTitulo.Name = "lbCirugiaProgramadaTitulo";
+            this.lbCirugiaProgramadaTitulo.Size = new System.Drawing.Size(186, 25);
+            this.lbCirugiaProgramadaTitulo.TabIndex = 57;
+            this.lbCirugiaProgramadaTitulo.Text = "Cirugia Programada";
+            this.lbCirugiaProgramadaTitulo.Visible = false;
+            // 
+            // lbCirugiaProgramada
+            // 
+            this.lbCirugiaProgramada.AutoSize = true;
+            this.lbCirugiaProgramada.Location = new System.Drawing.Point(809, 106);
+            this.lbCirugiaProgramada.Name = "lbCirugiaProgramada";
+            this.lbCirugiaProgramada.Size = new System.Drawing.Size(42, 25);
+            this.lbCirugiaProgramada.TabIndex = 58;
+            this.lbCirugiaProgramada.Text = "NO";
+            this.lbCirugiaProgramada.Visible = false;
+            // 
             // ProgramacionCirugias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -736,5 +760,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lbNumeroReferencia;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lbCirugiaProgramada;
+        private System.Windows.Forms.Label lbCirugiaProgramadaTitulo;
     }
 }

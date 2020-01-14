@@ -447,6 +447,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Columns["IdProducto"].Visible = false;
             this.dtListado.Columns["IdTipoPago"].Visible = false;
             this.dtListado.Columns["NumeroConector"].Visible = false;
+            this.dtListado.Columns["CirugiaProgramada0"].Visible = false;
         }
         #endregion
 

@@ -112,6 +112,47 @@
       <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Historial.SP_MONTO_FACTURACION_COTIZACION" Method="SP_MONTO_FACTURACION_COTIZACION">
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_MONTO_FACTURACION_COTIZACIONResult">
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_MANTENIMIENTO_CUADRE_CAJA" Method="SP_MANTENIMIENTO_CUADRE_CAJA">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Caja" Parameter="caja" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CantidadFacturado" Parameter="cantidadFacturado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Anuladas" Parameter="anuladas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TotalCantidadFacturado" Parameter="totalCantidadFacturado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CantidadCotizaciones" Parameter="cantidadCotizaciones" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CantidadCirugiasProgramadas" Parameter="cantidadCirugiasProgramadas" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Monto" Parameter="monto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Concepto" Parameter="concepto" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Fecha" Parameter="fecha" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CreadoPor" Parameter="creadoPor" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NumeroReferencia" Parameter="numeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="TipoPago" Parameter="tipoPago" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_CUADRE_CAJAResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Caja" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CantidadFacturado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Anuladas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCantidadFacturado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadCotizaciones" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadCirugiasProgramadas" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Monto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Concepto" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NumeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaDesde" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="Historial.SP_HISTORIAL_FACTURACION_COTIZACION" Method="SP_HISTORIAL_FACTURACION_COTIZACION">
     <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(18,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -173,47 +214,8 @@
       <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
       <Column Name="IdEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="EstatusCirugia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Historial.SP_MONTO_FACTURACION_COTIZACION" Method="SP_MONTO_FACTURACION_COTIZACION">
-    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <ElementType Name="SP_MONTO_FACTURACION_COTIZACIONResult">
-      <Column Name="Total" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Reporte.SP_MANTENIMIENTO_CUADRE_CAJA" Method="SP_MANTENIMIENTO_CUADRE_CAJA">
-    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="Caja" Parameter="caja" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="CantidadFacturado" Parameter="cantidadFacturado" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Anuladas" Parameter="anuladas" Type="System.Int32" DbType="Int" />
-    <Parameter Name="TotalCantidadFacturado" Parameter="totalCantidadFacturado" Type="System.Int32" DbType="Int" />
-    <Parameter Name="CantidadCotizaciones" Parameter="cantidadCotizaciones" Type="System.Int32" DbType="Int" />
-    <Parameter Name="CantidadCirugiasProgramadas" Parameter="cantidadCirugiasProgramadas" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Monto" Parameter="monto" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="Concepto" Parameter="concepto" Type="System.String" DbType="VarChar(8000)" />
-    <Parameter Name="Fecha" Parameter="fecha" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="CreadoPor" Parameter="creadoPor" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="NumeroReferencia" Parameter="numeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="TipoPago" Parameter="tipoPago" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
-    <ElementType Name="SP_MANTENIMIENTO_CUADRE_CAJAResult">
-      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Caja" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CantidadFacturado" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Anuladas" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalCantidadFacturado" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CantidadCotizaciones" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CantidadCirugiasProgramadas" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Monto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="Concepto" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="Fecha" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="NumeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="FechaDesde" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="FechaHasta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CirugiaProgramada0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CirugiaProgramada" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

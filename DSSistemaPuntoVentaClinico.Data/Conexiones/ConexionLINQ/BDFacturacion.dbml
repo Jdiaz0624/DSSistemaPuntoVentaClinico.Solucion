@@ -152,29 +152,6 @@
       <Column Name="Comprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="Facturacion.SP_GUARDAR_DATOS_FACTURACION_CALCULOS" Method="SP_GUARDAR_DATOS_FACTURACION_CALCULOS">
-    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="CantidadArticulos" Parameter="cantidadArticulos" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="TotalDescuento" Parameter="totalDescuento" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="Subtotal" Parameter="subtotal" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="Impuesto" Parameter="impuesto" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="Total" Parameter="total" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="MontoPagado" Parameter="montoPagado" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="IdEstatusCirugia" Parameter="idEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
-    <ElementType Name="SP_GUARDAR_DATOS_FACTURACION_CALCULOSResult">
-      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="CantidadArticulos" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="TotalDescuento" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="Subtotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="Impuesto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="Total" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="IdEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Facturacion.SP_MANTENIMIENTO_DATOS_FACTURACION_ESPEJO" Method="SP_MANTENIMIENTO_DATOS_FACTURACION_ESPEJO">
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -372,6 +349,31 @@
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
       <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Facturacion.SP_GUARDAR_DATOS_FACTURACION_CALCULOS" Method="SP_GUARDAR_DATOS_FACTURACION_CALCULOS">
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="CantidadArticulos" Parameter="cantidadArticulos" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="TotalDescuento" Parameter="totalDescuento" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Subtotal" Parameter="subtotal" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Impuesto" Parameter="impuesto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Total" Parameter="total" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="MontoPagado" Parameter="montoPagado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="IdEstatusCirugia" Parameter="idEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="CirugiaProgramada" Parameter="cirugiaProgramada" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GUARDAR_DATOS_FACTURACION_CALCULOSResult">
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CantidadArticulos" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TotalDescuento" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Subtotal" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Impuesto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="IdEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CirugiaProgramada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

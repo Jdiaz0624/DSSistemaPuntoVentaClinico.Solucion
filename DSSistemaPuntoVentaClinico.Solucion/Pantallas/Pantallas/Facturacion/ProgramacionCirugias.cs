@@ -23,6 +23,18 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+        #region CAMBIAR EL ESTATUS DE LA LA CIRUGIA
+        private void MANChangeStatus()
+        {
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionCalculos Change = new Logica.Entidades.EntidadFacturacion.EFacturacionCalculos();
+
+            Change.NumeroConector = Convert.ToDecimal(lbNumeroReferencia.Text);
+            Change.CirugiaProgramada = true;
+
+            var MAn = ObjDataFacturacion.Value.GuardarFacturacionCalculos(Change, "CHANGESATUS");
+        }
+        #endregion
+
         #region SACAR LOS DATOS DE LA EMPRESA
         private void SacarDatosInformacionEmpresa(int IdInformacionEmpresa)
         {
@@ -103,6 +115,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     btnCompletarRegistro.Visible = true;
                     lbEstatus.Visible = true;
                     ddlEstatusCirugia.Visible = true;
+                    lbCirugiaProgramada.Visible = true;
+                    lbCirugiaProgramadaTitulo.Visible = true;
                     //SACAMOS LOS DATOS 
                     foreach (var n in Buscar)
                     {
@@ -120,6 +134,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         ddlCentroSalud.Text = n.CentroSalud;
                         ddlMedico.Text = n.Medico;
                         lbNumeroReferencia.Text = n.NumeroConector.ToString();
+                        lbCirugiaProgramada.Text = n.CirugiaProgramada;
+                        if (lbCirugiaProgramada.Text == "SI")
+                        {
+                            lbCirugiaProgramada.ForeColor = Color.Red;
+                        }
+                        else if(lbCirugiaProgramada.Text=="NO")
+                        {
+                            lbCirugiaProgramada.ForeColor = Color.Green;
+                        }
                     }
                     //MOSTRAMOS LOS PRODUCTOS AGREGADOS
                     var ProductosAgregados = ObjDataFacturacion.Value.BuscarProductosAgregados(
@@ -232,6 +255,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
             Mantenimiento.FechaModifica = DateTime.Now;
             Mantenimiento.Comentario = txtComentario.Text;
+
+            if (VariablesGlobales.AccionTomar == "INSERT")
+            {
+                MANChangeStatus();
+            }
 
             var MAN = ObjDataFacturacion.Value.MantenimientoProgramacionCirugia(Mantenimiento, VariablesGlobales.AccionTomar);
             if (VariablesGlobales.AccionTomar != "INSERT")
@@ -425,7 +453,42 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void btnCompletarRegistro_Click(object sender, EventArgs e)
         {
-            MAMProgramacionCirugias();
+            if (VariablesGlobales.AccionTomar != "INSERT")
+            {
+                MAMProgramacionCirugias();
+            }
+            else
+            {
+                //VALIDAMOS SI EL REGISTRO TIENE UNA CIRUGIA PROGRAMADA
+
+                if (lbCirugiaProgramada.Text == "SI")
+                {
+                    //SACAMOS LOS DATOS DE LA CIRUGIA  PROGRAMAD
+
+                    string FechaCirugia = "";
+                    string Hora = "";
+                    string Medico = "";
+                    string CentroSalud = "";
+                    var SacarDatos = ObjDataFacturacion.Value.BuscaProgramacionCirugia(
+                        new Nullable<decimal>(),
+                        null, null, null, null, null,
+                        Convert.ToDecimal(lbNumeroFactura.Text),
+                        1, 1);
+                    foreach (var n in SacarDatos)
+                    {
+                        FechaCirugia = n.FechaCirugia;
+                        Hora = n.Hora;
+                        Medico = n.NombreMedico;
+                        CentroSalud = n.CentroSalud;
+                    }
+                    MessageBox.Show("Este registro ya tiene una cirugia programada para el dia " + FechaCirugia + " a la hora " + Hora + " con el Medico " + Medico + " en el centro de salud " + CentroSalud + " favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (lbCirugiaProgramada.Text == "NO")
+                {
+                    MAMProgramacionCirugias();
+                }
+            }
+           
         }
 
         private void button1_Click_1(object sender, EventArgs e)

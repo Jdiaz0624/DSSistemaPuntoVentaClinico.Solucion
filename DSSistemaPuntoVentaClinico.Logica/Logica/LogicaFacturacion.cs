@@ -224,6 +224,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.IdTipoPago,
                 Item.MontoPagado,
                 Item.IdEstatusCirugia,
+               Item.CirugiaProgramada,
                 Accion);
             if (FacturacionCalculos != null)
             {
@@ -238,7 +239,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      Total=n.Total,
                                      IdTipoPago=n.IdTipoPago,
                                      MontoPagado=n.MontoPagado,
-                                     IdEstatusCirugia=n.IdEstatusCirugia
+                                     IdEstatusCirugia=n.IdEstatusCirugia,
+                                     CirugiaProgramada=n.CirugiaProgramada
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

@@ -277,6 +277,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Guardar.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
             Guardar.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
             Guardar.IdEstatusCirugia = Convert.ToDecimal(ddlEstatusCirugia.SelectedValue);
+            Guardar.CirugiaProgramada = false;
 
             var MAN = ObjDataFacturacion.Value.GuardarFacturacionCalculos(Guardar, "INSERT");
         }

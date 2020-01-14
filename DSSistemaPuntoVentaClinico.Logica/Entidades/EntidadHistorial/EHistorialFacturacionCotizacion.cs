@@ -97,5 +97,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial
         public System.Nullable<decimal> IdEstatusCirugia { get; set; }
 
         public string EstatusCirugia { get; set; }
+
+        public System.Nullable<bool> CirugiaProgramada0 { get; set; }
+
+        public string CirugiaProgramada { get; set; }
     }
 }

@@ -62,7 +62,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                  TipoPago=n.TipoPago,
                                  MontoPagado=n.MontoPagado,
                                  IdEstatusCirugia=n.IdEstatusCirugia,
-                                 EstatusCirugia=n.EstatusCirugia
+                                 EstatusCirugia=n.EstatusCirugia,
+                                 CirugiaProgramada0=n.CirugiaProgramada0,
+                                 CirugiaProgramada=n.CirugiaProgramada
 
                              }).ToList();
             return Historial;
