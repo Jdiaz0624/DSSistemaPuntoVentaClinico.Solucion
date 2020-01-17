@@ -18,6 +18,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         }
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaFacturacion> ObjDataFacturacion = new Lazy<Logica.Logica.LogicaFacturacion>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CERRAR PANTALLA
@@ -209,6 +211,34 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                 txtNumeroRegistros.Enabled = false;
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //SACAMOS EL USUARIO Y LA CLAVE DE LA BASE DE DATOS
+            var SacarCredenciales = ObjdataSeguridad.Value.SacarLogonBD(1);
+            foreach (var n in SacarCredenciales)
+            {
+                VariablesGlobales.UsuarioBD = n.Usuario;
+                VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+            }
+
+            //SACAMOS LA RUTA DEL REPORTE
+            var SacarRutaReporte = ObjDataHistorial.Value.SacarRutaReporte(4);
+            foreach (var n in SacarRutaReporte)
+            {
+                VariablesGlobales.RutaReporte = n.RutaReporte;
+            }
+
+            //MOSTRAMOS EL REPORTE
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteGastoCirugia = new Reporte.Reportes();
+            ReporteGastoCirugia.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            ReporteGastoCirugia.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            ReporteGastoCirugia.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            ReporteGastoCirugia.GenerarReorteGastosCirugia(VariablesGlobales.IdMantenimiento);
+            ReporteGastoCirugia.ShowDialog();
+
+      
         }
     }
 }

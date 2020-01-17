@@ -33,15 +33,17 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtcantodad = new System.Windows.Forms.TextBox();
-            this.txtcomentario = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnRestablecer = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtcomentario = new System.Windows.Forms.TextBox();
+            this.txtcantodad = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -50,8 +52,6 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnRestablecer = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -118,70 +118,46 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dato de Gastos";
             // 
-            // label1
+            // button2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Descripción*";
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(589, 82);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(141, 49);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Reporte";
+            this.toolTip1.SetToolTip(this.button2, "Imprimir la hoja de gastos");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label2
+            // btnRestablecer
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Cantidad*";
+            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRestablecer.Enabled = false;
+            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestablecer.Location = new System.Drawing.Point(442, 82);
+            this.btnRestablecer.Name = "btnRestablecer";
+            this.btnRestablecer.Size = new System.Drawing.Size(141, 49);
+            this.btnRestablecer.TabIndex = 9;
+            this.btnRestablecer.Text = "Restablecer";
+            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
+            this.btnRestablecer.UseVisualStyleBackColor = true;
+            this.btnRestablecer.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
+            // btnQuitar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Comentario";
-            // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtDescripcion.Location = new System.Drawing.Point(136, 29);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(279, 30);
-            this.txtDescripcion.TabIndex = 3;
-            // 
-            // txtcantodad
-            // 
-            this.txtcantodad.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtcantodad.Location = new System.Drawing.Point(136, 63);
-            this.txtcantodad.Name = "txtcantodad";
-            this.txtcantodad.Size = new System.Drawing.Size(279, 30);
-            this.txtcantodad.TabIndex = 4;
-            this.txtcantodad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantodad_KeyPress);
-            // 
-            // txtcomentario
-            // 
-            this.txtcomentario.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtcomentario.Location = new System.Drawing.Point(136, 97);
-            this.txtcomentario.Name = "txtcomentario";
-            this.txtcomentario.Size = new System.Drawing.Size(279, 30);
-            this.txtcomentario.TabIndex = 5;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(442, 27);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(141, 49);
-            this.btnGuardar.TabIndex = 6;
-            this.btnGuardar.Text = "Guardar";
-            this.toolTip1.SetToolTip(this.btnGuardar, "Guardar los datos ");
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnQuitar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuitar.Enabled = false;
+            this.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitar.Location = new System.Drawing.Point(736, 27);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(141, 49);
+            this.btnQuitar.TabIndex = 8;
+            this.btnQuitar.Text = "Quitar";
+            this.toolTip1.SetToolTip(this.btnQuitar, "Quitar Registros Seleccionado");
+            this.btnQuitar.UseVisualStyleBackColor = true;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnModificar
             // 
@@ -197,19 +173,70 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // btnQuitar
+            // btnGuardar
             // 
-            this.btnQuitar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnQuitar.Enabled = false;
-            this.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuitar.Location = new System.Drawing.Point(736, 27);
-            this.btnQuitar.Name = "btnQuitar";
-            this.btnQuitar.Size = new System.Drawing.Size(141, 49);
-            this.btnQuitar.TabIndex = 8;
-            this.btnQuitar.Text = "Quitar";
-            this.toolTip1.SetToolTip(this.btnQuitar, "Quitar Registros Seleccionado");
-            this.btnQuitar.UseVisualStyleBackColor = true;
-            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Location = new System.Drawing.Point(442, 27);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(141, 49);
+            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.Text = "Guardar";
+            this.toolTip1.SetToolTip(this.btnGuardar, "Guardar los datos ");
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // txtcomentario
+            // 
+            this.txtcomentario.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtcomentario.Location = new System.Drawing.Point(136, 97);
+            this.txtcomentario.Name = "txtcomentario";
+            this.txtcomentario.Size = new System.Drawing.Size(279, 30);
+            this.txtcomentario.TabIndex = 5;
+            // 
+            // txtcantodad
+            // 
+            this.txtcantodad.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtcantodad.Location = new System.Drawing.Point(136, 63);
+            this.txtcantodad.Name = "txtcantodad";
+            this.txtcantodad.Size = new System.Drawing.Size(279, 30);
+            this.txtcantodad.TabIndex = 4;
+            this.txtcantodad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantodad_KeyPress);
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtDescripcion.Location = new System.Drawing.Point(136, 29);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(279, 30);
+            this.txtDescripcion.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Comentario";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(34, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Cantidad*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Descripción*";
             // 
             // groupBox2
             // 
@@ -309,32 +336,6 @@
             this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
             this.lbNumeroPagina.TabIndex = 51;
             this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // btnRestablecer
-            // 
-            this.btnRestablecer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRestablecer.Enabled = false;
-            this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRestablecer.Location = new System.Drawing.Point(442, 82);
-            this.btnRestablecer.Name = "btnRestablecer";
-            this.btnRestablecer.Size = new System.Drawing.Size(141, 49);
-            this.btnRestablecer.TabIndex = 9;
-            this.btnRestablecer.Text = "Restablecer";
-            this.toolTip1.SetToolTip(this.btnRestablecer, "Restablecer Pantalla");
-            this.btnRestablecer.UseVisualStyleBackColor = true;
-            this.btnRestablecer.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(589, 82);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 49);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Reporte";
-            this.toolTip1.SetToolTip(this.button2, "Imprimir la hoja de gastos");
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // GastoCirugia
             // 

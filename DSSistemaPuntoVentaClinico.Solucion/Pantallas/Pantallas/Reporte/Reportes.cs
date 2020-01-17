@@ -78,6 +78,31 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte
             }
             catch (Exception) { MessageBox.Show("Error al cargar el reporte", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
+
+        public void GenerarReorteGastosCirugia(decimal IdGastoCirugia)
+        {
+            try {
+                ReportDocument GastoCirugia = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_REPORTE_GASTOS_CIRUGIA] @IdProgramacionCirugia";
+                comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdProgramacionCirugia", SqlDbType.Decimal);
+
+                comando.Parameters["@IdProgramacionCirugia"].Value = IdGastoCirugia;
+
+                GastoCirugia.Load(@"" + VariablesGlobales.RutaReporte);
+                GastoCirugia.Refresh();
+                GastoCirugia.SetParameterValue("@IdProgramacionCirugia", IdGastoCirugia);
+                GastoCirugia.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = GastoCirugia;
+
+
+
+            }
+            catch (Exception) { MessageBox.Show("Error al cargar el reporte de gastos de cirugia", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
         private void Reportes_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);
