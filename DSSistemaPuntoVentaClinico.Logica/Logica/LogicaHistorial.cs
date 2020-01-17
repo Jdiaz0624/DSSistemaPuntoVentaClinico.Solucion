@@ -281,7 +281,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         }
         #endregion
         #region MANTENIMIENTO DE REPORTES
-        //REPORTE DE PRODUCTOS
+        //REPORTE DE PRODUCTOS 
         public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EmantenimientoReporte MantenimientoReporteProducto(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EmantenimientoReporte Item, string Accion)
         {
             ObjData.CommandTimeout = 999999999;
