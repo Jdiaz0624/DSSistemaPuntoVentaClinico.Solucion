@@ -218,4 +218,53 @@
       <Column Name="CirugiaProgramada" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="Reporte.SP_MANTENIMIENTO_REPORTE_PRODUCTO" Method="SP_MANTENIMIENTO_REPORTE_PRODUCTO">
+    <Parameter Name="IdUsuarioImprime" Parameter="idUsuarioImprime" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdProducto" Parameter="idProducto" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="CodigoProducto" Parameter="codigoProducto" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Almacen" Parameter="almacen" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="TipoProveedor" Parameter="tipoProveedor" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Proveedor" Parameter="proveedor" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="TipoEmpaque" Parameter="tipoEmpaque" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="TipoProducto" Parameter="tipoProducto" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Producto" Parameter="producto" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Estatus" Parameter="estatus" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="CantidadAlmacen" Parameter="cantidadAlmacen" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PrecioCompra" Parameter="precioCompra" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="PrecioVenta" Parameter="precioVenta" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="SegundoPrecio" Parameter="segundoPrecio" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="TercerPrecio" Parameter="tercerPrecio" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="FechaEntrada" Parameter="fechaEntrada" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="LlevaDescuento" Parameter="llevaDescuento" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="PorcientoDescuento" Parameter="porcientoDescuento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CreadoPor" Parameter="creadoPor" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaAdiciona" Parameter="fechaAdiciona" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="ModificadoPor" Parameter="modificadoPor" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaModifica" Parameter="fechaModifica" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_REPORTE_PRODUCTOResult">
+      <Column Name="IdUsuarioImprime" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdProducto" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CodigoProducto" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Almacen" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TipoProveedor" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Proveedor" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TipoEmpaque" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="TipoProducto" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Producto" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CantidadAlmacen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PrecioVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="SegundoPrecio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="TercerPrecio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="FechaEntrada" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="LlevaDescuento" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="PorcientoDescuento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ModificadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

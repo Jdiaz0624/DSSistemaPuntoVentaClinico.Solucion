@@ -164,6 +164,36 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroFactura, numeroConector, nombrePaciente, idEstatusFacturacion, codigoFacturacion, idTipoFacturacion, idCentroSalud, idMedico, idTipoPago, fechaFacturacionDesde, fechaFacturacionHasta, idEstatusCirugia, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_HISTORIAL_FACTURACION_COTIZACIONResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_MANTENIMIENTO_REPORTE_PRODUCTO")]
+		public ISingleResult<SP_MANTENIMIENTO_REPORTE_PRODUCTOResult> SP_MANTENIMIENTO_REPORTE_PRODUCTO(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuarioImprime", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuarioImprime, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProducto", DbType="Decimal(20,0)")] System.Nullable<decimal> idProducto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CodigoProducto", DbType="VarChar(200)")] string codigoProducto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Almacen", DbType="VarChar(200)")] string almacen, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoProveedor", DbType="VarChar(200)")] string tipoProveedor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Proveedor", DbType="VarChar(200)")] string proveedor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoEmpaque", DbType="VarChar(200)")] string tipoEmpaque, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TipoProducto", DbType="VarChar(200)")] string tipoProducto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Producto", DbType="VarChar(200)")] string producto, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estatus", DbType="VarChar(200)")] string estatus, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadAlmacen", DbType="Int")] System.Nullable<int> cantidadAlmacen, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrecioCompra", DbType="Decimal(20,2)")] System.Nullable<decimal> precioCompra, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PrecioVenta", DbType="Decimal(20,2)")] System.Nullable<decimal> precioVenta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SegundoPrecio", DbType="Decimal(20,2)")] System.Nullable<decimal> segundoPrecio, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TercerPrecio", DbType="Decimal(20,2)")] System.Nullable<decimal> tercerPrecio, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaEntrada", DbType="VarChar(20)")] string fechaEntrada, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="LlevaDescuento", DbType="VarChar(2)")] string llevaDescuento, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PorcientoDescuento", DbType="Int")] System.Nullable<int> porcientoDescuento, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CreadoPor", DbType="VarChar(100)")] string creadoPor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaAdiciona", DbType="VarChar(20)")] string fechaAdiciona, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ModificadoPor", DbType="VarChar(100)")] string modificadoPor, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaModifica", DbType="VarChar(20)")] string fechaModifica, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuarioImprime, idProducto, codigoProducto, almacen, tipoProveedor, proveedor, tipoEmpaque, tipoProducto, producto, estatus, cantidadAlmacen, precioCompra, precioVenta, segundoPrecio, tercerPrecio, fechaEntrada, llevaDescuento, porcientoDescuento, creadoPor, fechaAdiciona, modificadoPor, fechaModifica, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_REPORTE_PRODUCTOResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_SACAR_RUTA_REPORTEResult
@@ -2243,6 +2273,410 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._CirugiaProgramada != value))
 				{
 					this._CirugiaProgramada = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_REPORTE_PRODUCTOResult
+	{
+		
+		private System.Nullable<decimal> _IdUsuarioImprime;
+		
+		private System.Nullable<decimal> _IdProducto;
+		
+		private string _CodigoProducto;
+		
+		private string _Almacen;
+		
+		private string _TipoProveedor;
+		
+		private string _Proveedor;
+		
+		private string _TipoEmpaque;
+		
+		private string _TipoProducto;
+		
+		private string _Producto;
+		
+		private string _Estatus;
+		
+		private System.Nullable<int> _CantidadAlmacen;
+		
+		private System.Nullable<decimal> _PrecioCompra;
+		
+		private System.Nullable<decimal> _PrecioVenta;
+		
+		private System.Nullable<decimal> _SegundoPrecio;
+		
+		private System.Nullable<decimal> _TercerPrecio;
+		
+		private string _FechaEntrada;
+		
+		private string _LlevaDescuento;
+		
+		private System.Nullable<int> _PorcientoDescuento;
+		
+		private string _CreadoPor;
+		
+		private string _FechaAdiciona;
+		
+		private string _ModificadoPor;
+		
+		private string _FechaModifica;
+		
+		public SP_MANTENIMIENTO_REPORTE_PRODUCTOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuarioImprime", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuarioImprime
+		{
+			get
+			{
+				return this._IdUsuarioImprime;
+			}
+			set
+			{
+				if ((this._IdUsuarioImprime != value))
+				{
+					this._IdUsuarioImprime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProducto", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdProducto
+		{
+			get
+			{
+				return this._IdProducto;
+			}
+			set
+			{
+				if ((this._IdProducto != value))
+				{
+					this._IdProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodigoProducto", DbType="VarChar(200)")]
+		public string CodigoProducto
+		{
+			get
+			{
+				return this._CodigoProducto;
+			}
+			set
+			{
+				if ((this._CodigoProducto != value))
+				{
+					this._CodigoProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Almacen", DbType="VarChar(200)")]
+		public string Almacen
+		{
+			get
+			{
+				return this._Almacen;
+			}
+			set
+			{
+				if ((this._Almacen != value))
+				{
+					this._Almacen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoProveedor", DbType="VarChar(200)")]
+		public string TipoProveedor
+		{
+			get
+			{
+				return this._TipoProveedor;
+			}
+			set
+			{
+				if ((this._TipoProveedor != value))
+				{
+					this._TipoProveedor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Proveedor", DbType="VarChar(200)")]
+		public string Proveedor
+		{
+			get
+			{
+				return this._Proveedor;
+			}
+			set
+			{
+				if ((this._Proveedor != value))
+				{
+					this._Proveedor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoEmpaque", DbType="VarChar(200)")]
+		public string TipoEmpaque
+		{
+			get
+			{
+				return this._TipoEmpaque;
+			}
+			set
+			{
+				if ((this._TipoEmpaque != value))
+				{
+					this._TipoEmpaque = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoProducto", DbType="VarChar(200)")]
+		public string TipoProducto
+		{
+			get
+			{
+				return this._TipoProducto;
+			}
+			set
+			{
+				if ((this._TipoProducto != value))
+				{
+					this._TipoProducto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Producto", DbType="VarChar(200)")]
+		public string Producto
+		{
+			get
+			{
+				return this._Producto;
+			}
+			set
+			{
+				if ((this._Producto != value))
+				{
+					this._Producto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estatus", DbType="VarChar(200)")]
+		public string Estatus
+		{
+			get
+			{
+				return this._Estatus;
+			}
+			set
+			{
+				if ((this._Estatus != value))
+				{
+					this._Estatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadAlmacen", DbType="Int")]
+		public System.Nullable<int> CantidadAlmacen
+		{
+			get
+			{
+				return this._CantidadAlmacen;
+			}
+			set
+			{
+				if ((this._CantidadAlmacen != value))
+				{
+					this._CantidadAlmacen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioCompra", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PrecioCompra
+		{
+			get
+			{
+				return this._PrecioCompra;
+			}
+			set
+			{
+				if ((this._PrecioCompra != value))
+				{
+					this._PrecioCompra = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioVenta", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> PrecioVenta
+		{
+			get
+			{
+				return this._PrecioVenta;
+			}
+			set
+			{
+				if ((this._PrecioVenta != value))
+				{
+					this._PrecioVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SegundoPrecio", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> SegundoPrecio
+		{
+			get
+			{
+				return this._SegundoPrecio;
+			}
+			set
+			{
+				if ((this._SegundoPrecio != value))
+				{
+					this._SegundoPrecio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TercerPrecio", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> TercerPrecio
+		{
+			get
+			{
+				return this._TercerPrecio;
+			}
+			set
+			{
+				if ((this._TercerPrecio != value))
+				{
+					this._TercerPrecio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaEntrada", DbType="VarChar(20)")]
+		public string FechaEntrada
+		{
+			get
+			{
+				return this._FechaEntrada;
+			}
+			set
+			{
+				if ((this._FechaEntrada != value))
+				{
+					this._FechaEntrada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LlevaDescuento", DbType="VarChar(2)")]
+		public string LlevaDescuento
+		{
+			get
+			{
+				return this._LlevaDescuento;
+			}
+			set
+			{
+				if ((this._LlevaDescuento != value))
+				{
+					this._LlevaDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcientoDescuento", DbType="Int")]
+		public System.Nullable<int> PorcientoDescuento
+		{
+			get
+			{
+				return this._PorcientoDescuento;
+			}
+			set
+			{
+				if ((this._PorcientoDescuento != value))
+				{
+					this._PorcientoDescuento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreadoPor", DbType="VarChar(100)")]
+		public string CreadoPor
+		{
+			get
+			{
+				return this._CreadoPor;
+			}
+			set
+			{
+				if ((this._CreadoPor != value))
+				{
+					this._CreadoPor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaAdiciona", DbType="VarChar(20)")]
+		public string FechaAdiciona
+		{
+			get
+			{
+				return this._FechaAdiciona;
+			}
+			set
+			{
+				if ((this._FechaAdiciona != value))
+				{
+					this._FechaAdiciona = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModificadoPor", DbType="VarChar(100)")]
+		public string ModificadoPor
+		{
+			get
+			{
+				return this._ModificadoPor;
+			}
+			set
+			{
+				if ((this._ModificadoPor != value))
+				{
+					this._ModificadoPor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModifica", DbType="VarChar(20)")]
+		public string FechaModifica
+		{
+			get
+			{
+				return this._FechaModifica;
+			}
+			set
+			{
+				if ((this._FechaModifica != value))
+				{
+					this._FechaModifica = value;
 				}
 			}
 		}

@@ -279,6 +279,71 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             }
             return Mantenimiento;
         }
-#endregion
+        #endregion
+        #region MANTENIMIENTO DE REPORTES
+        //REPORTE DE PRODUCTOS
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EmantenimientoReporte MantenimientoReporteProducto(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EmantenimientoReporte Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EmantenimientoReporte Mantenimiento = null;
+
+            var Producto = ObjData.SP_MANTENIMIENTO_REPORTE_PRODUCTO(
+                Item.IdUsuarioImprime,
+                Item.IdProducto,
+                Item.CodigoProducto,
+                Item.Almacen,
+                Item.TipoProveedor,
+                Item.Proveedor,
+                Item.TipoEmpaque,
+                Item.TipoProducto,
+                Item.Producto,
+                Item.Estatus,
+                Item.CantidadAlmacen,
+                Item.PrecioCompra,
+                Item.PrecioVenta,
+                Item.SegundoPrecio,
+                Item.TercerPrecio,
+                Item.FechaEntrada,
+                Item.LlevaDescuento,
+                Item.PorcientoDescuento,
+                Item.CreadoPor,
+                Item.FechaAdiciona,
+                Item.ModificadoPor,
+                Item.FechaModifica,
+                Accion);
+            if (Producto != null)
+            {
+                Mantenimiento = (from n in Producto
+                                 select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EmantenimientoReporte
+                                 {
+                                     IdUsuarioImprime =n.IdUsuarioImprime,
+                                     IdProducto = n.IdProducto,
+                                     CodigoProducto = n.CodigoProducto,
+                                     Almacen = n.Almacen,
+                                     TipoProveedor = n.TipoProveedor,
+                                     Proveedor = n.Proveedor,
+                                     TipoEmpaque = n.TipoEmpaque,
+                                     TipoProducto = n.TipoProducto,
+                                     Producto = n.Producto,
+                                     Estatus = n.Estatus,
+                                     CantidadAlmacen = n.CantidadAlmacen,
+                                     PrecioCompra = n.PrecioCompra,
+                                     PrecioVenta = n.PrecioVenta,
+                                     SegundoPrecio = n.SegundoPrecio,
+                                     TercerPrecio = n.TercerPrecio,
+                                     FechaEntrada = n.FechaEntrada,
+                                     LlevaDescuento = n.LlevaDescuento,
+                                     PorcientoDescuento = n.PorcientoDescuento,
+                                     CreadoPor = n.CreadoPor,
+                                     FechaAdiciona = n.FechaAdiciona,
+                                     ModificadoPor = n.ModificadoPor,
+                                     FechaModifica = n.FechaModifica
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+
+        #endregion
     }
 }

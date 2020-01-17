@@ -20,6 +20,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaInventario> ObjdataInventario = new Lazy<Logica.Logica.LogicaInventario>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaListas> ObjdataListas = new Lazy<Logica.Logica.LogicaListas>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region SACAR LA INFORMACION DE LA EMPRESA
@@ -257,6 +258,56 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             AgregarQuitar.VariablesBlobales.IdMantenimiento = VariablesGlobales.IdMantenimiento;
             AgregarQuitar.VariablesBlobales.CodigoMantenimiento = VariablesGlobales.CodigoMantenimiento;
             AgregarQuitar.ShowDialog();
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            try {
+                string _Codigo = string.IsNullOrEmpty(txtCodigoProducto.Text.Trim()) ? null : txtCodigoProducto.Text.Trim();
+                string _Descripcion = string.IsNullOrEmpty(txtDescripcion.Text.Trim()) ? null : txtDescripcion.Text.Trim();
+
+                var Listado = ObjdataInventario.Value.BuscaProducto(
+                    new Nullable<decimal>(),
+                    _Codigo,
+                    null, null, null, null, null,
+                    _Descripcion,
+                    null, null,
+                    Convert.ToInt32(txtNumeroPagina.Value),
+                    Convert.ToInt32(txtNumeroRegistros.Value));
+                foreach (var n in Listado)
+                {
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EmantenimientoReporte Guardar = new Logica.Entidades.EntidadReporte.EmantenimientoReporte();
+
+                    Guardar.IdUsuarioImprime = VariablesGlobales.IdUsuario;
+                    Guardar.IdProducto = Convert.ToDecimal(n.IdProducto);
+                    Guardar.CodigoProducto = n.CodigoProducto;
+                    Guardar.Almacen = n.Almacen;
+                    Guardar.TipoProveedor = n.TipoProveedor;
+                    Guardar.Proveedor = n.Proveedor;
+                    Guardar.TipoEmpaque = n.TipoEmpaque;
+                    Guardar.TipoProducto = n.TipoProducto;
+                    Guardar.Producto = n.Producto;
+                    Guardar.Estatus = n.Estatus;
+                    Guardar.CantidadAlmacen = Convert.ToInt32(n.CantidadAlmacen);
+                    Guardar.PrecioCompra = Convert.ToDecimal(n.PrecioCompra);
+                    Guardar.PrecioVenta = Convert.ToDecimal(n.PrecioVenta);
+                    Guardar.SegundoPrecio = Convert.ToDecimal(n.SegundoPrecio);
+                    Guardar.TercerPrecio = Convert.ToDecimal(n.TercerPrecio);
+                    Guardar.FechaEntrada = n.FechaEntrada;
+                    Guardar.LlevaDescuento = n.LlevaDescuento;
+                    Guardar.PorcientoDescuento = Convert.ToInt32(n.PorcientoDescuento);
+                    Guardar.CreadoPor = n.CreadoPor;
+                    Guardar.FechaAdiciona = n.FechaAdiciona;
+                    Guardar.ModificadoPor = n.ModificadoPor;
+                    Guardar.FechaModifica = n.FechaModifica;
+
+                    var MAN = ObjDataHistorial.Value.MantenimientoReporteProducto(Guardar, "INSERT");
+
+                }
+            }
+            catch (Exception) {
+                MessageBox.Show("Error al realiar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
