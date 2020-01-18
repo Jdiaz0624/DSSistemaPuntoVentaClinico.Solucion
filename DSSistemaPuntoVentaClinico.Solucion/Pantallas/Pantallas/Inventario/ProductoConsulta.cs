@@ -86,7 +86,18 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             txtDescripcion.Text = string.Empty;
             Listadoproductos();
         }
-#endregion
+        #endregion
+
+        #region MANTENIMIENTO
+        private void Eliminar()
+        {
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EmantenimientoReporte EliminarRegistros = new Logica.Entidades.EntidadReporte.EmantenimientoReporte();
+
+            EliminarRegistros.IdUsuarioImprime = VariablesGlobales.IdUsuario;
+
+            var MAN = ObjDataHistorial.Value.MantenimientoReporteProducto(EliminarRegistros, "DELETE");
+        }
+        #endregion
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -263,6 +274,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
         private void btnReporte_Click(object sender, EventArgs e)
         {
             try {
+                Eliminar();
                 string _Codigo = string.IsNullOrEmpty(txtCodigoProducto.Text.Trim()) ? null : txtCodigoProducto.Text.Trim();
                 string _Descripcion = string.IsNullOrEmpty(txtDescripcion.Text.Trim()) ? null : txtDescripcion.Text.Trim();
 
@@ -304,6 +316,32 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
                     var MAN = ObjDataHistorial.Value.MantenimientoReporteProducto(Guardar, "INSERT");
 
                 }
+
+                //COMENZAMOS EL PROCESO PARA MOSTRAR EL REPORTE
+                //SACAMOS LA RUTA DEL REPORTE
+                var SacarRutaReporte = ObjDataHistorial.Value.SacarRutaReporte(5);
+                foreach (var n in SacarRutaReporte)
+                {
+                    VariablesGlobales.RutaReporte = n.RutaReporte;
+                }
+
+                //SACAMOS LAS CREDENCIALES DE LA BASE DE DATOS
+                var SacarCredenciales = ObjdataSeguridad.Value.SacarLogonBD(1);
+                foreach (var n in SacarCredenciales)
+                {
+                    VariablesGlobales.UsuarioBD = n.Usuario;
+                    VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                }
+
+                //CARGAMOS EL REPORTE
+                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes cargar = new Reporte.Reportes();
+
+                cargar.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                cargar.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                cargar.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                cargar.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                cargar.GenerarReporteProductos(VariablesGlobales.IdUsuario);
+                cargar.ShowDialog();
             }
             catch (Exception) {
                 MessageBox.Show("Error al realiar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);

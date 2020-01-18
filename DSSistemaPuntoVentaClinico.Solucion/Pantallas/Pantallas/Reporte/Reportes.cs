@@ -103,6 +103,30 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte
             }
             catch (Exception) { MessageBox.Show("Error al cargar el reporte de gastos de cirugia", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
+
+        public void GenerarReporteProductos(decimal IdUsuarioImprime)
+        {
+            try {
+                ReportDocument ReporteProducto = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_REPORTE_PRODUCTOS] @IdUsuarioImprime";
+                comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuarioImprime", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuarioImprime"].Value = IdUsuarioImprime;
+
+                ReporteProducto.Load(@"" + VariablesGlobales.RutaReporte);
+                ReporteProducto.Refresh();
+                ReporteProducto.SetParameterValue("@IdUsuarioImprime", IdUsuarioImprime);
+                ReporteProducto.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = ReporteProducto;
+
+            }
+            catch (Exception) {
+                MessageBox.Show("Error el cargar el reporte de productos", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void Reportes_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);
