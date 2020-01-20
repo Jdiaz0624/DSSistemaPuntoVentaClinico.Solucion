@@ -380,8 +380,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      IdUsuarioImprime=n.IdUsuarioImprime,
                                      NumeroFactura=n.NumeroFactura
                                  }).FirstOrDefault();
-                return Mantenimiento;
+               
             }
+            return Mantenimiento;
         }
         #endregion
     }

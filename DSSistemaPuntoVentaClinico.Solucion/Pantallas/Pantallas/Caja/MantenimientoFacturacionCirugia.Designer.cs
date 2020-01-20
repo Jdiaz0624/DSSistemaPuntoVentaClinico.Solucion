@@ -34,17 +34,17 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lbusuario = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbFacturasSinCirugias = new System.Windows.Forms.RadioButton();
-            this.rbFacturasConCirugias = new System.Windows.Forms.RadioButton();
             this.rbAmbosTiposFacturas = new System.Windows.Forms.RadioButton();
+            this.rbFacturasConCirugias = new System.Windows.Forms.RadioButton();
+            this.rbFacturasSinCirugias = new System.Windows.Forms.RadioButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbFiltrarPorRangoFecha = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -110,34 +110,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Datos";
             // 
-            // rbFacturasSinCirugias
-            // 
-            this.rbFacturasSinCirugias.AutoSize = true;
-            this.rbFacturasSinCirugias.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbFacturasSinCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbFacturasSinCirugias.Location = new System.Drawing.Point(7, 30);
-            this.rbFacturasSinCirugias.Name = "rbFacturasSinCirugias";
-            this.rbFacturasSinCirugias.Size = new System.Drawing.Size(205, 29);
-            this.rbFacturasSinCirugias.TabIndex = 0;
-            this.rbFacturasSinCirugias.TabStop = true;
-            this.rbFacturasSinCirugias.Text = "Facturas sin Cirugia";
-            this.toolTip1.SetToolTip(this.rbFacturasSinCirugias, "Mostrar el listado de las facturas que no tienen cirugias programadas");
-            this.rbFacturasSinCirugias.UseVisualStyleBackColor = true;
-            // 
-            // rbFacturasConCirugias
-            // 
-            this.rbFacturasConCirugias.AutoSize = true;
-            this.rbFacturasConCirugias.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbFacturasConCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbFacturasConCirugias.Location = new System.Drawing.Point(218, 30);
-            this.rbFacturasConCirugias.Name = "rbFacturasConCirugias";
-            this.rbFacturasConCirugias.Size = new System.Drawing.Size(222, 29);
-            this.rbFacturasConCirugias.TabIndex = 1;
-            this.rbFacturasConCirugias.TabStop = true;
-            this.rbFacturasConCirugias.Text = "Facturas con Cirugias";
-            this.toolTip1.SetToolTip(this.rbFacturasConCirugias, "Mostrar el listado de las facturas con cirugias programadas");
-            this.rbFacturasConCirugias.UseVisualStyleBackColor = true;
-            // 
             // rbAmbosTiposFacturas
             // 
             this.rbAmbosTiposFacturas.AutoSize = true;
@@ -152,6 +124,34 @@
             this.toolTip1.SetToolTip(this.rbAmbosTiposFacturas, "Mostrar el listado de todas las facturas");
             this.rbAmbosTiposFacturas.UseVisualStyleBackColor = true;
             // 
+            // rbFacturasConCirugias
+            // 
+            this.rbFacturasConCirugias.AutoSize = true;
+            this.rbFacturasConCirugias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbFacturasConCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbFacturasConCirugias.Location = new System.Drawing.Point(7, 29);
+            this.rbFacturasConCirugias.Name = "rbFacturasConCirugias";
+            this.rbFacturasConCirugias.Size = new System.Drawing.Size(210, 29);
+            this.rbFacturasConCirugias.TabIndex = 1;
+            this.rbFacturasConCirugias.TabStop = true;
+            this.rbFacturasConCirugias.Text = "Facturas sin cirugias";
+            this.toolTip1.SetToolTip(this.rbFacturasConCirugias, "Mostrar el listado de las facturas con cirugias programadas");
+            this.rbFacturasConCirugias.UseVisualStyleBackColor = true;
+            // 
+            // rbFacturasSinCirugias
+            // 
+            this.rbFacturasSinCirugias.AutoSize = true;
+            this.rbFacturasSinCirugias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbFacturasSinCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbFacturasSinCirugias.Location = new System.Drawing.Point(214, 29);
+            this.rbFacturasSinCirugias.Name = "rbFacturasSinCirugias";
+            this.rbFacturasSinCirugias.Size = new System.Drawing.Size(217, 29);
+            this.rbFacturasSinCirugias.TabIndex = 0;
+            this.rbFacturasSinCirugias.TabStop = true;
+            this.rbFacturasSinCirugias.Text = "Facturas con cirugias";
+            this.toolTip1.SetToolTip(this.rbFacturasSinCirugias, "Mostrar el listado de las facturas que no tienen cirugias programadas");
+            this.rbFacturasSinCirugias.UseVisualStyleBackColor = true;
+            // 
             // cbFiltrarPorRangoFecha
             // 
             this.cbFiltrarPorRangoFecha.AutoSize = true;
@@ -165,52 +165,6 @@
             this.toolTip1.SetToolTip(this.cbFiltrarPorRangoFecha, "Filtrar por rango de fecha");
             this.cbFiltrarPorRangoFecha.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(15, 190);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(324, 92);
-            this.groupBox2.TabIndex = 15;
-            this.groupBox2.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Fecha Desde";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Fecha Hasta";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(141, 19);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(166, 30);
-            this.dateTimePicker1.TabIndex = 2;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(141, 52);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(166, 30);
-            this.dateTimePicker2.TabIndex = 3;
-            // 
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -223,6 +177,53 @@
             this.button2.Text = "Generar";
             this.toolTip1.SetToolTip(this.button2, "Generar Reporte");
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtFechaHasta);
+            this.groupBox2.Controls.Add(this.txtFechaDesde);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(15, 190);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(324, 92);
+            this.groupBox2.TabIndex = 15;
+            this.groupBox2.TabStop = false;
+            // 
+            // txtFechaHasta
+            // 
+            this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaHasta.Location = new System.Drawing.Point(141, 52);
+            this.txtFechaHasta.Name = "txtFechaHasta";
+            this.txtFechaHasta.Size = new System.Drawing.Size(166, 30);
+            this.txtFechaHasta.TabIndex = 3;
+            // 
+            // txtFechaDesde
+            // 
+            this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaDesde.Location = new System.Drawing.Point(141, 19);
+            this.txtFechaDesde.Name = "txtFechaDesde";
+            this.txtFechaDesde.Size = new System.Drawing.Size(166, 30);
+            this.txtFechaDesde.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Fecha Hasta";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Fecha Desde";
             // 
             // MantenimientoFacturacionCirugia
             // 
@@ -267,8 +268,8 @@
         private System.Windows.Forms.RadioButton rbFacturasSinCirugias;
         private System.Windows.Forms.CheckBox cbFiltrarPorRangoFecha;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker txtFechaHasta;
+        private System.Windows.Forms.DateTimePicker txtFechaDesde;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
