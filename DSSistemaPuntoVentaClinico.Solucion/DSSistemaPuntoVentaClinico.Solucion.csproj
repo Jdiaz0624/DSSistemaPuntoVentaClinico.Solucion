@@ -70,6 +70,12 @@
     <Compile Include="Pantallas\Pantallas\Caja\CuadreCaja.Designer.cs">
       <DependentUpon>CuadreCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\MantenimientoFacturacionCirugia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\MantenimientoFacturacionCirugia.Designer.cs">
+      <DependentUpon>MantenimientoFacturacionCirugia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Caja\MonedaListado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Caja\CuadreCaja.resx">
       <DependentUpon>CuadreCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Caja\MantenimientoFacturacionCirugia.resx">
+      <DependentUpon>MantenimientoFacturacionCirugia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Caja\MonedaListado.resx">
       <DependentUpon>MonedaListado.cs</DependentUpon>

@@ -35,23 +35,25 @@
             this.btnAbirCerrarCaja = new System.Windows.Forms.Button();
             this.btnCuadreCaja = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lbusuario = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbOpciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.button2);
             this.gbOpciones.Controls.Add(this.button1);
             this.gbOpciones.Controls.Add(this.btnAbirCerrarCaja);
             this.gbOpciones.Controls.Add(this.btnCuadreCaja);
             this.gbOpciones.Location = new System.Drawing.Point(12, 50);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(723, 119);
+            this.gbOpciones.Size = new System.Drawing.Size(723, 181);
             this.gbOpciones.TabIndex = 2;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Caja - Seleccionar Opcion";
@@ -99,18 +101,6 @@
             this.btnCuadreCaja.UseVisualStyleBackColor = true;
             this.btnCuadreCaja.Click += new System.EventHandler(this.btnCuadreCaja_Click);
             // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(703, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 9;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // lbusuario
             // 
             this.lbusuario.AutoSize = true;
@@ -142,12 +132,38 @@
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(478, 103);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(230, 68);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Cirugias";
+            this.toolTip1.SetToolTip(this.button2, "Mostrar el Listado de las facturas sin cirugias programadas");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(703, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 9;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // SubMenuCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(745, 179);
+            this.ClientSize = new System.Drawing.Size(745, 239);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -161,9 +177,9 @@
             this.Text = "SubMenuCaja";
             this.Load += new System.EventHandler(this.SubMenuCaja_Load);
             this.gbOpciones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -179,5 +195,6 @@
         private System.Windows.Forms.Label lbusuario;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbTitulo;
+        private System.Windows.Forms.Button button2;
     }
 }

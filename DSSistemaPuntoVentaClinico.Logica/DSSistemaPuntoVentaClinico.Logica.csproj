@@ -86,8 +86,10 @@
     <Compile Include="Entidades\EntidadInventario\ETipoProducto.cs" />
     <Compile Include="Entidades\EntidadInventario\ETipoProveedor.cs" />
     <Compile Include="Entidades\EntidadReporte\ECuadreCaja.cs" />
+    <Compile Include="Entidades\EntidadReporte\EMantenimientoFacturacionCirugia.cs" />
     <Compile Include="Entidades\EntidadReporte\EmantenimientoReporte.cs" />
     <Compile Include="Entidades\EntidadReporte\EMantenimientoRutaReporte.cs" />
+    <Compile Include="Entidades\EntidadReporte\EProcesarMantenimientoProgramacionCirugia.cs" />
     <Compile Include="Entidades\EntidadReporte\EReporteHistorialFacturacionCotizacion.cs" />
     <Compile Include="Entidades\EntidadReporte\ERutaReporte.cs" />
     <Compile Include="Entidades\EntidadSeguridad\EClaveSeguridad.cs" />

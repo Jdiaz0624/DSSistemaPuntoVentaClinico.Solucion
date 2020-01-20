@@ -194,6 +194,20 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuarioImprime, idProducto, codigoProducto, almacen, tipoProveedor, proveedor, tipoEmpaque, tipoProducto, producto, estatus, cantidadAlmacen, precioCompra, precioVenta, segundoPrecio, tercerPrecio, fechaEntrada, llevaDescuento, porcientoDescuento, creadoPor, fechaAdiciona, modificadoPor, fechaModifica, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_REPORTE_PRODUCTOResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_MANTENIMIENTO_FACTURACION_CIRUGIA")]
+		public ISingleResult<SP_MANTENIMIENTO_FACTURACION_CIRUGIAResult> SP_MANTENIMIENTO_FACTURACION_CIRUGIA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuarioImprime", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuarioImprime, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuarioImprime, numeroFactura, accion);
+			return ((ISingleResult<SP_MANTENIMIENTO_FACTURACION_CIRUGIAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_SACAR_DATOS_FACTURACION_CIRUGIA")]
+		public ISingleResult<SP_SACAR_DATOS_FACTURACION_CIRUGIAResult> SP_SACAR_DATOS_FACTURACION_CIRUGIA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CirugiaprogramadA", DbType="Bit")] System.Nullable<bool> cirugiaprogramadA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fechaDesde, fechaHasta, cirugiaprogramadA);
+			return ((ISingleResult<SP_SACAR_DATOS_FACTURACION_CIRUGIAResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_SACAR_RUTA_REPORTEResult
@@ -2677,6 +2691,130 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._FechaModifica != value))
 				{
 					this._FechaModifica = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_MANTENIMIENTO_FACTURACION_CIRUGIAResult
+	{
+		
+		private System.Nullable<decimal> _IdUsuarioImprime;
+		
+		private System.Nullable<decimal> _NumeroFactura;
+		
+		public SP_MANTENIMIENTO_FACTURACION_CIRUGIAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuarioImprime", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuarioImprime
+		{
+			get
+			{
+				return this._IdUsuarioImprime;
+			}
+			set
+			{
+				if ((this._IdUsuarioImprime != value))
+				{
+					this._IdUsuarioImprime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroFactura", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroFactura
+		{
+			get
+			{
+				return this._NumeroFactura;
+			}
+			set
+			{
+				if ((this._NumeroFactura != value))
+				{
+					this._NumeroFactura = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_DATOS_FACTURACION_CIRUGIAResult
+	{
+		
+		private System.Nullable<decimal> _NumeroFactura;
+		
+		private System.Nullable<decimal> _NumeroConector;
+		
+		private System.Nullable<System.DateTime> _FechaFacturacion;
+		
+		private System.Nullable<bool> _CirugiaProgramada;
+		
+		public SP_SACAR_DATOS_FACTURACION_CIRUGIAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroFactura", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroFactura
+		{
+			get
+			{
+				return this._NumeroFactura;
+			}
+			set
+			{
+				if ((this._NumeroFactura != value))
+				{
+					this._NumeroFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaFacturacion", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaFacturacion
+		{
+			get
+			{
+				return this._FechaFacturacion;
+			}
+			set
+			{
+				if ((this._FechaFacturacion != value))
+				{
+					this._FechaFacturacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CirugiaProgramada", DbType="Bit")]
+		public System.Nullable<bool> CirugiaProgramada
+		{
+			get
+			{
+				return this._CirugiaProgramada;
+			}
+			set
+			{
+				if ((this._CirugiaProgramada != value))
+				{
+					this._CirugiaProgramada = value;
 				}
 			}
 		}

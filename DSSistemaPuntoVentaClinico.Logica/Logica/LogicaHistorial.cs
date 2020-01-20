@@ -345,5 +345,44 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         }
 
         #endregion
+        #region MANTENIMEINTO DE FACTURACION DE CIRUGIA
+        //SACAR LOS DATOS DE LA FACTURACION DE CIRUGIA
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EMantenimientoFacturacionCirugia> SacarDatosFacturacionCirugia(DateTime? FechaDesde = null, DateTime? FechaHasta = null, bool? CirugiaProgramada = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var SacarDatos = (from n in ObjData.SP_SACAR_DATOS_FACTURACION_CIRUGIA(FechaDesde, FechaHasta, CirugiaProgramada)
+                              select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EMantenimientoFacturacionCirugia
+                              {
+                                  NumeroFactura=n.NumeroFactura,
+                                  NumeroConector=n.NumeroConector,
+                                  FechaFacturacion=n.FechaFacturacion,
+                                  CirugiaProgramada=n.CirugiaProgramada
+                              }).ToList();
+            return SacarDatos;
+        }
+        //MANTENIMIENTO DE CIRUGIA PROGRAMADA
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EProcesarMantenimientoProgramacionCirugia MantenimientoFacturacionCirugia(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EProcesarMantenimientoProgramacionCirugia Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EProcesarMantenimientoProgramacionCirugia Mantenimiento = null;
+
+            var ReporteProgramacionCirugia = ObjData.SP_MANTENIMIENTO_FACTURACION_CIRUGIA(
+                Item.IdUsuarioImprime,
+                Item.NumeroFactura,
+                Accion);
+            if (ReporteProgramacionCirugia != null)
+            {
+                Mantenimiento = (from n in ReporteProgramacionCirugia
+                                 select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EProcesarMantenimientoProgramacionCirugia
+                                 {
+                                     IdUsuarioImprime=n.IdUsuarioImprime,
+                                     NumeroFactura=n.NumeroFactura
+                                 }).FirstOrDefault();
+                return Mantenimiento;
+            }
+        }
+        #endregion
     }
 }

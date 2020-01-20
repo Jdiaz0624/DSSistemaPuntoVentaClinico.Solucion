@@ -61,5 +61,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             cuadre.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbusuario.Text);
             cuadre.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja.MantenimientoFacturacionCirugia FacturacionCirugia = new Pantallas.Caja.MantenimientoFacturacionCirugia();
+            FacturacionCirugia.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbusuario.Text);
+            FacturacionCirugia.ShowDialog();
+        }
     }
 }

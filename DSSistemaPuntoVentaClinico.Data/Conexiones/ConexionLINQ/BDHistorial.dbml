@@ -267,4 +267,24 @@
       <Column Name="FechaModifica" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Reporte.SP_MANTENIMIENTO_FACTURACION_CIRUGIA" Method="SP_MANTENIMIENTO_FACTURACION_CIRUGIA">
+    <Parameter Name="IdUsuarioImprime" Parameter="idUsuarioImprime" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_FACTURACION_CIRUGIAResult">
+      <Column Name="IdUsuarioImprime" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_SACAR_DATOS_FACTURACION_CIRUGIA" Method="SP_SACAR_DATOS_FACTURACION_CIRUGIA">
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CirugiaprogramadA" Parameter="cirugiaprogramadA" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="SP_SACAR_DATOS_FACTURACION_CIRUGIAResult">
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaFacturacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CirugiaProgramada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
