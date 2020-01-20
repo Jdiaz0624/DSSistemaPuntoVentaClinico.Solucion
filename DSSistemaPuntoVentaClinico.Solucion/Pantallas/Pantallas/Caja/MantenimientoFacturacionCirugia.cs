@@ -68,7 +68,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                             false);
                         foreach (var n in Buscar)
                         {
-                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroConector);
+                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
                             MAnCirugias("INSERT");
                         }
                     }
@@ -81,7 +81,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                            true);
                         foreach (var n in Buscar)
                         {
-                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroConector);
+                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
                             MAnCirugias("INSERT");
                         }
                     }
@@ -94,7 +94,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                            null);
                         foreach (var n in Buscar)
                         {
-                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroConector);
+                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
                             MAnCirugias("INSERT");
                         }
                     }
@@ -110,7 +110,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                            true);
                         foreach (var n in Buscar)
                         {
-                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroConector);
+                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
                             MAnCirugias("INSERT");
                         }
                     }
@@ -123,7 +123,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                          false);
                         foreach (var n in Buscar)
                         {
-                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroConector);
+                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
                             MAnCirugias("INSERT");
                         }
                     }
@@ -136,7 +136,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                          null);
                         foreach (var n in Buscar)
                         {
-                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroConector);
+                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
                             MAnCirugias("INSERT");
                         }
                     }
