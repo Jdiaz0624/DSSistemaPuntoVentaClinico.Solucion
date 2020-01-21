@@ -14,6 +14,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
     {
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
         #region SACAMOS LOS DATOS DE LA EMPRESA
         private void SacarInformacionEmpresa(decimal IdInformacionEMpresA)
@@ -34,6 +35,33 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
             Procesar.NumeroFactura = VariablesGlobales.IdMantenimiento;
 
             var MAN = ObjDataHistorial.Value.MantenimientoFacturacionCirugia(Procesar, Accion);
+        }
+        #endregion
+        #region CARGAR REPORTE
+        private void CargarReporte()
+        {
+            //SACAMOS LA RUTA DEL REPORTE
+            var SacarRuta = ObjDataHistorial.Value.SacarRutaReporte(6);
+            foreach (var n in SacarRuta)
+            {
+                VariablesGlobales.RutaReporte = n.RutaReporte;
+            }
+
+            //SACAMOS LA CREDENCIALES
+            var SacarCredenciales = ObjDataSeguridad.Value.SacarLogonBD(1);
+            foreach (var n in SacarCredenciales)
+            {
+                VariablesGlobales.UsuarioBD = n.Usuario;
+                VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+            }
+
+            //LLAMAMOE LE REPORTE
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Cargar = new Reporte.Reportes();
+            Cargar.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            Cargar.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            Cargar.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            Cargar.GenerarReporteFacturacionCirugia(VariablesGlobales.IdUsuario);
+            Cargar.ShowDialog();
         }
         #endregion
         public MantenimientoFacturacionCirugia()
@@ -141,6 +169,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                         }
                     }
                 }
+                CargarReporte();
             }
             catch (Exception) {
                 MessageBox.Show("Error al generar el reporte", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
