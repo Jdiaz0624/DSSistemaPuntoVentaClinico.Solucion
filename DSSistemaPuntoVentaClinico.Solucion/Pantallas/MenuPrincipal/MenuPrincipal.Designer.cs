@@ -219,7 +219,7 @@
             this.btnSeguridad.ForeColor = System.Drawing.Color.White;
             this.btnSeguridad.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.producto;
             this.btnSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeguridad.Location = new System.Drawing.Point(12, 328);
+            this.btnSeguridad.Location = new System.Drawing.Point(12, 406);
             this.btnSeguridad.Name = "btnSeguridad";
             this.btnSeguridad.Size = new System.Drawing.Size(284, 40);
             this.btnSeguridad.TabIndex = 13;
@@ -242,7 +242,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.reportes;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(11, 478);
+            this.btnReportes.Location = new System.Drawing.Point(11, 363);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(284, 40);
             this.btnReportes.TabIndex = 12;
@@ -250,7 +250,6 @@
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.btnReportes, "Modulo de Reportes");
             this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Visible = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnHistorial
@@ -267,7 +266,7 @@
             this.btnHistorial.ForeColor = System.Drawing.Color.White;
             this.btnHistorial.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.producto;
             this.btnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorial.Location = new System.Drawing.Point(8, 384);
+            this.btnHistorial.Location = new System.Drawing.Point(8, 506);
             this.btnHistorial.Name = "btnHistorial";
             this.btnHistorial.Size = new System.Drawing.Size(284, 40);
             this.btnHistorial.TabIndex = 11;
@@ -316,7 +315,7 @@
             this.btnGestionCobros.ForeColor = System.Drawing.Color.White;
             this.btnGestionCobros.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.compras;
             this.btnGestionCobros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionCobros.Location = new System.Drawing.Point(11, 430);
+            this.btnGestionCobros.Location = new System.Drawing.Point(11, 459);
             this.btnGestionCobros.Name = "btnGestionCobros";
             this.btnGestionCobros.Size = new System.Drawing.Size(284, 40);
             this.btnGestionCobros.TabIndex = 9;
@@ -353,7 +352,6 @@
             // btnContabilidad
             // 
             this.btnContabilidad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnContabilidad.Enabled = false;
             this.btnContabilidad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
             this.btnContabilidad.FlatAppearance.BorderSize = 0;
             this.btnContabilidad.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
@@ -364,7 +362,7 @@
             this.btnContabilidad.ForeColor = System.Drawing.Color.White;
             this.btnContabilidad.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.pagos;
             this.btnContabilidad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContabilidad.Location = new System.Drawing.Point(11, 562);
+            this.btnContabilidad.Location = new System.Drawing.Point(11, 320);
             this.btnContabilidad.Name = "btnContabilidad";
             this.btnContabilidad.Size = new System.Drawing.Size(284, 40);
             this.btnContabilidad.TabIndex = 7;
@@ -372,7 +370,6 @@
             this.btnContabilidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.btnContabilidad, "Modulo de Contabilidad");
             this.btnContabilidad.UseVisualStyleBackColor = true;
-            this.btnContabilidad.Visible = false;
             this.btnContabilidad.Click += new System.EventHandler(this.btnContabilidad_Click);
             // 
             // btnCaja
