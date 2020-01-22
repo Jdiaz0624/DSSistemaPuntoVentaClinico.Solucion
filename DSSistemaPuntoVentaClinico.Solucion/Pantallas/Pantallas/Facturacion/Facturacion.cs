@@ -258,6 +258,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         ddlSexo.Text = n.Sexo;
                         txtEmail.Text = n.Email;
                         txtComentario.Text = n.Comentario;
+                        btnAgregarAlmacen.Enabled = false;
+                        btnRegresar.Enabled = true;
+                        VariablesGlobales.CodigoPaciente = Convert.ToDecimal(n.IdPaciente);
+                        BloquearControles();
                     }
                 }
             }
@@ -489,20 +493,94 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
         }
         #endregion
+        #region CARGAR LOS TIPOS DE VENTA
+        private void CargarTipoVenta()
+        {
+            var TipoVenta= ObjdataListas.Value.BuscaListaTipoVenta();
+            ddlTipoVenta.DataSource = TipoVenta;
+            ddlTipoVenta.DisplayMember = "TipoVenta";
+            ddlTipoVenta.ValueMember = "IdTipoVenta";
+        }
+        #endregion
+        #region CARGAR LOS DIAS
+        private void CargarDias()
+        {
+            var CargarDias = ObjdataListas.Value.BuscaCantidadDias();
+            ddlCantidadDias.DataSource = CargarDias;
+            ddlCantidadDias.DisplayMember = "CantidadDias";
+            ddlCantidadDias.ValueMember = "IdCantidadDias";
+        }
+        #endregion
+        #region BLOQUEAR Y DESBLOQUEAR CONTROLES
+        private void BloquearControles()
+        {
+            txtCodigoCliente.Enabled = false;
+            ddlTipoFacturacion.Enabled = false;
+            txtNombrePaciente.Enabled = false;
+            txtTelefono.Enabled = false;
+            ddlCentroSalud.Enabled = false;
+            txtSala.Enabled = false;
+            ddlMedico.Enabled = false;
+            txtNoCotizacion.Enabled = false;
+            ddlTipoIdentificacion.Enabled = false;
+            txtIdentificacion.Enabled = false;
+            txtDireccion.Enabled = false;
+            ddlSexo.Enabled = false;
+            txtEmail.Enabled = false;
+            txtComentario.Enabled = false;
+            btnAgregarAlmacen.Enabled = false;
+            btnRegresar.Enabled = true;
+        }
+        private void DesbloquearControles()
+        {
+            txtCodigoCliente.Enabled = true;
+            ddlTipoFacturacion.Enabled = true;
+            txtNombrePaciente.Enabled = true;
+            txtTelefono.Enabled = true;
+            ddlCentroSalud.Enabled = true;
+            txtSala.Enabled = true;
+            ddlMedico.Enabled = true;
+            txtNoCotizacion.Enabled = true;
+            ddlTipoIdentificacion.Enabled = true;
+            txtIdentificacion.Enabled = true;
+            txtDireccion.Enabled = true;
+            ddlSexo.Enabled = true;
+            txtEmail.Enabled = true;
+            txtComentario.Enabled = true;
+            btnAgregarAlmacen.Enabled = true;
+            btnRegresar.Enabled = true;
+
+            txtCodigoCliente.Text = string.Empty;
+            CargarComprobantes();
+            txtNombrePaciente.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            CargarCentrosSalud();
+            txtSala.Text = string.Empty;
+            CargarMedicos();
+            txtNoCotizacion.Text = string.Empty;
+            CargarTipoIdentificacion();
+            txtIdentificacion.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            CargarSexos();
+            txtEmail.Text = string.Empty;
+            txtComentario.Text = string.Empty;
+
+            VariablesGlobales.CodigoPaciente = 1;
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
+            VariablesGlobales.CodigoPaciente = 1;
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
+            CargarTipoVenta();
             CargarEstatusCirugia();
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Facturación de Productos";
             VariablesGlobales.ModoCotizacion = false;
-            // VariablesGlobales.GenerarConector = true;
             groupBox2.ForeColor = Color.Black;
             groupBox3.ForeColor = Color.Black;
             groupBox4.ForeColor = Color.Black;
-          //  rbCotizar.ForeColor = Color.SpringGreen;
-           // rbFacturar.ForeColor = Color.SpringGreen;
             gbGeneral.ForeColor = Color.Black;
             
             ddlCentroSalud.ForeColor = Color.Black;
@@ -700,99 +778,123 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void btnARS_Click(object sender, EventArgs e)
         {
-            //VALIDAMOS SI HAY PRODUCTOS AGRAGADOS PARA FACTURAR
-            var ValidarProductosAgregados = ObjDataFacturacion.Value.BuscarProductosAgregados(
-                VariablesGlobales.NumeroConector,
-                null);
-            if (ValidarProductosAgregados.Count() < 1)
-            {
-                if (rbFacturar.Checked)
+            try {
+                if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 1)
                 {
-                    MessageBox.Show("No has agregado productos para facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else if (rbCotizar.Checked)
-                {
-                    MessageBox.Show("No has agregado productos para cotizar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                if (MessageBox.Show("¿Quieres agregar productos?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    PasarPantallaAgregarProductos();
-                }
-            }
-            else
-            {
-                //PROCESAMOS EN BASE A FACTURAR
-                if (rbFacturar.Checked)
-                {
-                    //VERIFICAMOS QUE LOS CAMPOS NECESARIOS ESTEN CHEQUEADOS
-                    if (string.IsNullOrEmpty(ddlTipoFacturacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()))
+                    if (Convert.ToInt32(ddltIPago.SelectedValue) == 6)
                     {
-                        MessageBox.Show("Has dejado campos vacios en la parte del cliente que son necesarios para completar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("No es posible proceder con la facturación por que estas seleccionando un tipo de pago a credito cuando estas realizando un tipo de venta a contado, favor de verificar el tipo de venta o cambiar el tipo de pago", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
-                        //VERIFICAMOS SI EL CAMPO MONTO ESTA VACIO
-                        if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()))
+                        //CONTADO
+                        //VALIDAMOS SI HAY PRODUCTOS AGRAGADOS PARA FACTURAR
+                        var ValidarProductosAgregados = ObjDataFacturacion.Value.BuscarProductosAgregados(
+                            VariablesGlobales.NumeroConector,
+                            null);
+                        if (ValidarProductosAgregados.Count() < 1)
                         {
-                            MessageBox.Show("El campo monto no puede estar vacio favor de revisar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            if (rbFacturar.Checked)
+                            {
+                                MessageBox.Show("No has agregado productos para facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else if (rbCotizar.Checked)
+                            {
+                                MessageBox.Show("No has agregado productos para cotizar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            if (MessageBox.Show("¿Quieres agregar productos?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                PasarPantallaAgregarProductos();
+                            }
                         }
                         else
                         {
-                            decimal TipoPago = 0;
-                            //VERIFICAMOS EL TIPO DE PAGO
-                            var ValidarTipopago = ObjDataFacturacion.Value.ListadoTipoPago(
-                                Convert.ToDecimal(ddltIPago.SelectedValue),
-                                null, null, 1, 1);
-                            foreach (var n in ValidarTipopago)
+                            //PROCESAMOS EN BASE A FACTURAR
+                            if (rbFacturar.Checked)
                             {
-                                TipoPago = Convert.ToDecimal(n.IdTipoPago);
-                            }
-                            if (TipoPago == 1)
-                            {
-                                //VALIDAMOS EL MONTO
-                                decimal Monto = Convert.ToDecimal(txtMontoPagar.Text);
-                                decimal Total = Convert.ToDecimal(txtTotal.Text);
-
-                                if (Monto < Total)
+                                //VERIFICAMOS QUE LOS CAMPOS NECESARIOS ESTEN CHEQUEADOS
+                                if (string.IsNullOrEmpty(ddlTipoFacturacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()))
                                 {
-                                    MessageBox.Show("El monto ingresado es menor al total a pagar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBox.Show("Has dejado campos vacios en la parte del cliente que son necesarios para completar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
                                 else
                                 {
-                                    //GUARDAMOS LOS DATOS
-                                    TerminarProceso();
+                                    //VERIFICAMOS SI EL CAMPO MONTO ESTA VACIO
+                                    if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()))
+                                    {
+                                        MessageBox.Show("El campo monto no puede estar vacio favor de revisar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+                                    else
+                                    {
+                                        decimal TipoPago = 0;
+                                        //VERIFICAMOS EL TIPO DE PAGO
+                                        var ValidarTipopago = ObjDataFacturacion.Value.ListadoTipoPago(
+                                            Convert.ToDecimal(ddltIPago.SelectedValue),
+                                            null, null, 1, 1);
+                                        foreach (var n in ValidarTipopago)
+                                        {
+                                            TipoPago = Convert.ToDecimal(n.IdTipoPago);
+                                        }
+                                        if (TipoPago == 1)
+                                        {
+                                            //VALIDAMOS EL MONTO
+                                            decimal Monto = Convert.ToDecimal(txtMontoPagar.Text);
+                                            decimal Total = Convert.ToDecimal(txtTotal.Text);
+
+                                            if (Monto < Total)
+                                            {
+                                                MessageBox.Show("El monto ingresado es menor al total a pagar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            }
+                                            else
+                                            {
+                                                //GUARDAMOS LOS DATOS
+                                                TerminarProceso();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            //GUARDAMOS LOS DATOS
+                                            TerminarProceso();
+
+                                        }
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                //GUARDAMOS LOS DATOS
-                                TerminarProceso();
 
                             }
+                            else if (rbCotizar.Checked)
+                            {
+                                if (string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()))
+                                {
+                                    txtNombrePaciente.Text = "CLIENTE FACTURACION";
+                                }
+                                DevolverProductos();
+                                //GUARDAMOS LOS DATOS
+                                VariablesGlobales.AccionTomar = "INSERT";
+                                GuardarFacturacionCliente();
+                                GuardarDatosFacturaconCalculos();
+                                //  AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
+                                // AfectarCaja();
+                                MessageBox.Show("Cotización realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                ImprimirFactura(VariablesGlobales.NumeroConector);
+                                this.Dispose();
+                            }
+
+                            //PROCESAMOS EN BASE A COTIZAR
                         }
                     }
-
                 }
-                else if (rbCotizar.Checked)
+                else if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 2)
                 {
-                    if (string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()))
-                    {
-                        txtNombrePaciente.Text = "CLIENTE FACTURACION";
-                    }
-                    DevolverProductos();
-                    //GUARDAMOS LOS DATOS
-                    VariablesGlobales.AccionTomar = "INSERT";
-                    GuardarFacturacionCliente();
-                    GuardarDatosFacturaconCalculos();
-                   //  AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
-                   // AfectarCaja();
-                    MessageBox.Show("Cotización realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ImprimirFactura(VariablesGlobales.NumeroConector);
-                    this.Dispose();
+                    //CREDITO
+                    MessageBox.Show("vENTA A cREDITO");
+                }
+                else
+                {
+                    MessageBox.Show("Error al facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                //PROCESAMOS EN BASE A COTIZAR
             }
+            catch (Exception) { }
 
         }
 
@@ -1015,6 +1117,45 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                    
                 }
             }
+        }
+
+        private void ddlTipoVenta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try {
+                if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 2)
+                {
+                    lbCantidadDias.Visible = true;
+                    ddlCantidadDias.Visible = true;
+                    CargarDias();
+                    //SACAMOS EL TIPO DE PAGO
+                    var SacarTipoPago = ObjDataFacturacion.Value.ListadoTipoPago(6, null, null, 1, 1);
+                    foreach (var n in SacarTipoPago)
+                    {
+                        ddltIPago.Text = n.TipoPago;
+                    }
+                    ddltIPago.Enabled = false;
+                    rbFacturar.Enabled = false;
+                    rbCotizar.Enabled = false;
+                    rbFacturar.Checked = true;
+                }
+                else
+                {
+                    lbCantidadDias.Visible = false;
+                    ddlCantidadDias.Visible = false;
+                    CargarTipoPago();
+                    ddltIPago.Enabled = true;
+                    rbFacturar.Enabled = true;
+                    rbCotizar.Enabled = true;
+                    rbFacturar.Checked = true;
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            DesbloquearControles();
         }
     }
 }

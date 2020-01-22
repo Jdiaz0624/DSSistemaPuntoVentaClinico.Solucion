@@ -101,6 +101,7 @@
     <Compile Include="Entidades\Listas\ECentroSalud.cs" />
     <Compile Include="Entidades\Listas\EEstatusCirugia.cs" />
     <Compile Include="Entidades\Listas\EListaAsistenteCirugia.cs" />
+    <Compile Include="Entidades\Listas\EListaCantidadDias.cs" />
     <Compile Include="Entidades\Listas\EListaComprobantesFiscales.cs" />
     <Compile Include="Entidades\Listas\EListaEsatusFacturacion.cs" />
     <Compile Include="Entidades\Listas\EListaHoras.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Entidades\Listas\EListaTipoPago.cs" />
     <Compile Include="Entidades\Listas\EListaTipoProducto.cs" />
     <Compile Include="Entidades\Listas\EListaTipoProveedores.cs" />
+    <Compile Include="Entidades\Listas\EListaTipoVenta.cs" />
     <Compile Include="Entidades\Listas\EListaUsuario.cs" />
     <Compile Include="Logica\LogicaCaja.cs" />
     <Compile Include="Logica\LogicaConfiguracion.cs" />

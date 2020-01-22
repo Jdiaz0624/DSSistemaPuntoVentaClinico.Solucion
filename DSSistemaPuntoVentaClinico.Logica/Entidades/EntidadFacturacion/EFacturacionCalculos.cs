@@ -25,5 +25,6 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
         public System.Nullable<decimal> MontoPagado { get; set; }
         public System.Nullable<decimal> IdEstatusCirugia { get; set; }
         public System.Nullable<bool> CirugiaProgramada { get; set; }
+        public System.Nullable<decimal> TipoVenta { get; set; }
     }
 }

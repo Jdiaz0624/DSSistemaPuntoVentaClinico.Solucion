@@ -233,5 +233,33 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                            }).ToList();
             return Listado;
         }
+
+        //MOSTRAR EL LISTADO DE LOS TIPOS DE VENTA
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaTipoVenta> BuscaListaTipoVenta()
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var BuscaTipoVenta = (from n in ObjData.SP_LISTADO_TIPO_VENTA()
+                                  select new DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaTipoVenta
+                                  {
+                                      IdTipoVenta=n.IdTipoVenta,
+                                      TipoVenta=n.TipoVenta
+                                  }).ToList();
+            return BuscaTipoVenta;
+        }
+
+        //MOSTRAR EL LISTADO DE LA CANTIDAD DE DIAS
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaCantidadDias> BuscaCantidadDias()
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var DIas = (from n in ObjData.SP_LISTA_CANTIDAD_DIAS()
+                        select new DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaCantidadDias
+                        {
+                            IdCantidadDias=n.IdCantidadDias,
+                            CantidadDias=n.CantidadDias
+                        }).ToList();
+            return DIas;
+        }
     }
 }

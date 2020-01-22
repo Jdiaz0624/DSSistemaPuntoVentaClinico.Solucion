@@ -173,6 +173,20 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_CARGAR_LISTAS_ASISTENTE_CIRUGIAResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_TIPO_VENTA")]
+		public ISingleResult<SP_LISTADO_TIPO_VENTAResult> SP_LISTADO_TIPO_VENTA()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTADO_TIPO_VENTAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTA_CANTIDAD_DIAS")]
+		public ISingleResult<SP_LISTA_CANTIDAD_DIASResult> SP_LISTA_CANTIDAD_DIAS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_LISTA_CANTIDAD_DIASResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_TIPO_PROVEEDORESResult
@@ -946,6 +960,94 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._Nombre != value))
 				{
 					this._Nombre = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_TIPO_VENTAResult
+	{
+		
+		private decimal _IdTipoVenta;
+		
+		private string _TipoVenta;
+		
+		public SP_LISTADO_TIPO_VENTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoVenta", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdTipoVenta
+		{
+			get
+			{
+				return this._IdTipoVenta;
+			}
+			set
+			{
+				if ((this._IdTipoVenta != value))
+				{
+					this._IdTipoVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoVenta", DbType="VarChar(20)")]
+		public string TipoVenta
+		{
+			get
+			{
+				return this._TipoVenta;
+			}
+			set
+			{
+				if ((this._TipoVenta != value))
+				{
+					this._TipoVenta = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTA_CANTIDAD_DIASResult
+	{
+		
+		private System.Nullable<decimal> _IdCantidadDias;
+		
+		private System.Nullable<int> _CantidadDias;
+		
+		public SP_LISTA_CANTIDAD_DIASResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCantidadDias", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCantidadDias
+		{
+			get
+			{
+				return this._IdCantidadDias;
+			}
+			set
+			{
+				if ((this._IdCantidadDias != value))
+				{
+					this._IdCantidadDias = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadDias", DbType="Int")]
+		public System.Nullable<int> CantidadDias
+		{
+			get
+			{
+				return this._CantidadDias;
+			}
+			set
+			{
+				if ((this._CantidadDias != value))
+				{
+					this._CantidadDias = value;
 				}
 			}
 		}

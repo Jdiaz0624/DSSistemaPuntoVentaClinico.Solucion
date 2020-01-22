@@ -225,6 +225,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.MontoPagado,
                 Item.IdEstatusCirugia,
                Item.CirugiaProgramada,
+              Item.TipoVenta,
                 Accion);
             if (FacturacionCalculos != null)
             {
@@ -240,7 +241,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      IdTipoPago=n.IdTipoPago,
                                      MontoPagado=n.MontoPagado,
                                      IdEstatusCirugia=n.IdEstatusCirugia,
-                                     CirugiaProgramada=n.CirugiaProgramada
+                                     CirugiaProgramada=n.CirugiaProgramada,
+                                     TipoVenta=n.TipoVenta
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
