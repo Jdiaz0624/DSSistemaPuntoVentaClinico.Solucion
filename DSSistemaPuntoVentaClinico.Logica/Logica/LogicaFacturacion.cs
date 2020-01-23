@@ -224,25 +224,29 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.IdTipoPago,
                 Item.MontoPagado,
                 Item.IdEstatusCirugia,
-               Item.CirugiaProgramada,
-              Item.TipoVenta,
+                Item.CirugiaProgramada,
+                Item.TipoVenta,
+                Item.IdCantidadDias,
+                Item.CodigoPaciente,
                 Accion);
             if (FacturacionCalculos != null)
             {
                 Mantenimiento = (from n in FacturacionCalculos
                                  select new Entidades.EntidadFacturacion.EFacturacionCalculos
                                  {
-                                     NumeroConector = n.NumeroConector,
-                                     CantidadArticulos=n.CantidadArticulos,
-                                     TotalDescuento=n.TotalDescuento,
-                                     Subtotal=n.Subtotal,
-                                     Impuesto=n.Impuesto,
-                                     Total=n.Total,
-                                     IdTipoPago=n.IdTipoPago,
-                                     MontoPagado=n.MontoPagado,
-                                     IdEstatusCirugia=n.IdEstatusCirugia,
-                                     CirugiaProgramada=n.CirugiaProgramada,
-                                     TipoVenta=n.TipoVenta
+                                    NumeroConector=n.NumeroConector,
+                                    CantidadArticulos=n.CantidadArticulos,
+                                    TotalDescuento=n.TotalDescuento,
+                                    Subtotal=n.Subtotal,
+                                    Impuesto=n.Impuesto,
+                                    Total=n.Total,
+                                    IdTipoPago=n.IdTipoPago,
+                                    MontoPagado=n.MontoPagado,
+                                    IdEstatusCirugia=n.IdEstatusCirugia,
+                                    CirugiaProgramada=n.CirugiaProgramada,
+                                    TipoVenta=n.TipoVenta,
+                                    IdCantidadDias=n.IdCantidadDias,
+                                    CodigoPaciente=n.CodigoPaciente
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

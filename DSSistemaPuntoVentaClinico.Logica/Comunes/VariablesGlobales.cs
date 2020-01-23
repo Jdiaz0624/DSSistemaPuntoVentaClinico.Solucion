@@ -37,6 +37,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Comunes
         public decimal Numerofactura { get; set; }
 
         public decimal CodigoPaciente { get; set; }
+        public decimal IdTipoVentaSeleccionado { get; set; }
+        public bool BloqueaControles { get; set; }
 
 
         #region VARIABLES PARA EL PROCESO DE HISTORIAL DE FACTURACION Y COTIZACION

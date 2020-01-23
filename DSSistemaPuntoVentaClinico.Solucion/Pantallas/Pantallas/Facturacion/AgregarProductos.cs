@@ -235,6 +235,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Facturacion.VariablesGlobales.NumeroConector = VariablesGlobales.NumeroConector;
             Facturacion.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
             Facturacion.VariablesGlobales.SacarDatosEspejo = true;
+            Facturacion.VariablesGlobales.BloqueaControles = VariablesGlobales.BloqueaControles;
+            Facturacion.VariablesGlobales.IdTipoVentaSeleccionado = VariablesGlobales.IdTipoVentaSeleccionado;
+            Facturacion.VariablesGlobales.CodigoPaciente = VariablesGlobales.CodigoPaciente;
             Facturacion.ShowDialog();
            
         }

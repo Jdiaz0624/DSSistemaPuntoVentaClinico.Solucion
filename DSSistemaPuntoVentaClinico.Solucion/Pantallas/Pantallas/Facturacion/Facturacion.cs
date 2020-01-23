@@ -376,6 +376,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.AgregarProductos Agregar = new AgregarProductos();
             Agregar.VariablesGlobales.NumeroConector = VariablesGlobales.NumeroConector;
             Agregar.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Agregar.VariablesGlobales.BloqueaControles = VariablesGlobales.BloqueaControles;
+            Agregar.VariablesGlobales.IdTipoVentaSeleccionado = VariablesGlobales.IdTipoVentaSeleccionado;
+            Agregar.VariablesGlobales.CodigoPaciente = VariablesGlobales.CodigoPaciente;
             Agregar.ShowDialog();
         }
         #endregion
@@ -530,6 +533,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             txtComentario.Enabled = false;
             btnAgregarAlmacen.Enabled = false;
             btnRegresar.Enabled = true;
+            VariablesGlobales.BloqueaControles = true;
         }
         private void DesbloquearControles()
         {
@@ -566,10 +570,19 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             txtComentario.Text = string.Empty;
 
             VariablesGlobales.CodigoPaciente = 1;
+            VariablesGlobales.BloqueaControles = false;
         }
         #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
+            if (VariablesGlobales.BloqueaControles == true)
+            {
+                BloquearControles();
+            }
+            else
+            {
+                DesbloquearControles();
+            }
             VariablesGlobales.CodigoPaciente = 1;
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;

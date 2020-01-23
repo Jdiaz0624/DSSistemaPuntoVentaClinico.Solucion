@@ -363,6 +363,8 @@
     <Parameter Name="IdEstatusCirugia" Parameter="idEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="CirugiaProgramada" Parameter="cirugiaProgramada" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="TipoVenta" Parameter="tipoVenta" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdCantidadDias" Parameter="idCantidadDias" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CodigoPaciente" Parameter="codigoPaciente" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
     <ElementType Name="SP_GUARDAR_DATOS_FACTURACION_CALCULOSResult">
       <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
@@ -376,6 +378,8 @@
       <Column Name="IdEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="CirugiaProgramada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="TipoVenta" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdCantidadDias" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CodigoPaciente" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
