@@ -27,6 +27,42 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
+        private void OpcionTipoVenta()
+        {
+            try
+            {
+                if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 2)
+                {
+                    lbCantidadDias.Visible = true;
+                    ddlCantidadDias.Visible = true;
+                    CargarDias();
+                    //SACAMOS EL TIPO DE PAGO
+                    var SacarTipoPago = ObjDataFacturacion.Value.ListadoTipoPago(6, null, null, 1, 1);
+                    foreach (var n in SacarTipoPago)
+                    {
+                        ddltIPago.Text = n.TipoPago;
+                    }
+                    ddltIPago.Enabled = false;
+                    rbFacturar.Enabled = false;
+                    rbCotizar.Enabled = false;
+                    rbFacturar.Checked = true;
+                    VariablesGlobales.IdTipoVentaSeleccionado = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
+                }
+                else
+                {
+                    lbCantidadDias.Visible = false;
+                    ddlCantidadDias.Visible = false;
+                    CargarTipoPago();
+                    ddltIPago.Enabled = true;
+                    rbFacturar.Enabled = true;
+                    rbCotizar.Enabled = true;
+                    rbFacturar.Checked = true;
+                    VariablesGlobales.IdTipoVentaSeleccionado = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
+                }
+            }
+            catch (Exception) { }
+        }
+
         #region SACAR LA INFORMACION DE LA EMPRESA
         private void SacarInformacionEmpresa(decimal IdInformacionEMpresa)
         {
@@ -272,6 +308,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         #region GUARDAR LOS DATOS DE LA FACTURACION CALCULOS
         private void GuardarDatosFacturaconCalculos()
         {
+            decimal CantidadDias = 0,Balance = 0;
+            if (Convert.ToDecimal(ddlTipoVenta.SelectedValue) == 1)
+            {
+                CantidadDias = 1;
+                Balance = 0;
+            }
+            else
+            {
+                CantidadDias = Convert.ToDecimal(ddlCantidadDias.SelectedValue);
+                Balance = Convert.ToDecimal(txtTotal.Text);
+            }
             DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionCalculos Guardar = new Logica.Entidades.EntidadFacturacion.EFacturacionCalculos();
 
             Guardar.NumeroConector = VariablesGlobales.NumeroConector;
@@ -283,6 +330,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Guardar.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
             Guardar.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
             Guardar.IdEstatusCirugia = Convert.ToDecimal(ddlEstatusCirugia.SelectedValue);
+            Guardar.TipoVenta = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
+            Guardar.IdCantidadDias = Convert.ToInt32(CantidadDias);
+            Guardar.CodigoPaciente = Convert.ToDecimal(VariablesGlobales.CodigoPaciente);
+            Guardar.Balance = Balance;
             Guardar.CirugiaProgramada = false;
 
             var MAN = ObjDataFacturacion.Value.GuardarFacturacionCalculos(Guardar, "INSERT");
@@ -373,17 +424,21 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         #region PASAR A LA PANTALLA DE AGREGAR PRODUCTOS
         private void PasarPantallaAgregarProductos()
         {
-            GuardarDatosFActuracionEspejo("INSERT");
-            this.Hide();
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.AgregarProductos Agregar = new AgregarProductos();
-            Agregar.VariablesGlobales.NumeroConector = VariablesGlobales.NumeroConector;
-            Agregar.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-            Agregar.VariablesGlobales.BloqueaControles = VariablesGlobales.BloqueaControles;
-            Agregar.VariablesGlobales.IdTipoVentaSeleccionado = VariablesGlobales.IdTipoVentaSeleccionado;
-            Agregar.VariablesGlobales.CodigoPaciente = VariablesGlobales.CodigoPaciente;
-            Agregar.VariablesGlobales.CantidadDias = Convert.ToInt32(ddlCantidadDias.Text);
-            Agregar.VariablesGlobales.TipoVenta = ddlTipoVenta.Text;
-            Agregar.ShowDialog();
+            try {
+
+                GuardarDatosFActuracionEspejo("INSERT");
+                this.Hide();
+                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.AgregarProductos Agregar = new AgregarProductos();
+                Agregar.VariablesGlobales.NumeroConector = VariablesGlobales.NumeroConector;
+                Agregar.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                Agregar.VariablesGlobales.BloqueaControles = VariablesGlobales.BloqueaControles;
+                Agregar.VariablesGlobales.IdTipoVentaSeleccionado = VariablesGlobales.IdTipoVentaSeleccionado;
+                Agregar.VariablesGlobales.CodigoPaciente = VariablesGlobales.CodigoPaciente;
+               // Agregar.VariablesGlobales.CantidadDias = Convert.ToInt32(ddlCantidadDias.Text);
+                Agregar.VariablesGlobales.TipoVenta = ddlTipoVenta.Text;
+                Agregar.ShowDialog();
+            }
+            catch (Exception) { }
         }
         #endregion
         #region CARGAR LOS ESTATUS DE CIRUGIAS
@@ -585,6 +640,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
+            CargarTipoVenta();
             if (VariablesGlobales.BloqueaControles == true)
             {
                 BloquearControles();
@@ -597,6 +653,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             CargarTipoVenta();
+            OpcionTipoVenta();
             CargarEstatusCirugia();
             lbTitulo.ForeColor = Color.White;
             lbTitulo.Text = "Facturación de Productos";
@@ -1147,37 +1204,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         private void ddlTipoVenta_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            try {
-                if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 2)
-                {
-                    lbCantidadDias.Visible = true;
-                    ddlCantidadDias.Visible = true;
-                    CargarDias();
-                    //SACAMOS EL TIPO DE PAGO
-                    var SacarTipoPago = ObjDataFacturacion.Value.ListadoTipoPago(6, null, null, 1, 1);
-                    foreach (var n in SacarTipoPago)
-                    {
-                        ddltIPago.Text = n.TipoPago;
-                    }
-                    ddltIPago.Enabled = false;
-                    rbFacturar.Enabled = false;
-                    rbCotizar.Enabled = false;
-                    rbFacturar.Checked = true;
-                    VariablesGlobales.IdTipoVentaSeleccionado = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
-                }
-                else
-                {
-                    lbCantidadDias.Visible = false;
-                    ddlCantidadDias.Visible = false;
-                    CargarTipoPago();
-                    ddltIPago.Enabled = true;
-                    rbFacturar.Enabled = true;
-                    rbCotizar.Enabled = true;
-                    rbFacturar.Checked = true;
-                    VariablesGlobales.IdTipoVentaSeleccionado = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
-                }
-            }
-            catch (Exception) { }
+            OpcionTipoVenta();
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
