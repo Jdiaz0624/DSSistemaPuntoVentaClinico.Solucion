@@ -58,5 +58,12 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
         public System.Nullable<decimal> IdEstatusirugia { get; set; }
 
         public string EstatusCirugia { get; set; }
+        public System.Nullable<decimal> IdTipoVenta { get; set; }
+
+        public string TipoVenta { get; set; }
+
+        public System.Nullable<decimal> IdCantidadDias { get; set; }
+
+        public System.Nullable<int> CantidadDias { get; set; }
     }
 }

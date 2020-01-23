@@ -123,5 +123,6 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial
         public System.Nullable<decimal> CodigoPaciente {get;set;}
 
         public string Nombre {get;set;}
+        public System.Nullable<decimal> Balance { get; set; }
     }
 }

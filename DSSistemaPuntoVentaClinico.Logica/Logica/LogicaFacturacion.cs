@@ -228,6 +228,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.TipoVenta,
                 Item.IdCantidadDias,
                 Item.CodigoPaciente,
+                Item.Balance,
                 Accion);
             if (FacturacionCalculos != null)
             {
@@ -246,7 +247,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                     CirugiaProgramada=n.CirugiaProgramada,
                                     TipoVenta=n.TipoVenta,
                                     IdCantidadDias=n.IdCantidadDias,
-                                    CodigoPaciente=n.CodigoPaciente
+                                    CodigoPaciente=n.CodigoPaciente,
+                                    Balance=n.Balance
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -288,7 +290,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               IdTipoPago=n.IdTipoPago,
                               TipoPago=n.TipoPago,
                               IdEstatusirugia=n.IdEstatusirugia,
-                              EstatusCirugia=n.EstatusCirugia
+                              EstatusCirugia=n.EstatusCirugia,
+                              IdTipoVenta=n.IdTipoVenta,
+                              TipoVenta=n.TipoVenta,
+                              IdCantidadDias=n.IdCantidadDias,
+                              CantidadDias=n.CantidadDias
                           }).ToList();
             return Buscar;
         }
@@ -318,6 +324,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.TipoProceso,
                 Item.IdTipoPago,
                 Item.IdEstatusirugia,
+                Item.IdTipoVenta,
+                Item.IdCantidadDias,
                 Accion);
             if (DatosFacturacionEspejo != null)
             {
@@ -341,7 +349,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      GuardarCliente=n.GuardarCliente,
                                      TipoProceso=n.TipoProceso,
                                      IdTipoPago=n.IdTipoPago,
-                                     IdEstatusirugia=n.IdEstatusirugia
+                                     IdEstatusirugia=n.IdEstatusirugia,
+                                     IdTipoVenta=n.IdTipoVenta,
+                                     IdCantidadDias=n.IdCantidadDias
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

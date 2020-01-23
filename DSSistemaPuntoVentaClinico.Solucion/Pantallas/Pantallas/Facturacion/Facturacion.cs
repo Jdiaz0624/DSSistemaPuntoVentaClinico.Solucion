@@ -186,6 +186,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             FacturacionEspejo.TipoProceso = VariablesGlobales.TipoProceso;
             FacturacionEspejo.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
             FacturacionEspejo.IdEstatusirugia = Convert.ToDecimal(ddlEstatusCirugia.SelectedValue);
+            FacturacionEspejo.IdTipoVenta = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
+            FacturacionEspejo.IdCantidadDias = Convert.ToDecimal(ddlCantidadDias.SelectedValue);
 
             var MAn = ObjDataFacturacion.Value.MantenimientoDatosFacturacionEspejo(FacturacionEspejo, Accion);
         }
@@ -379,6 +381,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Agregar.VariablesGlobales.BloqueaControles = VariablesGlobales.BloqueaControles;
             Agregar.VariablesGlobales.IdTipoVentaSeleccionado = VariablesGlobales.IdTipoVentaSeleccionado;
             Agregar.VariablesGlobales.CodigoPaciente = VariablesGlobales.CodigoPaciente;
+            Agregar.VariablesGlobales.CantidadDias = Convert.ToInt32(ddlCantidadDias.Text);
+            Agregar.VariablesGlobales.TipoVenta = ddlTipoVenta.Text;
             Agregar.ShowDialog();
         }
         #endregion
@@ -569,8 +573,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             txtEmail.Text = string.Empty;
             txtComentario.Text = string.Empty;
 
-            VariablesGlobales.CodigoPaciente = 1;
+            VariablesGlobales.CodigoPaciente = 787164;
             VariablesGlobales.BloqueaControles = false;
+        }
+        #endregion
+        #region SACAR LOS DATOS DE LOS TIPOS DE VENTA Y LA CANTIDAD DE DIAS
+        public void SacarCantidadDiasTipoVentas()
+        {
+           
         }
         #endregion
         private void Facturacion_Load(object sender, EventArgs e)
@@ -583,7 +593,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             {
                 DesbloquearControles();
             }
-            VariablesGlobales.CodigoPaciente = 1;
+            VariablesGlobales.CodigoPaciente = 787164;
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             CargarTipoVenta();
@@ -649,6 +659,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     Procesar = Convert.ToBoolean(n.TipoProceso);
                     ddltIPago.Text = n.TipoPago;
                     ddlEstatusCirugia.Text = n.EstatusCirugia;
+                    ddlTipoVenta.Text = n.TipoVenta;
+                    ddlCantidadDias.Text = n.CantidadDias.ToString();
 
                     if (Procesar == true)
                     {
@@ -1151,6 +1163,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     rbFacturar.Enabled = false;
                     rbCotizar.Enabled = false;
                     rbFacturar.Checked = true;
+                    VariablesGlobales.IdTipoVentaSeleccionado = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
                 }
                 else
                 {
@@ -1161,6 +1174,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     rbFacturar.Enabled = true;
                     rbCotizar.Enabled = true;
                     rbFacturar.Checked = true;
+                    VariablesGlobales.IdTipoVentaSeleccionado = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
                 }
             }
             catch (Exception) { }
@@ -1169,6 +1183,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             DesbloquearControles();
+        }
+
+        private void ddlCantidadDias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try {
+        
+            }
+            catch (Exception) { }
         }
     }
 }

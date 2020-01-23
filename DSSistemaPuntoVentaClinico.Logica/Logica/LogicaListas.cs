@@ -235,11 +235,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         }
 
         //MOSTRAR EL LISTADO DE LOS TIPOS DE VENTA
-        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaTipoVenta> BuscaListaTipoVenta()
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaTipoVenta> BuscaListaTipoVenta(decimal? IdTipoVenta = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var BuscaTipoVenta = (from n in ObjData.SP_LISTADO_TIPO_VENTA()
+            var BuscaTipoVenta = (from n in ObjData.SP_LISTADO_TIPO_VENTA(IdTipoVenta)
                                   select new DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaTipoVenta
                                   {
                                       IdTipoVenta=n.IdTipoVenta,
@@ -249,11 +249,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         }
 
         //MOSTRAR EL LISTADO DE LA CANTIDAD DE DIAS
-        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaCantidadDias> BuscaCantidadDias()
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaCantidadDias> BuscaCantidadDias(decimal? IdCantidadDias = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var DIas = (from n in ObjData.SP_LISTA_CANTIDAD_DIAS()
+            var DIas = (from n in ObjData.SP_LISTA_CANTIDAD_DIAS(IdCantidadDias)
                         select new DSSistemaPuntoVentaClinico.Logica.Entidades.Listas.EListaCantidadDias
                         {
                             IdCantidadDias=n.IdCantidadDias,

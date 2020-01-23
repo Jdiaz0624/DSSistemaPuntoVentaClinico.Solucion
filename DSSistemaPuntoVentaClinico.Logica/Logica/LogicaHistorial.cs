@@ -44,6 +44,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                  ComentarioPaciente=n.ComentarioPaciente,
                                  FechaFacturacion0=n.FechaFacturacion0,
                                  FechaFacturacion=n.FechaFacturacion,
+                                 FechaVencimiento0=n.FechaVencimiento0,
+                                 FechaVencimiento=n.FechaVencimiento,
+                                 CantidadDias=n.CantidadDias,
+                                 DiasDiferencia=n.DiasDiferencia,
+                                 EstatusDias=n.EstatusDias,
                                  IdUsuario=n.IdUsuario,
                                  Creadopor=n.Creadopor,
                                  IdProducto=n.IdProducto,
@@ -64,7 +69,14 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                  IdEstatusCirugia=n.IdEstatusCirugia,
                                  EstatusCirugia=n.EstatusCirugia,
                                  CirugiaProgramada0=n.CirugiaProgramada0,
-                                 CirugiaProgramada=n.CirugiaProgramada
+                                 CirugiaProgramada=n.CirugiaProgramada,
+                                 TipoVenta0=n.TipoVenta0,
+                                 TipoVenta01=n.TipoVenta01,
+                                 TipoVenta=n.TipoVenta,
+                                 IdCantidadias=n.IdCantidadias,
+                                 CodigoPaciente=n.CodigoPaciente,
+                                 Nombre=n.Nombre,
+                                 Balance=n.Balance
 
                              }).ToList();
             return Historial;

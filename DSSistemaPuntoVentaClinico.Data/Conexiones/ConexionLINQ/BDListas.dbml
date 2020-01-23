@@ -104,16 +104,18 @@
       <Column Name="Nombre" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="Listas.SP_LISTADO_TIPO_VENTA" Method="SP_LISTADO_TIPO_VENTA">
-    <ElementType Name="SP_LISTADO_TIPO_VENTAResult">
-      <Column Name="IdTipoVenta" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
-      <Column Name="TipoVenta" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Listas.SP_LISTA_CANTIDAD_DIAS" Method="SP_LISTA_CANTIDAD_DIAS">
+    <Parameter Name="IdCantidadDias" Parameter="idCantidadDias" Type="System.Decimal" DbType="Decimal(20,0)" />
     <ElementType Name="SP_LISTA_CANTIDAD_DIASResult">
       <Column Name="IdCantidadDias" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="CantidadDias" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Listas.SP_LISTADO_TIPO_VENTA" Method="SP_LISTADO_TIPO_VENTA">
+    <Parameter Name="IdTipoVenta" Parameter="idTipoVenta" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_LISTADO_TIPO_VENTAResult">
+      <Column Name="IdTipoVenta" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoVenta" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

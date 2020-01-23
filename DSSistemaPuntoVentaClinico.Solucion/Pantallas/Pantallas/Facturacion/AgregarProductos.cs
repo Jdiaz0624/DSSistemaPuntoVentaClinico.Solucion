@@ -238,6 +238,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Facturacion.VariablesGlobales.BloqueaControles = VariablesGlobales.BloqueaControles;
             Facturacion.VariablesGlobales.IdTipoVentaSeleccionado = VariablesGlobales.IdTipoVentaSeleccionado;
             Facturacion.VariablesGlobales.CodigoPaciente = VariablesGlobales.CodigoPaciente;
+            Facturacion.ddlTipoVenta.Text = VariablesGlobales.TipoVenta;
+            Facturacion.ddlCantidadDias.Text = VariablesGlobales.CantidadDias.ToString();
             Facturacion.ShowDialog();
            
         }

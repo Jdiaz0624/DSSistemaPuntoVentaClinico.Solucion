@@ -68,6 +68,7 @@
             this.rbCotizar = new System.Windows.Forms.RadioButton();
             this.rbFacturar = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.ddlSexo = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -97,7 +98,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
@@ -196,6 +196,7 @@
             this.ddlCantidadDias.Size = new System.Drawing.Size(139, 31);
             this.ddlCantidadDias.TabIndex = 50;
             this.ddlCantidadDias.Visible = false;
+            this.ddlCantidadDias.SelectedIndexChanged += new System.EventHandler(this.ddlCantidadDias_SelectedIndexChanged);
             // 
             // lbCantidadDias
             // 
@@ -607,6 +608,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Cliente";
             // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegresar.Enabled = false;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.Location = new System.Drawing.Point(591, 25);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Size = new System.Drawing.Size(41, 29);
+            this.btnRegresar.TabIndex = 29;
+            this.btnRegresar.Text = "...";
+            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -888,19 +902,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo de Paciente";
             // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegresar.Enabled = false;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Location = new System.Drawing.Point(591, 25);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(41, 29);
-            this.btnRegresar.TabIndex = 29;
-            this.btnRegresar.Text = "...";
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
-            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -1003,10 +1004,10 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox ddlEstatusCirugia;
         private System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.ComboBox ddlTipoVenta;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox ddlCantidadDias;
         private System.Windows.Forms.Label lbCantidadDias;
         private System.Windows.Forms.Button btnRegresar;
+        public System.Windows.Forms.ComboBox ddlTipoVenta;
+        public System.Windows.Forms.ComboBox ddlCantidadDias;
     }
 }

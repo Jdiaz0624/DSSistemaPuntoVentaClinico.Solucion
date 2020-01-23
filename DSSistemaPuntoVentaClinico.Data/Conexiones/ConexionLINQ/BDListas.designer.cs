@@ -174,18 +174,18 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			return ((ISingleResult<SP_CARGAR_LISTAS_ASISTENTE_CIRUGIAResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_TIPO_VENTA")]
-		public ISingleResult<SP_LISTADO_TIPO_VENTAResult> SP_LISTADO_TIPO_VENTA()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTA_CANTIDAD_DIAS")]
+		public ISingleResult<SP_LISTA_CANTIDAD_DIASResult> SP_LISTA_CANTIDAD_DIAS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCantidadDias", DbType="Decimal(20,0)")] System.Nullable<decimal> idCantidadDias)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<SP_LISTADO_TIPO_VENTAResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCantidadDias);
+			return ((ISingleResult<SP_LISTA_CANTIDAD_DIASResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTA_CANTIDAD_DIAS")]
-		public ISingleResult<SP_LISTA_CANTIDAD_DIASResult> SP_LISTA_CANTIDAD_DIAS()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Listas.SP_LISTADO_TIPO_VENTA")]
+		public ISingleResult<SP_LISTADO_TIPO_VENTAResult> SP_LISTADO_TIPO_VENTA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoVenta", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoVenta)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<SP_LISTA_CANTIDAD_DIASResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idTipoVenta);
+			return ((ISingleResult<SP_LISTADO_TIPO_VENTAResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -965,50 +965,6 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 		}
 	}
 	
-	public partial class SP_LISTADO_TIPO_VENTAResult
-	{
-		
-		private decimal _IdTipoVenta;
-		
-		private string _TipoVenta;
-		
-		public SP_LISTADO_TIPO_VENTAResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoVenta", DbType="Decimal(20,0) NOT NULL")]
-		public decimal IdTipoVenta
-		{
-			get
-			{
-				return this._IdTipoVenta;
-			}
-			set
-			{
-				if ((this._IdTipoVenta != value))
-				{
-					this._IdTipoVenta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoVenta", DbType="VarChar(20)")]
-		public string TipoVenta
-		{
-			get
-			{
-				return this._TipoVenta;
-			}
-			set
-			{
-				if ((this._TipoVenta != value))
-				{
-					this._TipoVenta = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_LISTA_CANTIDAD_DIASResult
 	{
 		
@@ -1048,6 +1004,50 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._CantidadDias != value))
 				{
 					this._CantidadDias = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_LISTADO_TIPO_VENTAResult
+	{
+		
+		private decimal _IdTipoVenta;
+		
+		private string _TipoVenta;
+		
+		public SP_LISTADO_TIPO_VENTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoVenta", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdTipoVenta
+		{
+			get
+			{
+				return this._IdTipoVenta;
+			}
+			set
+			{
+				if ((this._IdTipoVenta != value))
+				{
+					this._IdTipoVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoVenta", DbType="VarChar(20)")]
+		public string TipoVenta
+		{
+			get
+			{
+				return this._TipoVenta;
+			}
+			set
+			{
+				if ((this._TipoVenta != value))
+				{
+					this._TipoVenta = value;
 				}
 			}
 		}
