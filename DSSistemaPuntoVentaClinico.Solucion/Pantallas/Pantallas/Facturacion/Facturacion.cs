@@ -1203,8 +1203,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void ddlTipoVenta_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ddlCantidadDias.Visible = true;
+            CargarDias();
             OpcionTipoVenta();
+            ddlCantidadDias.Visible = false;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
