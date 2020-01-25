@@ -55,4 +55,22 @@
       <Column Name="Posiciones" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Contabilidad.SP_GUARDAR_CUENTA_POR_PAGAR" Method="SP_GUARDAR_CUENTA_POR_PAGAR">
+    <Parameter Name="IdCuentaPorPagar" Parameter="idCuentaPorPagar" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdPaciente" Parameter="idPaciente" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="BalanceInicial" Parameter="balanceInicial" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="BalanceActual" Parameter="balanceActual" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="CantidadPagos" Parameter="cantidadPagos" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Secuencia" Parameter="secuencia" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GUARDAR_CUENTA_POR_PAGARResult">
+      <Column Name="IdCuentaPorPagar" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdPaciente" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="BalanceInicial" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="BalanceActual" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="CantidadPagos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

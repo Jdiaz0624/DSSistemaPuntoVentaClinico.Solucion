@@ -965,10 +965,39 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         }
                     }
                 }
+                //VENTA A CREDITO
                 else if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 2)
                 {
-                    //CREDITO
-                    MessageBox.Show("vENTA A cREDITO");
+                    try {
+                        //VALIDAMOS LOS CAMPOS OBLIGATORIOS
+                        if (string.IsNullOrEmpty(ddlTipoFacturacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()) || string.IsNullOrEmpty(ddlSexo.Text.Trim()))
+                        {
+                            MessageBox.Show("Has dejado campos vacios que son necesarios para realizar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            //VALIDAMOS SI HAY PRODUCTOS AGREGADOS
+                            var ValidarProductos = ObjDataFacturacion.Value.BuscarProductosAgregados(VariablesGlobales.NumeroConector);
+                            if (ValidarProductos.Count() < 1)
+                            {
+                                MessageBox.Show("No hay productos agregados para facturar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                if (MessageBox.Show("¿Quieres agregar productos?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    PasarPantallaAgregarProductos();
+                                }
+                            }
+                            else
+                            {
+                                //GUARDAMOS LOS REGISTROS CORRESPONDIENTES
+                                TerminarProceso();
+                            }
+                        }
+                    }
+                    catch (Exception) {
+                        MessageBox.Show("Error al realizar la facturación a credito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
                 }
                 else
                 {
@@ -1203,10 +1232,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void ddlTipoVenta_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddlCantidadDias.Visible = true;
+          //  ddlCantidadDias.Visible = true;
             CargarDias();
             OpcionTipoVenta();
-            ddlCantidadDias.Visible = false;
+          //  ddlCantidadDias.Visible = false;
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

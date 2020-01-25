@@ -96,5 +96,38 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
 
         }
         #endregion
+
+        #region MANTENIMIENTO DE CUENTAS POR PAGAR
+        //GUARDAR LOS DATOS PARA LAS CUENTAS POR PAGAR
+        public Entidades.EntidadesContabilidad.EGuardarCuentasPorPagar GuardarCuentasPorPagar(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarCuentasPorPagar Item, string Accion)
+        {
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarCuentasPorPagar Guardar = null;
+
+            var CuentasPorPagar = Objdata.SP_GUARDAR_CUENTA_POR_PAGAR(
+                Item.IdCuentaPorPagar,
+                Item.IdPaciente,
+                Item.NumeroConector,
+                Item.BalanceInicial,
+                Item.BalanceActual,
+                Item.CantidadPagos,
+                0,
+                Accion);
+
+            if (CuentasPorPagar != null)
+            {
+                Guardar = (from n in CuentasPorPagar
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarCuentasPorPagar
+                           {
+                               IdCuentaPorPagar=n.IdCuentaPorPagar,
+                               IdPaciente=n.IdPaciente,
+                               NumeroConector=n.NumeroConector,
+                               BalanceInicial=n.BalanceInicial,
+                               BalanceActual=n.BalanceActual,
+                               CantidadPagos=n.CantidadPagos
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
+        #endregion
     }
 }

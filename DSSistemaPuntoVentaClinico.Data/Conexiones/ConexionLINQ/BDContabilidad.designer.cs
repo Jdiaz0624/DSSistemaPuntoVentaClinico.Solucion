@@ -82,6 +82,13 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idComprobante, descripcion, serie, tipoComprobante, secuencial, secuenciaInicial, secuenciaFinal, limite, estatus, validoHasta, porDefecto, posiciones, accion);
 			return ((ISingleResult<SP_MANTENIMIENTO_COMPROBANTE_FISCALESResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Contabilidad.SP_GUARDAR_CUENTA_POR_PAGAR")]
+		public ISingleResult<SP_GUARDAR_CUENTA_POR_PAGARResult> SP_GUARDAR_CUENTA_POR_PAGAR([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCuentaPorPagar", DbType="Decimal(20,0)")] System.Nullable<decimal> idCuentaPorPagar, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdPaciente", DbType="Decimal(20,0)")] System.Nullable<decimal> idPaciente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroConector", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroConector, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BalanceInicial", DbType="Decimal(20,2)")] System.Nullable<decimal> balanceInicial, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BalanceActual", DbType="Decimal(20,2)")] System.Nullable<decimal> balanceActual, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CantidadPagos", DbType="Int")] System.Nullable<int> cantidadPagos, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Secuencia", DbType="Decimal(20,0)")] System.Nullable<decimal> secuencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCuentaPorPagar, idPaciente, numeroConector, balanceInicial, balanceActual, cantidadPagos, secuencia, accion);
+			return ((ISingleResult<SP_GUARDAR_CUENTA_POR_PAGARResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_GENERAR_COMPROBANTE_FISCALResult
@@ -607,6 +614,122 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._Posiciones != value))
 				{
 					this._Posiciones = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GUARDAR_CUENTA_POR_PAGARResult
+	{
+		
+		private System.Nullable<decimal> _IdCuentaPorPagar;
+		
+		private System.Nullable<decimal> _IdPaciente;
+		
+		private System.Nullable<decimal> _NumeroConector;
+		
+		private System.Nullable<decimal> _BalanceInicial;
+		
+		private System.Nullable<decimal> _BalanceActual;
+		
+		private System.Nullable<int> _CantidadPagos;
+		
+		public SP_GUARDAR_CUENTA_POR_PAGARResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCuentaPorPagar", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCuentaPorPagar
+		{
+			get
+			{
+				return this._IdCuentaPorPagar;
+			}
+			set
+			{
+				if ((this._IdCuentaPorPagar != value))
+				{
+					this._IdCuentaPorPagar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPaciente", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdPaciente
+		{
+			get
+			{
+				return this._IdPaciente;
+			}
+			set
+			{
+				if ((this._IdPaciente != value))
+				{
+					this._IdPaciente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroConector", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroConector
+		{
+			get
+			{
+				return this._NumeroConector;
+			}
+			set
+			{
+				if ((this._NumeroConector != value))
+				{
+					this._NumeroConector = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BalanceInicial", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> BalanceInicial
+		{
+			get
+			{
+				return this._BalanceInicial;
+			}
+			set
+			{
+				if ((this._BalanceInicial != value))
+				{
+					this._BalanceInicial = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BalanceActual", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> BalanceActual
+		{
+			get
+			{
+				return this._BalanceActual;
+			}
+			set
+			{
+				if ((this._BalanceActual != value))
+				{
+					this._BalanceActual = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadPagos", DbType="Int")]
+		public System.Nullable<int> CantidadPagos
+		{
+			get
+			{
+				return this._CantidadPagos;
+			}
+			set
+			{
+				if ((this._CantidadPagos != value))
+				{
+					this._CantidadPagos = value;
 				}
 			}
 		}
