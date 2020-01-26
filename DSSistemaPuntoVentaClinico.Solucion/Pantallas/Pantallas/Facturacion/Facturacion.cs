@@ -224,6 +224,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             FacturacionEspejo.IdEstatusirugia = Convert.ToDecimal(ddlEstatusCirugia.SelectedValue);
             FacturacionEspejo.IdTipoVenta = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
             FacturacionEspejo.IdCantidadDias = Convert.ToDecimal(ddlCantidadDias.SelectedValue);
+            FacturacionEspejo.CodigoPaciente = VariablesGlobales.CodigoPaciente;
 
             var MAn = ObjDataFacturacion.Value.MantenimientoDatosFacturacionEspejo(FacturacionEspejo, Accion);
         }
@@ -638,6 +639,26 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
            
         }
         #endregion
+        #region GUARDAR LAS CUENTAS POR COBRAR
+        private void GuardarCuentasPorCobrar() {
+            try {
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarCuentasPorPagar CXC = new Logica.Entidades.EntidadesContabilidad.EGuardarCuentasPorPagar();
+
+                CXC.IdCuentaPorPagar = 0;
+                CXC.IdPaciente = VariablesGlobales.CodigoPaciente;
+                CXC.NumeroConector = VariablesGlobales.NumeroConector;
+                CXC.BalanceInicial = Convert.ToDecimal(txtTotal.Text);
+                CXC.BalanceActual = Convert.ToDecimal(txtTotal.Text);
+                CXC.CantidadPagos = 0;
+
+
+                var MAN = ObjdataContabilidad.Value.GuardarCuentasPorPagar(CXC, "INSERT");
+            }
+            catch (Exception) {
+                MessageBox.Show("Error al guardar las cuentas por cobrar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             CargarTipoVenta();
@@ -718,6 +739,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     ddlEstatusCirugia.Text = n.EstatusCirugia;
                     ddlTipoVenta.Text = n.TipoVenta;
                     ddlCantidadDias.Text = n.CantidadDias.ToString();
+                    VariablesGlobales.CodigoPaciente = Convert.ToDecimal(n.CodigoPaciente);
 
                     if (Procesar == true)
                     {
@@ -989,7 +1011,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                             else
                             {
                                 //GUARDAMOS LOS REGISTROS CORRESPONDIENTES
+                                GuardarCuentasPorCobrar();
                                 TerminarProceso();
+
                             }
                         }
                     }

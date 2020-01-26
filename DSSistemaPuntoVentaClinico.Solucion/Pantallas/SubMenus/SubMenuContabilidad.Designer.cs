@@ -36,6 +36,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbOpciones.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -72,7 +73,7 @@
             this.btnControlApertura.Name = "btnControlApertura";
             this.btnControlApertura.Size = new System.Drawing.Size(230, 68);
             this.btnControlApertura.TabIndex = 0;
-            this.btnControlApertura.Text = "Control de Apertura";
+            this.btnControlApertura.Text = "CXC";
             this.toolTip1.SetToolTip(this.btnControlApertura, "Mantenimiento de Control de Apertura");
             this.btnControlApertura.UseVisualStyleBackColor = true;
             this.btnControlApertura.Click += new System.EventHandler(this.btnControlApertura_Click);
@@ -89,6 +90,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.lbUsuario);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.lbTitulo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -96,6 +98,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(752, 44);
             this.panel1.TabIndex = 15;
+            // 
+            // lbUsuario
+            // 
+            this.lbUsuario.AutoSize = true;
+            this.lbUsuario.Location = new System.Drawing.Point(344, 10);
+            this.lbUsuario.Name = "lbUsuario";
+            this.lbUsuario.Size = new System.Drawing.Size(64, 25);
+            this.lbUsuario.TabIndex = 15;
+            this.lbUsuario.Text = "label6";
+            this.lbUsuario.Visible = false;
             // 
             // SubMenuContabilidad
             // 
@@ -132,5 +144,6 @@
         private System.Windows.Forms.Button btnControlApertura;
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbUsuario;
     }
 }

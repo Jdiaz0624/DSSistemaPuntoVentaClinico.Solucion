@@ -27,11 +27,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             gbOpciones.ForeColor = Color.Black;
             lbTitulo.Text = "Modulo de Contabiliad";
             lbTitulo.ForeColor = Color.White;
+            lbUsuario.Text = DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal.MenuPrincipal.IdUsuario.ToString();
         }
 
         private void btnControlApertura_Click(object sender, EventArgs e)
         {
-
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad.CuntasPorCobrar cxc = new Pantallas.Contabilidad.CuntasPorCobrar();
+            cxc.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
+            cxc.ShowDialog();
         }
     }
 }

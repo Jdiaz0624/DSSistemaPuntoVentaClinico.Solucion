@@ -112,6 +112,12 @@
     <Compile Include="Pantallas\Pantallas\Configuracion\SecuencialPantallas.Designer.cs">
       <DependentUpon>SecuencialPantallas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Contabilidad\CuntasPorCobrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Contabilidad\CuntasPorCobrar.Designer.cs">
+      <DependentUpon>CuntasPorCobrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\ARSConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -452,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\SecuencialComprobantes.resx">
       <DependentUpon>SecuencialComprobantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Contabilidad\CuntasPorCobrar.resx">
+      <DependentUpon>CuntasPorCobrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\ARSConsulta.resx">
       <DependentUpon>ARSConsulta.cs</DependentUpon>

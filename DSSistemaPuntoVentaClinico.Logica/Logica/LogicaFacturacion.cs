@@ -294,7 +294,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               IdTipoVenta=n.IdTipoVenta,
                               TipoVenta=n.TipoVenta,
                               IdCantidadDias=n.IdCantidadDias,
-                              CantidadDias=n.CantidadDias
+                              CantidadDias=n.CantidadDias,
+                              CodigoPaciente=n.CodigoPaciente
                           }).ToList();
             return Buscar;
         }
@@ -326,6 +327,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.IdEstatusirugia,
                 Item.IdTipoVenta,
                 Item.IdCantidadDias,
+                Item.CodigoPaciente,
                 Accion);
             if (DatosFacturacionEspejo != null)
             {
@@ -351,7 +353,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      IdTipoPago=n.IdTipoPago,
                                      IdEstatusirugia=n.IdEstatusirugia,
                                      IdTipoVenta=n.IdTipoVenta,
-                                     IdCantidadDias=n.IdCantidadDias
+                                     IdCantidadDias=n.IdCantidadDias,
+                                     CodigoPaciente=n.CodigoPaciente
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
