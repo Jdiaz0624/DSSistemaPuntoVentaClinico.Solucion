@@ -153,6 +153,30 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte
 
 
         }
+
+        //CARGAMOS EL REPORTE DE LAS CUENTAS POR COBRAR
+        public void GenerarReporteCuentasPorCobrar(decimal IdPaciente)
+        {
+            try {
+                ReportDocument AntiguedadSaldo = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_ANTIGUEDAD_SALDO] @IdPaciente";
+                comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdPaciente", SqlDbType.Decimal);
+                comando.Parameters["@IdPaciente"].Value = IdPaciente;
+
+                AntiguedadSaldo.Load(@"" + VariablesGlobales.RutaReporte);
+                AntiguedadSaldo.Refresh();
+                AntiguedadSaldo.SetParameterValue("@IdPaciente", IdPaciente);
+                AntiguedadSaldo.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = AntiguedadSaldo;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al cargar el reporte", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void Reportes_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);

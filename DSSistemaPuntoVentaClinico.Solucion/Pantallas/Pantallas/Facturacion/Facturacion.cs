@@ -485,26 +485,29 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             //INSERTAMOS LOS DATOS PARA HACER EL REGISTRO DENTRO DEL HISTORIAL DE LA CAJA
             if (rbFacturar.Checked)
             {
-                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EHistorialCaja Historial = new Logica.Entidades.EntidadesCaja.EHistorialCaja();
+                if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 1)
+                {
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EHistorialCaja Historial = new Logica.Entidades.EntidadesCaja.EHistorialCaja();
 
-                Historial.IdistorialCaja = 0;
-                Historial.IdCaja = 1;
-                Historial.Monto = Convert.ToDecimal(txtTotal.Text);
-                Historial.Concepto = "FACTURACION";
-                Historial.Fecha0 = DateTime.Now;
-                Historial.IdUsuario = VariablesGlobales.IdUsuario;
-                Historial.NumeroReferencia = VariablesGlobales.NumeroConector;
-                Historial.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
+                    Historial.IdistorialCaja = 0;
+                    Historial.IdCaja = 1;
+                    Historial.Monto = Convert.ToDecimal(txtTotal.Text);
+                    Historial.Concepto = "FACTURACION";
+                    Historial.Fecha0 = DateTime.Now;
+                    Historial.IdUsuario = VariablesGlobales.IdUsuario;
+                    Historial.NumeroReferencia = VariablesGlobales.NumeroConector;
+                    Historial.IdTipoPago = Convert.ToDecimal(ddltIPago.SelectedValue);
 
-                var MAN = ObjDataCaja.Value.MantenimientoHistorialCaja(Historial, "INSERT");
+                    var MAN = ObjDataCaja.Value.MantenimientoHistorialCaja(Historial, "INSERT");
 
-                //ACTUALIZAR EL MONTO EN LACAJA
-                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.ECaja Caja = new Logica.Entidades.EntidadesCaja.ECaja();
+                    //ACTUALIZAR EL MONTO EN LACAJA
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.ECaja Caja = new Logica.Entidades.EntidadesCaja.ECaja();
 
-                Caja.IdCaja = 1;
-                Caja.MontoActual = Convert.ToDecimal(txtTotal.Text);
+                    Caja.IdCaja = 1;
+                    Caja.MontoActual = Convert.ToDecimal(txtTotal.Text);
 
-                var mam = ObjDataCaja.Value.MantenimientoCaja(Caja, "ADD");
+                    var mam = ObjDataCaja.Value.MantenimientoCaja(Caja, "ADD");
+                }
             }
         }
         #endregion

@@ -14,6 +14,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
     {
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaContabilidad> ObjDataCObtabilidad = new Lazy<Logica.Logica.LogicaContabilidad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDataReporte = new Lazy<Logica.Logica.LogicaHistorial>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
         #region SACAR EL NOMBRE DE LA EMPRESA
         private void SacarNombreEmpresa(int IdInformacionEmpresa)
@@ -75,6 +77,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             this.dataGridView1.Columns["__121_o_Mas"].Visible = false;
         }
         #endregion
+
+        
         public CuntasPorCobrar()
         {
             InitializeComponent();
@@ -90,6 +94,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         private void btnARS_Click(object sender, EventArgs e)
         {
             MostrarConsulta();
+            btnReporte.Enabled = false;
+            btnPago.Enabled = false;
+            VariablesGlobales.IdMantenimiento = 0;
         }
 
         private void txtNumeroFactura_KeyPress(object sender, KeyPressEventArgs e)
@@ -122,7 +129,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                 }
                 else
                 {
-
+                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dataGridView1.CurrentRow.Cells["IdPaciente"].Value.ToString());
+                    btnReporte.Enabled = true;
+                    btnPago.Enabled = true;
+                    var BuscarRegistroSeleccionado = ObjDataCObtabilidad.Value.BuscaCuentasCobrarr(
+                        new Nullable<decimal>(),
+                        VariablesGlobales.IdMantenimiento.ToString(),
+                        null, null, null, null, null, 1, 9999);
+                    dataGridView1.DataSource = BuscarRegistroSeleccionado;
+                    OcultarColumnas();
                 }
             }
         }
@@ -153,6 +168,43 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             {
                 MostrarConsulta();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //SACAMOS LA RUTA DEL REPORTE
+            var SacarRutaReporte = ObjDataReporte.Value.SacarRutaReporte(7);
+            foreach (var n in SacarRutaReporte)
+            {
+                VariablesGlobales.RutaReporte = n.RutaReporte;
+            }
+
+            //SACAMOS LAS CREDENCIALS DE BASE DE DATOS
+            var SacarCredenciales = ObjDataSeguridad.Value.SacarLogonBD(1);
+            foreach (var n in SacarCredenciales)
+            {
+                VariablesGlobales.UsuarioBD = n.Usuario;
+                VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+            }
+
+            //INVOCAMOS EL REPORTE
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Antiguedad = new Reporte.Reportes();
+            Antiguedad.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Antiguedad.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            Antiguedad.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            Antiguedad.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            Antiguedad.GenerarReporteCuentasPorCobrar(VariablesGlobales.IdMantenimiento);
+            Antiguedad.ShowDialog();
+                //GenerarReporteCuentasPorCobrar
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad.PagosFacturasPendientes cxc = new PagosFacturasPendientes();
+            cxc.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            cxc.VariablesGlobales.IdMantenimiento = VariablesGlobales.IdMantenimiento;
+            cxc.ShowDialog();
         }
     }
 }

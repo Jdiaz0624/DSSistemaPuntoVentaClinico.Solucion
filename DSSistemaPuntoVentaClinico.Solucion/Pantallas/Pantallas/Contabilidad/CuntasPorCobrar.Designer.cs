@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNumeroFactura = new System.Windows.Forms.TextBox();
             this.txtRNC = new System.Windows.Forms.TextBox();
@@ -39,25 +38,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnReporte = new System.Windows.Forms.Button();
+            this.btnPago = new System.Windows.Forms.Button();
             this.btnARS = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbRegistroUnico = new System.Windows.Forms.CheckBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,22 +77,9 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(15, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(769, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 22;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // groupBox1
             // 
@@ -114,7 +101,7 @@
             this.txtNumeroFactura.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroFactura.Location = new System.Drawing.Point(194, 96);
             this.txtNumeroFactura.Name = "txtNumeroFactura";
-            this.txtNumeroFactura.Size = new System.Drawing.Size(236, 30);
+            this.txtNumeroFactura.Size = new System.Drawing.Size(236, 26);
             this.txtNumeroFactura.TabIndex = 7;
             this.txtNumeroFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroFactura_KeyPress);
             // 
@@ -123,7 +110,7 @@
             this.txtRNC.BackColor = System.Drawing.Color.LightGray;
             this.txtRNC.Location = new System.Drawing.Point(194, 63);
             this.txtRNC.Name = "txtRNC";
-            this.txtRNC.Size = new System.Drawing.Size(236, 30);
+            this.txtRNC.Size = new System.Drawing.Size(236, 26);
             this.txtRNC.TabIndex = 6;
             this.txtRNC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroFactura_KeyPress);
             // 
@@ -132,7 +119,7 @@
             this.txtCodigoPaciente.BackColor = System.Drawing.Color.LightGray;
             this.txtCodigoPaciente.Location = new System.Drawing.Point(194, 30);
             this.txtCodigoPaciente.Name = "txtCodigoPaciente";
-            this.txtCodigoPaciente.Size = new System.Drawing.Size(236, 30);
+            this.txtCodigoPaciente.Size = new System.Drawing.Size(236, 26);
             this.txtCodigoPaciente.TabIndex = 5;
             this.txtCodigoPaciente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroFactura_KeyPress);
             // 
@@ -141,7 +128,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(78, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 25);
+            this.label3.Size = new System.Drawing.Size(92, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "No. Factura";
             // 
@@ -150,7 +137,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(137, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 25);
+            this.label2.Size = new System.Drawing.Size(43, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "RNC";
             // 
@@ -159,14 +146,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 25);
+            this.label1.Size = new System.Drawing.Size(147, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo de Paciente";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnReporte);
+            this.groupBox2.Controls.Add(this.btnPago);
             this.groupBox2.Controls.Add(this.btnARS);
             this.groupBox2.Location = new System.Drawing.Point(456, 45);
             this.groupBox2.Name = "groupBox2";
@@ -174,31 +161,33 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
-            // button2
+            // btnReporte
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Enabled = false;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(6, 66);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(328, 41);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Antiguedad de Saldo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporte.Enabled = false;
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte.Location = new System.Drawing.Point(6, 66);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(328, 41);
+            this.btnReporte.TabIndex = 6;
+            this.btnReporte.Text = "Antiguedad de Saldo";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnPago
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Enabled = false;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(173, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 41);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Pagos";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPago.Enabled = false;
+            this.btnPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPago.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPago.Location = new System.Drawing.Point(173, 17);
+            this.btnPago.Name = "btnPago";
+            this.btnPago.Size = new System.Drawing.Size(161, 41);
+            this.btnPago.TabIndex = 5;
+            this.btnPago.Text = "Pagos";
+            this.btnPago.UseVisualStyleBackColor = true;
+            this.btnPago.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnARS
             // 
@@ -235,13 +224,24 @@
             this.Select});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 26);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(782, 386);
+            this.dataGridView1.Size = new System.Drawing.Size(782, 390);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Select
+            // 
+            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Select.HeaderText = "Select";
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Text = "Select";
+            this.Select.ToolTipText = "Select";
+            this.Select.UseColumnTextForButtonValue = true;
+            this.Select.Width = 60;
             // 
             // txtNumeroRegistros
             // 
@@ -255,7 +255,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 32);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
             this.txtNumeroRegistros.TabIndex = 23;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -270,7 +270,7 @@
             this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroRegistros.Location = new System.Drawing.Point(185, 603);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(130, 23);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
             this.lbNumeroRegistros.TabIndex = 22;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -286,7 +286,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 32);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
             this.txtNumeroPagina.TabIndex = 21;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -301,20 +301,9 @@
             this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroPagina.Location = new System.Drawing.Point(12, 603);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(111, 23);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
             this.lbNumeroPagina.TabIndex = 20;
             this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // Select
-            // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Select";
-            this.Select.ToolTipText = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 73;
             // 
             // cbRegistroUnico
             // 
@@ -323,14 +312,28 @@
             this.cbRegistroUnico.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbRegistroUnico.Location = new System.Drawing.Point(379, 602);
             this.cbRegistroUnico.Name = "cbRegistroUnico";
-            this.cbRegistroUnico.Size = new System.Drawing.Size(265, 29);
+            this.cbRegistroUnico.Size = new System.Drawing.Size(218, 24);
             this.cbRegistroUnico.TabIndex = 24;
             this.cbRegistroUnico.Text = "Seleccionar Registro Unico";
             this.cbRegistroUnico.UseVisualStyleBackColor = true;
+            this.cbRegistroUnico.Visible = false;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(769, 0);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 22;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // CuntasPorCobrar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(811, 641);
@@ -353,7 +356,6 @@
             this.Load += new System.EventHandler(this.CuntasPorCobrar_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -361,6 +363,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,8 +389,8 @@
         private System.Windows.Forms.Label lbNumeroRegistros;
         private System.Windows.Forms.NumericUpDown txtNumeroPagina;
         private System.Windows.Forms.Label lbNumeroPagina;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.Button btnPago;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
         private System.Windows.Forms.CheckBox cbRegistroUnico;
     }
