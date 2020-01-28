@@ -73,4 +73,47 @@
       <Column Name="CantidadPagos" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Contabilidad.SP_BUSCA_CUENTAS_POR_COBRAR" Method="SP_BUSCA_CUENTAS_POR_COBRAR">
+    <Parameter Name="IdCuentaCobrar" Parameter="idCuentaCobrar" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdPaciente" Parameter="idPaciente" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="RNC" Parameter="rNC" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_CUENTAS_POR_COBRARResult">
+      <Column Name="IdCuentaPorPagar" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="IdPaciente" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Paciente" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="TipoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NoIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Secuencia" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Fecha0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NombrePaciente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TipoComprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ValidoHasta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Comprobante" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BalanceInicial" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="BalanceActual" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Concepto" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaFacturacion" Type="System.String" DbType="VarChar(38) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaVencimiento" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DiasAtrasados" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="DiasCredito" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Monto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Abono" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Pendiente" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="[0-30]" Member="_0_30" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="[31-60]" Member="_31_60" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="[61-90]" Member="_61_90" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="[91-120]" Member="_91_120" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="[121 o Mas]" Member="_121_o_Mas" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

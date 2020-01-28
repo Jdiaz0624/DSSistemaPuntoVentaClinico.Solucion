@@ -128,6 +128,50 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             }
             return Guardar;
         }
+
+        //BUSCA LAS CUENTAS POR PAGAR
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EBuscaCuentasPorCobrar> BuscaCuentasCobrarr(decimal? IdCuentaCobrar = null, string IdPaciente = null, string RNC = null, decimal? NumeroConector = null, string NumeroFactura = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            var Buscar = (from n in Objdata.SP_BUSCA_CUENTAS_POR_COBRAR(IdCuentaCobrar, IdPaciente, RNC, NumeroConector, NumeroFactura, FechaDesde, FechaHasta, NumeroPagina, NumeroRegistros)
+                          select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EBuscaCuentasPorCobrar
+                          {
+                              IdCuentaPorPagar=n.IdCuentaPorPagar,
+                              IdPaciente=n.IdPaciente,
+                              Paciente=n.Paciente,
+                              TipoIdentificacion=n.TipoIdentificacion,
+                              NoIdentificacion=n.NoIdentificacion,
+                              Secuencia=n.Secuencia,
+                              Fecha0=n.Fecha0,
+                              NumeroConector=n.NumeroConector,
+                              NombrePaciente=n.NombrePaciente,
+                              TipoComprobante=n.TipoComprobante,
+                              ValidoHasta=n.ValidoHasta,
+                              Comprobante=n.Comprobante,
+                              BalanceInicial=n.BalanceInicial,
+                              BalanceActual=n.BalanceActual,
+                              MontoPagado=n.MontoPagado,
+                              Concepto=n.Concepto,
+                              NumeroFactura=n.NumeroFactura,
+                              FechaFacturacion=n.FechaFacturacion,
+                              FechaVencimiento=n.FechaVencimiento,
+                              DiasAtrasados=n.DiasAtrasados,
+                              Estatus=n.Estatus,
+                              DiasCredito=n.DiasCredito,
+                              Monto=n.Monto,
+                              Abono=n.Abono,
+                              Pendiente=n.Pendiente,
+                              __0_30=n._0_30,
+                              __31_60=n._31_60,
+                              __61_90=n._61_90,
+                              __91_120=n._91_120,
+                              __121_o_Mas=n._121_o_Mas
+                          }).ToList();
+            return Buscar;
+        }
         #endregion
+
+
     }
 }
