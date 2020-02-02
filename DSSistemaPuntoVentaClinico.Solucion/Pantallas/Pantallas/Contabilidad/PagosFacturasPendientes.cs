@@ -17,6 +17,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDataReporte = new Lazy<Logica.Logica.LogicaHistorial>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         private void SacarDatosPaciente()
@@ -70,6 +71,16 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             OcultarColumnas();
         }
         #endregion
+
+        #region CARGAR LOS TIPOS DE PAGOS
+        private void CargarTipoPago()
+        {
+            var Cargar = ObjDataListas.Value.ListaTipoPago();
+            ddlTipoPago.DataSource = Cargar;
+            ddlTipoPago.DisplayMember = "Descripcion";
+            ddlTipoPago.ValueMember = "IdTipoPago";
+        }
+        #endregion
         public PagosFacturasPendientes()
         {
             InitializeComponent();
@@ -89,6 +100,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             SacarListadoFacturas();
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
+            CargarTipoPago();
         }
 
         private void PagosFacturasPendientes_FormClosing(object sender, FormClosingEventArgs e)

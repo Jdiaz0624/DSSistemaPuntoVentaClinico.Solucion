@@ -32,12 +32,12 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbDatosCliente = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbNombre = new System.Windows.Forms.Label();
-            this.lbDireccion = new System.Windows.Forms.Label();
             this.lbzRNC = new System.Windows.Forms.Label();
+            this.lbDireccion = new System.Windows.Forms.Label();
+            this.lbNombre = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
@@ -46,15 +46,17 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lbNoFactura = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lbMonto = new System.Windows.Forms.Label();
-            this.rbPagoTotal = new System.Windows.Forms.RadioButton();
-            this.rbAbono = new System.Windows.Forms.RadioButton();
-            this.txtAbono = new System.Windows.Forms.TextBox();
-            this.btnARS = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.btnARS = new System.Windows.Forms.Button();
+            this.txtAbono = new System.Windows.Forms.TextBox();
+            this.rbAbono = new System.Windows.Forms.RadioButton();
+            this.rbPagoTotal = new System.Windows.Forms.RadioButton();
+            this.lbMonto = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbNoFactura = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ddlTipoPago = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbDatosCliente.SuspendLayout();
@@ -82,7 +84,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(15, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
@@ -114,59 +116,59 @@
             this.gbDatosCliente.TabStop = false;
             this.gbDatosCliente.Text = "Cliente";
             // 
-            // label1
+            // lbzRNC
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Dirección";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 105);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "RNC";
-            // 
-            // lbNombre
-            // 
-            this.lbNombre.AutoSize = true;
-            this.lbNombre.Location = new System.Drawing.Point(97, 31);
-            this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(65, 20);
-            this.lbNombre.TabIndex = 3;
-            this.lbNombre.Text = "Nombre";
+            this.lbzRNC.AutoSize = true;
+            this.lbzRNC.Location = new System.Drawing.Point(97, 105);
+            this.lbzRNC.Name = "lbzRNC";
+            this.lbzRNC.Size = new System.Drawing.Size(54, 25);
+            this.lbzRNC.TabIndex = 5;
+            this.lbzRNC.Text = "RNC";
             // 
             // lbDireccion
             // 
             this.lbDireccion.AutoSize = true;
             this.lbDireccion.Location = new System.Drawing.Point(97, 65);
             this.lbDireccion.Name = "lbDireccion";
-            this.lbDireccion.Size = new System.Drawing.Size(75, 20);
+            this.lbDireccion.Size = new System.Drawing.Size(93, 25);
             this.lbDireccion.TabIndex = 4;
             this.lbDireccion.Text = "Dirección";
             // 
-            // lbzRNC
+            // lbNombre
             // 
-            this.lbzRNC.AutoSize = true;
-            this.lbzRNC.Location = new System.Drawing.Point(97, 105);
-            this.lbzRNC.Name = "lbzRNC";
-            this.lbzRNC.Size = new System.Drawing.Size(43, 20);
-            this.lbzRNC.TabIndex = 5;
-            this.lbzRNC.Text = "RNC";
+            this.lbNombre.AutoSize = true;
+            this.lbNombre.Location = new System.Drawing.Point(97, 31);
+            this.lbNombre.Name = "lbNombre";
+            this.lbNombre.Size = new System.Drawing.Size(81, 25);
+            this.lbNombre.TabIndex = 3;
+            this.lbNombre.Text = "Nombre";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "RNC";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Dirección";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre";
             // 
             // txtNumeroRegistros
             // 
@@ -180,7 +182,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 32);
             this.txtNumeroRegistros.TabIndex = 28;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -194,7 +196,7 @@
             this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroRegistros.Location = new System.Drawing.Point(189, 431);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(130, 23);
             this.lbNumeroRegistros.TabIndex = 27;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -210,7 +212,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 32);
             this.txtNumeroPagina.TabIndex = 26;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -224,7 +226,7 @@
             this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroPagina.Location = new System.Drawing.Point(16, 431);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(111, 23);
             this.lbNumeroPagina.TabIndex = 25;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -250,11 +252,11 @@
             this.Select});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 26);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(782, 205);
+            this.dataGridView1.Size = new System.Drawing.Size(782, 201);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -267,10 +269,12 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 60;
+            this.Select.Width = 73;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.ddlTipoPago);
             this.groupBox1.Controls.Add(this.btnVolver);
             this.groupBox1.Controls.Add(this.btnARS);
             this.groupBox1.Controls.Add(this.txtAbono);
@@ -283,99 +287,17 @@
             this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(12, 461);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(785, 161);
+            this.groupBox1.Size = new System.Drawing.Size(785, 188);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pago de Factura";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(143, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "No. Factura";
-            // 
-            // lbNoFactura
-            // 
-            this.lbNoFactura.AutoSize = true;
-            this.lbNoFactura.Location = new System.Drawing.Point(241, 30);
-            this.lbNoFactura.Name = "lbNoFactura";
-            this.lbNoFactura.Size = new System.Drawing.Size(92, 20);
-            this.lbNoFactura.TabIndex = 1;
-            this.lbNoFactura.Text = "No. Factura";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(510, 30);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 20);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Monto";
-            // 
-            // lbMonto
-            // 
-            this.lbMonto.AutoSize = true;
-            this.lbMonto.Location = new System.Drawing.Point(570, 30);
-            this.lbMonto.Name = "lbMonto";
-            this.lbMonto.Size = new System.Drawing.Size(54, 20);
-            this.lbMonto.TabIndex = 3;
-            this.lbMonto.Text = "Monto";
-            // 
-            // rbPagoTotal
-            // 
-            this.rbPagoTotal.AutoSize = true;
-            this.rbPagoTotal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbPagoTotal.Location = new System.Drawing.Point(143, 67);
-            this.rbPagoTotal.Name = "rbPagoTotal";
-            this.rbPagoTotal.Size = new System.Drawing.Size(102, 24);
-            this.rbPagoTotal.TabIndex = 4;
-            this.rbPagoTotal.TabStop = true;
-            this.rbPagoTotal.Text = "Pago Total";
-            this.rbPagoTotal.UseVisualStyleBackColor = true;
-            this.rbPagoTotal.CheckedChanged += new System.EventHandler(this.rbPagoTotal_CheckedChanged);
-            // 
-            // rbAbono
-            // 
-            this.rbAbono.AutoSize = true;
-            this.rbAbono.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbAbono.Location = new System.Drawing.Point(251, 67);
-            this.rbAbono.Name = "rbAbono";
-            this.rbAbono.Size = new System.Drawing.Size(73, 24);
-            this.rbAbono.TabIndex = 5;
-            this.rbAbono.TabStop = true;
-            this.rbAbono.Text = "Abono";
-            this.rbAbono.UseVisualStyleBackColor = true;
-            this.rbAbono.CheckedChanged += new System.EventHandler(this.rbAbono_CheckedChanged);
-            // 
-            // txtAbono
-            // 
-            this.txtAbono.Enabled = false;
-            this.txtAbono.Location = new System.Drawing.Point(330, 67);
-            this.txtAbono.Name = "txtAbono";
-            this.txtAbono.Size = new System.Drawing.Size(234, 26);
-            this.txtAbono.TabIndex = 6;
-            // 
-            // btnARS
-            // 
-            this.btnARS.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnARS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnARS.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnARS.Location = new System.Drawing.Point(234, 97);
-            this.btnARS.Name = "btnARS";
-            this.btnARS.Size = new System.Drawing.Size(161, 41);
-            this.btnARS.TabIndex = 7;
-            this.btnARS.Text = "Pagar";
-            this.btnARS.UseVisualStyleBackColor = true;
             // 
             // btnVolver
             // 
             this.btnVolver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVolver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVolver.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(401, 97);
+            this.btnVolver.Location = new System.Drawing.Point(436, 139);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(161, 41);
             this.btnVolver.TabIndex = 8;
@@ -383,13 +305,115 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // btnARS
+            // 
+            this.btnARS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnARS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnARS.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnARS.Location = new System.Drawing.Point(269, 139);
+            this.btnARS.Name = "btnARS";
+            this.btnARS.Size = new System.Drawing.Size(161, 41);
+            this.btnARS.TabIndex = 7;
+            this.btnARS.Text = "Pagar";
+            this.btnARS.UseVisualStyleBackColor = true;
+            // 
+            // txtAbono
+            // 
+            this.txtAbono.Enabled = false;
+            this.txtAbono.Location = new System.Drawing.Point(330, 67);
+            this.txtAbono.Name = "txtAbono";
+            this.txtAbono.Size = new System.Drawing.Size(234, 30);
+            this.txtAbono.TabIndex = 6;
+            // 
+            // rbAbono
+            // 
+            this.rbAbono.AutoSize = true;
+            this.rbAbono.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbAbono.Location = new System.Drawing.Point(251, 67);
+            this.rbAbono.Name = "rbAbono";
+            this.rbAbono.Size = new System.Drawing.Size(90, 29);
+            this.rbAbono.TabIndex = 5;
+            this.rbAbono.TabStop = true;
+            this.rbAbono.Text = "Abono";
+            this.rbAbono.UseVisualStyleBackColor = true;
+            this.rbAbono.CheckedChanged += new System.EventHandler(this.rbAbono_CheckedChanged);
+            // 
+            // rbPagoTotal
+            // 
+            this.rbPagoTotal.AutoSize = true;
+            this.rbPagoTotal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbPagoTotal.Location = new System.Drawing.Point(143, 67);
+            this.rbPagoTotal.Name = "rbPagoTotal";
+            this.rbPagoTotal.Size = new System.Drawing.Size(127, 29);
+            this.rbPagoTotal.TabIndex = 4;
+            this.rbPagoTotal.TabStop = true;
+            this.rbPagoTotal.Text = "Pago Total";
+            this.rbPagoTotal.UseVisualStyleBackColor = true;
+            this.rbPagoTotal.CheckedChanged += new System.EventHandler(this.rbPagoTotal_CheckedChanged);
+            // 
+            // lbMonto
+            // 
+            this.lbMonto.AutoSize = true;
+            this.lbMonto.Location = new System.Drawing.Point(570, 30);
+            this.lbMonto.Name = "lbMonto";
+            this.lbMonto.Size = new System.Drawing.Size(67, 25);
+            this.lbMonto.TabIndex = 3;
+            this.lbMonto.Text = "Monto";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(510, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 25);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Monto";
+            // 
+            // lbNoFactura
+            // 
+            this.lbNoFactura.AutoSize = true;
+            this.lbNoFactura.Location = new System.Drawing.Point(241, 30);
+            this.lbNoFactura.Name = "lbNoFactura";
+            this.lbNoFactura.Size = new System.Drawing.Size(113, 25);
+            this.lbNoFactura.TabIndex = 1;
+            this.lbNoFactura.Text = "No. Factura";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(143, 30);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(113, 25);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "No. Factura";
+            // 
+            // ddlTipoPago
+            // 
+            this.ddlTipoPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlTipoPago.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlTipoPago.FormattingEnabled = true;
+            this.ddlTipoPago.Location = new System.Drawing.Point(331, 100);
+            this.ddlTipoPago.Name = "ddlTipoPago";
+            this.ddlTipoPago.Size = new System.Drawing.Size(233, 33);
+            this.ddlTipoPago.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(199, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 25);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Tipo de Pago";
+            // 
             // PagosFacturasPendientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(813, 630);
+            this.ClientSize = new System.Drawing.Size(813, 654);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.lbNumeroRegistros);
@@ -451,5 +475,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnARS;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox ddlTipoPago;
     }
 }
