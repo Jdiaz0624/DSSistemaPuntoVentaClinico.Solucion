@@ -120,4 +120,55 @@
       <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Caja.SP_BUSCAR_PAGOS_FACTURAS" Method="SP_BUSCAR_PAGOS_FACTURAS">
+    <Parameter Name="NumeroRecibo" Parameter="numeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="RNC" Parameter="rNC" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaPagoDesde" Parameter="fechaPagoDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaPagoHasta" Parameter="fechaPagoHasta" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_BUSCAR_PAGOS_FACTURASResult">
+      <Column Name="NumeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="PagandoA" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NombrePaciente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaPago" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="MontoFactura" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Concepto" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Cobros.SP_APLICAR_PAGOS_FACTURAS" Method="SP_APLICAR_PAGOS_FACTURAS">
+    <Parameter Name="NumeroRecibo" Parameter="numeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdPaciente" Parameter="idPaciente" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Concepto" Parameter="concepto" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="Monto" Parameter="monto" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Pendiente" Parameter="pendiente" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Cambio" Parameter="cambio" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_APLICAR_PAGOS_FACTURASResult">
+      <Column Name="NumeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdPaciente" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Concepto" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Monto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Pendiente" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="IdTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Cambio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="FechaPago" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

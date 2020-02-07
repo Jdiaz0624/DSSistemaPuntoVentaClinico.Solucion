@@ -36,5 +36,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             cxc.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
             cxc.ShowDialog();
         }
+
+        private void btnHistorialPagos_Click(object sender, EventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad.HistorialPagos Historial = new Pantallas.Contabilidad.HistorialPagos();
+            Historial.VariablesGlobales.IdUsuario = Convert.ToInt32(lbUsuario.Text);
+            Historial.ShowDialog();
+        }
     }
 }

@@ -187,6 +187,75 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             }
             return Mantenimiento;
         }
-#endregion
+        #endregion
+
+        #region MANTENIMIENTO DE PAGOS A FACTURA
+        //BUSCAR EL LISTADO DE PAGOS A FACTURAS
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EBuscaPagosFacturas> BuscarPagoFacturas(decimal? NumeroRecibo = null, decimal? NumeroFactura = null, string RNC = null, DateTime? FechaPagoDesde = null, DateTime? FechaPagoHasta = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCAR_PAGOS_FACTURAS(NumeroRecibo, NumeroFactura, RNC, FechaPagoDesde, FechaPagoHasta)
+                          select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EBuscaPagosFacturas
+                          {
+                              NumeroRecibo=n.NumeroRecibo,
+                              PagandoA=n.PagandoA,
+                              NombrePaciente=n.NombrePaciente,
+                              NumeroIdentificacion=n.NumeroIdentificacion,
+                              Telefono=n.Telefono,
+                              Direccion=n.Direccion,
+                              Email=n.Email,
+                              FechaPago=n.FechaPago,
+                              MontoFactura=n.MontoFactura,
+                              MontoPagado=n.MontoPagado,
+                              Balance=n.Balance,
+                              Concepto=n.Concepto,
+                              IdTipoPago=n.IdTipoPago,
+                              TipoPago=n.TipoPago,
+                              IdUsuario=n.IdUsuario,
+                              CreadoPor=n.CreadoPor
+                          }).ToList();
+            return Buscar;
+        }
+
+        //APLICAR PAGOS A FACTURA
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EAplicarPagos AplicarPago(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EAplicarPagos Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EAplicarPagos Aplicar = null;
+
+            var Pagos = ObjData.SP_APLICAR_PAGOS_FACTURAS(
+                Item.NumeroRecibo,
+                Item.NumeroFactura,
+                Item.IdPaciente,
+                Item.IdUsuario,
+                Item.Concepto,
+                Item.Monto,
+                Item.Balance,
+                Item.Pendiente,
+                Item.IdTipoPago,
+                Item.Cambio,
+                Accion);
+            if (Pagos != null)
+            {
+                Aplicar = (from n in Pagos
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EAplicarPagos
+                           {
+                               NumeroRecibo = n.NumeroRecibo,
+                               NumeroFactura = n.NumeroFactura,
+                               IdPaciente = n.IdPaciente,
+                               IdUsuario = n.IdUsuario,
+                               Concepto = n.Concepto,
+                               Monto = n.Monto,
+                               Balance = n.Balance,
+                               Pendiente = n.Pendiente,
+                               IdTipoPago=n.IdTipoPago,
+                               Cambio=n.Cambio
+                           }).FirstOrDefault();
+            }
+            return Aplicar;
+        }
+        #endregion
     }
 }

@@ -173,5 +173,6 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         #endregion
 
 
+
     }
 }

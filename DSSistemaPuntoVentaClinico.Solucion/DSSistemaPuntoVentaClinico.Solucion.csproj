@@ -118,6 +118,12 @@
     <Compile Include="Pantallas\Pantallas\Contabilidad\CuntasPorCobrar.Designer.cs">
       <DependentUpon>CuntasPorCobrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Contabilidad\HistorialPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Contabilidad\HistorialPagos.Designer.cs">
+      <DependentUpon>HistorialPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Contabilidad\PagosFacturasPendientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -467,6 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Contabilidad\CuntasPorCobrar.resx">
       <DependentUpon>CuntasPorCobrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Contabilidad\HistorialPagos.resx">
+      <DependentUpon>HistorialPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Contabilidad\PagosFacturasPendientes.resx">
       <DependentUpon>PagosFacturasPendientes.cs</DependentUpon>

@@ -54,6 +54,8 @@
     <Compile Include="Entidades\EntidadEmpresa\EMedico.cs" />
     <Compile Include="Entidades\EntidadEmpresa\EPacientes.cs" />
     <Compile Include="Entidades\EntidadEmpresa\ESalas.cs" />
+    <Compile Include="Entidades\EntidadesCaja\EAplicarPagos.cs" />
+    <Compile Include="Entidades\EntidadesCaja\EBuscaPagosFacturas.cs" />
     <Compile Include="Entidades\EntidadesCaja\ECaja.cs" />
     <Compile Include="Entidades\EntidadesCaja\EHistorialCaja.cs" />
     <Compile Include="Entidades\EntidadesCaja\EMoneda.cs" />
