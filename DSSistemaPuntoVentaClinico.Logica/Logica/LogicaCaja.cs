@@ -188,7 +188,6 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             return Mantenimiento;
         }
         #endregion
-
         #region MANTENIMIENTO DE PAGOS A FACTURA
         //BUSCAR EL LISTADO DE PAGOS A FACTURAS
         public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EBuscaPagosFacturas> BuscarPagoFacturas(decimal? NumeroRecibo = null, decimal? NumeroFactura = null, string RNC = null, DateTime? FechaPagoDesde = null, DateTime? FechaPagoHasta = null)
@@ -228,30 +227,24 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             var Pagos = ObjData.SP_APLICAR_PAGOS_FACTURAS(
                 Item.NumeroRecibo,
                 Item.NumeroFactura,
-                Item.IdPaciente,
-                Item.IdUsuario,
+                Item.MontoFactura,
+                Item.MontoPagado,
                 Item.Concepto,
-                Item.Monto,
-                Item.Balance,
-                Item.Pendiente,
                 Item.IdTipoPago,
-                Item.Cambio,
+                Item.IdUsuario,
                 Accion);
             if (Pagos != null)
             {
                 Aplicar = (from n in Pagos
                            select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EAplicarPagos
                            {
-                               NumeroRecibo = n.NumeroRecibo,
-                               NumeroFactura = n.NumeroFactura,
-                               IdPaciente = n.IdPaciente,
-                               IdUsuario = n.IdUsuario,
-                               Concepto = n.Concepto,
-                               Monto = n.Monto,
-                               Balance = n.Balance,
-                               Pendiente = n.Pendiente,
-                               IdTipoPago=n.IdTipoPago,
-                               Cambio=n.Cambio
+                              NumeroRecibo=n.NumeroRecibo,
+                              NumeroFactura=n.NumeroFactura,
+                              MontoFactura=n.MontoFactura,
+                              MontoPagado=n.MontoPagado,
+                              Concepto=n.Concepto,
+                              IdTipoPago=n.IdTipoPago,
+                              IdUsuario=n.IdUsuario
                            }).FirstOrDefault();
             }
             return Aplicar;

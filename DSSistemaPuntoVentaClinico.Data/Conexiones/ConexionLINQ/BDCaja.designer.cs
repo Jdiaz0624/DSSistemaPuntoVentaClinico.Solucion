@@ -33,7 +33,7 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
     #endregion
 		
 		public BDCajaDataContext() : 
-				base(global::DSSistemaPuntoVentaClinico.Data.Properties.Settings.Default.SistemaFacturacionMedicoConnectionString4, mappingSource)
+				base(global::DSSistemaPuntoVentaClinico.Data.Properties.Settings.Default.SistemaFacturacionMedicoConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -111,10 +111,10 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			return ((ISingleResult<SP_BUSCAR_PAGOS_FACTURASResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Cobros.SP_APLICAR_PAGOS_FACTURAS")]
-		public ISingleResult<SP_APLICAR_PAGOS_FACTURASResult> SP_APLICAR_PAGOS_FACTURAS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRecibo", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroRecibo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdPaciente", DbType="Decimal(20,0)")] System.Nullable<decimal> idPaciente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Concepto", DbType="VarChar(8000)")] string concepto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Monto", DbType="Decimal(20,2)")] System.Nullable<decimal> monto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Balance", DbType="Decimal(20,2)")] System.Nullable<decimal> balance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pendiente", DbType="Decimal(20,2)")] System.Nullable<decimal> pendiente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cambio", DbType="Decimal(20,2)")] System.Nullable<decimal> cambio, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Caja.SP_APLICAR_PAGOS_FACTURAS")]
+		public ISingleResult<SP_APLICAR_PAGOS_FACTURASResult> SP_APLICAR_PAGOS_FACTURAS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRecibo", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroRecibo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoFactura", DbType="Decimal(20,2)")] System.Nullable<decimal> montoFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoPagado", DbType="Decimal(20,2)")] System.Nullable<decimal> montoPagado, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Concepto", DbType="VarChar(8000)")] string concepto, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdTipoPago", DbType="Decimal(20,0)")] System.Nullable<decimal> idTipoPago, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroRecibo, numeroFactura, idPaciente, idUsuario, concepto, monto, balance, pendiente, idTipoPago, cambio, accion);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroRecibo, numeroFactura, montoFactura, montoPagado, concepto, idTipoPago, idUsuario, accion);
 			return ((ISingleResult<SP_APLICAR_PAGOS_FACTURASResult>)(result.ReturnValue));
 		}
 	}
@@ -1622,23 +1622,19 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 		
 		private System.Nullable<decimal> _NumeroFactura;
 		
-		private System.Nullable<decimal> _IdPaciente;
+		private System.Nullable<System.DateTime> _FechaPago;
 		
-		private System.Nullable<decimal> _IdUsuario;
+		private System.Nullable<decimal> _MontoFactura;
 		
-		private string _Concepto;
-		
-		private System.Nullable<decimal> _Monto;
+		private System.Nullable<decimal> _MontoPagado;
 		
 		private System.Nullable<decimal> _Balance;
 		
-		private System.Nullable<decimal> _Pendiente;
+		private string _Concepto;
 		
 		private System.Nullable<decimal> _IdTipoPago;
 		
-		private System.Nullable<decimal> _Cambio;
-		
-		private System.Nullable<System.DateTime> _FechaPago;
+		private System.Nullable<decimal> _IdUsuario;
 		
 		public SP_APLICAR_PAGOS_FACTURASResult()
 		{
@@ -1676,66 +1672,50 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPaciente", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdPaciente
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaPago", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaPago
 		{
 			get
 			{
-				return this._IdPaciente;
+				return this._FechaPago;
 			}
 			set
 			{
-				if ((this._IdPaciente != value))
+				if ((this._FechaPago != value))
 				{
-					this._IdPaciente = value;
+					this._FechaPago = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
-		public System.Nullable<decimal> IdUsuario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoFactura", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoFactura
 		{
 			get
 			{
-				return this._IdUsuario;
+				return this._MontoFactura;
 			}
 			set
 			{
-				if ((this._IdUsuario != value))
+				if ((this._MontoFactura != value))
 				{
-					this._IdUsuario = value;
+					this._MontoFactura = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Concepto", DbType="VarChar(8000)")]
-		public string Concepto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPagado", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoPagado
 		{
 			get
 			{
-				return this._Concepto;
+				return this._MontoPagado;
 			}
 			set
 			{
-				if ((this._Concepto != value))
+				if ((this._MontoPagado != value))
 				{
-					this._Concepto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Monto", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> Monto
-		{
-			get
-			{
-				return this._Monto;
-			}
-			set
-			{
-				if ((this._Monto != value))
-				{
-					this._Monto = value;
+					this._MontoPagado = value;
 				}
 			}
 		}
@@ -1756,18 +1736,18 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pendiente", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> Pendiente
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Concepto", DbType="VarChar(8000)")]
+		public string Concepto
 		{
 			get
 			{
-				return this._Pendiente;
+				return this._Concepto;
 			}
 			set
 			{
-				if ((this._Pendiente != value))
+				if ((this._Concepto != value))
 				{
-					this._Pendiente = value;
+					this._Concepto = value;
 				}
 			}
 		}
@@ -1788,34 +1768,18 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cambio", DbType="Decimal(20,2)")]
-		public System.Nullable<decimal> Cambio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
 		{
 			get
 			{
-				return this._Cambio;
+				return this._IdUsuario;
 			}
 			set
 			{
-				if ((this._Cambio != value))
+				if ((this._IdUsuario != value))
 				{
-					this._Cambio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaPago", DbType="Date")]
-		public System.Nullable<System.DateTime> FechaPago
-		{
-			get
-			{
-				return this._FechaPago;
-			}
-			set
-			{
-				if ((this._FechaPago != value))
-				{
-					this._FechaPago = value;
+					this._IdUsuario = value;
 				}
 			}
 		}

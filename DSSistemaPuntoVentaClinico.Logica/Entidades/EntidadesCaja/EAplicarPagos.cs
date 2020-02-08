@@ -12,22 +12,18 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja
 
         public System.Nullable<decimal> NumeroFactura { get; set; }
 
-        public System.Nullable<decimal> IdPaciente { get; set; }
+        public System.Nullable<System.DateTime> FechaPago { get; set; }
 
-        public System.Nullable<decimal> IdUsuario { get; set; }
+        public System.Nullable<decimal> MontoFactura { get; set; }
 
-        public string Concepto { get; set; }
-
-        public System.Nullable<decimal> Monto { get; set; }
+        public System.Nullable<decimal> MontoPagado { get; set; }
 
         public System.Nullable<decimal> Balance { get; set; }
 
-        public System.Nullable<decimal> Pendiente { get; set; }
+        public string Concepto { get; set; }
 
         public System.Nullable<decimal> IdTipoPago { get; set; }
 
-        public System.Nullable<decimal> Cambio { get; set; }
-
-        public System.Nullable<System.DateTime> FechaPago { get; set; }
+        public System.Nullable<decimal> IdUsuario { get; set; }
     }
 }
