@@ -190,11 +190,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         #endregion
         #region MANTENIMIENTO DE PAGOS A FACTURA
         //BUSCAR EL LISTADO DE PAGOS A FACTURAS
-        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EBuscaPagosFacturas> BuscarPagoFacturas(decimal? NumeroRecibo = null, decimal? NumeroFactura = null, string RNC = null, DateTime? FechaPagoDesde = null, DateTime? FechaPagoHasta = null)
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EBuscaPagosFacturas> BuscarPagoFacturas(string NumeroRecibo = null, string NumeroFactura = null, string RNC = null, DateTime? FechaPagoDesde = null, DateTime? FechaPagoHasta = null,int? NumeroPagina = null,int? NumeroRegistros = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var Buscar = (from n in ObjData.SP_BUSCAR_PAGOS_FACTURAS(NumeroRecibo, NumeroFactura, RNC, FechaPagoDesde, FechaPagoHasta)
+            var Buscar = (from n in ObjData.SP_BUSCAR_PAGOS_FACTURAS(NumeroRecibo, NumeroFactura, RNC, FechaPagoDesde, FechaPagoHasta,NumeroPagina,NumeroRegistros)
                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EBuscaPagosFacturas
                           {
                               NumeroRecibo=n.NumeroRecibo,

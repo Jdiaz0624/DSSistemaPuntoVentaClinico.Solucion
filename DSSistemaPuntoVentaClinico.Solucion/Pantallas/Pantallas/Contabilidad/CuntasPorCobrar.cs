@@ -89,6 +89,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             SacarNombreEmpresa(1);
+            lbTitulo.Text = "Cuentas Por Cobrar";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void btnARS_Click(object sender, EventArgs e)
