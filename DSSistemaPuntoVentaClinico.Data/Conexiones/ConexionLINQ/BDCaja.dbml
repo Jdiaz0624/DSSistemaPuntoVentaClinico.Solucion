@@ -168,4 +168,10 @@
       <Column Name="CreadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Caja.SP_SACAR_NUMERO_RECIBO" Method="SP_SACAR_NUMERO_RECIBO">
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_SACAR_NUMERO_RECIBOResult">
+      <Column Name="NumeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

@@ -250,5 +250,18 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             return Aplicar;
         }
         #endregion
+        #region SACAR EL NUMERO DE RECIBO MAS ALTO
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.ESacarNumeroRecibo> SacarNumeroRecibo(decimal? NumeroFactura = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var SacarNumero = (from n in ObjData.SP_SACAR_NUMERO_RECIBO(NumeroFactura)
+                               select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.ESacarNumeroRecibo
+                               {
+                                   NumeroRecibo=n.NumeroRecibo
+                               }).ToList();
+            return SacarNumero;
+        }
+        #endregion
     }
 }

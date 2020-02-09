@@ -59,6 +59,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             this.dataGridView1.Columns["paciente"].Visible = false;
             this.dataGridView1.Columns["TipoIdentificacion"].Visible = false;
             this.dataGridView1.Columns["NoIdentificacion"].Visible = false;
+
+            this.dataGridView1.Columns["FechaFacturacion"].Visible = false;
+            this.dataGridView1.Columns["FechaVencimiento"].Visible = false;
+            this.dataGridView1.Columns["DiasAtrasados"].Visible = false;
+            this.dataGridView1.Columns["Estatus"].Visible = false;
+            this.dataGridView1.Columns["DiasCredito"].Visible = false;
+            this.dataGridView1.Columns["__0_30"].Visible = false;
+            this.dataGridView1.Columns["__31_60"].Visible = false;
+            this.dataGridView1.Columns["__61_90"].Visible = false;
+            this.dataGridView1.Columns["__91_120"].Visible = false;
+            this.dataGridView1.Columns["__121_o_Mas"].Visible = false;
         }
 
         #region MOSTRAR EL LISTADO DE LAS FACTURAS
@@ -128,6 +139,41 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             rbPagoTotal.Checked = true;
         }
         #endregion
+
+        #region MOSTRAR EL RECIBO DE INGRESOS EN PANTALLA
+        private void MostrarReciboIngreso()
+        {
+            //SACAMOS EL NUMERO DE RECIBO MAS ALTO MEDIANTE LA FACTURA SELECCIONADA
+            string NumeroReciboSacado = "";
+            var SacarNumeroRecibo = ObjDataCaja.Value.SacarNumeroRecibo(Convert.ToDecimal(lbNoFactura.Text));
+            foreach (var n in SacarNumeroRecibo)
+            {
+                NumeroReciboSacado = n.NumeroRecibo.ToString();
+            }
+            //SACAMOS LA RUTA DEL REPORTE
+            var SacarRutaReporte = ObjDataReporte.Value.SacarRutaReporte(8);
+            foreach (var n in SacarRutaReporte)
+            {
+                VariablesGlobales.RutaReporte = n.RutaReporte;
+            }
+
+            //SACAMOS LAS CREDENCIALES DE BASE DE DATOS
+            var SacarCredenciales = ObjDataSeguridad.Value.SacarLogonBD(1);
+            foreach (var n in SacarCredenciales)
+            {
+                VariablesGlobales.UsuarioBD = n.Usuario;
+                VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+            }
+
+            //INVOCAMOS EL RECIBO
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReciboIngreso = new Reporte.Reportes();
+            ReciboIngreso.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            ReciboIngreso.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            ReciboIngreso.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            ReciboIngreso.ReciboIngreso(NumeroReciboSacado);
+            ReciboIngreso.ShowDialog();
+        }
+        #endregion
         public PagosFacturasPendientes()
         {
             InitializeComponent();
@@ -149,6 +195,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             CargarTipoPago();
+            lbTitulo.Text = "Pago a Factura";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void PagosFacturasPendientes_FormClosing(object sender, FormClosingEventArgs e)
@@ -243,6 +291,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                     AplicarPagosFActura(Concepto, "INSERT");
 
                     MessageBox.Show("Pago aplicado exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MostrarReciboIngreso();
                     VolverAtras();
                 }
                 else
@@ -273,6 +322,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                             Concepto = "Abono a Factura - " + lbNoFactura.Text;
                             AplicarPagosFActura(Concepto, "INSERT");
                             MessageBox.Show("Pago aplicado exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MostrarReciboIngreso();
                             VolverAtras();
                         }
                     }

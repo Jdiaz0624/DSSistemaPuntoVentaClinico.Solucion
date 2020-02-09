@@ -117,6 +117,13 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroRecibo, numeroFactura, rNC, fechaPagoDesde, fechaPagoHasta, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCAR_PAGOS_FACTURASResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Caja.SP_SACAR_NUMERO_RECIBO")]
+		public ISingleResult<SP_SACAR_NUMERO_RECIBOResult> SP_SACAR_NUMERO_RECIBO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroFactura)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroFactura);
+			return ((ISingleResult<SP_SACAR_NUMERO_RECIBOResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_BUSCA_MONEDAResult
@@ -1780,6 +1787,32 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._CreadoPor != value))
 				{
 					this._CreadoPor = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_NUMERO_RECIBOResult
+	{
+		
+		private System.Nullable<decimal> _NumeroRecibo;
+		
+		public SP_SACAR_NUMERO_RECIBOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroRecibo", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroRecibo
+		{
+			get
+			{
+				return this._NumeroRecibo;
+			}
+			set
+			{
+				if ((this._NumeroRecibo != value))
+				{
+					this._NumeroRecibo = value;
 				}
 			}
 		}

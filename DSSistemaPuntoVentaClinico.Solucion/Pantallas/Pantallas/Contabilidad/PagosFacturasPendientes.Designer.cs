@@ -32,6 +32,9 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbDatosCliente = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtNumeroFactura = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.lbzRNC = new System.Windows.Forms.Label();
             this.lbDireccion = new System.Windows.Forms.Label();
             this.lbNombre = new System.Windows.Forms.Label();
@@ -57,9 +60,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lbNoFactura = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNumeroFactura = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbDatosCliente.SuspendLayout();
@@ -79,7 +79,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(813, 38);
+            this.panel1.Size = new System.Drawing.Size(808, 38);
             this.panel1.TabIndex = 2;
             // 
             // lbTitulo
@@ -96,7 +96,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(771, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(766, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(39, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -121,6 +121,36 @@
             this.gbDatosCliente.TabIndex = 3;
             this.gbDatosCliente.TabStop = false;
             this.gbDatosCliente.Text = "Cliente";
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(660, 92);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 41);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtNumeroFactura
+            // 
+            this.txtNumeroFactura.Location = new System.Drawing.Point(407, 99);
+            this.txtNumeroFactura.Name = "txtNumeroFactura";
+            this.txtNumeroFactura.Size = new System.Drawing.Size(250, 30);
+            this.txtNumeroFactura.TabIndex = 7;
+            this.txtNumeroFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroFactura_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(289, 101);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(114, 25);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "No.Factura:";
             // 
             // lbzRNC
             // 
@@ -416,43 +446,13 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "No. Factura";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(289, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 25);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "No.Factura:";
-            // 
-            // txtNumeroFactura
-            // 
-            this.txtNumeroFactura.Location = new System.Drawing.Point(407, 29);
-            this.txtNumeroFactura.Name = "txtNumeroFactura";
-            this.txtNumeroFactura.Size = new System.Drawing.Size(250, 30);
-            this.txtNumeroFactura.TabIndex = 7;
-            this.txtNumeroFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroFactura_KeyPress);
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(660, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 41);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // PagosFacturasPendientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(813, 654);
+            this.ClientSize = new System.Drawing.Size(808, 654);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.lbNumeroRegistros);

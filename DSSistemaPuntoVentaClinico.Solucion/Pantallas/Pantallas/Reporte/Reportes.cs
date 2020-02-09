@@ -177,6 +177,32 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte
                 MessageBox.Show("Error al cargar el reporte", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        //REPORTE DE RECIBO DE INGRESOS
+        public void ReciboIngreso(string NumeroRecibo)
+        {
+            try {
+                ReportDocument Recibo = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_BUSCAR_RECIBO_PAGO] @NumeroRecibo";
+                comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@NumeroRecibo", SqlDbType.VarChar);
+                comando.Parameters["@NumeroRecibo"].Value = NumeroRecibo;
+
+                Recibo.Load(@"" + VariablesGlobales.RutaReporte);
+                Recibo.Refresh();
+                Recibo.SetParameterValue("@NumeroRecibo", NumeroRecibo);
+                Recibo.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = Recibo;
+
+            }
+            catch (Exception) {
+                MessageBox.Show("Error al mostrar el recibo de ingresos", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void Reportes_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);
