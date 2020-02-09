@@ -83,9 +83,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 #endregion
         private void ARSConsulta_Load(object sender, EventArgs e)
         {
+            this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             SacarDataInformacionEmpresa(1);
             MostrarListadoARS();
             txtClaveSeguridad.PasswordChar = '•';
+            lbTitulo.ForeColor = Color.White;
+            lbTitulo.Text = "ARS Consulta";
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

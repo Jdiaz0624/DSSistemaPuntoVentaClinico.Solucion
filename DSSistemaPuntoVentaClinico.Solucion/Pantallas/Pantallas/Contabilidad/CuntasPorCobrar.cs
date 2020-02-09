@@ -123,25 +123,28 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("¿Quieres seleccioanr este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (cbRegistroUnico.Checked == true)
+            try {
+                if (MessageBox.Show("¿Quieres seleccioanr este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    if (cbRegistroUnico.Checked == true)
+                    {
 
-                }
-                else
-                {
-                    this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dataGridView1.CurrentRow.Cells["IdPaciente"].Value.ToString());
-                    btnReporte.Enabled = true;
-                    btnPago.Enabled = true;
-                    var BuscarRegistroSeleccionado = ObjDataCObtabilidad.Value.BuscaCuentasCobrarr(
-                        new Nullable<decimal>(),
-                        VariablesGlobales.IdMantenimiento.ToString(),
-                        null, null, null, null, null, 1, 9999);
-                    dataGridView1.DataSource = BuscarRegistroSeleccionado;
-                    OcultarColumnas();
+                    }
+                    else
+                    {
+                        this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dataGridView1.CurrentRow.Cells["IdPaciente"].Value.ToString());
+                        btnReporte.Enabled = true;
+                        btnPago.Enabled = true;
+                        var BuscarRegistroSeleccionado = ObjDataCObtabilidad.Value.BuscaCuentasCobrarr(
+                            new Nullable<decimal>(),
+                            VariablesGlobales.IdMantenimiento.ToString(),
+                            null, null, null, null, null, 1, 9999);
+                        dataGridView1.DataSource = BuscarRegistroSeleccionado;
+                        OcultarColumnas();
+                    }
                 }
             }
+            catch (Exception) { }
         }
 
         private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)

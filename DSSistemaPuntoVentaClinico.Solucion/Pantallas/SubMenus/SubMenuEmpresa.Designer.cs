@@ -67,7 +67,7 @@
             this.btnAsistentes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAsistentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAsistentes.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsistentes.Location = new System.Drawing.Point(478, 103);
+            this.btnAsistentes.Location = new System.Drawing.Point(242, 103);
             this.btnAsistentes.Name = "btnAsistentes";
             this.btnAsistentes.Size = new System.Drawing.Size(230, 68);
             this.btnAsistentes.TabIndex = 5;
@@ -81,13 +81,14 @@
             this.btnSalas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalas.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalas.Location = new System.Drawing.Point(242, 103);
+            this.btnSalas.Location = new System.Drawing.Point(411, 0);
             this.btnSalas.Name = "btnSalas";
             this.btnSalas.Size = new System.Drawing.Size(230, 68);
             this.btnSalas.TabIndex = 4;
             this.btnSalas.Text = "Salas";
             this.toolTip1.SetToolTip(this.btnSalas, "Mantenimiento de Salas");
             this.btnSalas.UseVisualStyleBackColor = true;
+            this.btnSalas.Visible = false;
             this.btnSalas.Click += new System.EventHandler(this.btnSalas_Click);
             // 
             // btnCentroSalud
@@ -163,7 +164,7 @@
             this.lbIdUsuario.AutoSize = true;
             this.lbIdUsuario.Location = new System.Drawing.Point(398, 258);
             this.lbIdUsuario.Name = "lbIdUsuario";
-            this.lbIdUsuario.Size = new System.Drawing.Size(51, 20);
+            this.lbIdUsuario.Size = new System.Drawing.Size(64, 25);
             this.lbIdUsuario.TabIndex = 12;
             this.lbIdUsuario.Text = "label1";
             this.lbIdUsuario.Visible = false;
@@ -184,13 +185,13 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(13, 10);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
             this.lbTitulo.TabIndex = 14;
             this.lbTitulo.Text = "label6";
             // 
             // SubMenuEmpresa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(750, 248);
