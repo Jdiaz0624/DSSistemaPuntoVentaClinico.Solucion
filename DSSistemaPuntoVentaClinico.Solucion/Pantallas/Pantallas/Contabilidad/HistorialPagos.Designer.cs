@@ -234,6 +234,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Reporte";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnConsultar
             // 
@@ -274,6 +275,7 @@
             this.dtListado.ReadOnly = true;
             this.dtListado.Size = new System.Drawing.Size(638, 256);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
             // txtNumeroRegistros
             // 
@@ -341,6 +343,7 @@
             this.Recibo.ReadOnly = true;
             this.Recibo.Text = "Recibo";
             this.Recibo.ToolTipText = "Recibo";
+            this.Recibo.UseColumnTextForButtonValue = true;
             this.Recibo.Width = 78;
             // 
             // HistorialPagos

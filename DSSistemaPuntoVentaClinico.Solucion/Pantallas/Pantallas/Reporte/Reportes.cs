@@ -203,6 +203,29 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte
                 MessageBox.Show("Error al mostrar el recibo de ingresos", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void ReporteHistorialPagos(decimal IdUsuario)
+        {
+            try {
+                ReportDocument HistorialPagos = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_MOSTRAR_REPORTE_HISTORIAL_PAGOS] @IdUsuario";
+                comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                HistorialPagos.Load(@"" + VariablesGlobales.RutaReporte);
+                HistorialPagos.Refresh();
+                HistorialPagos.SetParameterValue("@IdUsuario", IdUsuario);
+                HistorialPagos.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = HistorialPagos;
+            }
+            catch (Exception) {
+                MessageBox.Show("Error al cargar el reporte de historial de pagos", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void Reportes_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);

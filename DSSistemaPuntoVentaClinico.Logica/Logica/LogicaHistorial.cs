@@ -397,5 +397,44 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             return Mantenimiento;
         }
         #endregion
+        #region GUARDAR HISTORIAL DE PAGOS
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarHistorialPagos GuardarHistorialPagos(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarHistorialPagos Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarHistorialPagos Guardar = null;
+
+            var HistorialPagos = ObjData.SP_GUARDAR_HISTORIAL_PAGOS(
+                Item.IdUsuario,
+                Item.NumeroRecibo,
+                Item.NumeroFactura,
+                Item.FechaPago,
+                Item.MontoFactura,
+                Item.MontoPagado,
+                Item.Balance,
+                Item.Concepto,
+                Item.TipoPago,
+                Item.CreadoPor,
+                Accion);
+            if (HistorialPagos != null)
+            {
+                Guardar = (from n in HistorialPagos
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarHistorialPagos
+                           {
+                               IdUsuario=n.IdUsuario,
+                               NumeroRecibo=n.NumeroRecibo,
+                               NumeroFactura=n.NumeroFactura,
+                               FechaPago=n.FechaPago,
+                               MontoFactura=n.MontoFactura,
+                               MontoPagado=n.MontoPagado,
+                               Balance=n.Balance,
+                               Concepto=n.Concepto,
+                               TipoPago=n.TipoPago,
+                               CreadoPor=n.CreadoPor
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
+        #endregion
     }
 }
