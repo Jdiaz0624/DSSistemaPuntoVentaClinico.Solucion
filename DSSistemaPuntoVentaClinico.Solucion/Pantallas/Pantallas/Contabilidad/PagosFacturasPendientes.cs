@@ -126,7 +126,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                 var MAN = ObjDataCaja.Value.AplicarPago(Pago, Accion);
             }
             catch (Exception) {
-                MessageBox.Show("Error al aplicar el pago", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // MessageBox.Show("Error al aplicar el pago", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion
