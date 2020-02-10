@@ -182,6 +182,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void AgregarProductos_Load(object sender, EventArgs e)
         {
+            this.dtSeleccionarproducto.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
+            this.dtSeleccionarproducto.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             this.dtProductosAgregados.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dtProductosAgregados.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             gbBuscarproductos.ForeColor = Color.Black;

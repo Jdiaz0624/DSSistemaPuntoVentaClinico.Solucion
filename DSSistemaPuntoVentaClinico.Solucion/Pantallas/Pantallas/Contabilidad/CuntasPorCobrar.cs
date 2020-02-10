@@ -62,7 +62,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             this.dataGridView1.Columns["TipoComprobante"].Visible = false;
             this.dataGridView1.Columns["ValidoHasta"].Visible = false;
             this.dataGridView1.Columns["Comprobante"].Visible = false;
-           // this.dataGridView1.Columns["FechaFacturacion"].Visible = false;
+            this.dataGridView1.Columns["Paciente"].Visible = false;
             this.dataGridView1.Columns["FechaVencimiento"].Visible = false;
             this.dataGridView1.Columns["DiasAtrasados"].Visible = false;
             this.dataGridView1.Columns["Estatus"].Visible = false;

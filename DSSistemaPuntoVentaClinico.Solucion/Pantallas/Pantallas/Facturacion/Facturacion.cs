@@ -1016,9 +1016,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         //GENERAR UN NUMERO DE RNC ALEATORIO PARA EN CASO DE QUE ESTE VACIO EL 
                         if (string.IsNullOrEmpty(txtIdentificacion.Text.Trim()))
                         {
+                            ddlTipoIdentificacion.Text = "RNC";
                             Random GenerarRNC = new Random();
-                            GenerarRNC.Next(0, 999999999);
-                            txtIdentificacion.Text = GenerarRNC.ToString();
+                           int RNCGenerado = GenerarRNC.Next(0, 999999999);
+                            txtIdentificacion.Text = RNCGenerado.ToString();
                         }
                         //VALIDAMOS LOS CAMPOS OBLIGATORIOS
                         if (string.IsNullOrEmpty(ddlTipoFacturacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()) || string.IsNullOrEmpty(ddlSexo.Text.Trim()))
@@ -1047,9 +1048,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                                 }
                                 else
                                 {
-                                    //GUARDAMOS LOS REGISTROS CORRESPONDIENTES
-                                    GuardarCuentasPorCobrar();
-                                    TerminarProceso();
+                                    if (VariablesGlobales.CodigoPaciente == 787164)
+                                    {
+                                        MessageBox.Show("Este paciente no se le puede hacer una venta a credito, por que no esta registrada en el sistema", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+                                    else
+                                    {
+                                        //GUARDAMOS LOS REGISTROS CORRESPONDIENTES
+                                        GuardarCuentasPorCobrar();
+                                        TerminarProceso();
+                                    }
+                              
                                 }
 
                             }
