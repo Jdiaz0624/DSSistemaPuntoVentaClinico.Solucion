@@ -52,6 +52,7 @@
     <Compile Include="Entidades\EntidadEmpresa\EAsistenteCirugia.cs" />
     <Compile Include="Entidades\EntidadEmpresa\ECentroSalud.cs" />
     <Compile Include="Entidades\EntidadEmpresa\EMedico.cs" />
+    <Compile Include="Entidades\EntidadEmpresa\EMontoCreditoGenerico.cs" />
     <Compile Include="Entidades\EntidadEmpresa\EPacientes.cs" />
     <Compile Include="Entidades\EntidadEmpresa\ESalas.cs" />
     <Compile Include="Entidades\EntidadesCaja\EAplicarPagos.cs" />

@@ -286,6 +286,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               Comprobante=n.Comprobante,
                               Nombre=n.Nombre,
                               Telefono=n.Telefono,
+                              MontoCredito=n.MontoCredito,
                               IdCentroSalud=n.IdCentroSalud,
                               CentroSalud=n.CentroSalud,
                               Sala=n.Sala,
@@ -337,6 +338,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.Comentario,
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
+                Item.MontoCredito,
                 Accion);
             if (Paciente != null)
             {
@@ -361,7 +363,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      UsuarioAdiciona=n.UsuarioAdiciona,
                                      FechaAdiciona0=n.FechaAdiciona,
                                      UsuarioModifica=n.UsuarioModifica,
-                                     FechaModifica0=n.FechaModifica
+                                     FechaModifica0=n.FechaModifica,
+                                     MontoCredito=n.MontoCredito
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -437,6 +440,44 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                
             }
             return Mantenimiento;
+        }
+        #endregion
+
+        #region MANTENIMEINTO DE MONTO CREDITO GENERICO
+        //GENERAR MONTO CREDITO GENERICO
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EMontoCreditoGenerico> GenerarMontoCreditoGenerico(decimal? IdMontoCredito = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Generar = (from n in ObjData.SP_GENERAR_MONTO_CREDITO_GENERICO(IdMontoCredito)
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EMontoCreditoGenerico
+                           {
+                               IdMontoCreditoGenerico=n.IdMontoCreditoGenerico,
+                               MontoCredito=n.MontoCredito
+                           }).ToList();
+            return Generar;
+        }
+        //MANTENIMIENTO DE MONTO CREDITO GENBERICO
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EMontoCreditoGenerico ModificarMontoCreditoGenerico(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EMontoCreditoGenerico Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EMontoCreditoGenerico Modificar = null;
+
+            var MontoCreditoGenerico = ObjData.SP_MODIFICAR_MONTO_CREDITO_GENERICO(
+                Item.IdMontoCreditoGenerico,
+                Item.MontoCredito,
+                Accion);
+            if (MontoCreditoGenerico != null)
+            {
+                Modificar = (from n in MontoCreditoGenerico
+                             select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EMontoCreditoGenerico
+                             {
+                                 IdMontoCreditoGenerico=n.IdMontoCreditoGenerico,
+                                 MontoCredito=n.MontoCredito
+                             }).FirstOrDefault();
+            }
+            return Modificar;
         }
         #endregion
     }

@@ -66,5 +66,6 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
 
         public System.Nullable<int> CantidadDias { get; set; }
         public System.Nullable<decimal> CodigoPaciente { get; set; }
+        public System.Nullable<decimal> MontoCredito { get; set; }
     }
 }

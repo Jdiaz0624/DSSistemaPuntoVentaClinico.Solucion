@@ -225,6 +225,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             FacturacionEspejo.IdTipoVenta = Convert.ToDecimal(ddlTipoVenta.SelectedValue);
             FacturacionEspejo.IdCantidadDias = Convert.ToDecimal(ddlCantidadDias.SelectedValue);
             FacturacionEspejo.CodigoPaciente = VariablesGlobales.CodigoPaciente;
+            FacturacionEspejo.MontoCredito = Convert.ToDecimal(txtMontoCredito.Text);
 
             var MAn = ObjDataFacturacion.Value.MantenimientoDatosFacturacionEspejo(FacturacionEspejo, Accion);
         }
@@ -301,6 +302,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         btnRegresar.Enabled = true;
                         VariablesGlobales.CodigoPaciente = Convert.ToDecimal(n.IdPaciente);
                         BloquearControles();
+                        decimal Monto = Convert.ToDecimal(n.MontoCredito);
+                        txtMontoCredito.Text = Monto.ToString("N2");
                     }
                 }
             }
@@ -634,6 +637,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
             VariablesGlobales.CodigoPaciente = 787164;
             VariablesGlobales.BloqueaControles = false;
+            SacarMontoCreditoGenerico(1);
         }
         #endregion
         #region SACAR LOS DATOS DE LOS TIPOS DE VENTA Y LA CANTIDAD DE DIAS
@@ -662,8 +666,20 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
         }
         #endregion
+        #region SACAR EL MONTO DEL CREDITO GENERICO
+        private void SacarMontoCreditoGenerico(decimal IdMontoCreditoGenerico)
+        {
+            var SacarMontoCredito = ObjDataEmpresa.Value.GenerarMontoCreditoGenerico(IdMontoCreditoGenerico);
+            foreach (var n in SacarMontoCredito)
+            {
+                decimal Monto = Convert.ToDecimal(n.MontoCredito);
+                txtMontoCredito.Text = Monto.ToString("N2");
+            }
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
+            SacarMontoCreditoGenerico(1);
             CargarTipoVenta();
             if (VariablesGlobales.BloqueaControles == true)
             {
@@ -743,6 +759,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     ddlTipoVenta.Text = n.TipoVenta;
                     ddlCantidadDias.Text = n.CantidadDias.ToString();
                     VariablesGlobales.CodigoPaciente = Convert.ToDecimal(n.CodigoPaciente);
+                    decimal Monto = Convert.ToDecimal(n.MontoCredito);
+                    txtMontoCredito.Text = Monto.ToString("N2");
 
                     if (Procesar == true)
                     {
@@ -763,6 +781,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
             rbQuitarDescuento.Checked = true;
             lbConector.Text = VariablesGlobales.NumeroConector.ToString();
+           
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -994,6 +1013,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                 else if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 2)
                 {
                     try {
+                        //GENERAR UN NUMERO DE RNC ALEATORIO PARA EN CASO DE QUE ESTE VACIO EL 
+                        if (string.IsNullOrEmpty(txtIdentificacion.Text.Trim()))
+                        {
+                            Random GenerarRNC = new Random();
+                            GenerarRNC.Next(0, 999999999);
+                            txtIdentificacion.Text = GenerarRNC.ToString();
+                        }
                         //VALIDAMOS LOS CAMPOS OBLIGATORIOS
                         if (string.IsNullOrEmpty(ddlTipoFacturacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()) || string.IsNullOrEmpty(ddlSexo.Text.Trim()))
                         {
@@ -1013,9 +1039,18 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                             }
                             else
                             {
-                                //GUARDAMOS LOS REGISTROS CORRESPONDIENTES
-                                GuardarCuentasPorCobrar();
-                                TerminarProceso();
+                                decimal CreditoDisponible = Convert.ToDecimal(txtMontoCredito.Text);
+                                decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
+                                if (TotalPagar > CreditoDisponible)
+                                {
+                                    MessageBox.Show("No es posible realizar este venta por que este cliente solo tiene " + CreditoDisponible.ToString("N2") + " cuando el total a pagar es de " + TotalPagar.ToString("N2") + " Por lo tanto supera el valor",VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
+                                else
+                                {
+                                    //GUARDAMOS LOS REGISTROS CORRESPONDIENTES
+                                    GuardarCuentasPorCobrar();
+                                    TerminarProceso();
+                                }
 
                             }
                         }

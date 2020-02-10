@@ -133,6 +133,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             Mantenimiento.FechaAdiciona0 = DateTime.Now;
             Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
             Mantenimiento.FechaModifica0 = DateTime.Now;
+            Mantenimiento.MontoCredito = Convert.ToDecimal(txtLimiteCredito.Text);
 
             var MAN = ObjDataEmpresa.Value.MantenimientoPacientes(Mantenimiento, VariablesGlobales.AccionTomar);
             if (VariablesGlobales.AccionTomar != "INSERT")
@@ -151,6 +152,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                 {
                     CerrarPantalla();
                 }
+            }
+        }
+        #endregion
+        #region SACAR EL MONTO CREDITO GENERICO
+        private void SacarMontoCreditoGenerico(decimal IdMontoCredito)
+        {
+            var SacarMontoCredito = ObjDataEmpresa.Value.GenerarMontoCreditoGenerico(IdMontoCredito);
+            foreach (var n in SacarMontoCredito)
+            {
+                decimal MontoCredito = Convert.ToDecimal(n.MontoCredito);
+                txtLimiteCredito.Text = MontoCredito.ToString("N2");
             }
         }
         #endregion
@@ -173,6 +185,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             cbEstatus.ForeColor = Color.White;
             cbEstatus.Checked = true;
             cbEstatus.Visible = false;
+            if (VariablesGlobales.AccionTomar == "INSERT")
+            {
+                SacarMontoCreditoGenerico(1);
+            }
             if (VariablesGlobales.AccionTomar != "INSERT")
             {
                 var GetData = ObjDataEmpresa.Value.BuscaClientes(
@@ -196,6 +212,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     ddlSexo.Text = n.Sexo;
                     txtComentario.Text = n.Comentario;
                     txtEmail.Text = n.Email;
+                    decimal LimiteCredito = Convert.ToDecimal(n.MontoCredito);
+                    txtLimiteCredito.Text = LimiteCredito.ToString("N2");
                 }
             }
         }
@@ -238,7 +256,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void btnAccion_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlSexo.Text.Trim()) || string.IsNullOrEmpty(ddlTipoComprobante.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()))
+            if (string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlSexo.Text.Trim()) || string.IsNullOrEmpty(ddlTipoComprobante.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(txtLimiteCredito.Text.Trim()))
             {
                 MessageBox.Show("Has dejado campos vacios que son necesarios para realizar esta operación", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -257,6 +275,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     e.Cancel = true;
                     break;
             }
+        }
+
+        private void txtLimiteCredito_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Logica.Comunes.ValidarControles.SoloNumerosDecimales(e);
         }
     }
 }
