@@ -587,9 +587,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             ddlTipoFacturacion.Enabled = false;
             txtNombrePaciente.Enabled = false;
             txtTelefono.Enabled = false;
-            ddlCentroSalud.Enabled = false;
-            txtSala.Enabled = false;
-            ddlMedico.Enabled = false;
+          //  ddlCentroSalud.Enabled = false;
+          //  txtSala.Enabled = false;
+         //   ddlMedico.Enabled = false;
             txtNoCotizacion.Enabled = false;
             ddlTipoIdentificacion.Enabled = false;
             txtIdentificacion.Enabled = false;
@@ -607,9 +607,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             ddlTipoFacturacion.Enabled = true;
             txtNombrePaciente.Enabled = true;
             txtTelefono.Enabled = true;
-            ddlCentroSalud.Enabled = true;
-            txtSala.Enabled = true;
-            ddlMedico.Enabled = true;
+          //  ddlCentroSalud.Enabled = true;
+          //  txtSala.Enabled = true;
+          //  ddlMedico.Enabled = true;
             txtNoCotizacion.Enabled = true;
             ddlTipoIdentificacion.Enabled = true;
             txtIdentificacion.Enabled = true;
@@ -1320,6 +1320,47 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         
             }
             catch (Exception) { }
+        }
+
+        private void rbBuscarPaciente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbBuscarPaciente.Checked)
+            {
+                lbNombrePaciente.Text = "Nombre de Paciente*";
+                lbNombrePacientePaciente.Visible = false;
+                txtPacientePaciente.Visible = false;
+                lbCedulaCedula.Visible = false;
+                txtCedulaCedula.Visible = false;
+            }
+            else
+            {
+                lbNombrePaciente.Text = "Nombre de Cliente*";
+                lbNombrePacientePaciente.Visible = true;
+                txtPacientePaciente.Visible = true;
+                lbCedulaCedula.Visible = true;
+                txtCedulaCedula.Visible = true;
+
+            }
+        }
+
+        private void rbBuscarCliente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbBuscarCliente.Checked)
+            {
+                lbNombrePaciente.Text = "Nombre de Cliente*";
+                lbNombrePacientePaciente.Visible = true;
+                txtPacientePaciente.Visible = true;
+                lbCedulaCedula.Visible = true;
+                txtCedulaCedula.Visible = true;
+            }
+            else
+            {
+                lbNombrePaciente.Text = "Nombre de Paciente*";
+                lbNombrePacientePaciente.Visible = false;
+                txtPacientePaciente.Visible = false;
+                lbCedulaCedula.Visible = false;
+                txtCedulaCedula.Visible = false;
+            }
         }
     }
 }
