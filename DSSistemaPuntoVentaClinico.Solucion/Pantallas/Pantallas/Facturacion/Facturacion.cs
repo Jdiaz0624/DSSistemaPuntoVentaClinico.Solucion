@@ -174,6 +174,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Guardar.ComentarioPaciente = txtComentario.Text;
             Guardar.FechaFacturacion = DateTime.Now;
             Guardar.IdUsuario = VariablesGlobales.IdUsuario;
+            Guardar.Paciente = txtPacientePaciente.Text;
+            Guardar.CedulaPaciente = txtCedulaCedula.Text;
 
             var MAN = ObjDataFacturacion.Value.GuararFacturacionCliete(Guardar,VariablesGlobales.AccionTomar);
         }
@@ -192,7 +194,16 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         #region GUARDAR LOS DATOS DE LA FACTURACION ESPEJO
         private void GuardarDatosFActuracionEspejo(string Accion)
         {
-        
+
+            int TipoRNCSeleccionado = 0;
+            if (rbBuscarPaciente.Checked == true)
+            {
+                TipoRNCSeleccionado = 1;
+            }
+            else if (rbBuscarCliente.Checked == true)
+            {
+                TipoRNCSeleccionado = 2;
+            }
 
             if (rbFacturar.Checked == true)
             {
@@ -226,6 +237,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             FacturacionEspejo.IdCantidadDias = Convert.ToDecimal(ddlCantidadDias.SelectedValue);
             FacturacionEspejo.CodigoPaciente = VariablesGlobales.CodigoPaciente;
             FacturacionEspejo.MontoCredito = Convert.ToDecimal(txtMontoCredito.Text);
+            FacturacionEspejo.Paciente = txtPacientePaciente.Text;
+            FacturacionEspejo.CedulaPaciente = txtCedulaCedula.Text;
+            FacturacionEspejo.TipoBusquedaRNC = TipoRNCSeleccionado;
 
             var MAn = ObjDataFacturacion.Value.MantenimientoDatosFacturacionEspejo(FacturacionEspejo, Accion);
         }
@@ -257,7 +271,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
         }
         #endregion
-        #region BUSCAR CLIENTES
+        #region BUSCAR PACIENTES
         private void BuscarClientes()
         {
             if (string.IsNullOrEmpty(txtCodigoCliente.Text.Trim()))
@@ -301,6 +315,49 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         btnAgregarAlmacen.Enabled = false;
                         btnRegresar.Enabled = true;
                         VariablesGlobales.CodigoPaciente = Convert.ToDecimal(n.IdPaciente);
+                        BloquearControles();
+                        decimal Monto = Convert.ToDecimal(n.MontoCredito);
+                        txtMontoCredito.Text = Monto.ToString("N2");
+                    }
+                }
+            }
+        }
+        #endregion
+        #region BUSCAR CLIENTES
+        private void BuscarDatosClientes()
+        {
+            if (string.IsNullOrEmpty(txtCodigoCliente.Text.Trim()))
+            {
+                MessageBox.Show("El campo RNC no puede estar vacio favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string _RNC = string.IsNullOrEmpty(txtCodigoCliente.Text.Trim()) ? null : txtCodigoCliente.Text.Trim();
+                //VALIDAMOS SI EL RNC INGRESADO ES VALIDO
+                var ValidarRNC = ObjDataEmpresa.Value.BuscaClientes(
+                    new Nullable<decimal>(),
+                    null,
+                    _RNC,
+                    1, 1);
+                if (ValidarRNC.Count() < 1)
+                {
+                    MessageBox.Show("El RNC ingresado no esta registrado en el sistema", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    foreach (var n in ValidarRNC)
+                    {
+                        ddlTipoFacturacion.Text = n.TipoComprobante;
+                        txtNombrePaciente.Text = n.Nombre;
+                        txtTelefono.Text = n.Telefono;
+                        ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                        txtIdentificacion.Text = n.RNC;
+                        txtDireccion.Text = n.Direccion;
+                        txtEmail.Text = n.Email;
+                        txtComentario.Text = n.Comentario;
+                        btnAgregarAlmacen.Enabled = false;
+                        btnRegresar.Enabled = true;
+                        VariablesGlobales.CodigoPaciente = Convert.ToDecimal(n.IdCliente);
                         BloquearControles();
                         decimal Monto = Convert.ToDecimal(n.MontoCredito);
                         txtMontoCredito.Text = Monto.ToString("N2");
@@ -679,6 +736,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
+            rbBuscarPaciente.Checked = true;
             SacarMontoCreditoGenerico(1);
             CargarTipoVenta();
             if (VariablesGlobales.BloqueaControles == true)
@@ -733,6 +791,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
             if (VariablesGlobales.SacarDatosEspejo == true)
             {
+                int TipoRNCSeleccionado = 0;
                 //bool GuardarCliente = false;
                 bool Procesar = false;
                 var sacarDatosEspejo = ObjDataFacturacion.Value.BuscaDatosFacturacionEspejo(
@@ -761,6 +820,20 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     VariablesGlobales.CodigoPaciente = Convert.ToDecimal(n.CodigoPaciente);
                     decimal Monto = Convert.ToDecimal(n.MontoCredito);
                     txtMontoCredito.Text = Monto.ToString("N2");
+                    txtPacientePaciente.Text = n.Paciente;
+                    txtCedulaCedula.Text = n.CedulaPaciente;
+                    TipoRNCSeleccionado = Convert.ToInt32(n.TipoBusquedaRNC);
+
+                    if (TipoRNCSeleccionado == 1)
+                    {
+                        rbBuscarPaciente.Checked = true;
+                        rbBuscarCliente.Checked = false;
+                    }
+                    else if (TipoRNCSeleccionado == 2)
+                    {
+                        rbBuscarPaciente.Checked = false;
+                        rbBuscarCliente.Checked = true;
+                    }
 
                     if (Procesar == true)
                     {
@@ -899,7 +972,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void btnAgregarAlmacen_Click(object sender, EventArgs e)
         {
-            BuscarClientes();
+            if (rbBuscarPaciente.Checked == true)
+            {
+                BuscarClientes();
+            }
+            else if (rbBuscarCliente.Checked == true)
+            {
+                BuscarDatosClientes();
+            }
         }
 
         private void btnARS_Click(object sender, EventArgs e)

@@ -222,6 +222,31 @@
       <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Reporte.SP_GUARDAR_HISTORIAL_PAGOS" Method="SP_GUARDAR_HISTORIAL_PAGOS">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroRecibo" Parameter="numeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="FechaPago" Parameter="fechaPago" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MontoFactura" Parameter="montoFactura" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="MontoPagado" Parameter="montoPagado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Concepto" Parameter="concepto" Type="System.String" DbType="VarChar(1000)" />
+    <Parameter Name="TipoPago" Parameter="tipoPago" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CreadoPor" Parameter="creadoPor" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GUARDAR_HISTORIAL_PAGOSResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaPago" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MontoFactura" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="Concepto" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="Historial.SP_HISTORIAL_FACTURACION_COTIZACION" Method="SP_HISTORIAL_FACTURACION_COTIZACION">
     <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(18,0)" />
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -297,31 +322,8 @@
       <Column Name="CodigoPaciente" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Nombre" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
       <Column Name="Balance" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Reporte.SP_GUARDAR_HISTORIAL_PAGOS" Method="SP_GUARDAR_HISTORIAL_PAGOS">
-    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="NumeroRecibo" Parameter="numeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="FechaPago" Parameter="fechaPago" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="MontoFactura" Parameter="montoFactura" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="MontoPagado" Parameter="montoPagado" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(20,2)" />
-    <Parameter Name="Concepto" Parameter="concepto" Type="System.String" DbType="VarChar(1000)" />
-    <Parameter Name="TipoPago" Parameter="tipoPago" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="CreadoPor" Parameter="creadoPor" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
-    <ElementType Name="SP_GUARDAR_HISTORIAL_PAGOSResult">
-      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="NumeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="FechaPago" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="MontoFactura" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="Balance" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
-      <Column Name="Concepto" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
-      <Column Name="TipoPago" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Paciente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CedulaPaciente" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

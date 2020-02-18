@@ -43,5 +43,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
         public System.Nullable<System.DateTime> FechaFacturacion  {get;set;}
 
         public System.Nullable<decimal> IdUsuario  {get;set;}
+        public string Paciente { get; set; }
+
+        public string CedulaPaciente { get; set; }
     }
 }

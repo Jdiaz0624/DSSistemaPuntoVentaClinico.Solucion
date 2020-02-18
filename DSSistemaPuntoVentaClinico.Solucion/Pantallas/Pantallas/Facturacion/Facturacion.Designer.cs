@@ -68,6 +68,12 @@
             this.rbCotizar = new System.Windows.Forms.RadioButton();
             this.rbFacturar = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCedulaCedula = new System.Windows.Forms.TextBox();
+            this.lbCedulaCedula = new System.Windows.Forms.Label();
+            this.rbBuscarCliente = new System.Windows.Forms.RadioButton();
+            this.rbBuscarPaciente = new System.Windows.Forms.RadioButton();
+            this.lbNombrePacientePaciente = new System.Windows.Forms.Label();
+            this.txtPacientePaciente = new System.Windows.Forms.TextBox();
             this.txtMontoCredito = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.btnRegresar = new System.Windows.Forms.Button();
@@ -100,12 +106,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPacientePaciente = new System.Windows.Forms.TextBox();
-            this.lbNombrePacientePaciente = new System.Windows.Forms.Label();
-            this.rbBuscarPaciente = new System.Windows.Forms.RadioButton();
-            this.rbBuscarCliente = new System.Windows.Forms.RadioButton();
-            this.lbCedulaCedula = new System.Windows.Forms.Label();
-            this.txtCedulaCedula = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
@@ -624,6 +624,68 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de Cliente";
             // 
+            // txtCedulaCedula
+            // 
+            this.txtCedulaCedula.BackColor = System.Drawing.Color.Silver;
+            this.txtCedulaCedula.Location = new System.Drawing.Point(621, 275);
+            this.txtCedulaCedula.Name = "txtCedulaCedula";
+            this.txtCedulaCedula.Size = new System.Drawing.Size(280, 32);
+            this.txtCedulaCedula.TabIndex = 37;
+            this.txtCedulaCedula.Visible = false;
+            // 
+            // lbCedulaCedula
+            // 
+            this.lbCedulaCedula.AutoSize = true;
+            this.lbCedulaCedula.Location = new System.Drawing.Point(533, 280);
+            this.lbCedulaCedula.Name = "lbCedulaCedula";
+            this.lbCedulaCedula.Size = new System.Drawing.Size(82, 23);
+            this.lbCedulaCedula.TabIndex = 36;
+            this.lbCedulaCedula.Text = "Cedula";
+            this.lbCedulaCedula.Visible = false;
+            // 
+            // rbBuscarCliente
+            // 
+            this.rbBuscarCliente.AutoSize = true;
+            this.rbBuscarCliente.Location = new System.Drawing.Point(1043, 273);
+            this.rbBuscarCliente.Name = "rbBuscarCliente";
+            this.rbBuscarCliente.Size = new System.Drawing.Size(101, 27);
+            this.rbBuscarCliente.TabIndex = 35;
+            this.rbBuscarCliente.TabStop = true;
+            this.rbBuscarCliente.Text = "Cliente";
+            this.rbBuscarCliente.UseVisualStyleBackColor = true;
+            this.rbBuscarCliente.CheckedChanged += new System.EventHandler(this.rbBuscarCliente_CheckedChanged);
+            // 
+            // rbBuscarPaciente
+            // 
+            this.rbBuscarPaciente.AutoSize = true;
+            this.rbBuscarPaciente.Location = new System.Drawing.Point(927, 271);
+            this.rbBuscarPaciente.Name = "rbBuscarPaciente";
+            this.rbBuscarPaciente.Size = new System.Drawing.Size(117, 27);
+            this.rbBuscarPaciente.TabIndex = 34;
+            this.rbBuscarPaciente.TabStop = true;
+            this.rbBuscarPaciente.Text = "Paciente";
+            this.rbBuscarPaciente.UseVisualStyleBackColor = true;
+            this.rbBuscarPaciente.CheckedChanged += new System.EventHandler(this.rbBuscarPaciente_CheckedChanged);
+            // 
+            // lbNombrePacientePaciente
+            // 
+            this.lbNombrePacientePaciente.AutoSize = true;
+            this.lbNombrePacientePaciente.Location = new System.Drawing.Point(16, 279);
+            this.lbNombrePacientePaciente.Name = "lbNombrePacientePaciente";
+            this.lbNombrePacientePaciente.Size = new System.Drawing.Size(228, 23);
+            this.lbNombrePacientePaciente.TabIndex = 33;
+            this.lbNombrePacientePaciente.Text = "Nombre de Paciente *";
+            this.lbNombrePacientePaciente.Visible = false;
+            // 
+            // txtPacientePaciente
+            // 
+            this.txtPacientePaciente.BackColor = System.Drawing.Color.Silver;
+            this.txtPacientePaciente.Location = new System.Drawing.Point(248, 275);
+            this.txtPacientePaciente.Name = "txtPacientePaciente";
+            this.txtPacientePaciente.Size = new System.Drawing.Size(280, 32);
+            this.txtPacientePaciente.TabIndex = 32;
+            this.txtPacientePaciente.Visible = false;
+            // 
             // txtMontoCredito
             // 
             this.txtMontoCredito.BackColor = System.Drawing.Color.Silver;
@@ -930,73 +992,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 32);
+            this.label1.Location = new System.Drawing.Point(100, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 23);
+            this.label1.Size = new System.Drawing.Size(145, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Codigo de Paciente";
-            // 
-            // txtPacientePaciente
-            // 
-            this.txtPacientePaciente.BackColor = System.Drawing.Color.Silver;
-            this.txtPacientePaciente.Location = new System.Drawing.Point(248, 275);
-            this.txtPacientePaciente.Name = "txtPacientePaciente";
-            this.txtPacientePaciente.Size = new System.Drawing.Size(280, 32);
-            this.txtPacientePaciente.TabIndex = 32;
-            this.txtPacientePaciente.Visible = false;
-            // 
-            // lbNombrePacientePaciente
-            // 
-            this.lbNombrePacientePaciente.AutoSize = true;
-            this.lbNombrePacientePaciente.Location = new System.Drawing.Point(16, 279);
-            this.lbNombrePacientePaciente.Name = "lbNombrePacientePaciente";
-            this.lbNombrePacientePaciente.Size = new System.Drawing.Size(228, 23);
-            this.lbNombrePacientePaciente.TabIndex = 33;
-            this.lbNombrePacientePaciente.Text = "Nombre de Paciente *";
-            this.lbNombrePacientePaciente.Visible = false;
-            // 
-            // rbBuscarPaciente
-            // 
-            this.rbBuscarPaciente.AutoSize = true;
-            this.rbBuscarPaciente.Location = new System.Drawing.Point(927, 271);
-            this.rbBuscarPaciente.Name = "rbBuscarPaciente";
-            this.rbBuscarPaciente.Size = new System.Drawing.Size(117, 27);
-            this.rbBuscarPaciente.TabIndex = 34;
-            this.rbBuscarPaciente.TabStop = true;
-            this.rbBuscarPaciente.Text = "Paciente";
-            this.rbBuscarPaciente.UseVisualStyleBackColor = true;
-            this.rbBuscarPaciente.CheckedChanged += new System.EventHandler(this.rbBuscarPaciente_CheckedChanged);
-            // 
-            // rbBuscarCliente
-            // 
-            this.rbBuscarCliente.AutoSize = true;
-            this.rbBuscarCliente.Location = new System.Drawing.Point(1043, 273);
-            this.rbBuscarCliente.Name = "rbBuscarCliente";
-            this.rbBuscarCliente.Size = new System.Drawing.Size(101, 27);
-            this.rbBuscarCliente.TabIndex = 35;
-            this.rbBuscarCliente.TabStop = true;
-            this.rbBuscarCliente.Text = "Cliente";
-            this.rbBuscarCliente.UseVisualStyleBackColor = true;
-            this.rbBuscarCliente.CheckedChanged += new System.EventHandler(this.rbBuscarCliente_CheckedChanged);
-            // 
-            // lbCedulaCedula
-            // 
-            this.lbCedulaCedula.AutoSize = true;
-            this.lbCedulaCedula.Location = new System.Drawing.Point(533, 280);
-            this.lbCedulaCedula.Name = "lbCedulaCedula";
-            this.lbCedulaCedula.Size = new System.Drawing.Size(82, 23);
-            this.lbCedulaCedula.TabIndex = 36;
-            this.lbCedulaCedula.Text = "Cedula";
-            this.lbCedulaCedula.Visible = false;
-            // 
-            // txtCedulaCedula
-            // 
-            this.txtCedulaCedula.BackColor = System.Drawing.Color.Silver;
-            this.txtCedulaCedula.Location = new System.Drawing.Point(621, 275);
-            this.txtCedulaCedula.Name = "txtCedulaCedula";
-            this.txtCedulaCedula.Size = new System.Drawing.Size(280, 32);
-            this.txtCedulaCedula.TabIndex = 37;
-            this.txtCedulaCedula.Visible = false;
+            this.label1.Text = "RNC Consulta";
             // 
             // Facturacion
             // 

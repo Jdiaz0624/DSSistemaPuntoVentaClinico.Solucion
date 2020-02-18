@@ -76,7 +76,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                  IdCantidadias=n.IdCantidadias,
                                  CodigoPaciente=n.CodigoPaciente,
                                  Nombre=n.Nombre,
-                                 Balance=n.Balance
+                                 Balance=n.Balance,
+                                 Paciente=n.Paciente,
+                                 CedulaPaciente=n.CedulaPaciente
 
                              }).ToList();
             return Historial;

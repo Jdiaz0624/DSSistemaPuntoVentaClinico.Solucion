@@ -99,6 +99,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.ComentarioPaciente,
                 Item.FechaFacturacion,
                 Item.IdUsuario,
+                Item.Paciente,
+                Item.CedulaPaciente,
                 Accion);
             if (FacturacionCliente != null)
             {
@@ -122,7 +124,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      Email=n.Email,
                                      ComentarioPaciente=n.ComentarioPaciente,
                                      FechaFacturacion=n.FechaFacturacion,
-                                     IdUsuario=n.IdUsuario
+                                     IdUsuario=n.IdUsuario,
+                                     Paciente=n.Paciente,
+                                     CedulaPaciente=n.CedulaPaciente
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
@@ -296,7 +300,10 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               IdCantidadDias=n.IdCantidadDias,
                               CantidadDias=n.CantidadDias,
                               CodigoPaciente=n.CodigoPaciente,
-                              MontoCredito=n.MontoCredito
+                              MontoCredito=n.MontoCredito,
+                              Paciente=n.Paciente,
+                              CedulaPaciente=n.CedulaPaciente,
+                              TipoBusquedaRNC=n.TipoBusquedaRNC
                           }).ToList();
             return Buscar;
         }
@@ -330,6 +337,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.IdCantidadDias,
                 Item.CodigoPaciente,
                 Item.MontoCredito,
+                Item.Paciente,
+                Item.CedulaPaciente,
+                Item.TipoBusquedaRNC,                
                 Accion);
             if (DatosFacturacionEspejo != null)
             {
@@ -357,7 +367,10 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      IdTipoVenta=n.IdTipoVenta,
                                      IdCantidadDias=n.IdCantidadDias,
                                      CodigoPaciente=n.CodigoPaciente,
-                                     MontoCredito=n.MontoCredito
+                                     MontoCredito=n.MontoCredito,
+                                     Paciente=n.Paciente,
+                                     CedulaPaciente=n.CedulaPaciente,
+                                     TipoBusquedaRNC=n.TipoBusquedaRNC
                                  }).FirstOrDefault();
             }
             return Mantenimiento;
