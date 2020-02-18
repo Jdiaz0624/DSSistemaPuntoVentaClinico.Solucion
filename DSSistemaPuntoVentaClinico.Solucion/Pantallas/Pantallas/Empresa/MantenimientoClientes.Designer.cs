@@ -31,6 +31,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnAccion = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtLimiteCredito = new System.Windows.Forms.MaskedTextBox();
             this.cbEstatus = new System.Windows.Forms.CheckBox();
             this.txtEmail = new System.Windows.Forms.MaskedTextBox();
@@ -49,7 +50,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,7 @@
             this.btnCerrar.TabIndex = 19;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnAccion
             // 
@@ -74,6 +75,7 @@
             this.btnAccion.TabIndex = 18;
             this.btnAccion.Text = "Guardar";
             this.btnAccion.UseVisualStyleBackColor = true;
+            this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
             // 
             // groupBox1
             // 
@@ -102,6 +104,15 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Paciente";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(102, 306);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(166, 25);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Limite de Credito*";
             // 
             // txtLimiteCredito
             // 
@@ -160,6 +171,11 @@
             this.ddlTipoIdentificacion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlTipoIdentificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlTipoIdentificacion.FormattingEnabled = true;
+            this.ddlTipoIdentificacion.Items.AddRange(new object[] {
+            "Cedula",
+            "RNC",
+            "Pasaporte",
+            "Otro"});
             this.ddlTipoIdentificacion.Location = new System.Drawing.Point(268, 132);
             this.ddlTipoIdentificacion.Name = "ddlTipoIdentificacion";
             this.ddlTipoIdentificacion.Size = new System.Drawing.Size(339, 33);
@@ -221,11 +237,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(213, 167);
+            this.label8.Location = new System.Drawing.Point(206, 168);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 25);
+            this.label8.Size = new System.Drawing.Size(62, 25);
             this.label8.TabIndex = 7;
-            this.label8.Text = "RNC";
+            this.label8.Text = "RNC*";
             // 
             // label7
             // 
@@ -263,15 +279,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo de Comprobante *";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(102, 306);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 25);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Limite de Credito*";
-            // 
             // MantenimientoClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -285,7 +292,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MantenimientoClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MantenimientoClientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MantenimientoClientes_FormClosing);
+            this.Load += new System.EventHandler(this.MantenimientoClientes_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

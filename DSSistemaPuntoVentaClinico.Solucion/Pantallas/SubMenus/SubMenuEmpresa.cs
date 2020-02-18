@@ -60,7 +60,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
 
         private void btnSalas_Click(object sender, EventArgs e)
         {
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa.SalasConsulta Consulta = new Pantallas.Empresa.SalasConsulta();
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa.ConsultaClientes Consulta = new Pantallas.Empresa.ConsultaClientes();
             Consulta.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbIdUsuario.Text);
             Consulta.ShowDialog();
         }

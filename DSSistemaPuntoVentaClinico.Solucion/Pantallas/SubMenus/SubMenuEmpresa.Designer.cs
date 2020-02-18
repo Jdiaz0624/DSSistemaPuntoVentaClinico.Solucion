@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubMenuEmpresa));
             this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.btnAsistentes = new System.Windows.Forms.Button();
-            this.btnSalas = new System.Windows.Forms.Button();
+            this.btnClientesClientes = new System.Windows.Forms.Button();
             this.btnCentroSalud = new System.Windows.Forms.Button();
             this.btnARS = new System.Windows.Forms.Button();
             this.brnMedicos = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             // gbOpciones
             // 
             this.gbOpciones.Controls.Add(this.btnAsistentes);
-            this.gbOpciones.Controls.Add(this.btnSalas);
+            this.gbOpciones.Controls.Add(this.btnClientesClientes);
             this.gbOpciones.Controls.Add(this.btnCentroSalud);
             this.gbOpciones.Controls.Add(this.btnARS);
             this.gbOpciones.Controls.Add(this.brnMedicos);
@@ -76,20 +76,19 @@
             this.btnAsistentes.UseVisualStyleBackColor = true;
             this.btnAsistentes.Click += new System.EventHandler(this.btnAsistentes_Click);
             // 
-            // btnSalas
+            // btnClientesClientes
             // 
-            this.btnSalas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalas.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalas.Location = new System.Drawing.Point(411, 0);
-            this.btnSalas.Name = "btnSalas";
-            this.btnSalas.Size = new System.Drawing.Size(230, 68);
-            this.btnSalas.TabIndex = 4;
-            this.btnSalas.Text = "Salas";
-            this.toolTip1.SetToolTip(this.btnSalas, "Mantenimiento de Salas");
-            this.btnSalas.UseVisualStyleBackColor = true;
-            this.btnSalas.Visible = false;
-            this.btnSalas.Click += new System.EventHandler(this.btnSalas_Click);
+            this.btnClientesClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClientesClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientesClientes.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientesClientes.Location = new System.Drawing.Point(478, 29);
+            this.btnClientesClientes.Name = "btnClientesClientes";
+            this.btnClientesClientes.Size = new System.Drawing.Size(230, 68);
+            this.btnClientesClientes.TabIndex = 4;
+            this.btnClientesClientes.Text = "Clientes";
+            this.toolTip1.SetToolTip(this.btnClientesClientes, "Mantenimiento de Salas");
+            this.btnClientesClientes.UseVisualStyleBackColor = true;
+            this.btnClientesClientes.Click += new System.EventHandler(this.btnSalas_Click);
             // 
             // btnCentroSalud
             // 
@@ -110,13 +109,14 @@
             this.btnARS.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnARS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnARS.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnARS.Location = new System.Drawing.Point(478, 29);
+            this.btnARS.Location = new System.Drawing.Point(478, 103);
             this.btnARS.Name = "btnARS";
             this.btnARS.Size = new System.Drawing.Size(230, 68);
             this.btnARS.TabIndex = 2;
             this.btnARS.Text = "ARS";
             this.toolTip1.SetToolTip(this.btnARS, "Mantenimiento de ARS");
             this.btnARS.UseVisualStyleBackColor = true;
+            this.btnARS.Visible = false;
             this.btnARS.Click += new System.EventHandler(this.btnARS_Click);
             // 
             // brnMedicos
@@ -222,7 +222,7 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         public System.Windows.Forms.GroupBox gbOpciones;
         private System.Windows.Forms.Button btnAsistentes;
-        private System.Windows.Forms.Button btnSalas;
+        private System.Windows.Forms.Button btnClientesClientes;
         private System.Windows.Forms.Button btnCentroSalud;
         private System.Windows.Forms.Button btnARS;
         private System.Windows.Forms.Button brnMedicos;
