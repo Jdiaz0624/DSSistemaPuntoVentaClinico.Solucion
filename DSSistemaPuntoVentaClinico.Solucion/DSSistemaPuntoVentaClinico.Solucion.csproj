@@ -178,6 +178,18 @@
     <Compile Include="Pantallas\Pantallas\Empresa\ClienteMantenimiento.Designer.cs">
       <DependentUpon>ClienteMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\ConsultaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\ConsultaClientes.Designer.cs">
+      <DependentUpon>ConsultaClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Empresa\MantenimientoClientes.Designer.cs">
+      <DependentUpon>MantenimientoClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Empresa\MedicosConsulta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -503,6 +515,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\ClienteMantenimiento.resx">
       <DependentUpon>ClienteMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\ConsultaClientes.resx">
+      <DependentUpon>ConsultaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MantenimientoClientes.resx">
+      <DependentUpon>MantenimientoClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Empresa\MedicosConsulta.resx">
       <DependentUpon>MedicosConsulta.cs</DependentUpon>

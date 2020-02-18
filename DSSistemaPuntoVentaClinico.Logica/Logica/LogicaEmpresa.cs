@@ -483,11 +483,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
 
         #region MANTENIMIENTO DE CLIENTES
         //LISTADO DE CLIENTES
-        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EClientes> BuscaClientes(decimal? IdCliente = null, string NombreCliente = null, string RNC = null)
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EClientes> BuscaClientes(decimal? IdCliente = null, string NombreCliente = null, string RNC = null,int? NumeroPagina = null, int? NumeroRegistros = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var Buscar = (from n in ObjData.SP_BUSCA_CLIENTES(IdCliente, NombreCliente, RNC)
+            var Buscar = (from n in ObjData.SP_BUSCA_CLIENTES(IdCliente, NombreCliente, RNC,NumeroPagina,NumeroRegistros)
                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EClientes
                           {
                               IdCliente=n.IdCliente,
