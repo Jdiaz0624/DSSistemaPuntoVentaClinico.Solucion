@@ -229,5 +229,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             mantenimiento.VariablesGlobales.IdMantenimiento = 0;
             mantenimiento.ShowDialog();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
