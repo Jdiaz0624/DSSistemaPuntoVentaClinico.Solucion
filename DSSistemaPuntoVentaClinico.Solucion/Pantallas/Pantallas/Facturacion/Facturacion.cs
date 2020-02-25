@@ -734,6 +734,33 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
         }
         #endregion
+        #region FILTROS PARA CENTRO DE SALUD
+        private void FiltroCentroSalud()
+        {
+            if (string.IsNullOrEmpty(txtFiltroCentroSalud.Text.Trim()))
+            {
+                CargarCentrosSalud();
+            }
+            else
+            {
+                var Buscar = ObjDataEmpresa.Value.BuscaCentroSalus(
+                    Convert.ToDecimal(txtFiltroCentroSalud.Text),
+                    null, null, 1, 1);
+                if (Buscar.Count() < 1)
+                {
+                    MessageBox.Show("El codigo ingresado no es valido", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtFiltroCentroSalud.Text = string.Empty;
+                    txtFiltroCentroSalud.Focus();
+                }
+                else
+                {
+                    ddlCentroSalud.DataSource = Buscar;
+                    ddlCentroSalud.DisplayMember = "Nombre";
+                    ddlCentroSalud.ValueMember = "IdCentroSalud";
+                }
+            }
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             rbBuscarPaciente.Checked = true;
@@ -1440,6 +1467,24 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                 txtPacientePaciente.Visible = false;
                 lbCedulaCedula.Visible = false;
                 txtCedulaCedula.Visible = false;
+            }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            FiltroCentroSalud();
+        }
+
+        private void txtFiltroCentroSalud_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFiltroCentroSalud_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                FiltroCentroSalud();
             }
         }
     }

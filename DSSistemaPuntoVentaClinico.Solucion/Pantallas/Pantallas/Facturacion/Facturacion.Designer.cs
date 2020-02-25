@@ -106,6 +106,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtFiltroCentroSalud = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbGeneral.SuspendLayout();
@@ -579,6 +581,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.txtFiltroCentroSalud);
             this.groupBox2.Controls.Add(this.txtCedulaCedula);
             this.groupBox2.Controls.Add(this.lbCedulaCedula);
             this.groupBox2.Controls.Add(this.rbBuscarCliente);
@@ -646,7 +650,7 @@
             // rbBuscarCliente
             // 
             this.rbBuscarCliente.AutoSize = true;
-            this.rbBuscarCliente.Location = new System.Drawing.Point(1043, 273);
+            this.rbBuscarCliente.Location = new System.Drawing.Point(1018, 279);
             this.rbBuscarCliente.Name = "rbBuscarCliente";
             this.rbBuscarCliente.Size = new System.Drawing.Size(101, 27);
             this.rbBuscarCliente.TabIndex = 35;
@@ -658,7 +662,7 @@
             // rbBuscarPaciente
             // 
             this.rbBuscarPaciente.AutoSize = true;
-            this.rbBuscarPaciente.Location = new System.Drawing.Point(927, 271);
+            this.rbBuscarPaciente.Location = new System.Drawing.Point(903, 278);
             this.rbBuscarPaciente.Name = "rbBuscarPaciente";
             this.rbBuscarPaciente.Size = new System.Drawing.Size(117, 27);
             this.rbBuscarPaciente.TabIndex = 34;
@@ -998,6 +1002,28 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "RNC Consulta";
             // 
+            // txtFiltroCentroSalud
+            // 
+            this.txtFiltroCentroSalud.BackColor = System.Drawing.Color.Silver;
+            this.txtFiltroCentroSalud.Location = new System.Drawing.Point(533, 168);
+            this.txtFiltroCentroSalud.Name = "txtFiltroCentroSalud";
+            this.txtFiltroCentroSalud.Size = new System.Drawing.Size(79, 32);
+            this.txtFiltroCentroSalud.TabIndex = 38;
+            this.txtFiltroCentroSalud.TextChanged += new System.EventHandler(this.txtFiltroCentroSalud_TextChanged);
+            this.txtFiltroCentroSalud.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltroCentroSalud_KeyPress);
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(616, 170);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(41, 29);
+            this.button3.TabIndex = 39;
+            this.button3.Text = "...";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -1113,5 +1139,7 @@
         private System.Windows.Forms.TextBox txtPacientePaciente;
         private System.Windows.Forms.TextBox txtCedulaCedula;
         private System.Windows.Forms.Label lbCedulaCedula;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtFiltroCentroSalud;
     }
 }

@@ -21,6 +21,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CAMBIAR EL ESTATUS DE LA LA CIRUGIA
@@ -305,6 +306,34 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             ddlAsistenteCirugia.DisplayMember = "Nombre";
         }
         #endregion
+
+        #region FILTRO PARA CENTRO DE SALUD
+        private void FiltroCentroSalud()
+        {
+            if (string.IsNullOrEmpty(txtFiltroCentroSalud.Text.Trim()))
+            {
+                CargarCentroSalud();
+            }
+            else
+            {
+                var Buscar = ObjDataEmpresa.Value.BuscaCentroSalus(
+                    Convert.ToDecimal(txtFiltroCentroSalud.Text),
+                    null, null, 1, 1);
+                if (Buscar.Count() < 1)
+                {
+                    MessageBox.Show("El codigo ingresado no es valido", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtFiltroCentroSalud.Text = string.Empty;
+                    txtFiltroCentroSalud.Focus();
+                }
+                else
+                {
+                    ddlCentroSalud.DataSource = Buscar;
+                    ddlCentroSalud.DisplayMember = "Nombre";
+                    ddlCentroSalud.ValueMember = "IdCentroSalud";
+                }
+            }
+        }
+        #endregion
         private void ProgramacionCirugias_Load(object sender, EventArgs e)
         {
             this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
@@ -506,6 +535,19 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            FiltroCentroSalud();
+        }
+
+        private void txtFiltroCentroSalud_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                FiltroCentroSalud();
+            }
         }
     }
 }

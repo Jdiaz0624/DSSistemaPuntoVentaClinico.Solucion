@@ -69,7 +69,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
         }
         private void OcultarColumnas()
         {
-            this.dtListado.Columns["IdCentroSalud"].Visible = false;
+           // this.dtListado.Columns["IdCentroSalud"].Visible = false;
             this.dtListado.Columns["Estatus0"].Visible = false;
             this.dtListado.Columns["UsuarioAdiciona"].Visible = false;
             this.dtListado.Columns["FechaAdiciona0"].Visible = false;

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gbProgramacionCirugia = new System.Windows.Forms.GroupBox();
+            this.lbCirugiaProgramada = new System.Windows.Forms.Label();
+            this.lbCirugiaProgramadaTitulo = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.lbNumeroReferencia = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -81,8 +83,8 @@
             this.txtFechaCirugia = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lbCirugiaProgramadaTitulo = new System.Windows.Forms.Label();
-            this.lbCirugiaProgramada = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtFiltroCentroSalud = new System.Windows.Forms.TextBox();
             this.gbProgramacionCirugia.SuspendLayout();
             this.gbProductosAgregados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
@@ -92,6 +94,8 @@
             // gbProgramacionCirugia
             // 
             this.gbProgramacionCirugia.AutoSize = true;
+            this.gbProgramacionCirugia.Controls.Add(this.button1);
+            this.gbProgramacionCirugia.Controls.Add(this.txtFiltroCentroSalud);
             this.gbProgramacionCirugia.Controls.Add(this.lbCirugiaProgramada);
             this.gbProgramacionCirugia.Controls.Add(this.lbCirugiaProgramadaTitulo);
             this.gbProgramacionCirugia.Controls.Add(this.button3);
@@ -132,6 +136,26 @@
             this.gbProgramacionCirugia.TabStop = false;
             this.gbProgramacionCirugia.Text = "Programación de Cirugia";
             this.gbProgramacionCirugia.Enter += new System.EventHandler(this.gbProgramacionCirugia_Enter);
+            // 
+            // lbCirugiaProgramada
+            // 
+            this.lbCirugiaProgramada.AutoSize = true;
+            this.lbCirugiaProgramada.Location = new System.Drawing.Point(809, 106);
+            this.lbCirugiaProgramada.Name = "lbCirugiaProgramada";
+            this.lbCirugiaProgramada.Size = new System.Drawing.Size(42, 25);
+            this.lbCirugiaProgramada.TabIndex = 58;
+            this.lbCirugiaProgramada.Text = "NO";
+            this.lbCirugiaProgramada.Visible = false;
+            // 
+            // lbCirugiaProgramadaTitulo
+            // 
+            this.lbCirugiaProgramadaTitulo.AutoSize = true;
+            this.lbCirugiaProgramadaTitulo.Location = new System.Drawing.Point(625, 106);
+            this.lbCirugiaProgramadaTitulo.Name = "lbCirugiaProgramadaTitulo";
+            this.lbCirugiaProgramadaTitulo.Size = new System.Drawing.Size(186, 25);
+            this.lbCirugiaProgramadaTitulo.TabIndex = 57;
+            this.lbCirugiaProgramadaTitulo.Text = "Cirugia Programada";
+            this.lbCirugiaProgramadaTitulo.Visible = false;
             // 
             // button3
             // 
@@ -602,7 +626,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(625, 34);
+            this.label3.Location = new System.Drawing.Point(711, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 25);
             this.label3.TabIndex = 5;
@@ -622,7 +646,7 @@
             this.ddlMedico.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ddlMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlMedico.FormattingEnabled = true;
-            this.ddlMedico.Location = new System.Drawing.Point(703, 31);
+            this.ddlMedico.Location = new System.Drawing.Point(789, 31);
             this.ddlMedico.Name = "ddlMedico";
             this.ddlMedico.Size = new System.Drawing.Size(274, 33);
             this.ddlMedico.TabIndex = 3;
@@ -635,7 +659,7 @@
             this.ddlCentroSalud.FormattingEnabled = true;
             this.ddlCentroSalud.Location = new System.Drawing.Point(164, 29);
             this.ddlCentroSalud.Name = "ddlCentroSalud";
-            this.ddlCentroSalud.Size = new System.Drawing.Size(439, 33);
+            this.ddlCentroSalud.Size = new System.Drawing.Size(416, 33);
             this.ddlCentroSalud.TabIndex = 2;
             this.ddlCentroSalud.SelectedIndexChanged += new System.EventHandler(this.ddlCentroSalud_SelectedIndexChanged);
             // 
@@ -656,25 +680,26 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha de Cirugia";
             // 
-            // lbCirugiaProgramadaTitulo
+            // button1
             // 
-            this.lbCirugiaProgramadaTitulo.AutoSize = true;
-            this.lbCirugiaProgramadaTitulo.Location = new System.Drawing.Point(625, 106);
-            this.lbCirugiaProgramadaTitulo.Name = "lbCirugiaProgramadaTitulo";
-            this.lbCirugiaProgramadaTitulo.Size = new System.Drawing.Size(186, 25);
-            this.lbCirugiaProgramadaTitulo.TabIndex = 57;
-            this.lbCirugiaProgramadaTitulo.Text = "Cirugia Programada";
-            this.lbCirugiaProgramadaTitulo.Visible = false;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(669, 29);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 29);
+            this.button1.TabIndex = 60;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // lbCirugiaProgramada
+            // txtFiltroCentroSalud
             // 
-            this.lbCirugiaProgramada.AutoSize = true;
-            this.lbCirugiaProgramada.Location = new System.Drawing.Point(809, 106);
-            this.lbCirugiaProgramada.Name = "lbCirugiaProgramada";
-            this.lbCirugiaProgramada.Size = new System.Drawing.Size(42, 25);
-            this.lbCirugiaProgramada.TabIndex = 58;
-            this.lbCirugiaProgramada.Text = "NO";
-            this.lbCirugiaProgramada.Visible = false;
+            this.txtFiltroCentroSalud.BackColor = System.Drawing.Color.Silver;
+            this.txtFiltroCentroSalud.Location = new System.Drawing.Point(586, 27);
+            this.txtFiltroCentroSalud.Name = "txtFiltroCentroSalud";
+            this.txtFiltroCentroSalud.Size = new System.Drawing.Size(79, 30);
+            this.txtFiltroCentroSalud.TabIndex = 59;
+            this.txtFiltroCentroSalud.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFiltroCentroSalud_KeyPress);
             // 
             // ProgramacionCirugias
             // 
@@ -762,5 +787,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lbCirugiaProgramada;
         private System.Windows.Forms.Label lbCirugiaProgramadaTitulo;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtFiltroCentroSalud;
     }
 }
