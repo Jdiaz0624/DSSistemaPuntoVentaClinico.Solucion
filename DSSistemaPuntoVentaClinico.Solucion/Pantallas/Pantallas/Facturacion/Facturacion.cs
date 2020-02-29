@@ -744,11 +744,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             else
             {
                 var Buscar = ObjDataEmpresa.Value.BuscaCentroSalus(
-                    Convert.ToDecimal(txtFiltroCentroSalud.Text),
-                    null, null, 1, 1);
+                    new Nullable<decimal>(),
+                    null,
+                    txtFiltroCentroSalud.Text, 1, 999999999);
                 if (Buscar.Count() < 1)
                 {
-                    MessageBox.Show("El codigo ingresado no es valido", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El registro ingresado no es valido", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtFiltroCentroSalud.Text = string.Empty;
                     txtFiltroCentroSalud.Focus();
                 }
