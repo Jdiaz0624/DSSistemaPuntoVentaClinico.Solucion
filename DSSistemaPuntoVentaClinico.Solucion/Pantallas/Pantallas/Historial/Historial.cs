@@ -423,6 +423,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                         }
                     }
                 }
+                dtListado.Columns["Balance"].DefaultCellStyle.Format = "n2";
+                dtListado.Columns["MontoPagado"].DefaultCellStyle.Format = "n2";
+                dtListado.Columns["TotalGeneral"].DefaultCellStyle.Format = "n2";
+                dtListado.Columns["Impuesto"].DefaultCellStyle.Format = "n2";
+                dtListado.Columns["SubTotal"].DefaultCellStyle.Format = "n2";
+                dtListado.Columns["TotalDescuento"].DefaultCellStyle.Format = "n2";
+                dtListado.Columns["CantidadArticulos"].DefaultCellStyle.Format = "n0";
+                dtListado.Columns["Total"].DefaultCellStyle.Format = "n2";
+                dtListado.Columns["DescuentoAplicado"].DefaultCellStyle.Format = "n2";
+                dtListado.Columns["Precio"].DefaultCellStyle.Format = "n2";
+                dtListado.Columns["Cantidad"].DefaultCellStyle.Format = "n0";
                 OcultarColumnas();
                 btnImprimir.Enabled = false;
             }
@@ -448,6 +459,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Columns["IdTipoPago"].Visible = false;
             this.dtListado.Columns["NumeroConector"].Visible = false;
             this.dtListado.Columns["CirugiaProgramada0"].Visible = false;
+            this.dtListado.Columns["IdEstatusCirugia"].Visible = false;
+            this.dtListado.Columns["FechaVencimiento0"].Visible = false;
+            this.dtListado.Columns["TipoVenta0"].Visible = false;
+            this.dtListado.Columns["TipoVenta01"].Visible = false;
+    //        this.dtListado.Columns["IdCantidaddias"].Visible = false;
         }
         #endregion
 

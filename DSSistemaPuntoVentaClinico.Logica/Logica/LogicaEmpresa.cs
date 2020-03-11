@@ -98,7 +98,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                               UsuarioModifica=n.UsuarioAdiciona,
                               ModificadoPor=n.ModificadoPor,
                               fechaModifica0=n.fechaModifica0,
-                              FechaModifica=n.FechaModifica
+                              FechaModifica=n.FechaModifica,
+                              PorcComision=n.PorcComision
                           }).ToList();
             return Buscar;
         }
@@ -119,6 +120,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.Estatus0,
                 Item.UsuarioAdiciona,
                 Item.Telefono,
+                Item.PorcComision,
                 Accion);
             if (Medicos != null)
             {
@@ -135,7 +137,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      FechaAdiciona0=n.FechaAdiciona,
                                      UsuarioModifica=n.UsuarioModifica,
                                      fechaModifica0=n.FechaModifica,
-                                     Telefono=n.Telefono
+                                     Telefono=n.Telefono,
+                                     PorcComision=n.PorcComision
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

@@ -81,6 +81,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     ddlCentroSalud.Text = n.CentroSalud;
                     cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
                     txtTelefono.Text = n.Telefono;
+                    txtPorcientoComision.Text = n.PorcComision.ToString();
                 }
                 if (cbEstatus.Checked == true)
                 {
@@ -100,44 +101,53 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
 
         private void btnAccion_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()))
+            if (string.IsNullOrEmpty(txtNombre.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(txtPorcientoComision.Text.Trim()))
             {
                 MessageBox.Show("Has dejado campos vacios que son necesarios para guardar esta operación", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EMedico Mantenimiento = new Logica.Entidades.EntidadEmpresa.EMedico();
-
-                Mantenimiento.IdMedico = VariablesGlobales.IdMantenimiento;
-                Mantenimiento.CodigoMedico = VariablesGlobales.CodigoMantenimiento;
-                Mantenimiento.NombreMedico = txtNombre.Text;
-                Mantenimiento.IdCentroSalud = Convert.ToDecimal(ddlCentroSalud.SelectedValue);
-                Mantenimiento.Email = txtCorreo.Text;
-                Mantenimiento.Estatus0 = cbEstatus.Checked;
-                Mantenimiento.UsuarioAdiciona = VariablesGlobales.IdUsuario;
-                Mantenimiento.FechaAdiciona0 = DateTime.Now;
-                Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
-                Mantenimiento.fechaModifica0 = DateTime.Now;
-                Mantenimiento.Telefono = txtTelefono.Text;
-
-                var MAN = ObjDataEmpresa.Value.Mantenimientomedicos(Mantenimiento, VariablesGlobales.AccionTomar);
-
-                if (VariablesGlobales.AccionTomar != "INSERT")
+                int PorcientoComision = Convert.ToInt32(txtPorcientoComision.Text);
+                if (PorcientoComision > 100)
                 {
-                    MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    CerrarPantalla();
+                    MessageBox.Show("El % de comisión no puede ser mayor a 100, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    {
-                        LimpiarControles();
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa.EMedico Mantenimiento = new Logica.Entidades.EntidadEmpresa.EMedico();
 
+                    Mantenimiento.IdMedico = VariablesGlobales.IdMantenimiento;
+                    Mantenimiento.CodigoMedico = VariablesGlobales.CodigoMantenimiento;
+                    Mantenimiento.NombreMedico = txtNombre.Text;
+                    Mantenimiento.IdCentroSalud = Convert.ToDecimal(ddlCentroSalud.SelectedValue);
+                    Mantenimiento.Email = txtCorreo.Text;
+                    Mantenimiento.Estatus0 = cbEstatus.Checked;
+                    Mantenimiento.UsuarioAdiciona = VariablesGlobales.IdUsuario;
+                    Mantenimiento.FechaAdiciona0 = DateTime.Now;
+                    Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
+                    Mantenimiento.fechaModifica0 = DateTime.Now;
+                    Mantenimiento.Telefono = txtTelefono.Text;
+                    Mantenimiento.PorcComision = Convert.ToInt32(txtPorcientoComision.Text);
+
+                    var MAN = ObjDataEmpresa.Value.Mantenimientomedicos(Mantenimiento, VariablesGlobales.AccionTomar);
+
+                    if (VariablesGlobales.AccionTomar != "INSERT")
+                    {
+                        MessageBox.Show("Registro modificado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CerrarPantalla();
                     }
                     else
                     {
-                        CerrarPantalla();
+                        MessageBox.Show("Registro guardado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (MessageBox.Show("¿Quieres guardar otro registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            LimpiarControles();
+
+                        }
+                        else
+                        {
+                            CerrarPantalla();
+                        }
                     }
                 }
 
@@ -152,6 +162,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     e.Cancel = true;
                     break;
             }
+        }
+
+        private void txtPorcientoComision_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Logica.Comunes.ValidarControles.SoloNumeros(e);
         }
     }
 }
