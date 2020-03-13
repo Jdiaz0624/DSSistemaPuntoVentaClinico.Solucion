@@ -1541,7 +1541,28 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         #region CARGAR REPORTE DE VENTAS
         private void CargarReporteVentas(decimal IdUsuario)
         {
+            //SACAMOS LA RUTA DEL REPORTE
+            var SacarRutaReporte = ObjdataHistorial.Value.SacarRutaReporte(10);
+            foreach (var n in SacarRutaReporte)
+            {
+                Variables.RutaReporte = n.RutaReporte;
+            }
 
+            //SACAMOS LAS CREDENCIALES DE BASE DE DATOS
+            var SacarCredencialesBD = ObjdataSeguridad.Value.SacarLogonBD(1);
+            foreach (var n in SacarCredencialesBD)
+            {
+                Variables.UsuarioBD = n.Usuario;
+                Variables.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+            }
+
+            //INVOCAMOS EL REPORTE
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteVentas = new Reporte.Reportes();
+            ReporteVentas.VariablesGlobales.RutaReporte = Variables.RutaReporte;
+            ReporteVentas.VariablesGlobales.UsuarioBD = Variables.UsuarioBD;
+            ReporteVentas.VariablesGlobales.ClaveBD = Variables.ClaveBD;
+            ReporteVentas.MostrarReporteVentas(Variables.IdUsuario);
+            ReporteVentas.ShowDialog();
         }
         #endregion
 
