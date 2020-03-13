@@ -48,12 +48,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
-            this.btnAnularFactura = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnAnularFactura = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
@@ -67,7 +68,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -315,6 +315,20 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opciones";
             // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(6, 126);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(219, 41);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Reporte";
+            this.toolTip1.SetToolTip(this.button2, "Reporte de Ventas");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // btnAnular
             // 
             this.btnAnular.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -329,22 +343,6 @@
             this.toolTip1.SetToolTip(this.btnAnular, "Anular Factura Seleccionada");
             this.btnAnular.UseVisualStyleBackColor = true;
             this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
-            // 
-            // btnAnularFactura
-            // 
-            this.btnAnularFactura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnularFactura.Enabled = false;
-            this.btnAnularFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnularFactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnularFactura.Location = new System.Drawing.Point(1016, 250);
-            this.btnAnularFactura.Name = "btnAnularFactura";
-            this.btnAnularFactura.Size = new System.Drawing.Size(219, 41);
-            this.btnAnularFactura.TabIndex = 7;
-            this.btnAnularFactura.Text = "Anular";
-            this.toolTip1.SetToolTip(this.btnAnularFactura, "Anular Factura Seleccionada");
-            this.btnAnularFactura.UseVisualStyleBackColor = true;
-            this.btnAnularFactura.Visible = false;
-            this.btnAnularFactura.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
             // button1
             // 
@@ -403,6 +401,22 @@
             this.toolTip1.SetToolTip(this.btnConsultar, "Consultar Registros");
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // btnAnularFactura
+            // 
+            this.btnAnularFactura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnularFactura.Enabled = false;
+            this.btnAnularFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnularFactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularFactura.Location = new System.Drawing.Point(1016, 250);
+            this.btnAnularFactura.Name = "btnAnularFactura";
+            this.btnAnularFactura.Size = new System.Drawing.Size(219, 41);
+            this.btnAnularFactura.TabIndex = 7;
+            this.btnAnularFactura.Text = "Anular";
+            this.toolTip1.SetToolTip(this.btnAnularFactura, "Anular Factura Seleccionada");
+            this.btnAnularFactura.UseVisualStyleBackColor = true;
+            this.btnAnularFactura.Visible = false;
+            this.btnAnularFactura.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
             // panel1
             // 
@@ -562,19 +576,6 @@
             this.txtMonto.Size = new System.Drawing.Size(134, 32);
             this.txtMonto.TabIndex = 8;
             this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(6, 126);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(219, 41);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Reporte";
-            this.toolTip1.SetToolTip(this.button2, "Reporte de Ventas");
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Historial
             // 

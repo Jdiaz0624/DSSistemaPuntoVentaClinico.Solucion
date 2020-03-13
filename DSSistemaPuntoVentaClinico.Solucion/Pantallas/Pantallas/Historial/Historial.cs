@@ -466,6 +466,1084 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
     //        this.dtListado.Columns["IdCantidaddias"].Visible = false;
         }
         #endregion
+        #region GUARDAR LOS DATOS PARA CARGAR EL REPORTE DE VENTAS
+        private void CargareporteVentas()
+        {
+            try
+            {
+                btnAnular.Text = "Anular Factura";
+                //HACEMOS LA CONSULTA CUANDO EL RADIO BUTTON GENERAL ESTA SELECCIONADO
+                //ELIMINAMOS
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Eliminar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+                Eliminar.IdUsuario = Variables.IdUsuario;
+                var Delete = ObjdataHistorial.Value.GuardarReporteVentas(Eliminar, "DELETE");
+
+                if (rbGenerar.Checked)
+                {
+                    if (cbNoagregarRangofecha.Checked)
+                    {
+                      
+
+                        //BUSQUEDA GENERAL SIN AGREGAR RANGO DE FECHA
+                        var Consultar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                            new Nullable<decimal>(),
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                       
+
+                        foreach (var n in Consultar)
+                        {
+
+                          //GUARDAMOS
+
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                            Guardar.IdUsuario = Variables.IdUsuario;
+                            Guardar.NumeroFactura = n.NumeroFactura;
+                            Guardar.NombrePaciente = n.NombrePaciente;
+                            Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                            Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                            Guardar.Estatus = n.Estatus;
+                            Guardar.TipoComprobante = n.TipoComprobante;
+                            Guardar.Telefono = n.Telefono;
+                            Guardar.CentroSalud = n.CentroSalud;
+                            Guardar.Sala = n.Sala;
+                            Guardar.Medico = n.Medico;
+                            Guardar.Direccion = n.Direccion;
+                            Guardar.Sexo = n.Sexo;
+                            Guardar.Email = n.Email;
+                            Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                            Guardar.FechaFacturacion = n.FechaFacturacion;
+                            Guardar.FechaVencimiento = n.FechaVencimiento;
+                            Guardar.CantidadDias = n.CantidadDias;
+                            Guardar.DiasDiferencia = n.DiasDiferencia;
+                            Guardar.EstatusDias = n.EstatusDias;
+                            Guardar.CreadoPor = n.Creadopor;
+                            Guardar.TipoProducto = n.TipoProducto;
+                            Guardar.Producto = n.ProDucto;
+                            Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                            Guardar.Precio = n.Precio;
+                            Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                            Guardar.Total = n.Total;
+                            Guardar.TotalDescuento = n.TotalDescuento;
+                            Guardar.SubTotal = n.Subtotal;
+                            Guardar.Impuesto = n.Impuesto;
+                            Guardar.TotalGeneral = n.TotalGeneral;
+                            Guardar.TipoPago = n.TipoPago;
+                            Guardar.MontoPagado = n.MontoPagado;
+                            Guardar.EstatusCirugia = n.EstatusCirugia;
+                            Guardar.TipoVenta = n.TipoVenta;
+                            Guardar.Balance = n.Balance;
+
+                            var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                        }
+                        //CARGAMOS EL REPORTE
+                        CargarReporteVentas(Variables.IdUsuario);
+                    }
+                    else
+                    {
+                        //BUSQUEDA GENERAL AGREGANDO RANGO DE FECHA
+                        var Consultar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                            new Nullable<decimal>(),
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            Convert.ToDateTime(txtFechaDesde.Text),
+                            Convert.ToDateTime(txtFechaHasta.Text),
+                            null,
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                        foreach (var n in Consultar)
+                        {
+
+                            //GUARDAMOS
+
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                            Guardar.IdUsuario = Variables.IdUsuario;
+                            Guardar.NumeroFactura = n.NumeroFactura;
+                            Guardar.NombrePaciente = n.NombrePaciente;
+                            Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                            Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                            Guardar.Estatus = n.Estatus;
+                            Guardar.TipoComprobante = n.TipoComprobante;
+                            Guardar.Telefono = n.Telefono;
+                            Guardar.CentroSalud = n.CentroSalud;
+                            Guardar.Sala = n.Sala;
+                            Guardar.Medico = n.Medico;
+                            Guardar.Direccion = n.Direccion;
+                            Guardar.Sexo = n.Sexo;
+                            Guardar.Email = n.Email;
+                            Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                            Guardar.FechaFacturacion = n.FechaFacturacion;
+                            Guardar.FechaVencimiento = n.FechaVencimiento;
+                            Guardar.CantidadDias = n.CantidadDias;
+                            Guardar.DiasDiferencia = n.DiasDiferencia;
+                            Guardar.EstatusDias = n.EstatusDias;
+                            Guardar.CreadoPor = n.Creadopor;
+                            Guardar.TipoProducto = n.TipoProducto;
+                            Guardar.Producto = n.ProDucto;
+                            Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                            Guardar.Precio = n.Precio;
+                            Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                            Guardar.Total = n.Total;
+                            Guardar.TotalDescuento = n.TotalDescuento;
+                            Guardar.SubTotal = n.Subtotal;
+                            Guardar.Impuesto = n.Impuesto;
+                            Guardar.TotalGeneral = n.TotalGeneral;
+                            Guardar.TipoPago = n.TipoPago;
+                            Guardar.MontoPagado = n.MontoPagado;
+                            Guardar.EstatusCirugia = n.EstatusCirugia;
+                            Guardar.TipoVenta = n.TipoVenta;
+                            Guardar.Balance = n.Balance;
+
+                            var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                        }
+                        //CARGAMOS EL REPORTE
+                        CargarReporteVentas(Variables.IdUsuario);
+                    }
+                }
+                //HACEMOS LA CONSULTA CUANDO EL CHECK DE FACTURA CORTA ESTA SELECCIONADO
+                else if (rbFactura.Checked)
+                {
+                    if (cbNoagregarRangofecha.Checked)
+                    {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("Tienes que ingresar el numero de factura para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtParametro.Focus();
+                        }
+                        else
+                        {
+                            //BUSQUEDA GENERAL SIN AGREGAR RANGO DE FECHA
+                            var Consultar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                                Convert.ToDecimal(txtParametro.Text),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Consultar)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("Tienes que ingresar el numero de factura para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtParametro.Focus();
+                        }
+                        else
+                        {
+                            //BUSQUEDA GENERAL AGREGANDO RANGO DE FECHA
+                            var Consultar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                                Convert.ToDecimal(txtParametro.Text),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Consultar)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+                        }
+                    }
+
+                }
+                //HACEMOS LA CONSULTA CON EL NUMERO DE FACTURA LARGO
+                else if (rbNumeroFactura.Checked)
+                {
+                    if (cbNoagregarRangofecha.Checked)
+                    {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("Tienes que ingresar el numero de factura para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtParametro.Focus();
+                        }
+                        else
+                        {
+                            var Consultar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                                new Nullable<decimal>(),
+                                Convert.ToDecimal(txtParametro.Text),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Consultar)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("Tienes que ingresar el numero de factura para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtParametro.Focus();
+                        }
+                        else
+                        {
+                            if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                            {
+                                MessageBox.Show("Tienes que ingresar el numero de factura para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txtParametro.Focus();
+                            }
+                            {
+                                var Consultar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                            new Nullable<decimal>(),
+                            Convert.ToDecimal(txtParametro.Text),
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            Convert.ToDateTime(txtFechaDesde.Text),
+                            Convert.ToDateTime(txtFechaHasta.Text),
+                            null,
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                                foreach (var n in Consultar)
+                                {
+
+                                    //GUARDAMOS
+
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                    Guardar.IdUsuario = Variables.IdUsuario;
+                                    Guardar.NumeroFactura = n.NumeroFactura;
+                                    Guardar.NombrePaciente = n.NombrePaciente;
+                                    Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                    Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                    Guardar.Estatus = n.Estatus;
+                                    Guardar.TipoComprobante = n.TipoComprobante;
+                                    Guardar.Telefono = n.Telefono;
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Sala = n.Sala;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.Direccion = n.Direccion;
+                                    Guardar.Sexo = n.Sexo;
+                                    Guardar.Email = n.Email;
+                                    Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                    Guardar.FechaFacturacion = n.FechaFacturacion;
+                                    Guardar.FechaVencimiento = n.FechaVencimiento;
+                                    Guardar.CantidadDias = n.CantidadDias;
+                                    Guardar.DiasDiferencia = n.DiasDiferencia;
+                                    Guardar.EstatusDias = n.EstatusDias;
+                                    Guardar.CreadoPor = n.Creadopor;
+                                    Guardar.TipoProducto = n.TipoProducto;
+                                    Guardar.Producto = n.ProDucto;
+                                    Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                    Guardar.Precio = n.Precio;
+                                    Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                    Guardar.Total = n.Total;
+                                    Guardar.TotalDescuento = n.TotalDescuento;
+                                    Guardar.SubTotal = n.Subtotal;
+                                    Guardar.Impuesto = n.Impuesto;
+                                    Guardar.TotalGeneral = n.TotalGeneral;
+                                    Guardar.TipoPago = n.TipoPago;
+                                    Guardar.MontoPagado = n.MontoPagado;
+                                    Guardar.EstatusCirugia = n.EstatusCirugia;
+                                    Guardar.TipoVenta = n.TipoVenta;
+                                    Guardar.Balance = n.Balance;
+
+                                    var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                                }
+                                //CARGAMOS EL REPORTE
+                                CargarReporteVentas(Variables.IdUsuario);
+                            }
+
+                        }
+                    }
+                }
+                //HACEMOS LA CONSULTA MEDIANTE EL ESTATUS DE LA FACTURA
+                else if (rbEstatus.Checked)
+                {
+                    if (cbNoagregarRangofecha.Checked)
+                    {
+                        if (string.IsNullOrEmpty(ddlSeleccionar.Text.Trim()))
+                        {
+                            MessageBox.Show("No hay registros cargados para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            var Buscar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Buscar)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+                        }
+                    }
+                    else
+                    {
+                        var Buscar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToDateTime(txtFechaDesde),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                        foreach (var n in Buscar)
+                        {
+
+                            //GUARDAMOS
+
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                            Guardar.IdUsuario = Variables.IdUsuario;
+                            Guardar.NumeroFactura = n.NumeroFactura;
+                            Guardar.NombrePaciente = n.NombrePaciente;
+                            Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                            Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                            Guardar.Estatus = n.Estatus;
+                            Guardar.TipoComprobante = n.TipoComprobante;
+                            Guardar.Telefono = n.Telefono;
+                            Guardar.CentroSalud = n.CentroSalud;
+                            Guardar.Sala = n.Sala;
+                            Guardar.Medico = n.Medico;
+                            Guardar.Direccion = n.Direccion;
+                            Guardar.Sexo = n.Sexo;
+                            Guardar.Email = n.Email;
+                            Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                            Guardar.FechaFacturacion = n.FechaFacturacion;
+                            Guardar.FechaVencimiento = n.FechaVencimiento;
+                            Guardar.CantidadDias = n.CantidadDias;
+                            Guardar.DiasDiferencia = n.DiasDiferencia;
+                            Guardar.EstatusDias = n.EstatusDias;
+                            Guardar.CreadoPor = n.Creadopor;
+                            Guardar.TipoProducto = n.TipoProducto;
+                            Guardar.Producto = n.ProDucto;
+                            Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                            Guardar.Precio = n.Precio;
+                            Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                            Guardar.Total = n.Total;
+                            Guardar.TotalDescuento = n.TotalDescuento;
+                            Guardar.SubTotal = n.Subtotal;
+                            Guardar.Impuesto = n.Impuesto;
+                            Guardar.TotalGeneral = n.TotalGeneral;
+                            Guardar.TipoPago = n.TipoPago;
+                            Guardar.MontoPagado = n.MontoPagado;
+                            Guardar.EstatusCirugia = n.EstatusCirugia;
+                            Guardar.TipoVenta = n.TipoVenta;
+                            Guardar.Balance = n.Balance;
+
+                            var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                        }
+                        //CARGAMOS EL REPORTE
+                        CargarReporteVentas(Variables.IdUsuario);
+                    }
+                }
+                //HACEMOS LA CONSULTA MEDIANTE EL TIPO DE FACTURACION
+                else if (rbTipoFacturacion.Checked)
+                {
+                    if (cbNoagregarRangofecha.Checked)
+                    {
+                        if (string.IsNullOrEmpty(ddlSeleccionar.Text.Trim()))
+                        {
+                            MessageBox.Show("No hay registros cargados para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            var Buscar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Buscar)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(ddlSeleccionar.Text.Trim()))
+                        {
+                            MessageBox.Show("No hay registros cargados para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            var Buscar = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                               new Nullable<decimal>(),
+                               null,
+                               null,
+                               null,
+                               null,
+                               Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                               null,
+                               null,
+                               null,
+                               Convert.ToDateTime(txtFechaDesde.Text),
+                               Convert.ToDateTime(txtFechaHasta.Text),
+                               null,
+                               Convert.ToInt32(txtNumeroPagina.Value),
+                               Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Buscar)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+                        }
+                    }
+                }
+                //HACEMOS LA CONSULTA MEDIANTE EL TIPO DE PAGO
+                else if (rbTipoPago.Checked)
+                {
+                    if (cbNoagregarRangofecha.Checked)
+                    {
+                        if (string.IsNullOrEmpty(ddlSeleccionar.Text.Trim()))
+                        {
+                            MessageBox.Show("No hay registros cargados para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            var TipoPago = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                                null,
+                                null,
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in TipoPago)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(ddlSeleccionar.Text.Trim()))
+                        {
+                            MessageBox.Show("No hay registros cargados para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            var TipoPago = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToDecimal(ddlSeleccionar.SelectedValue),
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in TipoPago)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+                        }
+                    }
+                }
+                //HACEMOS LA CONSULTA MEDIANTE EL NOMBRE DEL PACIENTE
+                else if (rbPaciente.Checked)
+                {
+                    if (cbNoagregarRangofecha.Checked)
+                    {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("Tienes que ingresar el numero de factura para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtParametro.Focus();
+                        }
+                        else
+                        {
+                            var Buscarpaciente = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                                new Nullable<decimal>(),
+                                null,
+                                txtParametro.Text,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Buscarpaciente)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(txtParametro.Text.Trim()))
+                        {
+                            MessageBox.Show("Tienes que ingresar el numero de factura para realizar esta consulta", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtParametro.Focus();
+                        }
+                        else
+                        {
+                            var Buscarpaciente = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                               new Nullable<decimal>(),
+                               null,
+                               txtParametro.Text,
+                               null,
+                               null,
+                               null,
+                               null,
+                               null,
+                               null,
+                               Convert.ToDateTime(txtFechaDesde.Text),
+                               Convert.ToDateTime(txtFechaHasta.Text),
+                               null,
+                               Convert.ToInt32(txtNumeroPagina.Value),
+                               Convert.ToInt32(txtNumeroRegistros.Value));
+                            foreach (var n in Buscarpaciente)
+                            {
+
+                                //GUARDAMOS
+
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = new Logica.Entidades.EntidadHistorial.EGuardarReporteVentas();
+
+                                Guardar.IdUsuario = Variables.IdUsuario;
+                                Guardar.NumeroFactura = n.NumeroFactura;
+                                Guardar.NombrePaciente = n.NombrePaciente;
+                                Guardar.TipoIdentificacion = n.TipoIdentificacion;
+                                Guardar.Numeroidentificacion = n.NumeroIdentificacion;
+                                Guardar.Estatus = n.Estatus;
+                                Guardar.TipoComprobante = n.TipoComprobante;
+                                Guardar.Telefono = n.Telefono;
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Sala = n.Sala;
+                                Guardar.Medico = n.Medico;
+                                Guardar.Direccion = n.Direccion;
+                                Guardar.Sexo = n.Sexo;
+                                Guardar.Email = n.Email;
+                                Guardar.ComentarioPaciente = n.ComentarioPaciente;
+                                Guardar.FechaFacturacion = n.FechaFacturacion;
+                                Guardar.FechaVencimiento = n.FechaVencimiento;
+                                Guardar.CantidadDias = n.CantidadDias;
+                                Guardar.DiasDiferencia = n.DiasDiferencia;
+                                Guardar.EstatusDias = n.EstatusDias;
+                                Guardar.CreadoPor = n.Creadopor;
+                                Guardar.TipoProducto = n.TipoProducto;
+                                Guardar.Producto = n.ProDucto;
+                                Guardar.Cantidad = Convert.ToInt32(n.Cantidad);
+                                Guardar.Precio = n.Precio;
+                                Guardar.DescuentoAplicado = n.DescuentoAplicado;
+                                Guardar.Total = n.Total;
+                                Guardar.TotalDescuento = n.TotalDescuento;
+                                Guardar.SubTotal = n.Subtotal;
+                                Guardar.Impuesto = n.Impuesto;
+                                Guardar.TotalGeneral = n.TotalGeneral;
+                                Guardar.TipoPago = n.TipoPago;
+                                Guardar.MontoPagado = n.MontoPagado;
+                                Guardar.EstatusCirugia = n.EstatusCirugia;
+                                Guardar.TipoVenta = n.TipoVenta;
+                                Guardar.Balance = n.Balance;
+
+                                var MAN = ObjdataHistorial.Value.GuardarReporteVentas(Guardar, "INSERT");
+                            }
+                            //CARGAMOS EL REPORTE
+                            CargarReporteVentas(Variables.IdUsuario);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el reporte, Codigo de Error --> " + ex.Message, Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+        #endregion
+        #region CARGAR REPORTE DE VENTAS
+        private void CargarReporteVentas(decimal IdUsuario)
+        {
+
+        }
+        #endregion
 
         #region MANTENIMIENTO DE HISTORIAL DE FACTURACION COTIZACION
         private void MANHistorialFacturacionCotizacion(string Accion)
@@ -1113,6 +2191,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             Anular.VariablesGlobales.Numerofactura = Variables.Numerofactura;
             Anular.VariablesGlobales.IdEstatusFacturacion = Variables.IdEstatusFacturacion;
             Anular.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CargareporteVentas();
         }
     }
 }

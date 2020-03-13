@@ -83,6 +83,7 @@
     <Compile Include="Entidades\EntidadFacturacion\EMantenimientoProgramacionCirugia.cs" />
     <Compile Include="Entidades\EntidadFacturacion\ESacarCalculosFacturacion.cs" />
     <Compile Include="Entidades\EntidadFacturacion\ETipoPago.cs" />
+    <Compile Include="Entidades\EntidadHistorial\EGuardarReporteVentas.cs" />
     <Compile Include="Entidades\EntidadHistorial\EHistorialFacturacionCotizacion.cs" />
     <Compile Include="Entidades\EntidadHistorial\EMontoFacturacionCotizacion.cs" />
     <Compile Include="Entidades\EntidadInventario\EAlmacen.cs" />

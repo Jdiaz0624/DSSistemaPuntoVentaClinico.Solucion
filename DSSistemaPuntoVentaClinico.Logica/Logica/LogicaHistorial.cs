@@ -438,5 +438,94 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             return Guardar;
         }
         #endregion
+        #region GUARDAR HISTORIAL DE REPORTE DE VENTAS
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas GuardarReporteVentas(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas Guardar = null;
+
+            var ReporteVentas = ObjData.SP_GUARDAR_REPORTE_VENTAS(
+                Item.IdUsuario,
+                Item.NumeroFactura,
+                Item.NombrePaciente,
+                Item.TipoIdentificacion,
+                Item.Numeroidentificacion,
+                Item.Estatus,
+                Item.TipoComprobante,
+                Item.Telefono,
+                Item.CentroSalud,
+                Item.Sala,
+                Item.Medico,
+                Item.Direccion,
+                Item.Sexo,
+                Item.Email,
+                Item.ComentarioPaciente,
+                Item.FechaFacturacion,
+                Item.FechaVencimiento,
+                Item.CantidadDias,
+                Item.DiasDiferencia,
+                Item.EstatusDias,
+                Item.CreadoPor,
+                Item.TipoProducto,
+                Item.Producto,
+                Item.Cantidad,
+                Item.Precio,
+                Item.DescuentoAplicado,
+                Item.Total,
+                Item.TotalDescuento,
+                Item.SubTotal,
+                Item.Impuesto,
+                Item.TotalGeneral,
+                Item.TipoPago,
+                Item.MontoPagado,
+                Item.EstatusCirugia,
+                Item.TipoVenta,
+                Item.Balance,
+                Accion);
+            if (ReporteVentas != null)
+            {
+                Guardar = (from n in ReporteVentas
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteVentas
+                           {
+                               IdUsuario=n.IdUsuario,
+                               NumeroFactura=n.NumeroFactura,
+                               NombrePaciente=n.NombrePaciente,
+                               TipoIdentificacion=n.TipoIdentificacion,
+                               Numeroidentificacion=n.Numeroidentificacion,
+                               Estatus=n.Estatus,
+                               TipoComprobante=n.TipoComprobante,
+                               Telefono=n.Telefono,
+                               CentroSalud=n.CentroSalud,
+                               Sala=n.Sala,
+                               Medico=n.Medico,
+                               Direccion=n.Direccion,
+                               Sexo=n.Sexo,
+                               Email=n.Email,
+                               ComentarioPaciente=n.ComentarioPaciente,
+                               FechaFacturacion=n.FechaFacturacion,
+                               FechaVencimiento=n.FechaVencimiento,
+                               CantidadDias=n.CantidadDias,
+                               DiasDiferencia=n.DiasDiferencia,
+                               EstatusDias=n.EstatusDias,
+                               CreadoPor=n.CreadoPor,
+                               TipoProducto=n.TipoProducto,
+                               Producto=n.Producto,
+                               DescuentoAplicado=n.DescuentoAplicado,
+                               Total=n.Total,
+                               TotalDescuento=n.TotalDescuento,
+                               SubTotal=n.SubTotal,
+                               Impuesto=n.Impuesto,
+                               TotalGeneral=n.TotalGeneral,
+                               TipoPago=n.TipoPago,
+                               MontoPagado=n.MontoPagado,
+                               EstatusCirugia=n.EstatusCirugia,
+                               TipoVenta=n.TipoVenta,
+                               Balance=n.Balance
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+                 
+        }
+        #endregion
     }
 }
