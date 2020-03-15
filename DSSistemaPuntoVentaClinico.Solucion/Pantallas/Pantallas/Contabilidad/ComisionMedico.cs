@@ -13,6 +13,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
     public partial class ComisionMedico : Form
     {
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaContabilidad> ObjData = new Lazy<Logica.Logica.LogicaContabilidad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL LISTADO DE LAS COMISIONES
@@ -136,6 +137,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             }
             FormatoGrid();
         }
+        private void Consultar()
+        {
+            lbLetrero.Text = "Comisión Detalle";
+            MostrarComisiones();
+            txtNumeroPagina.Enabled = true;
+            txtNumeroRegistros.Enabled = true;
+            gbPagoComisiones.Visible = false;
+            btnPagar.Enabled = false;
+            lbComisionPagadaTitulo.Visible = false;
+            lbRespuesta.Visible = false;
+        }
         #endregion
         #region FORMATO DEL GRID
         private void FormatoGrid()
@@ -169,7 +181,40 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         }
         #endregion
         #region SACAR EL NOMBRE DE LA EMPRESA
-        private void SacarNombreEmpresa() { }
+        private void SacarNombreEmpresa() {
+            var SacarInformacionEmpresa = ObjDataConfiguracion.Value.BuscaInformacionEmpresa(1);
+            foreach (var n in SacarInformacionEmpresa) {
+                VariablesGlobales.NombreSistema = n.NombreEmpresa;
+            }
+        }
+        #endregion
+        #region APLICAR PAGO DE COMISION
+        private void AplicarPagoComision()
+        {
+            if (lbRespuesta.Text == "SI")
+            {
+                MessageBox.Show("Esta comisión ya fue pagada, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (MessageBox.Show("¿Quieres aplicar este pago?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico Pagar = new Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico();
+
+                    Pagar.IDComision = VariablesGlobales.IDComisionPagar;
+                    Pagar.IdProgramacionCirugia = VariablesGlobales.IdProgramacionCirugiaPagar;
+                    Pagar.NumeroFactura = VariablesGlobales.NumeroFacturaPagar;
+                    Pagar.NumeroReferencia = VariablesGlobales.NumeroReferenciaPagar;
+                    Pagar.ComisionPagada = true;
+                    Pagar.FechapagoComision = DateTime.Now;
+                    Pagar.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
+
+                    var MAn = ObjData.Value.GuardarComisionesMedicos(Pagar, "UPDATE");
+                    Consultar();
+                    MessageBox.Show("Pago aplicado Exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
         #endregion
 
         public ComisionMedico()
@@ -179,11 +224,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
 
         private void ComisionMedico_Load(object sender, EventArgs e)
         {
+            SacarNombreEmpresa();
             this.dtListado.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dtListado.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
             rbNoPagada.Checked = true;
+            lbLetrero.Text = "Comisión Detalle";
+            lbTitulo.Text = "Generar Comisión a Medicos";
+            lbTitulo.ForeColor = Color.White;
         }
-
+        
         private void ComisionMedico_FormClosing(object sender, FormClosingEventArgs e)
         {
             switch (e.CloseReason)
@@ -196,15 +245,168 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
 
         private void btnControlApertura_Click(object sender, EventArgs e)
         {
-            MostrarComisiones();
+            Consultar();
         }
 
         private void dtListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+                    /*	WHERE IDComision = @IDComision
+                          AND IdProgramacionCirugia = @IdProgramacionCirugia
+                          AND NumeroFactura = @NumeroFactura
+                          AND NumeroReferencia = @NumeroReferencia*/
             if (MessageBox.Show("¿Quieres seleccionar este registro?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                this.VariablesGlobales.IdMantenimiento = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IDComision"].Value.ToString());
 
+                var Buscar = ObjData.Value.BuscaComisionesMedicos(
+                    VariablesGlobales.IdMantenimiento,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    1, 1);
+                foreach (var n in Buscar)
+                {
+                    VariablesGlobales.IDComisionPagar = Convert.ToDecimal(n.IDComision);
+                    VariablesGlobales.IdProgramacionCirugiaPagar = Convert.ToDecimal(n.IdProgramacionCirugia);
+                    VariablesGlobales.NumeroFacturaPagar = Convert.ToDecimal(n.NumeroFactura);
+                    VariablesGlobales.NumeroReferenciaPagar = Convert.ToDecimal(n.NumeroReferencia);
+
+                    txtNombreMedico.Text = n.Medico;
+                    txtNoFactura.Text = n.NumeroFactura.ToString();
+                    txtFechaCirugia.Text = n.FechaCirugia;
+                    VariablesGlobales.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                    txtComisionPagar.Text = VariablesGlobales.ComisionPagar.ToString("N2");
+                    txtMontoPagar.Text = VariablesGlobales.ComisionPagar.ToString("N2");
+                    lbRespuesta.Text = n.ComisionPagada;
+                    if (lbRespuesta.Text == "SI")
+                    {
+                        lbRespuesta.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        lbRespuesta.ForeColor = Color.Green;
+                    }
+                }
+                dtListado.DataSource = Buscar;
+                FormatoGrid();
+                lbLetrero.Text = "Comisión Unica";
+                txtNumeroPagina.Enabled = false;
+                txtNumeroRegistros.Enabled = false;
+                cbTodo.Checked = true;
+                gbPagoComisiones.Visible = true;
+                btnPagar.Enabled = true;
+                lbComisionPagadaTitulo.Visible = true;
+                lbRespuesta.Visible = true;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string DatoLetrero = lbLetrero.Text;
+            if (DatoLetrero == "Comisión Detalle")
+            {
+                MessageBox.Show("Comision detalle");
+            }
+            else
+            {
+                MessageBox.Show("comision unica");
+            }
+        }
+
+        private void txtNumeroPagina_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroPagina.Value < 1)
+            {
+                MessageBox.Show("El numero de pagina no puede ser menor a 1", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNumeroPagina.Value = 1;
+                MostrarComisiones();
+                MessageBox.Show("Comision detalle");
+            }
+            else
+            {
+                MostrarComisiones();
+                MessageBox.Show("Comision detalle");
+            }
+        }
+
+        private void txtNumeroRegistros_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroRegistros.Value < 1)
+            {
+                MessageBox.Show("El numero de registros no puede ser menor a 1", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNumeroRegistros.Value = 10;
+                MostrarComisiones();
+                MessageBox.Show("Comision detalle");
+            }
+            else
+            {
+                MostrarComisiones();
+                MessageBox.Show("Comision detalle");
+            }
+        }
+
+        private void cbTodo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbTodo.Checked == true)
+            {
+                txtMontoPagar.Enabled = false;
+                txtMontoPagar.Text = VariablesGlobales.ComisionPagar.ToString("N2");
+            }
+            else
+            {
+                txtMontoPagar.Text = string.Empty;
+                txtMontoPagar.Enabled = true;
+              
+            }
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            if (cbTodo.Checked == true)
+            {
+                AplicarPagoComision();
+            }
+            else
+            {
+                try {
+                    //VALIDAMOS SI EL CAMPO MONTO ESTA VACIO
+                    if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()))
+                    {
+                        MessageBox.Show("El campo monto no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //PAGAR
+                    }
+                    else
+                    {
+                        //VALIDAMOS QUE EL MONTO INGRESADO NO SUPERE EL MONTO A PAGAR
+                        decimal ComisionPagar, MontoPagar;
+                        ComisionPagar = Convert.ToDecimal(txtComisionPagar.Text);
+                        MontoPagar = Convert.ToDecimal(txtMontoPagar.Text);
+                        if (MontoPagar > ComisionPagar)
+                        {
+                            MessageBox.Show("El monto ingresado supera a la comisión a pagar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            AplicarPagoComision();
+                        }
+                    }
+                }
+                catch (Exception) {
+                    MessageBox.Show("Error al aplicar el pago de comisiones, favor de verificar si el monto ingresado tiene el formato correcto", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+        }
+
+        private void txtMontoPagar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Logica.Comunes.ValidarControles.SoloNumerosDecimales(e);
         }
     }
 }

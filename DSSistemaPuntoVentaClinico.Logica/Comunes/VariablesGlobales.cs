@@ -41,8 +41,15 @@ namespace DSSistemaPuntoVentaClinico.Logica.Comunes
         public bool BloqueaControles { get; set; }
         public int CantidadDias { get; set; }
         public string TipoVenta { get; set; }
+        public decimal ComisionPagar { get; set; }
 
-        
+        public decimal IDComisionPagar { get; set; }
+        public decimal IdProgramacionCirugiaPagar { get; set; }
+        public decimal NumeroFacturaPagar { get; set; }
+        public decimal NumeroReferenciaPagar { get; set; }
+
+
+
 
 
         #region VARIABLES PARA EL PROCESO DE HISTORIAL DE FACTURACION Y COTIZACION

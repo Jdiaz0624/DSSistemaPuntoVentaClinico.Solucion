@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
@@ -51,6 +52,23 @@
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lbLetrero = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnPagar = new System.Windows.Forms.Button();
+            this.gbPagoComisiones = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNombreMedico = new System.Windows.Forms.TextBox();
+            this.txtNoFactura = new System.Windows.Forms.TextBox();
+            this.txtFechaCirugia = new System.Windows.Forms.TextBox();
+            this.txtComisionPagar = new System.Windows.Forms.TextBox();
+            this.txtMontoPagar = new System.Windows.Forms.TextBox();
+            this.cbTodo = new System.Windows.Forms.CheckBox();
+            this.lbComisionPagadaTitulo = new System.Windows.Forms.Label();
+            this.lbRespuesta = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -59,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
+            this.gbPagoComisiones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -105,6 +124,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPagar);
+            this.groupBox1.Controls.Add(this.lbLetrero);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnControlApertura);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -118,7 +139,7 @@
             this.groupBox1.Size = new System.Drawing.Size(719, 209);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Comisiones Filtros";
             // 
             // label1
             // 
@@ -157,11 +178,14 @@
             // cbNoAgregarRangoFecha
             // 
             this.cbNoAgregarRangoFecha.AutoSize = true;
+            this.cbNoAgregarRangoFecha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbNoAgregarRangoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbNoAgregarRangoFecha.Location = new System.Drawing.Point(20, 116);
             this.cbNoAgregarRangoFecha.Name = "cbNoAgregarRangoFecha";
-            this.cbNoAgregarRangoFecha.Size = new System.Drawing.Size(254, 29);
+            this.cbNoAgregarRangoFecha.Size = new System.Drawing.Size(251, 29);
             this.cbNoAgregarRangoFecha.TabIndex = 4;
             this.cbNoAgregarRangoFecha.Text = "No Usar Rango de Fecha";
+            this.toolTip1.SetToolTip(this.cbNoAgregarRangoFecha, "No filtrar por rango de fecha");
             this.cbNoAgregarRangoFecha.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -179,34 +203,43 @@
             // rbAmbos
             // 
             this.rbAmbos.AutoSize = true;
+            this.rbAmbos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbAmbos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbAmbos.Location = new System.Drawing.Point(257, 29);
             this.rbAmbos.Name = "rbAmbos";
-            this.rbAmbos.Size = new System.Drawing.Size(95, 29);
+            this.rbAmbos.Size = new System.Drawing.Size(94, 29);
             this.rbAmbos.TabIndex = 10;
             this.rbAmbos.TabStop = true;
             this.rbAmbos.Text = "Ambos";
+            this.toolTip1.SetToolTip(this.rbAmbos, "Mostrar Ambas comisiones");
             this.rbAmbos.UseVisualStyleBackColor = true;
             // 
             // rbPagada
             // 
             this.rbPagada.AutoSize = true;
+            this.rbPagada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbPagada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbPagada.Location = new System.Drawing.Point(150, 29);
             this.rbPagada.Name = "rbPagada";
-            this.rbPagada.Size = new System.Drawing.Size(101, 29);
+            this.rbPagada.Size = new System.Drawing.Size(100, 29);
             this.rbPagada.TabIndex = 9;
             this.rbPagada.TabStop = true;
             this.rbPagada.Text = "Pagada";
+            this.toolTip1.SetToolTip(this.rbPagada, "Mostrar las Comisiones Pagadas");
             this.rbPagada.UseVisualStyleBackColor = true;
             // 
             // rbNoPagada
             // 
             this.rbNoPagada.AutoSize = true;
+            this.rbNoPagada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbNoPagada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbNoPagada.Location = new System.Drawing.Point(13, 29);
             this.rbNoPagada.Name = "rbNoPagada";
-            this.rbNoPagada.Size = new System.Drawing.Size(131, 29);
+            this.rbNoPagada.Size = new System.Drawing.Size(130, 29);
             this.rbNoPagada.TabIndex = 8;
             this.rbNoPagada.TabStop = true;
             this.rbNoPagada.Text = "No Pagada";
+            this.toolTip1.SetToolTip(this.rbNoPagada, "Mostrar las comisiones que no estan pagadas");
             this.rbNoPagada.UseVisualStyleBackColor = true;
             // 
             // btnControlApertura
@@ -214,7 +247,7 @@
             this.btnControlApertura.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnControlApertura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnControlApertura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnControlApertura.Location = new System.Drawing.Point(20, 151);
+            this.btnControlApertura.Location = new System.Drawing.Point(8, 151);
             this.btnControlApertura.Name = "btnControlApertura";
             this.btnControlApertura.Size = new System.Drawing.Size(230, 47);
             this.btnControlApertura.TabIndex = 6;
@@ -227,12 +260,13 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(256, 151);
+            this.button1.Location = new System.Drawing.Point(244, 151);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(230, 47);
             this.button1.TabIndex = 7;
             this.button1.Text = "Reporte";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtNumeroRegistros
             // 
@@ -252,6 +286,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // lbNumeroRegistros
             // 
@@ -280,6 +315,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
@@ -334,11 +370,185 @@
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 73;
             // 
+            // lbLetrero
+            // 
+            this.lbLetrero.AutoSize = true;
+            this.lbLetrero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLetrero.ForeColor = System.Drawing.Color.Red;
+            this.lbLetrero.Location = new System.Drawing.Point(269, 117);
+            this.lbLetrero.Name = "lbLetrero";
+            this.lbLetrero.Size = new System.Drawing.Size(87, 29);
+            this.lbLetrero.TabIndex = 8;
+            this.lbLetrero.Text = "label3";
+            // 
+            // btnPagar
+            // 
+            this.btnPagar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagar.Enabled = false;
+            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagar.Location = new System.Drawing.Point(481, 151);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(230, 47);
+            this.btnPagar.TabIndex = 9;
+            this.btnPagar.Text = "Pagar";
+            this.toolTip1.SetToolTip(this.btnPagar, "Pagar Comisión seleccionada");
+            this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
+            // 
+            // gbPagoComisiones
+            // 
+            this.gbPagoComisiones.Controls.Add(this.cbTodo);
+            this.gbPagoComisiones.Controls.Add(this.txtMontoPagar);
+            this.gbPagoComisiones.Controls.Add(this.txtComisionPagar);
+            this.gbPagoComisiones.Controls.Add(this.txtFechaCirugia);
+            this.gbPagoComisiones.Controls.Add(this.txtNoFactura);
+            this.gbPagoComisiones.Controls.Add(this.txtNombreMedico);
+            this.gbPagoComisiones.Controls.Add(this.label7);
+            this.gbPagoComisiones.Controls.Add(this.label6);
+            this.gbPagoComisiones.Controls.Add(this.label5);
+            this.gbPagoComisiones.Controls.Add(this.label4);
+            this.gbPagoComisiones.Controls.Add(this.label3);
+            this.gbPagoComisiones.Location = new System.Drawing.Point(737, 55);
+            this.gbPagoComisiones.Name = "gbPagoComisiones";
+            this.gbPagoComisiones.Size = new System.Drawing.Size(486, 204);
+            this.gbPagoComisiones.TabIndex = 40;
+            this.gbPagoComisiones.TabStop = false;
+            this.gbPagoComisiones.Text = "Pago de Comisiones";
+            this.gbPagoComisiones.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(85, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Medico";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(47, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "No. Factura";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 94);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 25);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Fecha Cirugia";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 128);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(151, 25);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Comisión Pagar";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(34, 165);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 25);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Monto Pagar";
+            // 
+            // txtNombreMedico
+            // 
+            this.txtNombreMedico.Enabled = false;
+            this.txtNombreMedico.Location = new System.Drawing.Point(164, 26);
+            this.txtNombreMedico.Name = "txtNombreMedico";
+            this.txtNombreMedico.Size = new System.Drawing.Size(286, 30);
+            this.txtNombreMedico.TabIndex = 5;
+            // 
+            // txtNoFactura
+            // 
+            this.txtNoFactura.Enabled = false;
+            this.txtNoFactura.Location = new System.Drawing.Point(164, 59);
+            this.txtNoFactura.Name = "txtNoFactura";
+            this.txtNoFactura.Size = new System.Drawing.Size(286, 30);
+            this.txtNoFactura.TabIndex = 6;
+            // 
+            // txtFechaCirugia
+            // 
+            this.txtFechaCirugia.Enabled = false;
+            this.txtFechaCirugia.Location = new System.Drawing.Point(164, 92);
+            this.txtFechaCirugia.Name = "txtFechaCirugia";
+            this.txtFechaCirugia.Size = new System.Drawing.Size(286, 30);
+            this.txtFechaCirugia.TabIndex = 7;
+            // 
+            // txtComisionPagar
+            // 
+            this.txtComisionPagar.Enabled = false;
+            this.txtComisionPagar.Location = new System.Drawing.Point(163, 126);
+            this.txtComisionPagar.Name = "txtComisionPagar";
+            this.txtComisionPagar.Size = new System.Drawing.Size(286, 30);
+            this.txtComisionPagar.TabIndex = 8;
+            this.txtComisionPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
+            // 
+            // txtMontoPagar
+            // 
+            this.txtMontoPagar.Location = new System.Drawing.Point(162, 162);
+            this.txtMontoPagar.Name = "txtMontoPagar";
+            this.txtMontoPagar.Size = new System.Drawing.Size(187, 30);
+            this.txtMontoPagar.TabIndex = 9;
+            this.txtMontoPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
+            // 
+            // cbTodo
+            // 
+            this.cbTodo.AutoSize = true;
+            this.cbTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbTodo.Location = new System.Drawing.Point(355, 161);
+            this.cbTodo.Name = "cbTodo";
+            this.cbTodo.Size = new System.Drawing.Size(77, 29);
+            this.cbTodo.TabIndex = 10;
+            this.cbTodo.Text = "Todo";
+            this.toolTip1.SetToolTip(this.cbTodo, "Pagar Todo");
+            this.cbTodo.UseVisualStyleBackColor = true;
+            this.cbTodo.CheckedChanged += new System.EventHandler(this.cbTodo_CheckedChanged);
+            // 
+            // lbComisionPagadaTitulo
+            // 
+            this.lbComisionPagadaTitulo.AutoSize = true;
+            this.lbComisionPagadaTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbComisionPagadaTitulo.ForeColor = System.Drawing.Color.Black;
+            this.lbComisionPagadaTitulo.Location = new System.Drawing.Point(416, 573);
+            this.lbComisionPagadaTitulo.Name = "lbComisionPagadaTitulo";
+            this.lbComisionPagadaTitulo.Size = new System.Drawing.Size(237, 29);
+            this.lbComisionPagadaTitulo.TabIndex = 10;
+            this.lbComisionPagadaTitulo.Text = "Comisión Pagada:";
+            this.lbComisionPagadaTitulo.Visible = false;
+            // 
+            // lbRespuesta
+            // 
+            this.lbRespuesta.AutoSize = true;
+            this.lbRespuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRespuesta.ForeColor = System.Drawing.Color.Black;
+            this.lbRespuesta.Location = new System.Drawing.Point(659, 573);
+            this.lbRespuesta.Name = "lbRespuesta";
+            this.lbRespuesta.Size = new System.Drawing.Size(52, 29);
+            this.lbRespuesta.TabIndex = 41;
+            this.lbRespuesta.Text = "NO";
+            this.lbRespuesta.Visible = false;
+            // 
             // ComisionMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 615);
+            this.Controls.Add(this.lbRespuesta);
+            this.Controls.Add(this.lbComisionPagadaTitulo);
+            this.Controls.Add(this.gbPagoComisiones);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.lbNumeroRegistros);
             this.Controls.Add(this.txtNumeroPagina);
@@ -365,6 +575,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
             this.gbListado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
+            this.gbPagoComisiones.ResumeLayout(false);
+            this.gbPagoComisiones.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,5 +607,22 @@
         private System.Windows.Forms.GroupBox gbListado;
         private System.Windows.Forms.DataGridView dtListado;
         private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private System.Windows.Forms.Label lbLetrero;
+        private System.Windows.Forms.Button btnPagar;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.GroupBox gbPagoComisiones;
+        private System.Windows.Forms.CheckBox cbTodo;
+        private System.Windows.Forms.TextBox txtMontoPagar;
+        private System.Windows.Forms.TextBox txtComisionPagar;
+        private System.Windows.Forms.TextBox txtFechaCirugia;
+        private System.Windows.Forms.TextBox txtNoFactura;
+        private System.Windows.Forms.TextBox txtNombreMedico;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbComisionPagadaTitulo;
+        private System.Windows.Forms.Label lbRespuesta;
     }
 }
