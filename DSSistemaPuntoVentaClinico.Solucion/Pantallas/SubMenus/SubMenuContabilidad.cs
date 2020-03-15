@@ -43,5 +43,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             Historial.VariablesGlobales.IdUsuario = Convert.ToInt32(lbUsuario.Text);
             Historial.ShowDialog();
         }
+
+        private void btnComisionMedico_Click(object sender, EventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad.ComisionMedico Comision = new Pantallas.Contabilidad.ComisionMedico();
+            Comision.VariablesGlobales.IdUsuario = Convert.ToInt32(lbUsuario.Text);
+            Comision.ShowDialog();
+        }
     }
 }

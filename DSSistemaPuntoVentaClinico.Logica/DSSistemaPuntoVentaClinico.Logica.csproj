@@ -66,8 +66,10 @@
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneralSistema.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EInformacionEmpresa.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EMantenimientoInformacionEmpresa.cs" />
+    <Compile Include="Entidades\EntidadesContabilidad\EBuscaComisionesMedicos.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\EBuscaCuentasPorCobrar.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\EGeneraComprobanteFiscal.cs" />
+    <Compile Include="Entidades\EntidadesContabilidad\EGuardarComisionesMedico.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\EGuardarCuentasPorPagar.cs" />
     <Compile Include="Entidades\EntidadesContabilidad\EMantenimientoComprobantesFiscales.cs" />
     <Compile Include="Entidades\EntidadFacturacion\EBuscaCalculosFactura.cs" />

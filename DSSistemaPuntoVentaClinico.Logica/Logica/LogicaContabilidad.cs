@@ -172,6 +172,86 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         }
         #endregion
 
+        #region MANTENIMIENTO DE COMISION DE MEDICO
+        //BUSCA LAS COMISIONES DE LOS MEDICOS
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EBuscaComisionesMedicos> BuscaComisionesMedicos(decimal? IDComision = null, decimal? IdProgramacionCirugia = null, decimal? NumeroFactura = null, decimal? NumeroReferencia = null, decimal? IdCentroSalud = null, decimal? IdMedico = null, decimal? IdAsistente = null, DateTime? FechaCirugiaDesde = null, DateTime? FechaCirugiaHasta = null, bool? ComisionPagada = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            var Buscar = (from n in Objdata.SP_BUSCA_COMISIONES_MEDICOS(IDComision, IdProgramacionCirugia, NumeroFactura, NumeroReferencia, IdCentroSalud, IdMedico, IdAsistente, FechaCirugiaDesde, FechaCirugiaHasta, ComisionPagada, NumeroPagina, NumeroRegistros)
+                          select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EBuscaComisionesMedicos
+                          {
+                              IDComision=n.IDComision,
+                              IdProgramacionCirugia=n.IdProgramacionCirugia,
+                              NumeroFactura=n.NumeroFactura,
+                              Cliente=n.Cliente,
+                              Paciente=n.Paciente,
+                              NumeroReferencia=n.NumeroReferencia,
+                              IdCentroSalud=n.IdCentroSalud,
+                              CentroSalud=n.CentroSalud,
+                              Telefonos=n.Telefonos,
+                              Direccion=n.Direccion,
+                              Idmedico=n.Idmedico,
+                              Medico=n.Medico,
+                              PorcComisionMedico=n.PorcComisionMedico,
+                              Impuesto=n.Impuesto,
+                              TipoVenta0=n.TipoVenta0,
+                              TipoVenta=n.TipoVenta,
+                              MontoFactura=n.MontoFactura,
+                              MontoFacturaNeta=n.MontoFacturaNeta,
+                              ComisionPagar=n.ComisionPagar,
+                              IdAsistente=n.IdAsistente,
+                              FechaCirugia0=n.FechaCirugia0,
+                              FechaCirugia=n.FechaCirugia,
+                              Hora=n.Hora,
+                              ComisionPagada0=n.ComisionPagada0,
+                              ComisionPagada=n.ComisionPagada,
+                              FechapagoComision0=n.FechapagoComision0,
+                              FechapagoComision=n.FechapagoComision,
+                              MontoPagado=n.MontoPagado
+                          }).ToList();
+            return Buscar;
+        }
+        //GUARDAR LOS DATOS DE LA COMISIONES DE LOS MEDICOS
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico GuardarComisionesMedicos(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico Item, string Accion)
+        {
+            Objdata.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico Guardar = null;
+
+            var ComisionMedico = Objdata.SP_GUARDAR_COMISION_MEDICO(
+                Item.IDComision,
+                Item.IdProgramacionCirugia,
+                Item.NumeroFactura,
+                Item.NumeroReferencia,
+                Item.IdCentroSalud,
+                Item.Idmedico,
+                Item.IdAsistente,
+                Item.FechaCirugia,
+                Item.ComisionPagada,
+                Item.MontoPagado,
+                Accion);
+            if (ComisionMedico != null)
+            {
+                Guardar = (from n in ComisionMedico
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico
+                           {
+                               IDComision=n.IDComision,
+                               IdProgramacionCirugia=n.IdProgramacionCirugia,
+                               NumeroFactura=n.NumeroFactura,
+                               NumeroReferencia=n.NumeroReferencia,
+                               IdCentroSalud=n.IdCentroSalud,
+                               Idmedico=n.Idmedico,
+                               IdAsistente=n.IdAsistente,
+                               FechaCirugia=n.FechaCirugia,
+                               ComisionPagada=n.ComisionPagada,
+                               MontoPagado=n.MontoPagado,
+                               FechapagoComision=n.FechapagoComision
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
+        #endregion
 
 
     }

@@ -96,6 +96,20 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idCuentaCobrar, idPaciente, rNC, numeroConector, numeroFactura, fechaDesde, fechaHasta, numeroPagina, numeroRegistros);
 			return ((ISingleResult<SP_BUSCA_CUENTAS_POR_COBRARResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Contabilidad.SP_GUARDAR_COMISION_MEDICO")]
+		public ISingleResult<SP_GUARDAR_COMISION_MEDICOResult> SP_GUARDAR_COMISION_MEDICO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDComision", DbType="Decimal(20,0)")] System.Nullable<decimal> iDComision, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProgramacionCirugia", DbType="Decimal(20,0)")] System.Nullable<decimal> idProgramacionCirugia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroReferencia", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroReferencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCentroSalud", DbType="Decimal(20,0)")] System.Nullable<decimal> idCentroSalud, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMedico", DbType="Decimal(20,0)")] System.Nullable<decimal> idMedico, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdAsistente", DbType="Decimal(20,0)")] System.Nullable<decimal> idAsistente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCirugia", DbType="Date")] System.Nullable<System.DateTime> fechaCirugia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ComisionPagada", DbType="Bit")] System.Nullable<bool> comisionPagada, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MontoPagado", DbType="Decimal(20,2)")] System.Nullable<decimal> montoPagado, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDComision, idProgramacionCirugia, numeroFactura, numeroReferencia, idCentroSalud, idMedico, idAsistente, fechaCirugia, comisionPagada, montoPagado, accion);
+			return ((ISingleResult<SP_GUARDAR_COMISION_MEDICOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Contabilidad.SP_BUSCA_COMISIONES_MEDICOS")]
+		public ISingleResult<SP_BUSCA_COMISIONES_MEDICOSResult> SP_BUSCA_COMISIONES_MEDICOS([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDComision", DbType="Decimal(20,0)")] System.Nullable<decimal> iDComision, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProgramacionCirugia", DbType="Decimal(20,0)")] System.Nullable<decimal> idProgramacionCirugia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroFactura", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroFactura, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroReferencia", DbType="Decimal(20,0)")] System.Nullable<decimal> numeroReferencia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdCentroSalud", DbType="Decimal(20,0)")] System.Nullable<decimal> idCentroSalud, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdMedico", DbType="Decimal(20,0)")] System.Nullable<decimal> idMedico, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdAsistente", DbType="Decimal(20,0)")] System.Nullable<decimal> idAsistente, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCirugiaDesde", DbType="Date")] System.Nullable<System.DateTime> fechaCirugiaDesde, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FechaCirugiaHasta", DbType="Date")] System.Nullable<System.DateTime> fechaCirugiaHasta, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ComisionPagada", DbType="Bit")] System.Nullable<bool> comisionPagada, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroPagina", DbType="Int")] System.Nullable<int> numeroPagina, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumeroRegistros", DbType="Int")] System.Nullable<int> numeroRegistros)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iDComision, idProgramacionCirugia, numeroFactura, numeroReferencia, idCentroSalud, idMedico, idAsistente, fechaCirugiaDesde, fechaCirugiaHasta, comisionPagada, numeroPagina, numeroRegistros);
+			return ((ISingleResult<SP_BUSCA_COMISIONES_MEDICOSResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_GENERAR_COMPROBANTE_FISCALResult
@@ -1285,6 +1299,724 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this.@__121_o_Mas != value))
 				{
 					this.@__121_o_Mas = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GUARDAR_COMISION_MEDICOResult
+	{
+		
+		private System.Nullable<decimal> _IDComision;
+		
+		private System.Nullable<decimal> _IdProgramacionCirugia;
+		
+		private System.Nullable<decimal> _NumeroFactura;
+		
+		private System.Nullable<decimal> _NumeroReferencia;
+		
+		private System.Nullable<decimal> _IdCentroSalud;
+		
+		private System.Nullable<decimal> _Idmedico;
+		
+		private System.Nullable<decimal> _IdAsistente;
+		
+		private System.Nullable<System.DateTime> _FechaCirugia;
+		
+		private System.Nullable<bool> _ComisionPagada;
+		
+		private System.Nullable<System.DateTime> _FechapagoComision;
+		
+		private System.Nullable<decimal> _MontoPagado;
+		
+		public SP_GUARDAR_COMISION_MEDICOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDComision", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IDComision
+		{
+			get
+			{
+				return this._IDComision;
+			}
+			set
+			{
+				if ((this._IDComision != value))
+				{
+					this._IDComision = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProgramacionCirugia", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdProgramacionCirugia
+		{
+			get
+			{
+				return this._IdProgramacionCirugia;
+			}
+			set
+			{
+				if ((this._IdProgramacionCirugia != value))
+				{
+					this._IdProgramacionCirugia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroFactura", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroFactura
+		{
+			get
+			{
+				return this._NumeroFactura;
+			}
+			set
+			{
+				if ((this._NumeroFactura != value))
+				{
+					this._NumeroFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroReferencia", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> NumeroReferencia
+		{
+			get
+			{
+				return this._NumeroReferencia;
+			}
+			set
+			{
+				if ((this._NumeroReferencia != value))
+				{
+					this._NumeroReferencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCentroSalud", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCentroSalud
+		{
+			get
+			{
+				return this._IdCentroSalud;
+			}
+			set
+			{
+				if ((this._IdCentroSalud != value))
+				{
+					this._IdCentroSalud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idmedico", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Idmedico
+		{
+			get
+			{
+				return this._Idmedico;
+			}
+			set
+			{
+				if ((this._Idmedico != value))
+				{
+					this._Idmedico = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdAsistente", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdAsistente
+		{
+			get
+			{
+				return this._IdAsistente;
+			}
+			set
+			{
+				if ((this._IdAsistente != value))
+				{
+					this._IdAsistente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCirugia", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaCirugia
+		{
+			get
+			{
+				return this._FechaCirugia;
+			}
+			set
+			{
+				if ((this._FechaCirugia != value))
+				{
+					this._FechaCirugia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComisionPagada", DbType="Bit")]
+		public System.Nullable<bool> ComisionPagada
+		{
+			get
+			{
+				return this._ComisionPagada;
+			}
+			set
+			{
+				if ((this._ComisionPagada != value))
+				{
+					this._ComisionPagada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechapagoComision", DbType="Date")]
+		public System.Nullable<System.DateTime> FechapagoComision
+		{
+			get
+			{
+				return this._FechapagoComision;
+			}
+			set
+			{
+				if ((this._FechapagoComision != value))
+				{
+					this._FechapagoComision = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPagado", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoPagado
+		{
+			get
+			{
+				return this._MontoPagado;
+			}
+			set
+			{
+				if ((this._MontoPagado != value))
+				{
+					this._MontoPagado = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_BUSCA_COMISIONES_MEDICOSResult
+	{
+		
+		private decimal _IDComision;
+		
+		private decimal _IdProgramacionCirugia;
+		
+		private decimal _NumeroFactura;
+		
+		private string _Cliente;
+		
+		private string _Paciente;
+		
+		private decimal _NumeroReferencia;
+		
+		private System.Nullable<decimal> _IdCentroSalud;
+		
+		private string _CentroSalud;
+		
+		private string _Telefonos;
+		
+		private string _Direccion;
+		
+		private System.Nullable<decimal> _Idmedico;
+		
+		private string _Medico;
+		
+		private System.Nullable<decimal> _PorcComisionMedico;
+		
+		private System.Nullable<decimal> _Impuesto;
+		
+		private System.Nullable<decimal> _TipoVenta0;
+		
+		private string _TipoVenta;
+		
+		private System.Nullable<decimal> _MontoFactura;
+		
+		private System.Nullable<decimal> _MontoFacturaNeta;
+		
+		private System.Nullable<decimal> _ComisionPagar;
+		
+		private System.Nullable<decimal> _IdAsistente;
+		
+		private System.Nullable<System.DateTime> _FechaCirugia0;
+		
+		private string _FechaCirugia;
+		
+		private string _Hora;
+		
+		private System.Nullable<bool> _ComisionPagada0;
+		
+		private string _ComisionPagada;
+		
+		private System.Nullable<System.DateTime> _FechapagoComision0;
+		
+		private string _FechapagoComision;
+		
+		private System.Nullable<decimal> _MontoPagado;
+		
+		public SP_BUSCA_COMISIONES_MEDICOSResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDComision", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IDComision
+		{
+			get
+			{
+				return this._IDComision;
+			}
+			set
+			{
+				if ((this._IDComision != value))
+				{
+					this._IDComision = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProgramacionCirugia", DbType="Decimal(20,0) NOT NULL")]
+		public decimal IdProgramacionCirugia
+		{
+			get
+			{
+				return this._IdProgramacionCirugia;
+			}
+			set
+			{
+				if ((this._IdProgramacionCirugia != value))
+				{
+					this._IdProgramacionCirugia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroFactura", DbType="Decimal(20,0) NOT NULL")]
+		public decimal NumeroFactura
+		{
+			get
+			{
+				return this._NumeroFactura;
+			}
+			set
+			{
+				if ((this._NumeroFactura != value))
+				{
+					this._NumeroFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cliente", DbType="VarChar(100)")]
+		public string Cliente
+		{
+			get
+			{
+				return this._Cliente;
+			}
+			set
+			{
+				if ((this._Cliente != value))
+				{
+					this._Cliente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paciente", DbType="VarChar(100)")]
+		public string Paciente
+		{
+			get
+			{
+				return this._Paciente;
+			}
+			set
+			{
+				if ((this._Paciente != value))
+				{
+					this._Paciente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroReferencia", DbType="Decimal(20,0) NOT NULL")]
+		public decimal NumeroReferencia
+		{
+			get
+			{
+				return this._NumeroReferencia;
+			}
+			set
+			{
+				if ((this._NumeroReferencia != value))
+				{
+					this._NumeroReferencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCentroSalud", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdCentroSalud
+		{
+			get
+			{
+				return this._IdCentroSalud;
+			}
+			set
+			{
+				if ((this._IdCentroSalud != value))
+				{
+					this._IdCentroSalud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CentroSalud", DbType="VarChar(200)")]
+		public string CentroSalud
+		{
+			get
+			{
+				return this._CentroSalud;
+			}
+			set
+			{
+				if ((this._CentroSalud != value))
+				{
+					this._CentroSalud = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefonos", DbType="VarChar(100)")]
+		public string Telefonos
+		{
+			get
+			{
+				return this._Telefonos;
+			}
+			set
+			{
+				if ((this._Telefonos != value))
+				{
+					this._Telefonos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(8000)")]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this._Direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Idmedico", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> Idmedico
+		{
+			get
+			{
+				return this._Idmedico;
+			}
+			set
+			{
+				if ((this._Idmedico != value))
+				{
+					this._Idmedico = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Medico", DbType="VarChar(100)")]
+		public string Medico
+		{
+			get
+			{
+				return this._Medico;
+			}
+			set
+			{
+				if ((this._Medico != value))
+				{
+					this._Medico = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PorcComisionMedico", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> PorcComisionMedico
+		{
+			get
+			{
+				return this._PorcComisionMedico;
+			}
+			set
+			{
+				if ((this._PorcComisionMedico != value))
+				{
+					this._PorcComisionMedico = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Impuesto", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> Impuesto
+		{
+			get
+			{
+				return this._Impuesto;
+			}
+			set
+			{
+				if ((this._Impuesto != value))
+				{
+					this._Impuesto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoVenta0", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> TipoVenta0
+		{
+			get
+			{
+				return this._TipoVenta0;
+			}
+			set
+			{
+				if ((this._TipoVenta0 != value))
+				{
+					this._TipoVenta0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoVenta", DbType="VarChar(20)")]
+		public string TipoVenta
+		{
+			get
+			{
+				return this._TipoVenta;
+			}
+			set
+			{
+				if ((this._TipoVenta != value))
+				{
+					this._TipoVenta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoFactura", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoFactura
+		{
+			get
+			{
+				return this._MontoFactura;
+			}
+			set
+			{
+				if ((this._MontoFactura != value))
+				{
+					this._MontoFactura = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoFacturaNeta", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoFacturaNeta
+		{
+			get
+			{
+				return this._MontoFacturaNeta;
+			}
+			set
+			{
+				if ((this._MontoFacturaNeta != value))
+				{
+					this._MontoFacturaNeta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComisionPagar", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> ComisionPagar
+		{
+			get
+			{
+				return this._ComisionPagar;
+			}
+			set
+			{
+				if ((this._ComisionPagar != value))
+				{
+					this._ComisionPagar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdAsistente", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdAsistente
+		{
+			get
+			{
+				return this._IdAsistente;
+			}
+			set
+			{
+				if ((this._IdAsistente != value))
+				{
+					this._IdAsistente = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCirugia0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechaCirugia0
+		{
+			get
+			{
+				return this._FechaCirugia0;
+			}
+			set
+			{
+				if ((this._FechaCirugia0 != value))
+				{
+					this._FechaCirugia0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCirugia", DbType="NVarChar(4000)")]
+		public string FechaCirugia
+		{
+			get
+			{
+				return this._FechaCirugia;
+			}
+			set
+			{
+				if ((this._FechaCirugia != value))
+				{
+					this._FechaCirugia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Hora", DbType="VarChar(20)")]
+		public string Hora
+		{
+			get
+			{
+				return this._Hora;
+			}
+			set
+			{
+				if ((this._Hora != value))
+				{
+					this._Hora = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComisionPagada0", DbType="Bit")]
+		public System.Nullable<bool> ComisionPagada0
+		{
+			get
+			{
+				return this._ComisionPagada0;
+			}
+			set
+			{
+				if ((this._ComisionPagada0 != value))
+				{
+					this._ComisionPagada0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComisionPagada", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string ComisionPagada
+		{
+			get
+			{
+				return this._ComisionPagada;
+			}
+			set
+			{
+				if ((this._ComisionPagada != value))
+				{
+					this._ComisionPagada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechapagoComision0", DbType="Date")]
+		public System.Nullable<System.DateTime> FechapagoComision0
+		{
+			get
+			{
+				return this._FechapagoComision0;
+			}
+			set
+			{
+				if ((this._FechapagoComision0 != value))
+				{
+					this._FechapagoComision0 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechapagoComision", DbType="NVarChar(4000)")]
+		public string FechapagoComision
+		{
+			get
+			{
+				return this._FechapagoComision;
+			}
+			set
+			{
+				if ((this._FechapagoComision != value))
+				{
+					this._FechapagoComision = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MontoPagado", DbType="Decimal(20,2)")]
+		public System.Nullable<decimal> MontoPagado
+		{
+			get
+			{
+				return this._MontoPagado;
+			}
+			set
+			{
+				if ((this._MontoPagado != value))
+				{
+					this._MontoPagado = value;
 				}
 			}
 		}

@@ -116,4 +116,74 @@
       <Column Name="[121 o Mas]" Member="_121_o_Mas" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="Contabilidad.SP_GUARDAR_COMISION_MEDICO" Method="SP_GUARDAR_COMISION_MEDICO">
+    <Parameter Name="IDComision" Parameter="iDComision" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdProgramacionCirugia" Parameter="idProgramacionCirugia" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroReferencia" Parameter="numeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdCentroSalud" Parameter="idCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdMedico" Parameter="idMedico" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdAsistente" Parameter="idAsistente" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="FechaCirugia" Parameter="fechaCirugia" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ComisionPagada" Parameter="comisionPagada" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MontoPagado" Parameter="montoPagado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GUARDAR_COMISION_MEDICOResult">
+      <Column Name="IDComision" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdProgramacionCirugia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Idmedico" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdAsistente" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaCirugia" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ComisionPagada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FechapagoComision" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Contabilidad.SP_BUSCA_COMISIONES_MEDICOS" Method="SP_BUSCA_COMISIONES_MEDICOS">
+    <Parameter Name="IDComision" Parameter="iDComision" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdProgramacionCirugia" Parameter="idProgramacionCirugia" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroReferencia" Parameter="numeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdCentroSalud" Parameter="idCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdMedico" Parameter="idMedico" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdAsistente" Parameter="idAsistente" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="FechaCirugiaDesde" Parameter="fechaCirugiaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaCirugiaHasta" Parameter="fechaCirugiaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ComisionPagada" Parameter="comisionPagada" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_COMISIONES_MEDICOSResult">
+      <Column Name="IDComision" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="IdProgramacionCirugia" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Cliente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Paciente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NumeroReferencia" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="IdCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CentroSalud" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Telefonos" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="Idmedico" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Medico" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PorcComisionMedico" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Impuesto" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="TipoVenta0" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="TipoVenta" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MontoFactura" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoFacturaNeta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ComisionPagar" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="IdAsistente" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaCirugia0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaCirugia" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Hora" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ComisionPagada0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ComisionPagada" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="FechapagoComision0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechapagoComision" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

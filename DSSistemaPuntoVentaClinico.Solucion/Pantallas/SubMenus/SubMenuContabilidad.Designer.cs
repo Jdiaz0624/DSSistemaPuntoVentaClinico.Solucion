@@ -31,13 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubMenuContabilidad));
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnHistorialPagos = new System.Windows.Forms.Button();
             this.btnControlApertura = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lbTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbUsuario = new System.Windows.Forms.Label();
-            this.btnHistorialPagos = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.btnComisionMedico = new System.Windows.Forms.Button();
             this.gbOpciones.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -45,6 +46,7 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.btnComisionMedico);
             this.gbOpciones.Controls.Add(this.btnHistorialPagos);
             this.gbOpciones.Controls.Add(this.btnControlApertura);
             this.gbOpciones.Location = new System.Drawing.Point(12, 50);
@@ -53,6 +55,20 @@
             this.gbOpciones.TabIndex = 10;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Contabilidad - Seleccionar Opcion";
+            // 
+            // btnHistorialPagos
+            // 
+            this.btnHistorialPagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistorialPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorialPagos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorialPagos.Location = new System.Drawing.Point(242, 29);
+            this.btnHistorialPagos.Name = "btnHistorialPagos";
+            this.btnHistorialPagos.Size = new System.Drawing.Size(230, 68);
+            this.btnHistorialPagos.TabIndex = 1;
+            this.btnHistorialPagos.Text = "Historial de Pagos";
+            this.toolTip1.SetToolTip(this.btnHistorialPagos, "Mantenimiento de Control de Apertura");
+            this.btnHistorialPagos.UseVisualStyleBackColor = true;
+            this.btnHistorialPagos.Click += new System.EventHandler(this.btnHistorialPagos_Click);
             // 
             // btnControlApertura
             // 
@@ -73,7 +89,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(3, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
             this.lbTitulo.TabIndex = 14;
             this.lbTitulo.Text = "label6";
             // 
@@ -94,24 +110,10 @@
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Location = new System.Drawing.Point(344, 10);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(51, 20);
+            this.lbUsuario.Size = new System.Drawing.Size(64, 25);
             this.lbUsuario.TabIndex = 15;
             this.lbUsuario.Text = "label6";
             this.lbUsuario.Visible = false;
-            // 
-            // btnHistorialPagos
-            // 
-            this.btnHistorialPagos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHistorialPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorialPagos.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistorialPagos.Location = new System.Drawing.Point(242, 29);
-            this.btnHistorialPagos.Name = "btnHistorialPagos";
-            this.btnHistorialPagos.Size = new System.Drawing.Size(230, 68);
-            this.btnHistorialPagos.TabIndex = 1;
-            this.btnHistorialPagos.Text = "Historial de Pagos";
-            this.toolTip1.SetToolTip(this.btnHistorialPagos, "Mantenimiento de Control de Apertura");
-            this.btnHistorialPagos.UseVisualStyleBackColor = true;
-            this.btnHistorialPagos.Click += new System.EventHandler(this.btnHistorialPagos_Click);
             // 
             // btnCerrar
             // 
@@ -125,9 +127,23 @@
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // btnComisionMedico
+            // 
+            this.btnComisionMedico.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnComisionMedico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComisionMedico.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComisionMedico.Location = new System.Drawing.Point(478, 29);
+            this.btnComisionMedico.Name = "btnComisionMedico";
+            this.btnComisionMedico.Size = new System.Drawing.Size(230, 68);
+            this.btnComisionMedico.TabIndex = 2;
+            this.btnComisionMedico.Text = "Comisiones";
+            this.toolTip1.SetToolTip(this.btnComisionMedico, "Generar las Comisiones para los medicos");
+            this.btnComisionMedico.UseVisualStyleBackColor = true;
+            this.btnComisionMedico.Click += new System.EventHandler(this.btnComisionMedico_Click);
+            // 
             // SubMenuContabilidad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;
@@ -162,5 +178,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbUsuario;
         private System.Windows.Forms.Button btnHistorialPagos;
+        private System.Windows.Forms.Button btnComisionMedico;
     }
 }

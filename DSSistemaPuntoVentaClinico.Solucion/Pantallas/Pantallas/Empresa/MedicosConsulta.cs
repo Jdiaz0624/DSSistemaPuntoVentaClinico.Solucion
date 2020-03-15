@@ -57,6 +57,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
             this.dtListado.Columns["FechaAdiciona0"].Visible = false;
             this.dtListado.Columns["UsuarioModifica"].Visible = false;
             this.dtListado.Columns["FechaModifica0"].Visible = false;
+            dtListado.Columns["PorcComision"].DefaultCellStyle.Format = "n0";
         }
 
         //RESTABLECER PANTALLA

@@ -42,6 +42,6 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadEmpresa
         public System.Nullable<System.DateTime> fechaModifica0 {get;set;}
 
         public string FechaModifica {get;set;}
-        public System.Nullable<int> PorcComision { get; set; }
+        public System.Nullable<decimal> PorcComision { get; set; }
     }
 }

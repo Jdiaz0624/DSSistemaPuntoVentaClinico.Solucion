@@ -22,6 +22,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaEmpresa> ObjDataEmpresa = new Lazy<Logica.Logica.LogicaEmpresa>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaContabilidad> ObjDataContabilidad = new Lazy<Logica.Logica.LogicaContabilidad>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CAMBIAR EL ESTATUS DE LA LA CIRUGIA
@@ -257,12 +258,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Mantenimiento.FechaModifica = DateTime.Now;
             Mantenimiento.Comentario = txtComentario.Text;
 
+            
+
+            var MAN = ObjDataFacturacion.Value.MantenimientoProgramacionCirugia(Mantenimiento, VariablesGlobales.AccionTomar);
             if (VariablesGlobales.AccionTomar == "INSERT")
             {
                 MANChangeStatus();
+                GuardarComisionMedico();
             }
-
-            var MAN = ObjDataFacturacion.Value.MantenimientoProgramacionCirugia(Mantenimiento, VariablesGlobales.AccionTomar);
             if (VariablesGlobales.AccionTomar != "INSERT")
             {
 
@@ -333,6 +336,49 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     ddlCentroSalud.DisplayMember = "Nombre";
                     ddlCentroSalud.ValueMember = "IdCentroSalud";
                 }
+            }
+        }
+        #endregion
+
+        #region GUARDAR LAS COMISIONES DE LOS MEDICOS
+        private void GuardarComisionMedico()
+        {
+            try {
+
+                //SACAMOS EL NUMERO DE PROGRAMACION DE CIRUGIA MEDIANTE EL NUMERO DE FACTURA
+                decimal IdProgramacioncirugia = 0;
+                var SacarNumeroProgramacionCirugia = ObjDataFacturacion.Value.BuscaProgramacionCirugia(
+                    new Nullable<decimal>(),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    Convert.ToDecimal(lbNumeroFactura.Text),
+                    1, 1);
+                foreach (var n in SacarNumeroProgramacionCirugia)
+                {
+                    IdProgramacioncirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                }
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico GuardarComision = new Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico();
+
+                GuardarComision.IDComision = 0;
+                GuardarComision.IdProgramacionCirugia = IdProgramacioncirugia;
+                GuardarComision.NumeroFactura = Convert.ToDecimal(lbNumeroFactura.Text);
+                GuardarComision.NumeroReferencia = Convert.ToDecimal(lbNumeroReferencia.Text);
+                GuardarComision.IdCentroSalud = Convert.ToDecimal(ddlCentroSalud.SelectedValue);
+                GuardarComision.Idmedico = Convert.ToDecimal(ddlMedico.SelectedValue);
+                GuardarComision.IdAsistente = Convert.ToDecimal(ddlAsistenteCirugia.SelectedValue);
+                GuardarComision.FechaCirugia = Convert.ToDateTime(txtFechaCirugia.Text);
+                GuardarComision.ComisionPagada = false;
+                GuardarComision.FechapagoComision = null;
+                GuardarComision.MontoPagado = 0;
+
+                var MAN = ObjDataContabilidad.Value.GuardarComisionesMedicos(GuardarComision, "INSERT");
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al guardar la comision del medico, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         #endregion

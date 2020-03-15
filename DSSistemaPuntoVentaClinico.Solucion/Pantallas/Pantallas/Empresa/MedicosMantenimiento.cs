@@ -81,7 +81,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     ddlCentroSalud.Text = n.CentroSalud;
                     cbEstatus.Checked = (n.Estatus0.HasValue ? n.Estatus0.Value : false);
                     txtTelefono.Text = n.Telefono;
-                    txtPorcientoComision.Text = n.PorcComision.ToString();
+                    decimal PorcientoComision = Convert.ToDecimal(n.PorcComision);
+                    txtPorcientoComision.Text = PorcientoComision.ToString("N0");
                 }
                 if (cbEstatus.Checked == true)
                 {
@@ -127,7 +128,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Empresa
                     Mantenimiento.UsuarioModifica = VariablesGlobales.IdUsuario;
                     Mantenimiento.fechaModifica0 = DateTime.Now;
                     Mantenimiento.Telefono = txtTelefono.Text;
-                    Mantenimiento.PorcComision = Convert.ToInt32(txtPorcientoComision.Text);
+                    Mantenimiento.PorcComision = Convert.ToDecimal(txtPorcientoComision.Text);
 
                     var MAN = ObjDataEmpresa.Value.Mantenimientomedicos(Mantenimiento, VariablesGlobales.AccionTomar);
 
