@@ -527,5 +527,56 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                  
         }
         #endregion
+        #region GUARDAR LOS DATOS PARA EL REPORTE DE COMISION DE MEDICO DETALLE
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle GuardarComisionMedicoDetalle(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = null;
+
+            var ReporteComisionMedicoDetalle = ObjData.SP_GUARDAR_REPORTE_COMISION_MEDICO_DETALLE(
+                  Item.IdUsuario
+                , Item.IDComision
+                , Item.IdProgramacionCirugia
+                , Item.NumeroFactura
+                , Item.NumeroReferencia
+                , Item.CentroSalud
+                , Item.Medico
+                , Item.PorcComisionMedico
+                , Item.MontoFactura
+                , Item.MontoFacturaNeta
+                , Item.ComisionPagar
+                , Item.FechaCirugia
+                , Item.Hora
+                , Item.ComisionPagada
+                , Item.FechaPagoComision
+                , Item.MontoPagado
+                , Accion);
+            if (ReporteComisionMedicoDetalle != null)
+            {
+                Guardar = (from n in ReporteComisionMedicoDetalle
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle
+                           {
+                               IdUsuario=n.IdUsuario,
+                               IDComision=n.IDComision,
+                               IdProgramacionCirugia=n.IdProgramacionCirugia,
+                               NumeroFactura=n.NumeroFactura,
+                               NumeroReferencia=n.NumeroReferencia,
+                               CentroSalud=n.CentroSalud,
+                               Medico=n.Medico,
+                               PorcComisionMedico=n.PorcComisionMedico,
+                               MontoFactura=n.MontoFactura,
+                               MontoFacturaNeta=n.MontoFacturaNeta,
+                               ComisionPagar=n.ComisionPagar,
+                               FechaCirugia=n.FechaCirugia,
+                               Hora=n.Hora,
+                               ComisionPagada=n.ComisionPagada,
+                               FechaPagoComision=n.FechaPagoComision,
+                               MontoPagado=n.MontoPagado
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
+        #endregion
     }
 }

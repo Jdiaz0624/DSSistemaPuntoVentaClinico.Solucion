@@ -14,6 +14,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
     {
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaContabilidad> ObjData = new Lazy<Logica.Logica.LogicaContabilidad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjdataReporte = new Lazy<Logica.Logica.LogicaHistorial>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL LISTADO DE LAS COMISIONES
@@ -216,7 +217,335 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             }
         }
         #endregion
+        #region GENERAR REPORTE DETALLE
+        private void GenerarReporteDetalle()
+        {
+            try {
+                if (cbNoAgregarRangoFecha.Checked)
+                {
+                    if (rbNoPagada.Checked == true)
+                    {
+                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
+                            new Nullable<decimal>(),
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            false,
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                        //ELIMINAMOS LOS DATOS 
+                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                        foreach (var n in MostrarListado)
+                        {
+                            //PROCEDEMOS A GUARDAR LOS DATOS
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
 
+                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                            Guardar.CentroSalud = n.CentroSalud;
+                            Guardar.Medico = n.Medico;
+                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                            Guardar.FechaCirugia = n.FechaCirugia;
+                            Guardar.Hora = n.Hora;
+                            Guardar.ComisionPagada = n.ComisionPagada;
+                            Guardar.FechaPagoComision = n.FechapagoComision;
+                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                        }
+
+                        //INVOCAMOS EL REPORTE DETALLE
+                        InvicarReporteDetalle();
+                    }
+                    else if (rbPagada.Checked == true)
+                    {
+                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
+                           new Nullable<decimal>(),
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           true,
+                           Convert.ToInt32(txtNumeroPagina.Value),
+                           Convert.ToInt32(txtNumeroRegistros.Value));
+                        //ELIMINAMOS LOS DATOS 
+                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                        foreach (var n in MostrarListado)
+                        {
+                            //PROCEDEMOS A GUARDAR LOS DATOS
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                            Guardar.CentroSalud = n.CentroSalud;
+                            Guardar.Medico = n.Medico;
+                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                            Guardar.FechaCirugia = n.FechaCirugia;
+                            Guardar.Hora = n.Hora;
+                            Guardar.ComisionPagada = n.ComisionPagada;
+                            Guardar.FechaPagoComision = n.FechapagoComision;
+                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                        }
+
+                        //INVOCAMOS EL REPORTE DETALLE
+                        InvicarReporteDetalle();
+                    }
+                    else if (rbAmbos.Checked == true)
+                    {
+                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
+                           new Nullable<decimal>(),
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           null,
+                           Convert.ToInt32(txtNumeroPagina.Value),
+                           Convert.ToInt32(txtNumeroRegistros.Value));
+                        //ELIMINAMOS LOS DATOS 
+                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                        foreach (var n in MostrarListado)
+                        {
+                            //PROCEDEMOS A GUARDAR LOS DATOS
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                            Guardar.CentroSalud = n.CentroSalud;
+                            Guardar.Medico = n.Medico;
+                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                            Guardar.FechaCirugia = n.FechaCirugia;
+                            Guardar.Hora = n.Hora;
+                            Guardar.ComisionPagada = n.ComisionPagada;
+                            Guardar.FechaPagoComision = n.FechapagoComision;
+                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                        }
+
+                        //INVOCAMOS EL REPORTE DETALLE
+                        InvicarReporteDetalle();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al realizar la consulta", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    if (rbNoPagada.Checked == true)
+                    {
+                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
+                            new Nullable<decimal>(),
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            Convert.ToDateTime(txtFechaDesde.Text),
+                            Convert.ToDateTime(txtFechaHasta.Text),
+                            false,
+                            Convert.ToInt32(txtNumeroPagina.Value),
+                            Convert.ToInt32(txtNumeroRegistros.Value));
+                        //ELIMINAMOS LOS DATOS 
+                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                        foreach (var n in MostrarListado)
+                        {
+                            //PROCEDEMOS A GUARDAR LOS DATOS
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                            Guardar.CentroSalud = n.CentroSalud;
+                            Guardar.Medico = n.Medico;
+                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                            Guardar.FechaCirugia = n.FechaCirugia;
+                            Guardar.Hora = n.Hora;
+                            Guardar.ComisionPagada = n.ComisionPagada;
+                            Guardar.FechaPagoComision = n.FechapagoComision;
+                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                        }
+
+                        //INVOCAMOS EL REPORTE DETALLE
+                        InvicarReporteDetalle();
+                    }
+                    else if (rbPagada.Checked == true)
+                    {
+                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
+                          new Nullable<decimal>(),
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          Convert.ToDateTime(txtFechaDesde.Text),
+                          Convert.ToDateTime(txtFechaHasta.Text),
+                          true,
+                          Convert.ToInt32(txtNumeroPagina.Value),
+                          Convert.ToInt32(txtNumeroRegistros.Value));
+                        //ELIMINAMOS LOS DATOS 
+                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                        foreach (var n in MostrarListado)
+                        {
+                            //PROCEDEMOS A GUARDAR LOS DATOS
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                            Guardar.CentroSalud = n.CentroSalud;
+                            Guardar.Medico = n.Medico;
+                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                            Guardar.FechaCirugia = n.FechaCirugia;
+                            Guardar.Hora = n.Hora;
+                            Guardar.ComisionPagada = n.ComisionPagada;
+                            Guardar.FechaPagoComision = n.FechapagoComision;
+                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                        }
+
+                        //INVOCAMOS EL REPORTE DETALLE
+                        InvicarReporteDetalle();
+                    }
+                    else if (rbAmbos.Checked == true)
+                    {
+                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
+                          new Nullable<decimal>(),
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          null,
+                          Convert.ToDateTime(txtFechaDesde.Text),
+                          Convert.ToDateTime(txtFechaHasta.Text),
+                          null,
+                          Convert.ToInt32(txtNumeroPagina.Value),
+                          Convert.ToInt32(txtNumeroRegistros.Value));
+                        //ELIMINAMOS LOS DATOS 
+                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                        foreach (var n in MostrarListado)
+                        {
+                            //PROCEDEMOS A GUARDAR LOS DATOS
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                            Guardar.CentroSalud = n.CentroSalud;
+                            Guardar.Medico = n.Medico;
+                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                            Guardar.FechaCirugia = n.FechaCirugia;
+                            Guardar.Hora = n.Hora;
+                            Guardar.ComisionPagada = n.ComisionPagada;
+                            Guardar.FechaPagoComision = n.FechapagoComision;
+                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                        }
+
+                        //INVOCAMOS EL REPORTE DETALLE
+                        InvicarReporteDetalle();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al realizar la consulta", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex) { MessageBox.Show("Error al cargar reporte detalle" + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+        #endregion
+        #region INVICAR LOS REPORTES
+        private void InvicarReporteDetalle()
+        {
+
+        }
+        private void InvicarReporteunico() { }
+        #endregion
         public ComisionMedico()
         {
             InitializeComponent();
@@ -311,7 +640,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             string DatoLetrero = lbLetrero.Text;
             if (DatoLetrero == "Comisión Detalle")
             {
-                MessageBox.Show("Comision detalle");
+                GenerarReporteDetalle();
             }
             else
             {

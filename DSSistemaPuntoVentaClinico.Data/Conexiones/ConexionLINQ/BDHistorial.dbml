@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaFacturacionMedico" Class="BDHistorialDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString4" Provider="System.Data.SqlClient" />
   <Function Name="Reporte.SP_SACAR_RUTA_REPORTE" Method="SP_SACAR_RUTA_REPORTE">
     <Parameter Name="IdReporte" Parameter="idReporte" Type="System.Decimal" DbType="Decimal(20,0)" />
     <ElementType Name="SP_SACAR_RUTA_REPORTEResult">
@@ -401,6 +401,43 @@
       <Column Name="EstatusCirugia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="TipoVenta" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Balance" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_GUARDAR_REPORTE_COMISION_MEDICO_DETALLE" Method="SP_GUARDAR_REPORTE_COMISION_MEDICO_DETALLE">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IDComision" Parameter="iDComision" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdProgramacionCirugia" Parameter="idProgramacionCirugia" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroReferencia" Parameter="numeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="CentroSalud" Parameter="centroSalud" Type="System.String" DbType="VarChar(150)" />
+    <Parameter Name="Medico" Parameter="medico" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="PorcComisionMedico" Parameter="porcComisionMedico" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="MontoFactura" Parameter="montoFactura" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="MontoFacturaNeta" Parameter="montoFacturaNeta" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="ComisionPagar" Parameter="comisionPagar" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="FechaCirugia" Parameter="fechaCirugia" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Hora" Parameter="hora" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ComisionPagada" Parameter="comisionPagada" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="FechaPagoComision" Parameter="fechaPagoComision" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MontoPagado" Parameter="montoPagado" Type="System.Decimal" DbType="Decimal(20,2)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GUARDAR_REPORTE_COMISION_MEDICO_DETALLEResult">
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IDComision" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdProgramacionCirugia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CentroSalud" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Medico" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PorcComisionMedico" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoFactura" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="MontoFacturaNeta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="ComisionPagar" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="FechaCirugia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Hora" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ComisionPagada" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="FechaPagoComision" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
