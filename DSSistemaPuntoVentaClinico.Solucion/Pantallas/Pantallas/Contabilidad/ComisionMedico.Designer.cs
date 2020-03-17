@@ -34,17 +34,19 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lbTitulo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.cbNoAgregarRangoFecha = new System.Windows.Forms.CheckBox();
+            this.btnPagar = new System.Windows.Forms.Button();
+            this.lbLetrero = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnControlApertura = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbAmbos = new System.Windows.Forms.RadioButton();
             this.rbPagada = new System.Windows.Forms.RadioButton();
             this.rbNoPagada = new System.Windows.Forms.RadioButton();
-            this.btnControlApertura = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cbNoAgregarRangoFecha = new System.Windows.Forms.CheckBox();
+            this.txtFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
@@ -52,21 +54,19 @@
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lbLetrero = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnPagar = new System.Windows.Forms.Button();
-            this.gbPagoComisiones = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtNombreMedico = new System.Windows.Forms.TextBox();
-            this.txtNoFactura = new System.Windows.Forms.TextBox();
-            this.txtFechaCirugia = new System.Windows.Forms.TextBox();
-            this.txtComisionPagar = new System.Windows.Forms.TextBox();
-            this.txtMontoPagar = new System.Windows.Forms.TextBox();
             this.cbTodo = new System.Windows.Forms.CheckBox();
+            this.gbPagoComisiones = new System.Windows.Forms.GroupBox();
+            this.txtMontoPagar = new System.Windows.Forms.TextBox();
+            this.txtComisionPagar = new System.Windows.Forms.TextBox();
+            this.txtFechaCirugia = new System.Windows.Forms.TextBox();
+            this.txtNoFactura = new System.Windows.Forms.TextBox();
+            this.txtNombreMedico = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbComisionPagadaTitulo = new System.Windows.Forms.Label();
             this.lbRespuesta = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -112,6 +112,7 @@
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 11;
             this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lbTitulo
             // 
@@ -141,52 +142,57 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Comisiones Filtros";
             // 
-            // label1
+            // btnPagar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Fecha Desde";
+            this.btnPagar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagar.Enabled = false;
+            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagar.Location = new System.Drawing.Point(481, 151);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(230, 47);
+            this.btnPagar.TabIndex = 9;
+            this.btnPagar.Text = "Pagar";
+            this.toolTip1.SetToolTip(this.btnPagar, "Pagar Comisión seleccionada");
+            this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
-            // label2
+            // lbLetrero
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 25);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Fecha Hasta";
+            this.lbLetrero.AutoSize = true;
+            this.lbLetrero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLetrero.ForeColor = System.Drawing.Color.Red;
+            this.lbLetrero.Location = new System.Drawing.Point(269, 117);
+            this.lbLetrero.Name = "lbLetrero";
+            this.lbLetrero.Size = new System.Drawing.Size(87, 29);
+            this.lbLetrero.TabIndex = 8;
+            this.lbLetrero.Text = "label3";
             // 
-            // txtFechaDesde
+            // button1
             // 
-            this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaDesde.Location = new System.Drawing.Point(168, 39);
-            this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(155, 30);
-            this.txtFechaDesde.TabIndex = 2;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(244, 151);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(230, 47);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Reporte";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtFechaHasta
+            // btnControlApertura
             // 
-            this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaHasta.Location = new System.Drawing.Point(168, 75);
-            this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(155, 30);
-            this.txtFechaHasta.TabIndex = 3;
-            // 
-            // cbNoAgregarRangoFecha
-            // 
-            this.cbNoAgregarRangoFecha.AutoSize = true;
-            this.cbNoAgregarRangoFecha.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbNoAgregarRangoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbNoAgregarRangoFecha.Location = new System.Drawing.Point(20, 116);
-            this.cbNoAgregarRangoFecha.Name = "cbNoAgregarRangoFecha";
-            this.cbNoAgregarRangoFecha.Size = new System.Drawing.Size(251, 29);
-            this.cbNoAgregarRangoFecha.TabIndex = 4;
-            this.cbNoAgregarRangoFecha.Text = "No Usar Rango de Fecha";
-            this.toolTip1.SetToolTip(this.cbNoAgregarRangoFecha, "No filtrar por rango de fecha");
-            this.cbNoAgregarRangoFecha.UseVisualStyleBackColor = true;
+            this.btnControlApertura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnControlApertura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnControlApertura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControlApertura.Location = new System.Drawing.Point(8, 151);
+            this.btnControlApertura.Name = "btnControlApertura";
+            this.btnControlApertura.Size = new System.Drawing.Size(230, 47);
+            this.btnControlApertura.TabIndex = 6;
+            this.btnControlApertura.Text = "Consultar";
+            this.btnControlApertura.UseVisualStyleBackColor = true;
+            this.btnControlApertura.Click += new System.EventHandler(this.btnControlApertura_Click);
             // 
             // groupBox2
             // 
@@ -242,31 +248,52 @@
             this.toolTip1.SetToolTip(this.rbNoPagada, "Mostrar las comisiones que no estan pagadas");
             this.rbNoPagada.UseVisualStyleBackColor = true;
             // 
-            // btnControlApertura
+            // cbNoAgregarRangoFecha
             // 
-            this.btnControlApertura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnControlApertura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnControlApertura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnControlApertura.Location = new System.Drawing.Point(8, 151);
-            this.btnControlApertura.Name = "btnControlApertura";
-            this.btnControlApertura.Size = new System.Drawing.Size(230, 47);
-            this.btnControlApertura.TabIndex = 6;
-            this.btnControlApertura.Text = "Consultar";
-            this.btnControlApertura.UseVisualStyleBackColor = true;
-            this.btnControlApertura.Click += new System.EventHandler(this.btnControlApertura_Click);
+            this.cbNoAgregarRangoFecha.AutoSize = true;
+            this.cbNoAgregarRangoFecha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbNoAgregarRangoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbNoAgregarRangoFecha.Location = new System.Drawing.Point(20, 116);
+            this.cbNoAgregarRangoFecha.Name = "cbNoAgregarRangoFecha";
+            this.cbNoAgregarRangoFecha.Size = new System.Drawing.Size(251, 29);
+            this.cbNoAgregarRangoFecha.TabIndex = 4;
+            this.cbNoAgregarRangoFecha.Text = "No Usar Rango de Fecha";
+            this.toolTip1.SetToolTip(this.cbNoAgregarRangoFecha, "No filtrar por rango de fecha");
+            this.cbNoAgregarRangoFecha.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // txtFechaHasta
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(244, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(230, 47);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Reporte";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaHasta.Location = new System.Drawing.Point(168, 75);
+            this.txtFechaHasta.Name = "txtFechaHasta";
+            this.txtFechaHasta.Size = new System.Drawing.Size(155, 30);
+            this.txtFechaHasta.TabIndex = 3;
+            // 
+            // txtFechaDesde
+            // 
+            this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaDesde.Location = new System.Drawing.Point(168, 39);
+            this.txtFechaDesde.Name = "txtFechaDesde";
+            this.txtFechaDesde.Size = new System.Drawing.Size(155, 30);
+            this.txtFechaDesde.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(41, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 25);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Fecha Hasta";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Fecha Desde";
             // 
             // txtNumeroRegistros
             // 
@@ -370,31 +397,19 @@
             this.Select.UseColumnTextForButtonValue = true;
             this.Select.Width = 73;
             // 
-            // lbLetrero
+            // cbTodo
             // 
-            this.lbLetrero.AutoSize = true;
-            this.lbLetrero.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLetrero.ForeColor = System.Drawing.Color.Red;
-            this.lbLetrero.Location = new System.Drawing.Point(269, 117);
-            this.lbLetrero.Name = "lbLetrero";
-            this.lbLetrero.Size = new System.Drawing.Size(87, 29);
-            this.lbLetrero.TabIndex = 8;
-            this.lbLetrero.Text = "label3";
-            // 
-            // btnPagar
-            // 
-            this.btnPagar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPagar.Enabled = false;
-            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagar.Location = new System.Drawing.Point(481, 151);
-            this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(230, 47);
-            this.btnPagar.TabIndex = 9;
-            this.btnPagar.Text = "Pagar";
-            this.toolTip1.SetToolTip(this.btnPagar, "Pagar Comisión seleccionada");
-            this.btnPagar.UseVisualStyleBackColor = true;
-            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
+            this.cbTodo.AutoSize = true;
+            this.cbTodo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbTodo.Location = new System.Drawing.Point(355, 161);
+            this.cbTodo.Name = "cbTodo";
+            this.cbTodo.Size = new System.Drawing.Size(77, 29);
+            this.cbTodo.TabIndex = 10;
+            this.cbTodo.Text = "Todo";
+            this.toolTip1.SetToolTip(this.cbTodo, "Pagar Todo");
+            this.cbTodo.UseVisualStyleBackColor = true;
+            this.cbTodo.CheckedChanged += new System.EventHandler(this.cbTodo_CheckedChanged);
             // 
             // gbPagoComisiones
             // 
@@ -417,74 +432,13 @@
             this.gbPagoComisiones.Text = "Pago de Comisiones";
             this.gbPagoComisiones.Visible = false;
             // 
-            // label3
+            // txtMontoPagar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 25);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Medico";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(47, 62);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 25);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "No. Factura";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 94);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 25);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Fecha Cirugia";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 128);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 25);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Comisión Pagar";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 165);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 25);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Monto Pagar";
-            // 
-            // txtNombreMedico
-            // 
-            this.txtNombreMedico.Enabled = false;
-            this.txtNombreMedico.Location = new System.Drawing.Point(164, 26);
-            this.txtNombreMedico.Name = "txtNombreMedico";
-            this.txtNombreMedico.Size = new System.Drawing.Size(286, 30);
-            this.txtNombreMedico.TabIndex = 5;
-            // 
-            // txtNoFactura
-            // 
-            this.txtNoFactura.Enabled = false;
-            this.txtNoFactura.Location = new System.Drawing.Point(164, 59);
-            this.txtNoFactura.Name = "txtNoFactura";
-            this.txtNoFactura.Size = new System.Drawing.Size(286, 30);
-            this.txtNoFactura.TabIndex = 6;
-            // 
-            // txtFechaCirugia
-            // 
-            this.txtFechaCirugia.Enabled = false;
-            this.txtFechaCirugia.Location = new System.Drawing.Point(164, 92);
-            this.txtFechaCirugia.Name = "txtFechaCirugia";
-            this.txtFechaCirugia.Size = new System.Drawing.Size(286, 30);
-            this.txtFechaCirugia.TabIndex = 7;
+            this.txtMontoPagar.Location = new System.Drawing.Point(162, 162);
+            this.txtMontoPagar.Name = "txtMontoPagar";
+            this.txtMontoPagar.Size = new System.Drawing.Size(187, 30);
+            this.txtMontoPagar.TabIndex = 9;
+            this.txtMontoPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
             // 
             // txtComisionPagar
             // 
@@ -495,27 +449,74 @@
             this.txtComisionPagar.TabIndex = 8;
             this.txtComisionPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
             // 
-            // txtMontoPagar
+            // txtFechaCirugia
             // 
-            this.txtMontoPagar.Location = new System.Drawing.Point(162, 162);
-            this.txtMontoPagar.Name = "txtMontoPagar";
-            this.txtMontoPagar.Size = new System.Drawing.Size(187, 30);
-            this.txtMontoPagar.TabIndex = 9;
-            this.txtMontoPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
+            this.txtFechaCirugia.Enabled = false;
+            this.txtFechaCirugia.Location = new System.Drawing.Point(164, 92);
+            this.txtFechaCirugia.Name = "txtFechaCirugia";
+            this.txtFechaCirugia.Size = new System.Drawing.Size(286, 30);
+            this.txtFechaCirugia.TabIndex = 7;
             // 
-            // cbTodo
+            // txtNoFactura
             // 
-            this.cbTodo.AutoSize = true;
-            this.cbTodo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbTodo.Location = new System.Drawing.Point(355, 161);
-            this.cbTodo.Name = "cbTodo";
-            this.cbTodo.Size = new System.Drawing.Size(77, 29);
-            this.cbTodo.TabIndex = 10;
-            this.cbTodo.Text = "Todo";
-            this.toolTip1.SetToolTip(this.cbTodo, "Pagar Todo");
-            this.cbTodo.UseVisualStyleBackColor = true;
-            this.cbTodo.CheckedChanged += new System.EventHandler(this.cbTodo_CheckedChanged);
+            this.txtNoFactura.Enabled = false;
+            this.txtNoFactura.Location = new System.Drawing.Point(164, 59);
+            this.txtNoFactura.Name = "txtNoFactura";
+            this.txtNoFactura.Size = new System.Drawing.Size(286, 30);
+            this.txtNoFactura.TabIndex = 6;
+            // 
+            // txtNombreMedico
+            // 
+            this.txtNombreMedico.Enabled = false;
+            this.txtNombreMedico.Location = new System.Drawing.Point(164, 26);
+            this.txtNombreMedico.Name = "txtNombreMedico";
+            this.txtNombreMedico.Size = new System.Drawing.Size(286, 30);
+            this.txtNombreMedico.TabIndex = 5;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(34, 165);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(124, 25);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Monto Pagar";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 128);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(151, 25);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Comisión Pagar";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 94);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 25);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Fecha Cirugia";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(47, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 25);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "No. Factura";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(85, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 25);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Medico";
             // 
             // lbComisionPagadaTitulo
             // 

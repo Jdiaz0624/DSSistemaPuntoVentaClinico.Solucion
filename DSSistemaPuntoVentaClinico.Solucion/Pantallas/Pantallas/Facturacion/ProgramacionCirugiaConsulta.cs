@@ -15,6 +15,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaFacturacion> ObjDataFActuracion = new Lazy<Logica.Logica.LogicaFacturacion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaContabilidad> ObjDataContabilidad = new Lazy<Logica.Logica.LogicaContabilidad>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR LA INFORMACION DE LA EMPRESA
@@ -83,7 +84,24 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             btnGastosCirugia.Enabled = false;
         }
         #endregion
+        #region ELIMINAR LAS COMISION DE MEDICO 
+        private void EliminarComisionMedico()
+        {
+            try {
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico Eliminar = new Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico();
 
+                Eliminar.IDComision = VariablesGlobales.IDComisionPagar;
+                Eliminar.IdProgramacionCirugia = VariablesGlobales.IdProgramacionCirugiaPagar;
+                Eliminar.NumeroFactura = VariablesGlobales.NumeroFacturaPagar;
+                Eliminar.NumeroReferencia = VariablesGlobales.NumeroReferenciaPagar;
+
+                var MAN = ObjDataContabilidad.Value.GuardarComisionesMedicos(Eliminar, "DELETE");
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al eliminar la comision del medico, Codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         public ProgramacionCirugiaConsulta()
         {
             InitializeComponent();
@@ -182,6 +200,23 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     txtNumeroPagina.Enabled = false;
                     txtNumeroRegistros.Enabled = false;
                     btnGastosCirugia.Enabled = true;
+
+                    //SACAMOS LAS VARIABLES PARA ELIMINAR LA COMISION DE MEDICOS
+                    this.VariablesGlobales.IdProgramacionCirugiaPagar = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["IdProgramacionCirugia"].Value.ToString());
+                    this.VariablesGlobales.NumeroFacturaPagar = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NoFactura"].Value.ToString());
+                    this.VariablesGlobales.NumeroReferenciaPagar = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NoReferencia"].Value.ToString());
+
+                    //SACAMOS EL ID DE COMISION DE MEDICO MEDIANTE LAS TRES VARIABLES ANTERIORMENTE SACADAS
+                    var SacarIdComisionMedico = ObjDataContabilidad.Value.BuscaComisionesMedicos(
+                        new Nullable<decimal>(),
+                        VariablesGlobales.IdProgramacionCirugiaPagar,
+                        VariablesGlobales.NumeroFacturaPagar,
+                        VariablesGlobales.NumeroReferenciaPagar,
+                        null, null, null, null, null, null, 1, 1);
+                    foreach (var n in SacarIdComisionMedico)
+                    {
+                        VariablesGlobales.IDComisionPagar = Convert.ToDecimal(n.IDComision);
+                    }
                 }
             }
             catch (Exception) { }
@@ -250,6 +285,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         Borrar.IdProgramacionCirugia = VariablesGlobales.IdMantenimiento;
 
                         var MAN = ObjDataFActuracion.Value.MantenimientoProgramacionCirugia(Borrar, "DELETE");
+                        EliminarComisionMedico();
                         MessageBox.Show("Registro eliminado con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RestablecerPantalla();
                     }

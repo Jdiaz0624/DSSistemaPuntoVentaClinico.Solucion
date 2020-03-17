@@ -35,7 +35,6 @@ namespace DSSistemaPuntoVentaClinico.Logica.Comunes
         public string ClaveBD { get; set; }
         public string RutaReporte { get; set; }
         public decimal Numerofactura { get; set; }
-
         public decimal CodigoPaciente { get; set; }
         public decimal IdTipoVentaSeleccionado { get; set; }
         public bool BloqueaControles { get; set; }

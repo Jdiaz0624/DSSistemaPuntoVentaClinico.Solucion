@@ -408,5 +408,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         {
             DSSistemaPuntoVentaClinico.Logica.Comunes.ValidarControles.SoloNumerosDecimales(e);
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
