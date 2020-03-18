@@ -15,6 +15,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaContabilidad> ObjData = new Lazy<Logica.Logica.LogicaContabilidad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjdataReporte = new Lazy<Logica.Logica.LogicaHistorial>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL LISTADO DE LAS COMISIONES
@@ -641,10 +642,53 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             if (DatoLetrero == "Comisión Detalle")
             {
                 GenerarReporteDetalle();
+
+                //SACAMOS LA RUTA DEL REPORTE
+                var SacarRuta = ObjdataReporte.Value.SacarRutaReporte(11);
+                foreach (var n in SacarRuta)
+                {
+                    VariablesGlobales.RutaReporte = n.RutaReporte;
+                }
+
+                //SACAMOS LAS CREDENCIALES DE BASE DE DATOS
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarLogonBD(1);
+                foreach (var n in SacarCredenciales)
+                {
+                    VariablesGlobales.UsuarioBD = n.Usuario;
+                    VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                }
+                //INVOCAMOS EL REPORTE
+                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Reporte = new Reporte.Reportes();
+              //  Reporte.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                Reporte.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                Reporte.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                Reporte.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                Reporte.GenerarReporteComisionMedicoDetalle(VariablesGlobales.IdUsuario);
+                Reporte.ShowDialog();
             }
             else
             {
-                MessageBox.Show("comision unica");
+                //SACAMOS LA RUTA DEL REPORTE
+                var SacarRuta = ObjdataReporte.Value.SacarRutaReporte(12);
+                foreach (var n in SacarRuta)
+                {
+                    VariablesGlobales.RutaReporte = n.RutaReporte;
+                }
+
+                //SACAMOS LAS CREDENCIALES DE BASE DE DATOS
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarLogonBD(1);
+                foreach (var n in SacarCredenciales)
+                {
+                    VariablesGlobales.UsuarioBD = n.Usuario;
+                    VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                }
+                //INVICAMOS EL REPORTE
+                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteUnico = new Reporte.Reportes();
+                ReporteUnico.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                ReporteUnico.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                ReporteUnico.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                ReporteUnico.GenerarReporteComisionUnico(VariablesGlobales.IdMantenimiento);
+                ReporteUnico.ShowDialog();
             }
         }
 

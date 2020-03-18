@@ -249,6 +249,53 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte
                 MessageBox.Show("Error al cargar el reporte, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void GenerarReporteComisionMedicoDetalle(decimal IdUsuario)
+        {
+            try {
+                ReportDocument ReporteComisionDetale = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_REPORTE_COMISION_MEDICO_DETALLE] @IdUsuario";
+                comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                ReporteComisionDetale.Load(@"" + VariablesGlobales.RutaReporte);
+                ReporteComisionDetale.Refresh();
+                ReporteComisionDetale.SetParameterValue("@IdUsuario", IdUsuario);
+                ReporteComisionDetale.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = ReporteComisionDetale;
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al cargar el reporte, Codigo de Error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void GenerarReporteComisionUnico(decimal IdComision)
+        {
+            try {
+                ReportDocument ReporteComisionUnico = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_REPORTE_COMISION_MEDICO_UNICO] @IDComision";
+                comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IDComision", SqlDbType.Decimal);
+                comando.Parameters["@IDComision"].Value = IdComision;
+
+                ReporteComisionUnico.Load(@"" + VariablesGlobales.RutaReporte);
+                ReporteComisionUnico.Refresh();
+                ReporteComisionUnico.SetParameterValue("@IDComision", IdComision);
+                ReporteComisionUnico.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = ReporteComisionUnico;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al cargar el reporte" + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void Reportes_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);
