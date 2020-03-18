@@ -87,7 +87,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(15, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
@@ -96,9 +96,9 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(766, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(771, 3);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 22;
             this.btnCerrar.TabStop = false;
@@ -139,7 +139,7 @@
             // 
             this.txtNumeroFactura.Location = new System.Drawing.Point(407, 99);
             this.txtNumeroFactura.Name = "txtNumeroFactura";
-            this.txtNumeroFactura.Size = new System.Drawing.Size(250, 30);
+            this.txtNumeroFactura.Size = new System.Drawing.Size(250, 26);
             this.txtNumeroFactura.TabIndex = 7;
             this.txtNumeroFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroFactura_KeyPress);
             // 
@@ -148,7 +148,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(289, 101);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 25);
+            this.label5.Size = new System.Drawing.Size(92, 20);
             this.label5.TabIndex = 6;
             this.label5.Text = "No.Factura:";
             // 
@@ -157,7 +157,7 @@
             this.lbzRNC.AutoSize = true;
             this.lbzRNC.Location = new System.Drawing.Point(97, 105);
             this.lbzRNC.Name = "lbzRNC";
-            this.lbzRNC.Size = new System.Drawing.Size(54, 25);
+            this.lbzRNC.Size = new System.Drawing.Size(43, 20);
             this.lbzRNC.TabIndex = 5;
             this.lbzRNC.Text = "RNC";
             // 
@@ -166,7 +166,7 @@
             this.lbDireccion.AutoSize = true;
             this.lbDireccion.Location = new System.Drawing.Point(97, 65);
             this.lbDireccion.Name = "lbDireccion";
-            this.lbDireccion.Size = new System.Drawing.Size(93, 25);
+            this.lbDireccion.Size = new System.Drawing.Size(75, 20);
             this.lbDireccion.TabIndex = 4;
             this.lbDireccion.Text = "Dirección";
             // 
@@ -175,7 +175,7 @@
             this.lbNombre.AutoSize = true;
             this.lbNombre.Location = new System.Drawing.Point(97, 31);
             this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(81, 25);
+            this.lbNombre.Size = new System.Drawing.Size(65, 20);
             this.lbNombre.TabIndex = 3;
             this.lbNombre.Text = "Nombre";
             // 
@@ -184,7 +184,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 105);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 25);
+            this.label3.Size = new System.Drawing.Size(43, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "RNC";
             // 
@@ -193,7 +193,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(16, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 25);
+            this.label2.Size = new System.Drawing.Size(75, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Dirección";
             // 
@@ -202,7 +202,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 25);
+            this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
@@ -218,7 +218,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 32);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
             this.txtNumeroRegistros.TabIndex = 28;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -233,7 +233,7 @@
             this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroRegistros.Location = new System.Drawing.Point(189, 431);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(130, 23);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
             this.lbNumeroRegistros.TabIndex = 27;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -249,7 +249,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 32);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
             this.txtNumeroPagina.TabIndex = 26;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -264,7 +264,7 @@
             this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroPagina.Location = new System.Drawing.Point(16, 431);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(111, 23);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
             this.lbNumeroPagina.TabIndex = 25;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -290,11 +290,11 @@
             this.Select});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 26);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(782, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(782, 205);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -307,7 +307,7 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 73;
+            this.Select.Width = 60;
             // 
             // groupBox1
             // 
@@ -335,7 +335,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(199, 104);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 25);
+            this.label4.Size = new System.Drawing.Size(102, 20);
             this.label4.TabIndex = 11;
             this.label4.Text = "Tipo de Pago";
             // 
@@ -347,7 +347,7 @@
             this.ddlTipoPago.FormattingEnabled = true;
             this.ddlTipoPago.Location = new System.Drawing.Point(331, 100);
             this.ddlTipoPago.Name = "ddlTipoPago";
-            this.ddlTipoPago.Size = new System.Drawing.Size(233, 33);
+            this.ddlTipoPago.Size = new System.Drawing.Size(233, 28);
             this.ddlTipoPago.TabIndex = 9;
             // 
             // btnVolver
@@ -381,7 +381,7 @@
             this.txtAbono.Enabled = false;
             this.txtAbono.Location = new System.Drawing.Point(330, 67);
             this.txtAbono.Name = "txtAbono";
-            this.txtAbono.Size = new System.Drawing.Size(234, 30);
+            this.txtAbono.Size = new System.Drawing.Size(234, 26);
             this.txtAbono.TabIndex = 6;
             // 
             // rbAbono
@@ -390,7 +390,7 @@
             this.rbAbono.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbAbono.Location = new System.Drawing.Point(251, 67);
             this.rbAbono.Name = "rbAbono";
-            this.rbAbono.Size = new System.Drawing.Size(90, 29);
+            this.rbAbono.Size = new System.Drawing.Size(73, 24);
             this.rbAbono.TabIndex = 5;
             this.rbAbono.TabStop = true;
             this.rbAbono.Text = "Abono";
@@ -403,7 +403,7 @@
             this.rbPagoTotal.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbPagoTotal.Location = new System.Drawing.Point(143, 67);
             this.rbPagoTotal.Name = "rbPagoTotal";
-            this.rbPagoTotal.Size = new System.Drawing.Size(127, 29);
+            this.rbPagoTotal.Size = new System.Drawing.Size(102, 24);
             this.rbPagoTotal.TabIndex = 4;
             this.rbPagoTotal.TabStop = true;
             this.rbPagoTotal.Text = "Pago Total";
@@ -415,7 +415,7 @@
             this.lbMonto.AutoSize = true;
             this.lbMonto.Location = new System.Drawing.Point(570, 30);
             this.lbMonto.Name = "lbMonto";
-            this.lbMonto.Size = new System.Drawing.Size(67, 25);
+            this.lbMonto.Size = new System.Drawing.Size(54, 20);
             this.lbMonto.TabIndex = 3;
             this.lbMonto.Text = "Monto";
             // 
@@ -424,7 +424,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(510, 30);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 25);
+            this.label9.Size = new System.Drawing.Size(54, 20);
             this.label9.TabIndex = 2;
             this.label9.Text = "Monto";
             // 
@@ -433,7 +433,7 @@
             this.lbNoFactura.AutoSize = true;
             this.lbNoFactura.Location = new System.Drawing.Point(241, 30);
             this.lbNoFactura.Name = "lbNoFactura";
-            this.lbNoFactura.Size = new System.Drawing.Size(113, 25);
+            this.lbNoFactura.Size = new System.Drawing.Size(92, 20);
             this.lbNoFactura.TabIndex = 1;
             this.lbNoFactura.Text = "No. Factura";
             // 
@@ -442,13 +442,13 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(143, 30);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 25);
+            this.label7.Size = new System.Drawing.Size(92, 20);
             this.label7.TabIndex = 0;
             this.label7.Text = "No. Factura";
             // 
             // PagosFacturasPendientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightGray;

@@ -72,7 +72,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(5, 7);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.Size = new System.Drawing.Size(58, 19);
             this.lbTitulo.TabIndex = 12;
             this.lbTitulo.Text = "label6";
             // 
@@ -81,9 +81,9 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(761, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(765, 6);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 22;
             this.btnCerrar.TabStop = false;
@@ -112,7 +112,7 @@
             this.txtCodigoCaja.Enabled = false;
             this.txtCodigoCaja.Location = new System.Drawing.Point(187, 42);
             this.txtCodigoCaja.Name = "txtCodigoCaja";
-            this.txtCodigoCaja.Size = new System.Drawing.Size(120, 32);
+            this.txtCodigoCaja.Size = new System.Drawing.Size(120, 27);
             this.txtCodigoCaja.TabIndex = 7;
             this.txtCodigoCaja.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
@@ -121,7 +121,7 @@
             this.lbNombreCaja.AutoSize = true;
             this.lbNombreCaja.Location = new System.Drawing.Point(183, 81);
             this.lbNombreCaja.Name = "lbNombreCaja";
-            this.lbNombreCaja.Size = new System.Drawing.Size(89, 23);
+            this.lbNombreCaja.Size = new System.Drawing.Size(73, 19);
             this.lbNombreCaja.TabIndex = 6;
             this.lbNombreCaja.Text = "Nombre";
             // 
@@ -130,7 +130,7 @@
             this.lbMonto.AutoSize = true;
             this.lbMonto.Location = new System.Drawing.Point(183, 115);
             this.lbMonto.Name = "lbMonto";
-            this.lbMonto.Size = new System.Drawing.Size(142, 23);
+            this.lbMonto.Size = new System.Drawing.Size(112, 19);
             this.lbMonto.TabIndex = 5;
             this.lbMonto.Text = "Monto Actual";
             // 
@@ -139,7 +139,7 @@
             this.lbEstatus.AutoSize = true;
             this.lbEstatus.Location = new System.Drawing.Point(183, 155);
             this.lbEstatus.Name = "lbEstatus";
-            this.lbEstatus.Size = new System.Drawing.Size(75, 23);
+            this.lbEstatus.Size = new System.Drawing.Size(58, 19);
             this.lbEstatus.TabIndex = 4;
             this.lbEstatus.Text = "Estatus";
             // 
@@ -148,7 +148,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(82, 155);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 23);
+            this.label4.Size = new System.Drawing.Size(58, 19);
             this.label4.TabIndex = 3;
             this.label4.Text = "Estatus";
             // 
@@ -157,7 +157,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(15, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 23);
+            this.label3.Size = new System.Drawing.Size(112, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Monto Actual";
             // 
@@ -166,7 +166,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(68, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
+            this.label2.Size = new System.Drawing.Size(73, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
             // 
@@ -175,7 +175,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 23);
+            this.label1.Size = new System.Drawing.Size(134, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo de Caja";
             // 
@@ -212,7 +212,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 118);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 23);
+            this.label5.Size = new System.Drawing.Size(86, 19);
             this.label5.TabIndex = 11;
             this.label5.Text = "Concepto";
             // 
@@ -221,7 +221,7 @@
             this.txtConcepto.BackColor = System.Drawing.Color.White;
             this.txtConcepto.Location = new System.Drawing.Point(122, 115);
             this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(221, 32);
+            this.txtConcepto.Size = new System.Drawing.Size(221, 27);
             this.txtConcepto.TabIndex = 10;
             // 
             // btnProcesar
@@ -241,7 +241,7 @@
             this.txtMonto.BackColor = System.Drawing.Color.White;
             this.txtMonto.Location = new System.Drawing.Point(122, 81);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(221, 32);
+            this.txtMonto.Size = new System.Drawing.Size(221, 27);
             this.txtMonto.TabIndex = 9;
             this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
@@ -250,7 +250,7 @@
             this.Monto.AutoSize = true;
             this.Monto.Location = new System.Drawing.Point(31, 84);
             this.Monto.Name = "Monto";
-            this.Monto.Size = new System.Drawing.Size(87, 23);
+            this.Monto.Size = new System.Drawing.Size(68, 19);
             this.Monto.TabIndex = 8;
             this.Monto.Text = "Monto *";
             // 
@@ -261,7 +261,7 @@
             this.rbSacar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbSacar.Location = new System.Drawing.Point(215, 32);
             this.rbSacar.Name = "rbSacar";
-            this.rbSacar.Size = new System.Drawing.Size(168, 27);
+            this.rbSacar.Size = new System.Drawing.Size(134, 23);
             this.rbSacar.TabIndex = 1;
             this.rbSacar.TabStop = true;
             this.rbSacar.Text = "Sacar Efectivo";
@@ -274,7 +274,7 @@
             this.rbIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbIngresar.Location = new System.Drawing.Point(17, 32);
             this.rbIngresar.Name = "rbIngresar";
-            this.rbIngresar.Size = new System.Drawing.Size(191, 27);
+            this.rbIngresar.Size = new System.Drawing.Size(151, 23);
             this.rbIngresar.TabIndex = 0;
             this.rbIngresar.TabStop = true;
             this.rbIngresar.Text = "Ingresar Efectivo";
@@ -282,7 +282,7 @@
             // 
             // Caja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(803, 291);

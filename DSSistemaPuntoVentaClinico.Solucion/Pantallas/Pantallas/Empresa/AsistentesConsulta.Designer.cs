@@ -78,7 +78,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(10, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 23;
             this.lbTitulo.Text = "label6";
             // 
@@ -89,7 +89,7 @@
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
             this.btnCerrar.Location = new System.Drawing.Point(1098, 10);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 23;
             this.btnCerrar.TabStop = false;
@@ -111,7 +111,7 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(14, 41);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(81, 25);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(65, 20);
             this.lbClaveSeguridad.TabIndex = 5;
             this.lbClaveSeguridad.Text = "Nombre";
             this.lbClaveSeguridad.Visible = false;
@@ -122,7 +122,7 @@
             this.txtNombreConsulta.Location = new System.Drawing.Point(92, 38);
             this.txtNombreConsulta.MaxLength = 100;
             this.txtNombreConsulta.Name = "txtNombreConsulta";
-            this.txtNombreConsulta.Size = new System.Drawing.Size(206, 30);
+            this.txtNombreConsulta.Size = new System.Drawing.Size(206, 26);
             this.txtNombreConsulta.TabIndex = 6;
             // 
             // txtNumeroRegistros
@@ -136,7 +136,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroRegistros.TabIndex = 56;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -150,7 +150,7 @@
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(208, 513);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(123, 25);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(101, 20);
             this.lbNumeroRegistros.TabIndex = 55;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -165,7 +165,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroPagina.TabIndex = 54;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -179,7 +179,7 @@
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(13, 515);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
             this.lbNumeroPagina.TabIndex = 53;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -208,11 +208,11 @@
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.dtListado.Location = new System.Drawing.Point(3, 26);
+            this.dtListado.Location = new System.Drawing.Point(3, 22);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1107, 269);
+            this.dtListado.Size = new System.Drawing.Size(1107, 273);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -225,7 +225,7 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 73;
+            this.Select.Width = 60;
             // 
             // gbOpciones
             // 
@@ -248,7 +248,7 @@
             this.lbClave.AutoSize = true;
             this.lbClave.Location = new System.Drawing.Point(153, 97);
             this.lbClave.Name = "lbClave";
-            this.lbClave.Size = new System.Drawing.Size(63, 25);
+            this.lbClave.Size = new System.Drawing.Size(48, 20);
             this.lbClave.TabIndex = 4;
             this.lbClave.Text = "Clave";
             this.lbClave.Visible = false;
@@ -259,7 +259,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(227, 93);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 30);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 26);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -333,7 +333,7 @@
             // 
             // AsistentesConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1140, 549);

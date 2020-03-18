@@ -48,11 +48,11 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
+            this.Recibo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.txtNumeroRegistros = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroRegistros = new System.Windows.Forms.Label();
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
-            this.Recibo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -81,7 +81,7 @@
             this.lbTitulo.Location = new System.Drawing.Point(22, 14);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
@@ -90,10 +90,10 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(613, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(627, 8);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(50, 34);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 22;
             this.btnCerrar.TabStop = false;
@@ -124,7 +124,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(8, 92);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 25);
+            this.label5.Size = new System.Drawing.Size(64, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "Factura";
             // 
@@ -133,7 +133,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 64);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 25);
+            this.label4.Size = new System.Drawing.Size(59, 20);
             this.label4.TabIndex = 12;
             this.label4.Text = "Recibo";
             // 
@@ -141,7 +141,7 @@
             // 
             this.txtFactura.Location = new System.Drawing.Point(76, 89);
             this.txtFactura.Name = "txtFactura";
-            this.txtFactura.Size = new System.Drawing.Size(246, 30);
+            this.txtFactura.Size = new System.Drawing.Size(246, 26);
             this.txtFactura.TabIndex = 11;
             this.txtFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRecibo_KeyPress);
             // 
@@ -149,7 +149,7 @@
             // 
             this.txtRecibo.Location = new System.Drawing.Point(76, 61);
             this.txtRecibo.Name = "txtRecibo";
-            this.txtRecibo.Size = new System.Drawing.Size(246, 30);
+            this.txtRecibo.Size = new System.Drawing.Size(246, 26);
             this.txtRecibo.TabIndex = 10;
             this.txtRecibo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRecibo_KeyPress);
             // 
@@ -158,7 +158,7 @@
             this.cbRangoFecha.AutoSize = true;
             this.cbRangoFecha.Location = new System.Drawing.Point(115, 174);
             this.cbRangoFecha.Name = "cbRangoFecha";
-            this.cbRangoFecha.Size = new System.Drawing.Size(178, 29);
+            this.cbRangoFecha.Size = new System.Drawing.Size(147, 24);
             this.cbRangoFecha.TabIndex = 9;
             this.cbRangoFecha.Text = "Rango de Fecha";
             this.cbRangoFecha.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaHasta.Location = new System.Drawing.Point(115, 145);
             this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(123, 30);
+            this.txtFechaHasta.Size = new System.Drawing.Size(123, 26);
             this.txtFechaHasta.TabIndex = 8;
             // 
             // txtFechaDesde
@@ -176,7 +176,7 @@
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaDesde.Location = new System.Drawing.Point(115, 117);
             this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(123, 30);
+            this.txtFechaDesde.Size = new System.Drawing.Size(123, 26);
             this.txtFechaDesde.TabIndex = 7;
             // 
             // label3
@@ -184,7 +184,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(11, 148);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 25);
+            this.label3.Size = new System.Drawing.Size(101, 20);
             this.label3.TabIndex = 6;
             this.label3.Text = "Fecha Hasta";
             // 
@@ -193,7 +193,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(7, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 25);
+            this.label2.Size = new System.Drawing.Size(105, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Fecha Desde";
             // 
@@ -201,7 +201,7 @@
             // 
             this.txtRNC.Location = new System.Drawing.Point(76, 33);
             this.txtRNC.Name = "txtRNC";
-            this.txtRNC.Size = new System.Drawing.Size(246, 30);
+            this.txtRNC.Size = new System.Drawing.Size(246, 26);
             this.txtRNC.TabIndex = 1;
             // 
             // label1
@@ -209,7 +209,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(29, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 25);
+            this.label1.Size = new System.Drawing.Size(43, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "RNC";
             // 
@@ -270,12 +270,23 @@
             this.Recibo});
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.Location = new System.Drawing.Point(3, 26);
+            this.dtListado.Location = new System.Drawing.Point(3, 22);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
-            this.dtListado.Size = new System.Drawing.Size(638, 256);
+            this.dtListado.Size = new System.Drawing.Size(638, 260);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
+            // 
+            // Recibo
+            // 
+            this.Recibo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Recibo.HeaderText = "Recibo";
+            this.Recibo.Name = "Recibo";
+            this.Recibo.ReadOnly = true;
+            this.Recibo.Text = "Recibo";
+            this.Recibo.ToolTipText = "Recibo";
+            this.Recibo.UseColumnTextForButtonValue = true;
+            this.Recibo.Width = 65;
             // 
             // txtNumeroRegistros
             // 
@@ -288,7 +299,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroRegistros.TabIndex = 22;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -302,7 +313,7 @@
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(209, 544);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(123, 25);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(101, 20);
             this.lbNumeroRegistros.TabIndex = 21;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -317,7 +328,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroPagina.TabIndex = 20;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -331,24 +342,13 @@
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(14, 546);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
             this.lbNumeroPagina.TabIndex = 19;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
-            // Recibo
-            // 
-            this.Recibo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Recibo.HeaderText = "Recibo";
-            this.Recibo.Name = "Recibo";
-            this.Recibo.ReadOnly = true;
-            this.Recibo.Text = "Recibo";
-            this.Recibo.ToolTipText = "Recibo";
-            this.Recibo.UseColumnTextForButtonValue = true;
-            this.Recibo.Width = 78;
-            // 
             // HistorialPagos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(668, 578);

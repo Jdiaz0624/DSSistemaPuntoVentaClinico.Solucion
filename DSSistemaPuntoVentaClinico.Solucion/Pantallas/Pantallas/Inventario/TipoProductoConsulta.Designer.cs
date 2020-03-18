@@ -81,7 +81,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(142, 62);
             this.txtDescripcion.MaxLength = 100;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(351, 30);
+            this.txtDescripcion.Size = new System.Drawing.Size(351, 26);
             this.txtDescripcion.TabIndex = 1;
             // 
             // label1
@@ -89,7 +89,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 25);
+            this.label1.Size = new System.Drawing.Size(92, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descripción";
             // 
@@ -112,7 +112,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(3, 12);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
@@ -122,7 +122,7 @@
             this.lbUsuarioConectado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuarioConectado.Location = new System.Drawing.Point(789, 16);
             this.lbUsuarioConectado.Name = "lbUsuarioConectado";
-            this.lbUsuarioConectado.Size = new System.Drawing.Size(236, 28);
+            this.lbUsuarioConectado.Size = new System.Drawing.Size(189, 23);
             this.lbUsuarioConectado.TabIndex = 10;
             this.lbUsuarioConectado.Text = "Usuario Conectado";
             this.lbUsuarioConectado.Visible = false;
@@ -134,7 +134,7 @@
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
             this.btnCerrar.Location = new System.Drawing.Point(1074, 12);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 9;
             this.btnCerrar.TabStop = false;
@@ -162,7 +162,7 @@
             this.lbClave.AutoSize = true;
             this.lbClave.Location = new System.Drawing.Point(181, 96);
             this.lbClave.Name = "lbClave";
-            this.lbClave.Size = new System.Drawing.Size(63, 25);
+            this.lbClave.Size = new System.Drawing.Size(48, 20);
             this.lbClave.TabIndex = 2;
             this.lbClave.Text = "Clave";
             this.lbClave.Visible = false;
@@ -173,7 +173,7 @@
             this.txtClave.Location = new System.Drawing.Point(249, 93);
             this.txtClave.MaxLength = 100;
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(217, 30);
+            this.txtClave.Size = new System.Drawing.Size(217, 26);
             this.txtClave.TabIndex = 2;
             this.txtClave.Visible = false;
             // 
@@ -269,11 +269,11 @@
             this.Select});
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.Location = new System.Drawing.Point(3, 26);
+            this.dtListado.Location = new System.Drawing.Point(3, 22);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1107, 269);
+            this.dtListado.Size = new System.Drawing.Size(1107, 273);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -286,14 +286,14 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 73;
+            this.Select.Width = 60;
             // 
             // lbNumeroPagina
             // 
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(1, 523);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
             this.lbNumeroPagina.TabIndex = 4;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -308,7 +308,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroPagina.TabIndex = 5;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -328,7 +328,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroRegistros.TabIndex = 7;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -342,7 +342,7 @@
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(196, 521);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(123, 25);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(101, 20);
             this.lbNumeroRegistros.TabIndex = 6;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -352,13 +352,13 @@
             this.lbPerfilUsuarioConectado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPerfilUsuarioConectado.Location = new System.Drawing.Point(733, 523);
             this.lbPerfilUsuarioConectado.Name = "lbPerfilUsuarioConectado";
-            this.lbPerfilUsuarioConectado.Size = new System.Drawing.Size(197, 28);
+            this.lbPerfilUsuarioConectado.Size = new System.Drawing.Size(157, 23);
             this.lbPerfilUsuarioConectado.TabIndex = 11;
             this.lbPerfilUsuarioConectado.Text = "Perfil de Usuario";
             // 
             // TipoProductoConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;

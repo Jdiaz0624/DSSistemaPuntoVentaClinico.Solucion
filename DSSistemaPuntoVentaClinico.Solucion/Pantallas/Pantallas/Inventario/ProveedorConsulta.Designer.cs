@@ -79,7 +79,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(8, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
+            this.lbTitulo.Size = new System.Drawing.Size(58, 19);
             this.lbTitulo.TabIndex = 25;
             this.lbTitulo.Text = "label6";
             // 
@@ -88,9 +88,9 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1089, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(1102, 6);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 25;
             this.btnCerrar.TabStop = false;
@@ -116,7 +116,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(111, 70);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 23);
+            this.label3.Size = new System.Drawing.Size(67, 19);
             this.label3.TabIndex = 13;
             this.label3.Text = "Codigo";
             // 
@@ -125,7 +125,7 @@
             this.txtCodigo.BackColor = System.Drawing.Color.Silver;
             this.txtCodigo.Location = new System.Drawing.Point(199, 65);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(315, 32);
+            this.txtCodigo.Size = new System.Drawing.Size(315, 27);
             this.txtCodigo.TabIndex = 12;
             // 
             // txtNombre
@@ -133,7 +133,7 @@
             this.txtNombre.BackColor = System.Drawing.Color.Silver;
             this.txtNombre.Location = new System.Drawing.Point(199, 29);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(315, 32);
+            this.txtNombre.Size = new System.Drawing.Size(315, 27);
             this.txtNombre.TabIndex = 11;
             // 
             // ddlTipoProveedor
@@ -144,7 +144,7 @@
             this.ddlTipoProveedor.FormattingEnabled = true;
             this.ddlTipoProveedor.Location = new System.Drawing.Point(199, 31);
             this.ddlTipoProveedor.Name = "ddlTipoProveedor";
-            this.ddlTipoProveedor.Size = new System.Drawing.Size(315, 31);
+            this.ddlTipoProveedor.Size = new System.Drawing.Size(315, 27);
             this.ddlTipoProveedor.TabIndex = 10;
             this.ddlTipoProveedor.Visible = false;
             // 
@@ -153,7 +153,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(106, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 23);
+            this.label2.Size = new System.Drawing.Size(73, 19);
             this.label2.TabIndex = 9;
             this.label2.Text = "Nombre";
             // 
@@ -162,7 +162,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(8, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 23);
+            this.label1.Size = new System.Drawing.Size(149, 19);
             this.label1.TabIndex = 8;
             this.label1.Text = "Tipo de Proveedor";
             this.label1.Visible = false;
@@ -178,7 +178,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 32);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
             this.txtNumeroRegistros.TabIndex = 24;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -192,7 +192,7 @@
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(199, 504);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(130, 23);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
             this.lbNumeroRegistros.TabIndex = 23;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -207,7 +207,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 32);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
             this.txtNumeroPagina.TabIndex = 22;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -221,7 +221,7 @@
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(4, 506);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(111, 23);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
             this.lbNumeroPagina.TabIndex = 21;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -250,11 +250,11 @@
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.dtListado.Location = new System.Drawing.Point(3, 28);
+            this.dtListado.Location = new System.Drawing.Point(3, 23);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1131, 267);
+            this.dtListado.Size = new System.Drawing.Size(1131, 272);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -267,7 +267,7 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 76;
+            this.Select.Width = 61;
             // 
             // gbOpciones
             // 
@@ -290,7 +290,7 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(153, 97);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(68, 23);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(55, 19);
             this.lbClaveSeguridad.TabIndex = 4;
             this.lbClaveSeguridad.Text = "Clave";
             this.lbClaveSeguridad.Visible = false;
@@ -301,7 +301,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(227, 93);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 32);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(271, 27);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -370,7 +370,7 @@
             // 
             // ProveedorConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;

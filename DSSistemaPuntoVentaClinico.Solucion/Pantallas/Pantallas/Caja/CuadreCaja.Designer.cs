@@ -77,7 +77,7 @@
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaHasta.Location = new System.Drawing.Point(439, 44);
             this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(151, 30);
+            this.txtFechaHasta.Size = new System.Drawing.Size(151, 26);
             this.txtFechaHasta.TabIndex = 3;
             // 
             // txtFechaDesde
@@ -85,7 +85,7 @@
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaDesde.Location = new System.Drawing.Point(153, 44);
             this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(151, 30);
+            this.txtFechaDesde.Size = new System.Drawing.Size(151, 26);
             this.txtFechaDesde.TabIndex = 2;
             // 
             // label2
@@ -93,7 +93,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(310, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 25);
+            this.label2.Size = new System.Drawing.Size(112, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Fecha Hasta";
             // 
@@ -102,7 +102,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 25);
+            this.label1.Size = new System.Drawing.Size(116, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha Desde";
             // 
@@ -111,9 +111,9 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(579, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(585, 7);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 23;
             this.btnCerrar.TabStop = false;
@@ -135,13 +135,13 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(3, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
             // CuadreCaja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(621, 187);

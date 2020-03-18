@@ -86,6 +86,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             this.dtSeleccionarproducto.Columns["FechaAdiciona"].Visible = false;
             this.dtSeleccionarproducto.Columns["ModificadoPor"].Visible = false;
             this.dtSeleccionarproducto.Columns["FechaModifica"].Visible = false;
+
+            dtSeleccionarproducto.Columns["CantidadAlmacen"].DefaultCellStyle.Format = "N0";
+            dtSeleccionarproducto.Columns["PrecioVenta"].DefaultCellStyle.Format = "N2";
+            dtSeleccionarproducto.Columns["SegundoPrecio"].DefaultCellStyle.Format = "N2";
+            dtSeleccionarproducto.Columns["TercerPrecio"].DefaultCellStyle.Format = "N2";
         }
         #endregion
         #region GUARDAR LOS PROUCTOS PARA LA FACTURACION
@@ -144,6 +149,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             this.dtProductosAgregados.Columns["NumeroPago"].Visible = false;
             this.dtProductosAgregados.Columns["LlevaDescuento0"].Visible = false;
             this.dtProductosAgregados.Columns["DescuentoAplicado"].Visible = false;
+
+            dtProductosAgregados.Columns["Precio"].DefaultCellStyle.Format = "N2";
+            dtProductosAgregados.Columns["Cantidad"].DefaultCellStyle.Format = "N0";
+            dtProductosAgregados.Columns["Total"].DefaultCellStyle.Format = "N2";
         }
         #endregion
         #region VOLVER ATRAS
@@ -216,13 +225,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             dtSeleccionarproducto.ForeColor = Color.Black;
             MostrarInformacionEmpresa(1);
             MostrarTipoProducto();
-            btnVolver.ForeColor = Color.White;
+            btnVolver.ForeColor = Color.Black;
             rbAgregarPrimerprecio.ForeColor = Color.Red;
             rbAgregarSegundoPrecio.ForeColor = Color.Red;
             rbAgregarTercerprecio.ForeColor = Color.Red;
             rbAgregarPrimerprecio.Checked = true;
             MostrarProductosAgregados(VariablesGlobales.NumeroConector);
-            btnQuitar.ForeColor = Color.White;
+            btnQuitar.ForeColor = Color.Black;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -322,10 +331,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                             {
                                 txtTipoProducto.Text = n.TipoProducto;
                                 txtProducto.Text = n.Producto;
-                                txtCantidadDisponible.Text = n.CantidadAlmacen.ToString();
-                                txtPrecio.Text = n.PrecioVenta.ToString();
-                                txtSegundoPrecio.Text = n.SegundoPrecio.ToString();
-                                txtTercerprecio.Text = n.TercerPrecio.ToString();
+                                int CantidadDisponible = Convert.ToInt32(n.CantidadAlmacen);
+                                decimal Precio = Convert.ToDecimal(n.PrecioVenta);
+                                decimal SegundoPrecio = Convert.ToDecimal(n.SegundoPrecio);
+                                decimal TercerPrecio = Convert.ToDecimal(n.TercerPrecio);
+
+                                txtCantidadDisponible.Text = CantidadDisponible.ToString("N0");
+                                txtPrecio.Text = Precio.ToString("N2");
+                                txtSegundoPrecio.Text = SegundoPrecio.ToString("N2");
+                                txtTercerprecio.Text = TercerPrecio.ToString("N2");
                                 bool LlevaDescuento = Convert.ToBoolean(n.LlevaDescuento0);
                                 if (LlevaDescuento == true)
                                 {
@@ -443,7 +457,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     this.VariablesGlobales.CodigoMantenimiento = Convert.ToString(this.dtProductosAgregados.CurrentRow.Cells["CodigoProducto"].Value.ToString());
                     this.VariablesGlobales.Secuencial = Convert.ToDecimal(this.dtProductosAgregados.CurrentRow.Cells["Secuencial"].Value.ToString());
                     //SACAMOS LOS DATOS DEL PRODUCTO
-                    btnAgregar.Text = "Editar";
+                 //   btnAgregar.Text = "Editar";
                     btnQuitar.Enabled = true;
                     decimal Numeropago = 0;
                     bool LlevaDescuento = false;

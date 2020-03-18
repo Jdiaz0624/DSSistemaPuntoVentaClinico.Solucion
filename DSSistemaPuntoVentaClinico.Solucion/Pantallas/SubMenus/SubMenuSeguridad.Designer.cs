@@ -70,7 +70,7 @@
             this.lbusuario.AutoSize = true;
             this.lbusuario.Location = new System.Drawing.Point(350, 209);
             this.lbusuario.Name = "lbusuario";
-            this.lbusuario.Size = new System.Drawing.Size(64, 25);
+            this.lbusuario.Size = new System.Drawing.Size(51, 20);
             this.lbusuario.TabIndex = 7;
             this.lbusuario.Text = "label1";
             this.lbusuario.Visible = false;
@@ -177,9 +177,9 @@
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(701, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(711, 9);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 13;
             this.btnCerrar.TabStop = false;
@@ -190,7 +190,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(12, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 14;
             this.lbTitulo.Text = "label6";
             // 
@@ -207,7 +207,7 @@
             // 
             // SubMenuSeguridad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;

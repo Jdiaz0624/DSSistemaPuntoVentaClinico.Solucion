@@ -53,6 +53,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
         }
         private void OcultarColumnas()
         {
+            //OCULTAR PRODUCTOS
             this.dtProductos.Columns["IdProducto"].Visible = false;
             this.dtProductos.Columns["IdAlmacen"].Visible = false;
             this.dtProductos.Columns["IdTipoProveedor"].Visible = false;
@@ -67,6 +68,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             this.dtProductos.Columns["FechaModifica0"].Visible = false;
             this.dtProductos.Columns["IdTipoProducto0"].Visible = false;
             this.dtProductos.Columns["TipoProveedor"].Visible = false;
+
+            //FORMATEAR PRODUCTOS
+            dtProductos.Columns["CantidadAlmacen"].DefaultCellStyle.Format = "N0";
+            dtProductos.Columns["PrecioCompra"].DefaultCellStyle.Format = "N2";
+            dtProductos.Columns["PrecioVenta"].DefaultCellStyle.Format = "N2";
+            dtProductos.Columns["SegundoPrecio"].DefaultCellStyle.Format = "N2";
+            dtProductos.Columns["TercerPrecio"].DefaultCellStyle.Format = "N2";
+
         }
         #endregion
 

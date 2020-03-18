@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubMenuCaja));
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAbirCerrarCaja = new System.Windows.Forms.Button();
             this.btnCuadreCaja = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
             this.lbusuario = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbOpciones.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -58,6 +58,20 @@
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Caja - Seleccionar Opcion";
             this.gbOpciones.Enter += new System.EventHandler(this.gbOpciones_Enter);
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(478, 103);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(230, 68);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Cirugias";
+            this.toolTip1.SetToolTip(this.button2, "Mostrar el Listado de las facturas sin cirugias programadas");
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -106,7 +120,7 @@
             this.lbusuario.AutoSize = true;
             this.lbusuario.Location = new System.Drawing.Point(485, 10);
             this.lbusuario.Name = "lbusuario";
-            this.lbusuario.Size = new System.Drawing.Size(64, 25);
+            this.lbusuario.Size = new System.Drawing.Size(51, 20);
             this.lbusuario.TabIndex = 10;
             this.lbusuario.Text = "label1";
             this.lbusuario.Visible = false;
@@ -128,31 +142,17 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(7, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(478, 103);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(230, 68);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Cirugias";
-            this.toolTip1.SetToolTip(this.button2, "Mostrar el Listado de las facturas sin cirugias programadas");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnCerrar
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(703, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(704, 9);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 9;
             this.btnCerrar.TabStop = false;
@@ -160,7 +160,7 @@
             // 
             // SubMenuCaja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(745, 239);

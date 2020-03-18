@@ -82,7 +82,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(10, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 23;
             this.lbTitulo.Text = "label6";
             // 
@@ -91,9 +91,9 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(843, 10);
+            this.btnCerrar.Location = new System.Drawing.Point(846, 9);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 23;
             this.btnCerrar.TabStop = false;
@@ -121,7 +121,7 @@
             this.cbBuscarTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbBuscarTodo.Location = new System.Drawing.Point(25, 126);
             this.cbBuscarTodo.Name = "cbBuscarTodo";
-            this.cbBuscarTodo.Size = new System.Drawing.Size(143, 29);
+            this.cbBuscarTodo.Size = new System.Drawing.Size(116, 24);
             this.cbBuscarTodo.TabIndex = 4;
             this.cbBuscarTodo.Text = "Buscar Todo";
             this.toolTip1.SetToolTip(this.cbBuscarTodo, "Mostrar todo el historial ");
@@ -132,7 +132,7 @@
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaHasta.Location = new System.Drawing.Point(88, 93);
             this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(154, 30);
+            this.txtFechaHasta.Size = new System.Drawing.Size(154, 26);
             this.txtFechaHasta.TabIndex = 3;
             // 
             // txtFechaDesde
@@ -140,7 +140,7 @@
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaDesde.Location = new System.Drawing.Point(88, 57);
             this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(154, 30);
+            this.txtFechaDesde.Size = new System.Drawing.Size(154, 26);
             this.txtFechaDesde.TabIndex = 2;
             // 
             // label2
@@ -148,7 +148,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(19, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 25);
+            this.label2.Size = new System.Drawing.Size(52, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Hasta";
             // 
@@ -157,7 +157,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 25);
+            this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Desde";
             // 
@@ -197,7 +197,7 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(308, 106);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(76, 25);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(58, 20);
             this.lbClaveSeguridad.TabIndex = 4;
             this.lbClaveSeguridad.Text = "Clave *";
             this.lbClaveSeguridad.Visible = false;
@@ -208,7 +208,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(386, 103);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(206, 30);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(206, 26);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -305,11 +305,11 @@
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.dtListado.Location = new System.Drawing.Point(3, 26);
+            this.dtListado.Location = new System.Drawing.Point(3, 22);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(857, 255);
+            this.dtListado.Size = new System.Drawing.Size(857, 259);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -322,7 +322,7 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 73;
+            this.Select.Width = 60;
             // 
             // txtNumeroRegistros
             // 
@@ -335,7 +335,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroRegistros.TabIndex = 22;
             this.toolTip1.SetToolTip(this.txtNumeroRegistros, "Numero de registros mostrados");
             this.txtNumeroRegistros.Value = new decimal(new int[] {
@@ -350,7 +350,7 @@
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(174, 512);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(123, 25);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(101, 20);
             this.lbNumeroRegistros.TabIndex = 21;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -365,7 +365,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroPagina.TabIndex = 20;
             this.toolTip1.SetToolTip(this.txtNumeroPagina, "Numero de paginas mostradas");
             this.txtNumeroPagina.Value = new decimal(new int[] {
@@ -380,13 +380,13 @@
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(7, 512);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
             this.lbNumeroPagina.TabIndex = 19;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
             // ProgramacionCirugiaConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;

@@ -68,7 +68,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(7, 12);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
@@ -76,9 +76,9 @@
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(439, 12);
+            this.btnCerrar.Location = new System.Drawing.Point(449, 12);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 14;
             this.btnCerrar.TabStop = false;
@@ -111,7 +111,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(209, 234);
             this.txtClaveSeguridad.MaxLength = 20;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(243, 30);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(243, 26);
             this.txtClaveSeguridad.TabIndex = 12;
             // 
             // label6
@@ -119,7 +119,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(9, 238);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(194, 25);
+            this.label6.Size = new System.Drawing.Size(154, 20);
             this.label6.TabIndex = 11;
             this.label6.Text = "Clave de seguridad *";
             // 
@@ -128,7 +128,7 @@
             this.txtPersona.Location = new System.Drawing.Point(154, 168);
             this.txtPersona.MaxLength = 100;
             this.txtPersona.Name = "txtPersona";
-            this.txtPersona.Size = new System.Drawing.Size(298, 30);
+            this.txtPersona.Size = new System.Drawing.Size(298, 26);
             this.txtPersona.TabIndex = 10;
             // 
             // txtConfirmar
@@ -136,7 +136,7 @@
             this.txtConfirmar.Location = new System.Drawing.Point(154, 134);
             this.txtConfirmar.MaxLength = 20;
             this.txtConfirmar.Name = "txtConfirmar";
-            this.txtConfirmar.Size = new System.Drawing.Size(298, 30);
+            this.txtConfirmar.Size = new System.Drawing.Size(298, 26);
             this.txtConfirmar.TabIndex = 9;
             // 
             // txtClave
@@ -144,7 +144,7 @@
             this.txtClave.Location = new System.Drawing.Point(154, 101);
             this.txtClave.MaxLength = 20;
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(298, 30);
+            this.txtClave.Size = new System.Drawing.Size(298, 26);
             this.txtClave.TabIndex = 8;
             // 
             // txtUsuario
@@ -152,7 +152,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(154, 68);
             this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(298, 30);
+            this.txtUsuario.Size = new System.Drawing.Size(298, 26);
             this.txtUsuario.TabIndex = 7;
             // 
             // txtPerfil
@@ -160,7 +160,7 @@
             this.txtPerfil.FormattingEnabled = true;
             this.txtPerfil.Location = new System.Drawing.Point(154, 32);
             this.txtPerfil.Name = "txtPerfil";
-            this.txtPerfil.Size = new System.Drawing.Size(298, 33);
+            this.txtPerfil.Size = new System.Drawing.Size(298, 28);
             this.txtPerfil.TabIndex = 6;
             this.txtPerfil.Visible = false;
             // 
@@ -170,7 +170,7 @@
             this.cbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbEstatus.Location = new System.Drawing.Point(154, 199);
             this.cbEstatus.Name = "cbEstatus";
-            this.cbEstatus.Size = new System.Drawing.Size(96, 29);
+            this.cbEstatus.Size = new System.Drawing.Size(81, 24);
             this.cbEstatus.TabIndex = 5;
             this.cbEstatus.Text = "Estatus";
             this.cbEstatus.UseVisualStyleBackColor = true;
@@ -180,7 +180,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(50, 170);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 25);
+            this.label5.Size = new System.Drawing.Size(78, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Persona *";
             // 
@@ -189,7 +189,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(38, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 25);
+            this.label4.Size = new System.Drawing.Size(88, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Confirmar *";
             // 
@@ -198,7 +198,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(73, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 25);
+            this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Clave *";
             // 
@@ -207,7 +207,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(58, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 25);
+            this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Usuario *";
             // 
@@ -216,7 +216,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(81, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 25);
+            this.label1.Size = new System.Drawing.Size(44, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Perfil";
             this.label1.Visible = false;
@@ -235,7 +235,7 @@
             // 
             // MantenimientoUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(491, 404);

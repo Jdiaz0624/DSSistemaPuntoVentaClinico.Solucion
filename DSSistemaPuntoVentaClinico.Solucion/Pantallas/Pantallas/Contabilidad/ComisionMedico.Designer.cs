@@ -97,7 +97,7 @@
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Location = new System.Drawing.Point(344, 10);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(64, 25);
+            this.lbUsuario.Size = new System.Drawing.Size(51, 20);
             this.lbUsuario.TabIndex = 15;
             this.lbUsuario.Text = "label6";
             this.lbUsuario.Visible = false;
@@ -106,9 +106,9 @@
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1189, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(1199, 9);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 11;
             this.btnCerrar.TabStop = false;
@@ -119,7 +119,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(3, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 14;
             this.lbTitulo.Text = "label6";
             // 
@@ -164,7 +164,7 @@
             this.lbLetrero.ForeColor = System.Drawing.Color.Red;
             this.lbLetrero.Location = new System.Drawing.Point(269, 117);
             this.lbLetrero.Name = "lbLetrero";
-            this.lbLetrero.Size = new System.Drawing.Size(87, 29);
+            this.lbLetrero.Size = new System.Drawing.Size(70, 25);
             this.lbLetrero.TabIndex = 8;
             this.lbLetrero.Text = "label3";
             // 
@@ -213,7 +213,7 @@
             this.rbAmbos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbAmbos.Location = new System.Drawing.Point(257, 29);
             this.rbAmbos.Name = "rbAmbos";
-            this.rbAmbos.Size = new System.Drawing.Size(94, 29);
+            this.rbAmbos.Size = new System.Drawing.Size(76, 24);
             this.rbAmbos.TabIndex = 10;
             this.rbAmbos.TabStop = true;
             this.rbAmbos.Text = "Ambos";
@@ -227,7 +227,7 @@
             this.rbPagada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbPagada.Location = new System.Drawing.Point(150, 29);
             this.rbPagada.Name = "rbPagada";
-            this.rbPagada.Size = new System.Drawing.Size(100, 29);
+            this.rbPagada.Size = new System.Drawing.Size(81, 24);
             this.rbPagada.TabIndex = 9;
             this.rbPagada.TabStop = true;
             this.rbPagada.Text = "Pagada";
@@ -241,7 +241,7 @@
             this.rbNoPagada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbNoPagada.Location = new System.Drawing.Point(13, 29);
             this.rbNoPagada.Name = "rbNoPagada";
-            this.rbNoPagada.Size = new System.Drawing.Size(130, 29);
+            this.rbNoPagada.Size = new System.Drawing.Size(105, 24);
             this.rbNoPagada.TabIndex = 8;
             this.rbNoPagada.TabStop = true;
             this.rbNoPagada.Text = "No Pagada";
@@ -255,7 +255,7 @@
             this.cbNoAgregarRangoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbNoAgregarRangoFecha.Location = new System.Drawing.Point(20, 116);
             this.cbNoAgregarRangoFecha.Name = "cbNoAgregarRangoFecha";
-            this.cbNoAgregarRangoFecha.Size = new System.Drawing.Size(251, 29);
+            this.cbNoAgregarRangoFecha.Size = new System.Drawing.Size(207, 24);
             this.cbNoAgregarRangoFecha.TabIndex = 4;
             this.cbNoAgregarRangoFecha.Text = "No Usar Rango de Fecha";
             this.toolTip1.SetToolTip(this.cbNoAgregarRangoFecha, "No filtrar por rango de fecha");
@@ -266,7 +266,7 @@
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaHasta.Location = new System.Drawing.Point(168, 75);
             this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(155, 30);
+            this.txtFechaHasta.Size = new System.Drawing.Size(155, 26);
             this.txtFechaHasta.TabIndex = 3;
             // 
             // txtFechaDesde
@@ -274,7 +274,7 @@
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaDesde.Location = new System.Drawing.Point(168, 39);
             this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(155, 30);
+            this.txtFechaDesde.Size = new System.Drawing.Size(155, 26);
             this.txtFechaDesde.TabIndex = 2;
             // 
             // label2
@@ -282,7 +282,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(41, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 25);
+            this.label2.Size = new System.Drawing.Size(101, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Fecha Hasta";
             // 
@@ -291,7 +291,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(35, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 25);
+            this.label1.Size = new System.Drawing.Size(105, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha Desde";
             // 
@@ -306,7 +306,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroRegistros.TabIndex = 39;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -320,7 +320,7 @@
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(208, 571);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(123, 25);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(101, 20);
             this.lbNumeroRegistros.TabIndex = 38;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -335,7 +335,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroPagina.TabIndex = 37;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -349,7 +349,7 @@
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(13, 573);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
             this.lbNumeroPagina.TabIndex = 36;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -378,11 +378,11 @@
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.GridColor = System.Drawing.Color.DimGray;
-            this.dtListado.Location = new System.Drawing.Point(3, 26);
+            this.dtListado.Location = new System.Drawing.Point(3, 22);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1208, 269);
+            this.dtListado.Size = new System.Drawing.Size(1208, 273);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -395,7 +395,7 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 73;
+            this.Select.Width = 60;
             // 
             // cbTodo
             // 
@@ -404,7 +404,7 @@
             this.cbTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbTodo.Location = new System.Drawing.Point(355, 161);
             this.cbTodo.Name = "cbTodo";
-            this.cbTodo.Size = new System.Drawing.Size(77, 29);
+            this.cbTodo.Size = new System.Drawing.Size(62, 24);
             this.cbTodo.TabIndex = 10;
             this.cbTodo.Text = "Todo";
             this.toolTip1.SetToolTip(this.cbTodo, "Pagar Todo");
@@ -436,7 +436,7 @@
             // 
             this.txtMontoPagar.Location = new System.Drawing.Point(162, 162);
             this.txtMontoPagar.Name = "txtMontoPagar";
-            this.txtMontoPagar.Size = new System.Drawing.Size(187, 30);
+            this.txtMontoPagar.Size = new System.Drawing.Size(187, 26);
             this.txtMontoPagar.TabIndex = 9;
             this.txtMontoPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
             // 
@@ -445,7 +445,7 @@
             this.txtComisionPagar.Enabled = false;
             this.txtComisionPagar.Location = new System.Drawing.Point(163, 126);
             this.txtComisionPagar.Name = "txtComisionPagar";
-            this.txtComisionPagar.Size = new System.Drawing.Size(286, 30);
+            this.txtComisionPagar.Size = new System.Drawing.Size(286, 26);
             this.txtComisionPagar.TabIndex = 8;
             this.txtComisionPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
             // 
@@ -454,7 +454,7 @@
             this.txtFechaCirugia.Enabled = false;
             this.txtFechaCirugia.Location = new System.Drawing.Point(164, 92);
             this.txtFechaCirugia.Name = "txtFechaCirugia";
-            this.txtFechaCirugia.Size = new System.Drawing.Size(286, 30);
+            this.txtFechaCirugia.Size = new System.Drawing.Size(286, 26);
             this.txtFechaCirugia.TabIndex = 7;
             // 
             // txtNoFactura
@@ -462,7 +462,7 @@
             this.txtNoFactura.Enabled = false;
             this.txtNoFactura.Location = new System.Drawing.Point(164, 59);
             this.txtNoFactura.Name = "txtNoFactura";
-            this.txtNoFactura.Size = new System.Drawing.Size(286, 30);
+            this.txtNoFactura.Size = new System.Drawing.Size(286, 26);
             this.txtNoFactura.TabIndex = 6;
             // 
             // txtNombreMedico
@@ -470,7 +470,7 @@
             this.txtNombreMedico.Enabled = false;
             this.txtNombreMedico.Location = new System.Drawing.Point(164, 26);
             this.txtNombreMedico.Name = "txtNombreMedico";
-            this.txtNombreMedico.Size = new System.Drawing.Size(286, 30);
+            this.txtNombreMedico.Size = new System.Drawing.Size(286, 26);
             this.txtNombreMedico.TabIndex = 5;
             // 
             // label7
@@ -478,7 +478,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(34, 165);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 25);
+            this.label7.Size = new System.Drawing.Size(100, 20);
             this.label7.TabIndex = 4;
             this.label7.Text = "Monto Pagar";
             // 
@@ -487,7 +487,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(8, 128);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(151, 25);
+            this.label6.Size = new System.Drawing.Size(120, 20);
             this.label6.TabIndex = 3;
             this.label6.Text = "Comisión Pagar";
             // 
@@ -496,7 +496,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(26, 94);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 25);
+            this.label5.Size = new System.Drawing.Size(107, 20);
             this.label5.TabIndex = 2;
             this.label5.Text = "Fecha Cirugia";
             // 
@@ -505,7 +505,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(47, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 25);
+            this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 1;
             this.label4.Text = "No. Factura";
             // 
@@ -514,7 +514,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(85, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 25);
+            this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Medico";
             // 
@@ -525,7 +525,7 @@
             this.lbComisionPagadaTitulo.ForeColor = System.Drawing.Color.Black;
             this.lbComisionPagadaTitulo.Location = new System.Drawing.Point(416, 573);
             this.lbComisionPagadaTitulo.Name = "lbComisionPagadaTitulo";
-            this.lbComisionPagadaTitulo.Size = new System.Drawing.Size(237, 29);
+            this.lbComisionPagadaTitulo.Size = new System.Drawing.Size(189, 25);
             this.lbComisionPagadaTitulo.TabIndex = 10;
             this.lbComisionPagadaTitulo.Text = "Comisión Pagada:";
             this.lbComisionPagadaTitulo.Visible = false;
@@ -537,14 +537,14 @@
             this.lbRespuesta.ForeColor = System.Drawing.Color.Black;
             this.lbRespuesta.Location = new System.Drawing.Point(659, 573);
             this.lbRespuesta.Name = "lbRespuesta";
-            this.lbRespuesta.Size = new System.Drawing.Size(52, 29);
+            this.lbRespuesta.Size = new System.Drawing.Size(44, 25);
             this.lbRespuesta.TabIndex = 41;
             this.lbRespuesta.Text = "NO";
             this.lbRespuesta.Visible = false;
             // 
             // ComisionMedico
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 615);
             this.Controls.Add(this.lbRespuesta);
