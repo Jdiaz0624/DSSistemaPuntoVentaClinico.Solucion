@@ -525,7 +525,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GenerarFacturaVentas(Convert.ToDecimal(lbNumeroReferencia.Text));
+            try {
+                GenerarFacturaVentas(Convert.ToDecimal(lbNumeroReferencia.Text));
+            }
+            catch (Exception) { MessageBox.Show("Favor de consultar un numero de factutra para poder mostrar el documento", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void btnCompletarRegistro_Click(object sender, EventArgs e)
