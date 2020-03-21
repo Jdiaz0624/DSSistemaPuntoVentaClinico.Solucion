@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbProductoConsulta = new System.Windows.Forms.GroupBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
@@ -57,14 +56,16 @@
             this.lbIdUsuario = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnReporte = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbProductoConsulta.SuspendLayout();
             this.gbOpciones.SuspendLayout();
             this.gbListadoProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,22 +85,9 @@
             this.lbTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitulo.Location = new System.Drawing.Point(12, 18);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(59, 21);
+            this.lbTitulo.Size = new System.Drawing.Size(70, 23);
             this.lbTitulo.TabIndex = 18;
             this.lbTitulo.Text = "label6";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1121, 9);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 18;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // gbProductoConsulta
             // 
@@ -121,7 +109,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(238, 78);
             this.txtDescripcion.MaxLength = 100;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(300, 26);
+            this.txtDescripcion.Size = new System.Drawing.Size(300, 30);
             this.txtDescripcion.TabIndex = 3;
             // 
             // txtCodigoProducto
@@ -130,7 +118,7 @@
             this.txtCodigoProducto.Location = new System.Drawing.Point(238, 42);
             this.txtCodigoProducto.MaxLength = 100;
             this.txtCodigoProducto.Name = "txtCodigoProducto";
-            this.txtCodigoProducto.Size = new System.Drawing.Size(300, 26);
+            this.txtCodigoProducto.Size = new System.Drawing.Size(300, 30);
             this.txtCodigoProducto.TabIndex = 2;
             // 
             // label2
@@ -138,7 +126,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 20);
+            this.label2.Size = new System.Drawing.Size(224, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Descripción de Producto";
             // 
@@ -147,7 +135,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(49, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 20);
+            this.label1.Size = new System.Drawing.Size(185, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo de Producto";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -176,7 +164,7 @@
             this.txtClaveSeguridad.Location = new System.Drawing.Point(377, 92);
             this.txtClaveSeguridad.MaxLength = 100;
             this.txtClaveSeguridad.Name = "txtClaveSeguridad";
-            this.txtClaveSeguridad.Size = new System.Drawing.Size(211, 27);
+            this.txtClaveSeguridad.Size = new System.Drawing.Size(211, 32);
             this.txtClaveSeguridad.TabIndex = 4;
             this.txtClaveSeguridad.Visible = false;
             // 
@@ -199,7 +187,7 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(302, 97);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(57, 21);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(71, 23);
             this.lbClaveSeguridad.TabIndex = 4;
             this.lbClaveSeguridad.Text = "Clave";
             this.lbClaveSeguridad.Visible = false;
@@ -296,11 +284,11 @@
             this.Selct});
             this.dtProductos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtProductos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtProductos.Location = new System.Drawing.Point(3, 23);
+            this.dtProductos.Location = new System.Drawing.Point(3, 28);
             this.dtProductos.Name = "dtProductos";
             this.dtProductos.ReadOnly = true;
             this.dtProductos.RowTemplate.Height = 24;
-            this.dtProductos.Size = new System.Drawing.Size(1144, 257);
+            this.dtProductos.Size = new System.Drawing.Size(1144, 252);
             this.dtProductos.TabIndex = 0;
             this.dtProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtProductos_CellContentClick);
             // 
@@ -313,7 +301,7 @@
             this.Selct.Text = "Select";
             this.Selct.ToolTipText = "Select";
             this.Selct.UseColumnTextForButtonValue = true;
-            this.Selct.Width = 64;
+            this.Selct.Width = 77;
             // 
             // lbPerfilUsuarioConectado
             // 
@@ -321,7 +309,7 @@
             this.lbPerfilUsuarioConectado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPerfilUsuarioConectado.Location = new System.Drawing.Point(744, 507);
             this.lbPerfilUsuarioConectado.Name = "lbPerfilUsuarioConectado";
-            this.lbPerfilUsuarioConectado.Size = new System.Drawing.Size(157, 23);
+            this.lbPerfilUsuarioConectado.Size = new System.Drawing.Size(197, 28);
             this.lbPerfilUsuarioConectado.TabIndex = 16;
             this.lbPerfilUsuarioConectado.Text = "Perfil de Usuario";
             this.lbPerfilUsuarioConectado.Visible = false;
@@ -338,7 +326,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 32);
             this.txtNumeroRegistros.TabIndex = 15;
             this.toolTip1.SetToolTip(this.txtNumeroRegistros, "Cantidad de Registros Mostrados");
             this.txtNumeroRegistros.Value = new decimal(new int[] {
@@ -354,7 +342,7 @@
             this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroRegistros.Location = new System.Drawing.Point(231, 497);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(130, 23);
             this.lbNumeroRegistros.TabIndex = 14;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -370,7 +358,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 32);
             this.txtNumeroPagina.TabIndex = 13;
             this.toolTip1.SetToolTip(this.txtNumeroPagina, "Numero de pagina mostrada");
             this.txtNumeroPagina.Value = new decimal(new int[] {
@@ -386,7 +374,7 @@
             this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroPagina.Location = new System.Drawing.Point(10, 496);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(111, 23);
             this.lbNumeroPagina.TabIndex = 12;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -396,7 +384,7 @@
             this.lbIdUsuario.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdUsuario.Location = new System.Drawing.Point(524, 507);
             this.lbIdUsuario.Name = "lbIdUsuario";
-            this.lbIdUsuario.Size = new System.Drawing.Size(96, 23);
+            this.lbIdUsuario.Size = new System.Drawing.Size(120, 28);
             this.lbIdUsuario.TabIndex = 17;
             this.lbIdUsuario.Text = "IdUsuario";
             this.lbIdUsuario.Visible = false;
@@ -415,13 +403,41 @@
             this.btnReporte.UseVisualStyleBackColor = true;
             this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(810, 493);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(203, 49);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Cantidad Minima";
+            this.toolTip1.SetToolTip(this.button1, "Mostrar los productos en Cantidad Minima");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(1121, 9);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 18;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // ProductoConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1171, 544);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.lbIdUsuario);
             this.Controls.Add(this.lbPerfilUsuarioConectado);
@@ -442,7 +458,6 @@
             this.Load += new System.EventHandler(this.ProductoConsulta_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.gbProductoConsulta.ResumeLayout(false);
             this.gbProductoConsulta.PerformLayout();
             this.gbOpciones.ResumeLayout(false);
@@ -451,6 +466,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,5 +502,6 @@
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.Button button1;
     }
 }

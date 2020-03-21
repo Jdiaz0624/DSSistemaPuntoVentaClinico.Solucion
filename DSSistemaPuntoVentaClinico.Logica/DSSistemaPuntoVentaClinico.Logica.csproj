@@ -89,6 +89,8 @@
     <Compile Include="Entidades\EntidadHistorial\EHistorialFacturacionCotizacion.cs" />
     <Compile Include="Entidades\EntidadHistorial\EMontoFacturacionCotizacion.cs" />
     <Compile Include="Entidades\EntidadInventario\EAlmacen.cs" />
+    <Compile Include="Entidades\EntidadInventario\EBuscaProductoCantidadMinima.cs" />
+    <Compile Include="Entidades\EntidadInventario\ECantidadMinima.cs" />
     <Compile Include="Entidades\EntidadInventario\EContarProductos.cs" />
     <Compile Include="Entidades\EntidadInventario\EPRoducto.cs" />
     <Compile Include="Entidades\EntidadInventario\EProveedor.cs" />

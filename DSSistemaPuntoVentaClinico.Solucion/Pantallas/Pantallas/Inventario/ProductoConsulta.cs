@@ -293,8 +293,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
                     null, null, null, null, null,
                     _Descripcion,
                     null, null,
-                    Convert.ToInt32(txtNumeroPagina.Value),
-                    Convert.ToInt32(txtNumeroRegistros.Value));
+                    1,
+                    999999999);
                 foreach (var n in Listado)
                 {
                     DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EmantenimientoReporte Guardar = new Logica.Entidades.EntidadReporte.EmantenimientoReporte();
@@ -355,6 +355,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             catch (Exception) {
                 MessageBox.Show("Error al realiar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario.ProductosCantidadMinima Cantidad = new ProductosCantidadMinima();
+            Cantidad.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Cantidad.ShowDialog();
         }
     }
 }

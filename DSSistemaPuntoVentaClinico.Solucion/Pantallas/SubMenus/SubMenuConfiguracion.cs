@@ -50,5 +50,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             Comprobantes.VariablesGlobales.IdUsuario = Convert.ToInt32(lbUsuario.Text);
             Comprobantes.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Configuracion.CantidadMinimaProductos CantidadMinima = new Pantallas.Configuracion.CantidadMinimaProductos();
+            CantidadMinima.VariablesGlobales.IdUsuario = Convert.ToInt32(lbUsuario.Text);
+            CantidadMinima.ShowDialog();
+        }
     }
 }

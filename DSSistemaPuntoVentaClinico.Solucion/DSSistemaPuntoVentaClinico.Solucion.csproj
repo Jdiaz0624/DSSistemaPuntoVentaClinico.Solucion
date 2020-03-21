@@ -88,6 +88,12 @@
     <Compile Include="Pantallas\Pantallas\Caja\MonedaMantenimiento.Designer.cs">
       <DependentUpon>MonedaMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\CantidadMinimaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Configuracion\CantidadMinimaProductos.Designer.cs">
+      <DependentUpon>CantidadMinimaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\ConfiguracionReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +298,12 @@
     <Compile Include="Pantallas\Pantallas\Inventario\AlmacenConsulta.Designer.cs">
       <DependentUpon>AlmacenConsulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ConfigurarCantidadMinimaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ConfigurarCantidadMinimaProductos.Designer.cs">
+      <DependentUpon>ConfigurarCantidadMinimaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\MantenimientoAlmacen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +321,12 @@
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\ProductoMantenimiento.Designer.cs">
       <DependentUpon>ProductoMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ProductosCantidadMinima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Inventario\ProductosCantidadMinima.Designer.cs">
+      <DependentUpon>ProductosCantidadMinima.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Inventario\ProveedorConsulta.cs">
       <SubType>Form</SubType>
@@ -480,6 +498,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Caja\MonedaMantenimiento.resx">
       <DependentUpon>MonedaMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\CantidadMinimaProductos.resx">
+      <DependentUpon>CantidadMinimaProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\ConfiguracionReportes.resx">
       <DependentUpon>ConfiguracionReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -579,6 +600,9 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\AlmacenConsulta.resx">
       <DependentUpon>AlmacenConsulta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ConfigurarCantidadMinimaProductos.resx">
+      <DependentUpon>ConfigurarCantidadMinimaProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\MantenimientoAlmacen.resx">
       <DependentUpon>MantenimientoAlmacen.cs</DependentUpon>
     </EmbeddedResource>
@@ -587,6 +611,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ProductoMantenimiento.resx">
       <DependentUpon>ProductoMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ProductosCantidadMinima.resx">
+      <DependentUpon>ProductosCantidadMinima.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Inventario\ProveedorConsulta.resx">
       <DependentUpon>ProveedorConsulta.cs</DependentUpon>

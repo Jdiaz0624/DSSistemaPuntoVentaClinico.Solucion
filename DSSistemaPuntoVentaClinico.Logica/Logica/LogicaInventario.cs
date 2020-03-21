@@ -440,6 +440,90 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                           }).ToList();
             return Contar;
         }
-#endregion
+        #endregion
+        #region MANTENIMIENTO DE CANTIDAD MINIMA
+        //BUSCAR CANTIDAD MINIMA
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.ECantidadMinima> BuscaCantidadMinima(int? IdCantidadMinima = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_CANTIDAD_MINIMA_PRODUCTOS(IdCantidadMinima)
+                          select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.ECantidadMinima
+                          {
+                              IdCantidadMinima=n.IdCantidadMinima,
+                              CantidadMinima=n.CantidadMinima
+                          }).ToList();
+            return Buscar;
+        }
+        //MANTENIMIENTO CANTIDAD MINIMA
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.ECantidadMinima MantenimientoCantidadMinima(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.ECantidadMinima Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.ECantidadMinima Mantenimiento = null;
+
+            var CantidadDias = ObjData.SP_MANTENIMIENTO_CANTIDAD_MINIMA(
+                Item.IdCantidadMinima,
+                Item.CantidadMinima,
+                Accion);
+            if (CantidadDias != null)
+            {
+                Mantenimiento = (from n in CantidadDias
+                                 select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.ECantidadMinima
+                                 {
+                                     IdCantidadMinima=n.IdCantidadMinima,
+                                     CantidadMinima=n.CantidadMinima
+                                 }).FirstOrDefault();
+            }
+            return Mantenimiento;
+        }
+        //BUSCA PRODUCTO CANTIDAD MINIMA
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EBuscaProductoCantidadMinima> BuscaProductoCantidadMinima(decimal? IdProducto = null, string CodigoProducto = null, decimal? IdAlmacen = null, decimal? IdTipoProveedor = null, decimal? IdProveedor = null, decimal? IdTipoEmpaque = null, decimal? IdTipoProducto = null, string Descripcion = null, DateTime? FechaEntradaDesde = null, DateTime? FechaEntradaHasta = null, int? NumeroPagina = null, int? Numeroregistros = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Buscar = (from n in ObjData.SP_BUSCA_PRODUCTO_CANTIDAD_MINIMA(IdProducto, CodigoProducto, IdAlmacen, IdTipoProveedor, IdProveedor, IdTipoEmpaque, IdTipoProducto, Descripcion, FechaEntradaDesde, FechaEntradaHasta, NumeroPagina, Numeroregistros)
+                          select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EBuscaProductoCantidadMinima
+                          {
+                              IdProducto = n.IdProducto,
+                              CodigoProducto = n.CodigoProducto,
+                              IdAlmacen = n.IdAlmacen,
+                              Almacen = n.Almacen,
+                              IdTipoProveedor = n.IdTipoProveedor,
+                              TipoProveedor = n.TipoProveedor,
+                              IdProveedor = n.IdProveedor,
+                              Proveedor = n.Proveedor,
+                              IdTipoEmpaque = n.IdTipoEmpaque,
+                              TipoEmpaque = n.TipoEmpaque,
+                              IdTipoProducto0 = n.IdTipoProducto0,
+                              TipoProducto = n.TipoProducto,
+                              Producto = n.Producto,
+                              Estatus0 = n.Estatus0,
+                              Estatus = n.Estatus,
+                              CantidadAlmacen = n.CantidadAlmacen,
+                              PrecioCompra = n.PrecioCompra,
+                              PrecioVenta = n.PrecioVenta,
+                              SegundoPrecio = n.SegundoPrecio,
+                              TercerPrecio = n.TercerPrecio,
+                              FechaEntrada0 = n.FechaEntrada0,
+                              FechaEntrada = n.FechaEntrada,
+                              LlevaDescuento0 = n.LlevaDescuento0,
+                              LlevaDescuento = n.LlevaDescuento,
+                              PorcientoDescuento = n.PorcientoDescuento,
+                              UsuarioAdiciona = n.UsuarioAdiciona,
+                              CreadoPor = n.CreadoPor,
+                              FechaAdiciona0 = n.FechaEntrada0,
+                              FechaAdiciona = n.FechaAdiciona,
+                              UsuarioModifica = n.UsuarioModifica,
+                              ModificadoPor = n.ModificadoPor,
+                              FechaModifica0 = n.FechaModifica0,
+                              FechaModifica = n.FechaModifica,
+                              CantidadRegistros=n.CantidadRegistros
+                          }).ToList();
+            return Buscar;
+
+
+        }
+        #endregion
     }
 }

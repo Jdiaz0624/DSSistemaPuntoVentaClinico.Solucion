@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaFacturacionMedico" Class="BDInventarioDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JUANMARCELINOMD;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString2" Provider="System.Data.SqlClient" />
   <Function Name="Inventario.SP_BUSCA_ALMACEN" Method="SP_BUSCA_ALMACEN">
     <Parameter Name="IdAlmacen" Parameter="idAlmacen" Type="System.Decimal" DbType="Decimal(18,0)" />
     <Parameter Name="CodigoAlmacen" Parameter="codigoAlmacen" Type="System.String" DbType="VarChar(100)" />
@@ -334,6 +334,72 @@
     <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
     <ElementType Name="SP_CONTAR_CANTIDAD_PRODUCTOResult">
       <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Inventario.SP_BUSCA_CANTIDAD_MINIMA_PRODUCTOS" Method="SP_BUSCA_CANTIDAD_MINIMA_PRODUCTOS">
+    <Parameter Name="IdCantidadMinima" Parameter="idCantidadMinima" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_CANTIDAD_MINIMA_PRODUCTOSResult">
+      <Column Name="IdCantidadMinima" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CantidadMinima" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Inventario.SP_MANTENIMIENTO_CANTIDAD_MINIMA" Method="SP_MANTENIMIENTO_CANTIDAD_MINIMA">
+    <Parameter Name="IdCantidadMinima" Parameter="idCantidadMinima" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CantidadMinima" Parameter="cantidadMinima" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_MANTENIMIENTO_CANTIDAD_MINIMAResult">
+      <Column Name="IdCantidadMinima" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CantidadMinima" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Inventario.SP_BUSCA_PRODUCTO_CANTIDAD_MINIMA" Method="SP_BUSCA_PRODUCTO_CANTIDAD_MINIMA">
+    <Parameter Name="IdProducto" Parameter="idProducto" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="CodigoProducto" Parameter="codigoProducto" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="IdAlmacen" Parameter="idAlmacen" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="IdTipoProveedor" Parameter="idTipoProveedor" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="IdProveedor" Parameter="idProveedor" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="IdTipoEmpaque" Parameter="idTipoEmpaque" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="IdTipoProducto" Parameter="idTipoProducto" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="Descripcion" Parameter="descripcion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="FechaEntradaDesde" Parameter="fechaEntradaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaEntradaHasta" Parameter="fechaEntradaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumeroPagina" Parameter="numeroPagina" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NumeroRegistros" Parameter="numeroRegistros" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_BUSCA_PRODUCTO_CANTIDAD_MINIMAResult">
+      <Column Name="IdProducto" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CodigoProducto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdAlmacen" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Almacen" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoProveedor" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TipoProveedor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdProveedor" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Proveedor" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoEmpaque" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TipoEmpaque" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdTipoProducto0" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TipoProducto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Producto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Estatus0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estatus" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="CantidadAlmacen" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrecioCompra" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="PrecioVenta" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="SegundoPrecio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="TercerPrecio" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+      <Column Name="FechaEntrada0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaEntrada" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="LlevaDescuento0" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LlevaDescuento" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="PorcientoDescuento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioAdiciona" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CreadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="FechaAdiciona0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaAdiciona" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="UsuarioModifica" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ModificadoPor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="FechaModifica0" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="FechaModifica" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CantidadRegistros" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

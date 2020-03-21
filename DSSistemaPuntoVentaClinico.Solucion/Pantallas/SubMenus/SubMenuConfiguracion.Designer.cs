@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SubMenuConfiguracion));
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnInformacionEmpresa = new System.Windows.Forms.Button();
@@ -46,23 +47,38 @@
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.button1);
             this.gbOpciones.Controls.Add(this.lbUsuario);
             this.gbOpciones.Controls.Add(this.btnReportes);
             this.gbOpciones.Controls.Add(this.btnInformacionEmpresa);
             this.gbOpciones.Controls.Add(this.btnComprobantes);
             this.gbOpciones.Location = new System.Drawing.Point(12, 50);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(723, 106);
+            this.gbOpciones.Size = new System.Drawing.Size(723, 188);
             this.gbOpciones.TabIndex = 14;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Configuración - Seleccionar Opcion";
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(6, 103);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(230, 68);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Cantidad Minima Productos";
+            this.toolTip1.SetToolTip(this.button1, "Configurar la cantidad de productos minimos");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbUsuario
             // 
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Location = new System.Drawing.Point(496, 116);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(51, 20);
+            this.lbUsuario.Size = new System.Drawing.Size(64, 25);
             this.lbUsuario.TabIndex = 9;
             this.lbUsuario.Text = "label1";
             this.lbUsuario.Visible = false;
@@ -138,17 +154,17 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(13, 10);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
             this.lbTitulo.TabIndex = 16;
             this.lbTitulo.Text = "label1";
             // 
             // SubMenuConfiguracion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(756, 164);
+            this.ClientSize = new System.Drawing.Size(756, 250);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,5 +197,6 @@
         private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Label lbUsuario;
+        private System.Windows.Forms.Button button1;
     }
 }
