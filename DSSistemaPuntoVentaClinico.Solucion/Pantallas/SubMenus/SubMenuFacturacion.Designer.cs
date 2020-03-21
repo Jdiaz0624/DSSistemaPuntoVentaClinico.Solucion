@@ -54,7 +54,7 @@
             this.gbOpciones.Controls.Add(this.btnFacturacion);
             this.gbOpciones.Location = new System.Drawing.Point(12, 44);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(722, 180);
+            this.gbOpciones.Size = new System.Drawing.Size(722, 108);
             this.gbOpciones.TabIndex = 0;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Facturación - Seleccionar Opcion";
@@ -64,7 +64,7 @@
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Location = new System.Drawing.Point(610, 126);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(51, 20);
+            this.lbUsuario.Size = new System.Drawing.Size(64, 25);
             this.lbUsuario.TabIndex = 8;
             this.lbUsuario.Text = "label1";
             this.lbUsuario.Visible = false;
@@ -74,7 +74,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(6, 103);
+            this.button1.Location = new System.Drawing.Point(242, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(230, 68);
             this.button1.TabIndex = 3;
@@ -102,13 +102,14 @@
             this.btnFinanciamiento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFinanciamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinanciamiento.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinanciamiento.Location = new System.Drawing.Point(242, 29);
+            this.btnFinanciamiento.Location = new System.Drawing.Point(478, 103);
             this.btnFinanciamiento.Name = "btnFinanciamiento";
             this.btnFinanciamiento.Size = new System.Drawing.Size(230, 68);
             this.btnFinanciamiento.TabIndex = 1;
             this.btnFinanciamiento.Text = "Programación";
             this.toolTip1.SetToolTip(this.btnFinanciamiento, "Financiamiento de Equipos");
             this.btnFinanciamiento.UseVisualStyleBackColor = true;
+            this.btnFinanciamiento.Visible = false;
             this.btnFinanciamiento.Click += new System.EventHandler(this.btnFinanciamiento_Click);
             // 
             // btnFacturacion
@@ -143,7 +144,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(3, 7);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
             this.lbTitulo.TabIndex = 14;
             this.lbTitulo.Text = "label6";
             // 
@@ -160,12 +161,12 @@
             // 
             // SubMenuFacturacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(744, 232);
+            this.ClientSize = new System.Drawing.Size(744, 161);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbOpciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

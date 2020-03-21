@@ -284,9 +284,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         private void CerrarPantalla()
         {
             this.Dispose();
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugiaConsulta Consulta = new ProgramacionCirugiaConsulta();
-            Consulta.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-            Consulta.ShowDialog();
+            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugiaConsulta Consulta = new ProgramacionCirugiaConsulta();
+            //Consulta.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            //Consulta.ShowDialog();
         }
         #endregion
 

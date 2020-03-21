@@ -272,5 +272,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal
             IdUsuario = Convert.ToDecimal(lbiDUSUARIO.Text);
             AbrirPantallasEnPanel(new DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus.SubMenuConfiguracion());
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            IdUsuario = Convert.ToDecimal(lbiDUSUARIO.Text);
+            AbrirPantallasEnPanel(new DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugiaConsulta());
+
+
+            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugiaConsulta Programacion = new Pantallas.Facturacion.ProgramacionCirugiaConsulta();
+            //Programacion.VariablesGlobales.IdUsuario = Convert.ToDecimal(lbUsuario.Text);
+            //Programacion.ShowDialog();
+
+        }
     }
 }

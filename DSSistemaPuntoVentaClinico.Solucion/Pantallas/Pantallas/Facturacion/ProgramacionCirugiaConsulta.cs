@@ -115,7 +115,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugias Mantenimiento = new ProgramacionCirugias();
             Mantenimiento.VariablesGlobales.IdMantenimiento = 0;
             Mantenimiento.VariablesGlobales.NumeroFacturaMantenimiento = VariablesGlobales.NumeroFacturaMantenimiento;
@@ -244,7 +244,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                 }
                 else
                 {
-                    this.Hide();
+                 //   this.Hide();
                     DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugias Modificar = new ProgramacionCirugias();
                     Modificar.VariablesGlobales.IdMantenimiento = VariablesGlobales.IdMantenimiento;
                     Modificar.VariablesGlobales.NumeroFacturaMantenimiento = VariablesGlobales.NumeroFacturaMantenimiento;
