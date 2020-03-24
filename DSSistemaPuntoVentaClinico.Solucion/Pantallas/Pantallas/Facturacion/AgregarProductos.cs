@@ -87,6 +87,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             this.dtSeleccionarproducto.Columns["ModificadoPor"].Visible = false;
             this.dtSeleccionarproducto.Columns["FechaModifica"].Visible = false;
 
+            this.dtSeleccionarproducto.Columns["TipoProveedor"].Visible = false;
+            this.dtSeleccionarproducto.Columns["Proveedor"].Visible = false;
+            this.dtSeleccionarproducto.Columns["TipoProducto"].Visible = false;
+            this.dtSeleccionarproducto.Columns["LlevaDescuento"].Visible = false;
+            this.dtSeleccionarproducto.Columns["PorcientoDescuento"].Visible = false;
+
             dtSeleccionarproducto.Columns["CantidadAlmacen"].DefaultCellStyle.Format = "N0";
             dtSeleccionarproducto.Columns["PrecioVenta"].DefaultCellStyle.Format = "N2";
             dtSeleccionarproducto.Columns["SegundoPrecio"].DefaultCellStyle.Format = "N2";

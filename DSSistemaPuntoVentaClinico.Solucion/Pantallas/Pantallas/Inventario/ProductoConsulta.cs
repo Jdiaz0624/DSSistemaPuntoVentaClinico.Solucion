@@ -69,6 +69,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
             this.dtProductos.Columns["IdTipoProducto0"].Visible = false;
             this.dtProductos.Columns["TipoProveedor"].Visible = false;
 
+            //this.dtProductos.Columns["TipoProveedor"].Visible = false;
+            //this.dtProductos.Columns["TipoProveedor"].Visible = false;
+            //this.dtProductos.Columns["TipoProveedor"].Visible = false;
+            //this.dtProductos.Columns["TipoProveedor"].Visible = false;
+            //this.dtProductos.Columns["TipoProveedor"].Visible = false;
+
             //FORMATEAR PRODUCTOS
             dtProductos.Columns["CantidadAlmacen"].DefaultCellStyle.Format = "N0";
             dtProductos.Columns["PrecioCompra"].DefaultCellStyle.Format = "N2";
