@@ -189,6 +189,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             this.dataGridView1.Columns["IdProducto"].Visible = false;
             this.dataGridView1.Columns["CodigoProducto"].Visible = false;
             this.dataGridView1.Columns["PrecioCompra"].Visible = false;
+
+            this.dataGridView1.Columns["LlevaDescuento0"].Visible = false;
+            this.dataGridView1.Columns["_LlevaDescuento"].Visible = false;
+            this.dataGridView1.Columns["PorcientoDescuento"].Visible = false;
         }
         #endregion
         #region GUARDAR LOS DATOS DE LA FACTURACION ESPEJO
