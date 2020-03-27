@@ -249,7 +249,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Mantenimiento.IdMedico = Convert.ToDecimal(ddlMedico.SelectedValue);
             Mantenimiento.IdAuxiliarCirugia = Convert.ToDecimal(ddlAsistenteCirugia.SelectedValue);
             Mantenimiento.IdHoraCirugia = Convert.ToDecimal(ddlHoraCirugia.SelectedValue);
-            Mantenimiento.IdEstatusCirugia = Convert.ToDecimal(ddlEstatusCirugia.SelectedValue);
+            Mantenimiento.IdEstatusCirugia = 1;
             Mantenimiento.NoFactura = Convert.ToDecimal(lbNumeroFactura.Text);
             Mantenimiento.NoReferencia = Convert.ToDecimal(lbNumeroReferencia.Text);
             Mantenimiento.UsuarioAdiciona = VariablesGlobales.IdUsuario;
@@ -425,6 +425,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     ddlEstatusCirugia.Text = n.Estatus;
                 }
             }
+            if (VariablesGlobales.Capricho == "RAFI") {
+                SacarDatosprogramacionCirugia(VariablesGlobales.NumeroFacturaMantenimiento);
+                txtNumeroFactura.Text = VariablesGlobales.NumeroFacturaMantenimiento.ToString();
+                txtNumeroFactura.Enabled = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -543,6 +548,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
                 if (lbCirugiaProgramada.Text == "SI")
                 {
+
                     //SACAMOS LOS DATOS DE LA CIRUGIA  PROGRAMAD
 
                     string FechaCirugia = "";

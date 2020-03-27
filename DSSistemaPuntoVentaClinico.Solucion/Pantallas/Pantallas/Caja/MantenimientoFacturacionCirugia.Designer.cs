@@ -45,6 +45,7 @@
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.rbFacturasAnuladas = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,7 +62,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(573, 46);
+            this.panel1.Size = new System.Drawing.Size(719, 46);
             this.panel1.TabIndex = 12;
             // 
             // lbTitulo
@@ -70,7 +71,7 @@
             this.lbTitulo.Location = new System.Drawing.Point(10, 14);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
             this.lbTitulo.TabIndex = 13;
             this.lbTitulo.Text = "label6";
             // 
@@ -78,7 +79,7 @@
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(526, 8);
+            this.btnCerrar.Location = new System.Drawing.Point(678, 13);
             this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(29, 26);
@@ -93,19 +94,20 @@
             this.lbusuario.Location = new System.Drawing.Point(728, 16);
             this.lbusuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbusuario.Name = "lbusuario";
-            this.lbusuario.Size = new System.Drawing.Size(51, 20);
+            this.lbusuario.Size = new System.Drawing.Size(64, 25);
             this.lbusuario.TabIndex = 10;
             this.lbusuario.Text = "label1";
             this.lbusuario.Visible = false;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbFacturasAnuladas);
             this.groupBox1.Controls.Add(this.rbAmbosTiposFacturas);
             this.groupBox1.Controls.Add(this.rbFacturasConCirugias);
             this.groupBox1.Controls.Add(this.rbFacturasSinCirugias);
             this.groupBox1.Location = new System.Drawing.Point(13, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(548, 70);
+            this.groupBox1.Size = new System.Drawing.Size(694, 70);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Datos";
@@ -115,14 +117,15 @@
             this.rbAmbosTiposFacturas.AutoSize = true;
             this.rbAmbosTiposFacturas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbAmbosTiposFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbAmbosTiposFacturas.Location = new System.Drawing.Point(446, 30);
+            this.rbAmbosTiposFacturas.Location = new System.Drawing.Point(574, 29);
             this.rbAmbosTiposFacturas.Name = "rbAmbosTiposFacturas";
-            this.rbAmbosTiposFacturas.Size = new System.Drawing.Size(76, 24);
+            this.rbAmbosTiposFacturas.Size = new System.Drawing.Size(88, 29);
             this.rbAmbosTiposFacturas.TabIndex = 2;
             this.rbAmbosTiposFacturas.TabStop = true;
-            this.rbAmbosTiposFacturas.Text = "Ambos";
+            this.rbAmbosTiposFacturas.Text = "Todas";
             this.toolTip1.SetToolTip(this.rbAmbosTiposFacturas, "Mostrar el listado de todas las facturas");
             this.rbAmbosTiposFacturas.UseVisualStyleBackColor = true;
+            this.rbAmbosTiposFacturas.CheckedChanged += new System.EventHandler(this.rbAmbosTiposFacturas_CheckedChanged);
             // 
             // rbFacturasConCirugias
             // 
@@ -131,26 +134,28 @@
             this.rbFacturasConCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbFacturasConCirugias.Location = new System.Drawing.Point(7, 29);
             this.rbFacturasConCirugias.Name = "rbFacturasConCirugias";
-            this.rbFacturasConCirugias.Size = new System.Drawing.Size(171, 24);
+            this.rbFacturasConCirugias.Size = new System.Drawing.Size(210, 29);
             this.rbFacturasConCirugias.TabIndex = 1;
             this.rbFacturasConCirugias.TabStop = true;
             this.rbFacturasConCirugias.Text = "Facturas sin cirugias";
             this.toolTip1.SetToolTip(this.rbFacturasConCirugias, "Mostrar el listado de las facturas con cirugias programadas");
             this.rbFacturasConCirugias.UseVisualStyleBackColor = true;
+            this.rbFacturasConCirugias.CheckedChanged += new System.EventHandler(this.rbFacturasConCirugias_CheckedChanged);
             // 
             // rbFacturasSinCirugias
             // 
             this.rbFacturasSinCirugias.AutoSize = true;
             this.rbFacturasSinCirugias.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbFacturasSinCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbFacturasSinCirugias.Location = new System.Drawing.Point(214, 29);
+            this.rbFacturasSinCirugias.Location = new System.Drawing.Point(222, 29);
             this.rbFacturasSinCirugias.Name = "rbFacturasSinCirugias";
-            this.rbFacturasSinCirugias.Size = new System.Drawing.Size(177, 24);
+            this.rbFacturasSinCirugias.Size = new System.Drawing.Size(217, 29);
             this.rbFacturasSinCirugias.TabIndex = 0;
             this.rbFacturasSinCirugias.TabStop = true;
             this.rbFacturasSinCirugias.Text = "Facturas con cirugias";
             this.toolTip1.SetToolTip(this.rbFacturasSinCirugias, "Mostrar el listado de las facturas que no tienen cirugias programadas");
             this.rbFacturasSinCirugias.UseVisualStyleBackColor = true;
+            this.rbFacturasSinCirugias.CheckedChanged += new System.EventHandler(this.rbFacturasSinCirugias_CheckedChanged);
             // 
             // cbFiltrarPorRangoFecha
             // 
@@ -159,7 +164,7 @@
             this.cbFiltrarPorRangoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbFiltrarPorRangoFecha.Location = new System.Drawing.Point(22, 132);
             this.cbFiltrarPorRangoFecha.Name = "cbFiltrarPorRangoFecha";
-            this.cbFiltrarPorRangoFecha.Size = new System.Drawing.Size(204, 24);
+            this.cbFiltrarPorRangoFecha.Size = new System.Drawing.Size(247, 29);
             this.cbFiltrarPorRangoFecha.TabIndex = 14;
             this.cbFiltrarPorRangoFecha.Text = "Filtrar por rango de fecha";
             this.toolTip1.SetToolTip(this.cbFiltrarPorRangoFecha, "Filtrar por rango de fecha");
@@ -170,7 +175,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(345, 195);
+            this.button2.Location = new System.Drawing.Point(435, 186);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(210, 42);
             this.button2.TabIndex = 16;
@@ -185,7 +190,7 @@
             this.groupBox2.Controls.Add(this.txtFechaDesde);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 162);
+            this.groupBox2.Location = new System.Drawing.Point(15, 167);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(324, 92);
             this.groupBox2.TabIndex = 15;
@@ -196,7 +201,7 @@
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaHasta.Location = new System.Drawing.Point(141, 52);
             this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(166, 26);
+            this.txtFechaHasta.Size = new System.Drawing.Size(166, 30);
             this.txtFechaHasta.TabIndex = 3;
             // 
             // txtFechaDesde
@@ -204,7 +209,7 @@
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaDesde.Location = new System.Drawing.Point(141, 19);
             this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(166, 26);
+            this.txtFechaDesde.Size = new System.Drawing.Size(166, 30);
             this.txtFechaDesde.TabIndex = 2;
             // 
             // label2
@@ -212,7 +217,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(15, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.Size = new System.Drawing.Size(123, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Fecha Hasta";
             // 
@@ -221,16 +226,31 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 20);
+            this.label1.Size = new System.Drawing.Size(129, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha Desde";
             // 
+            // rbFacturasAnuladas
+            // 
+            this.rbFacturasAnuladas.AutoSize = true;
+            this.rbFacturasAnuladas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbFacturasAnuladas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbFacturasAnuladas.Location = new System.Drawing.Point(445, 29);
+            this.rbFacturasAnuladas.Name = "rbFacturasAnuladas";
+            this.rbFacturasAnuladas.Size = new System.Drawing.Size(115, 29);
+            this.rbFacturasAnuladas.TabIndex = 3;
+            this.rbFacturasAnuladas.TabStop = true;
+            this.rbFacturasAnuladas.Text = "Anuladas\r\n";
+            this.toolTip1.SetToolTip(this.rbFacturasAnuladas, "Mostrar las Facturas Anuladas");
+            this.rbFacturasAnuladas.UseVisualStyleBackColor = true;
+            this.rbFacturasAnuladas.CheckedChanged += new System.EventHandler(this.rbFacturasAnuladas_CheckedChanged);
+            // 
             // MantenimientoFacturacionCirugia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(573, 265);
+            this.ClientSize = new System.Drawing.Size(719, 264);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cbFiltrarPorRangoFecha);
@@ -273,5 +293,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.RadioButton rbFacturasAnuladas;
     }
 }

@@ -20,6 +20,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaFacturacion> ObjDataFacturacion = new Lazy<Logica.Logica.LogicaFacturacion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjdataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region CERRAR PANTALLA
@@ -92,6 +93,26 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             MostrarListadoGastos(VariablesGlobales.IdMantenimiento);
         }
         #endregion
+        #region CARGAR EL ESTATUS DE CIRUGIA
+        private void CargarEstatusCirugia()
+        {
+            var Estatus = ObjDataListas.Value.BuscaEstatusCirugia();
+            ddlEstatusCirugia.DataSource = Estatus;
+            ddlEstatusCirugia.DisplayMember = "Descripcion";
+            ddlEstatusCirugia.ValueMember = "IdEstatusCirugia";
+        }
+        #endregion
+        private void SacaEstatus()
+        {
+            var SacarEstatusCirugia = ObjDataFacturacion.Value.BuscaProgramacionCirugia(
+              VariablesGlobales.IdMantenimiento,
+              null, null, null, null, null, null, 1, 1);
+            foreach (var n in SacarEstatusCirugia)
+            {
+                ddlEstatusCirugia.Text = n.Estatus;
+                lbEstatus.Text = n.Estatus;
+            }
+        }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             CerrarPantalla();
@@ -103,6 +124,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             MostrarListadoGastos(VariablesGlobales.IdMantenimiento);
             this.dataGridView1.RowsDefaultCellStyle.BackColor = Color.LightSalmon;
             this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.CornflowerBlue;
+            CargarEstatusCirugia();
+            //SACAMOS EL ESTATUS DE LA CIRUGIA
+            SacaEstatus();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -239,6 +263,35 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             ReporteGastoCirugia.ShowDialog();
 
       
+        }
+
+        private void cbModificarEsatusCirugia_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbModificarEsatusCirugia.Checked)
+            {
+                lbEstatusCirugia.Visible = true;
+                ddlEstatusCirugia.Visible = true;
+                btnCambiar.Visible = true;
+            }
+            else
+            {
+                lbEstatusCirugia.Visible = false;
+                ddlEstatusCirugia.Visible = false;
+                btnCambiar.Visible = false;
+            }
+        }
+
+        private void btnCambiar_Click(object sender, EventArgs e)
+        {
+            //CAMBIAMOS EL REGISTRO
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia ModificarEstatus = new Logica.Entidades.EntidadFacturacion.EMantenimientoProgramacionCirugia();
+
+            ModificarEstatus.IdProgramacionCirugia = VariablesGlobales.IdMantenimiento;
+            ModificarEstatus.IdEstatusCirugia = Convert.ToDecimal(ddlEstatusCirugia.SelectedValue);
+
+            var MAn = ObjDataFacturacion.Value.MantenimientoProgramacionCirugia(ModificarEstatus, "CHANGESTATUS");
+            MessageBox.Show("Estatus cambiado exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            SacaEstatus();
         }
     }
 }

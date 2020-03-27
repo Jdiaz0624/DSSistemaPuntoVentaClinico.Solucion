@@ -68,6 +68,9 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
+            this.btnProgramarCirugia = new System.Windows.Forms.Button();
+            this.lbCirugiaProgramadaTitulo = new System.Windows.Forms.Label();
+            this.lbCirugiaProgramada = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -103,7 +106,7 @@
             this.rbPaciente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbPaciente.Location = new System.Drawing.Point(585, 32);
             this.rbPaciente.Name = "rbPaciente";
-            this.rbPaciente.Size = new System.Drawing.Size(97, 25);
+            this.rbPaciente.Size = new System.Drawing.Size(117, 27);
             this.rbPaciente.TabIndex = 8;
             this.rbPaciente.TabStop = true;
             this.rbPaciente.Text = "Paciente";
@@ -118,7 +121,7 @@
             this.cbNoagregarRangofecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbNoagregarRangofecha.Location = new System.Drawing.Point(418, 66);
             this.cbNoagregarRangofecha.Name = "cbNoagregarRangofecha";
-            this.cbNoagregarRangofecha.Size = new System.Drawing.Size(251, 25);
+            this.cbNoagregarRangofecha.Size = new System.Drawing.Size(313, 27);
             this.cbNoagregarRangofecha.TabIndex = 7;
             this.cbNoagregarRangofecha.Text = "No agregar Rango de Fecha";
             this.toolTip1.SetToolTip(this.cbNoagregarRangofecha, "Aregar o no agregar el rango de fecha");
@@ -131,7 +134,7 @@
             this.rbTipoPago.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbTipoPago.Location = new System.Drawing.Point(252, 65);
             this.rbTipoPago.Name = "rbTipoPago";
-            this.rbTipoPago.Size = new System.Drawing.Size(129, 25);
+            this.rbTipoPago.Size = new System.Drawing.Size(159, 27);
             this.rbTipoPago.TabIndex = 5;
             this.rbTipoPago.TabStop = true;
             this.rbTipoPago.Text = "Tipo de Pago";
@@ -146,7 +149,7 @@
             this.rbTipoFacturacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbTipoFacturacion.Location = new System.Drawing.Point(22, 65);
             this.rbTipoFacturacion.Name = "rbTipoFacturacion";
-            this.rbTipoFacturacion.Size = new System.Drawing.Size(183, 25);
+            this.rbTipoFacturacion.Size = new System.Drawing.Size(224, 27);
             this.rbTipoFacturacion.TabIndex = 4;
             this.rbTipoFacturacion.TabStop = true;
             this.rbTipoFacturacion.Text = "Tipo de Facturación";
@@ -161,7 +164,7 @@
             this.rbEstatus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbEstatus.Location = new System.Drawing.Point(482, 32);
             this.rbEstatus.Name = "rbEstatus";
-            this.rbEstatus.Size = new System.Drawing.Size(83, 25);
+            this.rbEstatus.Size = new System.Drawing.Size(97, 27);
             this.rbEstatus.TabIndex = 3;
             this.rbEstatus.TabStop = true;
             this.rbEstatus.Text = "Estatus";
@@ -176,7 +179,7 @@
             this.rbNumeroFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbNumeroFactura.Location = new System.Drawing.Point(252, 32);
             this.rbNumeroFactura.Name = "rbNumeroFactura";
-            this.rbNumeroFactura.Size = new System.Drawing.Size(180, 25);
+            this.rbNumeroFactura.Size = new System.Drawing.Size(223, 27);
             this.rbNumeroFactura.TabIndex = 2;
             this.rbNumeroFactura.TabStop = true;
             this.rbNumeroFactura.Text = "Numero de Factura";
@@ -191,7 +194,7 @@
             this.rbFactura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbFactura.Location = new System.Drawing.Point(139, 32);
             this.rbFactura.Name = "rbFactura";
-            this.rbFactura.Size = new System.Drawing.Size(89, 25);
+            this.rbFactura.Size = new System.Drawing.Size(106, 27);
             this.rbFactura.TabIndex = 1;
             this.rbFactura.TabStop = true;
             this.rbFactura.Text = "Factura";
@@ -206,7 +209,7 @@
             this.rbGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbGenerar.Location = new System.Drawing.Point(22, 32);
             this.rbGenerar.Name = "rbGenerar";
-            this.rbGenerar.Size = new System.Drawing.Size(90, 25);
+            this.rbGenerar.Size = new System.Drawing.Size(110, 27);
             this.rbGenerar.TabIndex = 0;
             this.rbGenerar.TabStop = true;
             this.rbGenerar.Text = "General";
@@ -237,14 +240,14 @@
             this.ddlSeleccionar.FormattingEnabled = true;
             this.ddlSeleccionar.Location = new System.Drawing.Point(159, 96);
             this.ddlSeleccionar.Name = "ddlSeleccionar";
-            this.ddlSeleccionar.Size = new System.Drawing.Size(471, 29);
+            this.ddlSeleccionar.Size = new System.Drawing.Size(471, 31);
             this.ddlSeleccionar.TabIndex = 7;
             // 
             // txtParametro
             // 
             this.txtParametro.Location = new System.Drawing.Point(159, 60);
             this.txtParametro.Name = "txtParametro";
-            this.txtParametro.Size = new System.Drawing.Size(471, 27);
+            this.txtParametro.Size = new System.Drawing.Size(471, 32);
             this.txtParametro.TabIndex = 6;
             this.txtParametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParametro_KeyPress);
             // 
@@ -253,7 +256,7 @@
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaHasta.Location = new System.Drawing.Point(467, 25);
             this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(163, 27);
+            this.txtFechaHasta.Size = new System.Drawing.Size(163, 32);
             this.txtFechaHasta.TabIndex = 5;
             // 
             // txtFechaDesde
@@ -261,7 +264,7 @@
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaDesde.Location = new System.Drawing.Point(159, 25);
             this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(163, 27);
+            this.txtFechaDesde.Size = new System.Drawing.Size(163, 32);
             this.txtFechaDesde.TabIndex = 4;
             // 
             // label4
@@ -269,7 +272,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(328, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 21);
+            this.label4.Size = new System.Drawing.Size(135, 23);
             this.label4.TabIndex = 3;
             this.label4.Text = "Fecha Hasta";
             // 
@@ -278,7 +281,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(14, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 21);
+            this.label3.Size = new System.Drawing.Size(141, 23);
             this.label3.TabIndex = 2;
             this.label3.Text = "Fecha Desde";
             // 
@@ -287,7 +290,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(30, 101);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 21);
+            this.label2.Size = new System.Drawing.Size(125, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Seleccionar";
             // 
@@ -296,7 +299,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(41, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 21);
+            this.label1.Size = new System.Drawing.Size(114, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Parametro";
             // 
@@ -408,7 +411,7 @@
             this.btnAnularFactura.Enabled = false;
             this.btnAnularFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnularFactura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnularFactura.Location = new System.Drawing.Point(1016, 250);
+            this.btnAnularFactura.Location = new System.Drawing.Point(1073, -19);
             this.btnAnularFactura.Name = "btnAnularFactura";
             this.btnAnularFactura.Size = new System.Drawing.Size(219, 41);
             this.btnAnularFactura.TabIndex = 7;
@@ -435,7 +438,7 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(12, 12);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(57, 21);
+            this.lbTitulo.Size = new System.Drawing.Size(72, 23);
             this.lbTitulo.TabIndex = 20;
             this.lbTitulo.Text = "label6";
             // 
@@ -456,9 +459,10 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dtListado);
-            this.groupBox5.Location = new System.Drawing.Point(12, 308);
+            this.groupBox5.Controls.Add(this.btnAnularFactura);
+            this.groupBox5.Location = new System.Drawing.Point(12, 329);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1210, 296);
+            this.groupBox5.Size = new System.Drawing.Size(1210, 275);
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             // 
@@ -475,11 +479,11 @@
             this.Select});
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtListado.Location = new System.Drawing.Point(3, 23);
+            this.dtListado.Location = new System.Drawing.Point(3, 28);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1204, 270);
+            this.dtListado.Size = new System.Drawing.Size(1204, 244);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -492,7 +496,7 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 64;
+            this.Select.Width = 77;
             // 
             // txtNumeroRegistros
             // 
@@ -506,7 +510,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 32);
             this.txtNumeroRegistros.TabIndex = 19;
             this.toolTip1.SetToolTip(this.txtNumeroRegistros, "Numro de registros");
             this.txtNumeroRegistros.Value = new decimal(new int[] {
@@ -522,7 +526,7 @@
             this.lbNumeroRegistros.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroRegistros.Location = new System.Drawing.Point(184, 610);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(100, 19);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(130, 23);
             this.lbNumeroRegistros.TabIndex = 18;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -538,7 +542,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 27);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 32);
             this.txtNumeroPagina.TabIndex = 17;
             this.toolTip1.SetToolTip(this.txtNumeroPagina, "Numero de pagina");
             this.txtNumeroPagina.Value = new decimal(new int[] {
@@ -554,16 +558,16 @@
             this.lbNumeroPagina.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroPagina.Location = new System.Drawing.Point(11, 610);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(91, 19);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(111, 23);
             this.lbNumeroPagina.TabIndex = 16;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(806, 253);
+            this.label5.Location = new System.Drawing.Point(763, 253);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 21);
+            this.label5.Size = new System.Drawing.Size(72, 23);
             this.label5.TabIndex = 8;
             this.label5.Text = "Monto";
             // 
@@ -571,20 +575,55 @@
             // 
             this.txtMonto.Enabled = false;
             this.txtMonto.ForeColor = System.Drawing.Color.Red;
-            this.txtMonto.Location = new System.Drawing.Point(871, 250);
+            this.txtMonto.Location = new System.Drawing.Point(828, 250);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(134, 27);
+            this.txtMonto.Size = new System.Drawing.Size(134, 32);
             this.txtMonto.TabIndex = 8;
             this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // btnProgramarCirugia
+            // 
+            this.btnProgramarCirugia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProgramarCirugia.Enabled = false;
+            this.btnProgramarCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProgramarCirugia.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProgramarCirugia.Location = new System.Drawing.Point(968, 247);
+            this.btnProgramarCirugia.Name = "btnProgramarCirugia";
+            this.btnProgramarCirugia.Size = new System.Drawing.Size(255, 41);
+            this.btnProgramarCirugia.TabIndex = 10;
+            this.btnProgramarCirugia.Text = "Programar Cirugia";
+            this.toolTip1.SetToolTip(this.btnProgramarCirugia, "Programar Cirugia a Factura Seleccionada");
+            this.btnProgramarCirugia.UseVisualStyleBackColor = true;
+            this.btnProgramarCirugia.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // lbCirugiaProgramadaTitulo
+            // 
+            this.lbCirugiaProgramadaTitulo.AutoSize = true;
+            this.lbCirugiaProgramadaTitulo.Location = new System.Drawing.Point(289, 310);
+            this.lbCirugiaProgramadaTitulo.Name = "lbCirugiaProgramadaTitulo";
+            this.lbCirugiaProgramadaTitulo.Size = new System.Drawing.Size(219, 23);
+            this.lbCirugiaProgramadaTitulo.TabIndex = 8;
+            this.lbCirugiaProgramadaTitulo.Text = "Cirugia Programada: ";
+            // 
+            // lbCirugiaProgramada
+            // 
+            this.lbCirugiaProgramada.AutoSize = true;
+            this.lbCirugiaProgramada.Location = new System.Drawing.Point(503, 310);
+            this.lbCirugiaProgramada.Name = "lbCirugiaProgramada";
+            this.lbCirugiaProgramada.Size = new System.Drawing.Size(42, 23);
+            this.lbCirugiaProgramada.TabIndex = 8;
+            this.lbCirugiaProgramada.Text = "NO";
+            // 
             // Historial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1235, 652);
+            this.Controls.Add(this.lbCirugiaProgramada);
+            this.Controls.Add(this.lbCirugiaProgramadaTitulo);
+            this.Controls.Add(this.btnProgramarCirugia);
             this.Controls.Add(this.txtMonto);
-            this.Controls.Add(this.btnAnularFactura);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtNumeroRegistros);
             this.Controls.Add(this.lbNumeroRegistros);
@@ -661,5 +700,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnProgramarCirugia;
+        private System.Windows.Forms.Label lbCirugiaProgramadaTitulo;
+        private System.Windows.Forms.Label lbCirugiaProgramada;
     }
 }

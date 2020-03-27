@@ -69,6 +69,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
             InitializeComponent();
         }
 
+        int IdEstatusCirugia = 0;
+
         private void MantenimientoFacturacionCirugia_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);
@@ -93,7 +95,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                         var Buscar = ObjDataHistorial.Value.SacarDatosFacturacionCirugia(
                             Convert.ToDateTime(txtFechaDesde.Text),
                             Convert.ToDateTime(txtFechaHasta.Text),
-                            false);
+                            2
+                            );
                         foreach (var n in Buscar)
                         {
                             VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
@@ -106,7 +109,21 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                         var Buscar = ObjDataHistorial.Value.SacarDatosFacturacionCirugia(
                            Convert.ToDateTime(txtFechaDesde.Text),
                            Convert.ToDateTime(txtFechaHasta.Text),
-                           true);
+                           1
+                           );
+                        foreach (var n in Buscar)
+                        {
+                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
+                            MAnCirugias("INSERT");
+                        }
+                    }
+                    else if (rbFacturasAnuladas.Checked)
+                    {
+                        MAnCirugias("DELETE");
+                        var Buscar = ObjDataHistorial.Value.SacarDatosFacturacionCirugia(
+                           Convert.ToDateTime(txtFechaDesde.Text),
+                           Convert.ToDateTime(txtFechaHasta.Text),
+                           3);
                         foreach (var n in Buscar)
                         {
                             VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
@@ -119,7 +136,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                         var Buscar = ObjDataHistorial.Value.SacarDatosFacturacionCirugia(
                            Convert.ToDateTime(txtFechaDesde.Text),
                            Convert.ToDateTime(txtFechaHasta.Text),
-                           null);
+                           4);
                         foreach (var n in Buscar)
                         {
                             VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
@@ -135,7 +152,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                         var Buscar = ObjDataHistorial.Value.SacarDatosFacturacionCirugia(
                            null,
                            null,
-                           true);
+                           2);
                         foreach (var n in Buscar)
                         {
                             VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
@@ -148,7 +165,20 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                         var Buscar = ObjDataHistorial.Value.SacarDatosFacturacionCirugia(
                          null,
                          null,
-                         false);
+                         1);
+                        foreach (var n in Buscar)
+                        {
+                            VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
+                            MAnCirugias("INSERT");
+                        }
+                    }
+                    else if (rbFacturasAnuladas.Checked)
+                    {
+                        MAnCirugias("DELETE");
+                        var Buscar = ObjDataHistorial.Value.SacarDatosFacturacionCirugia(
+                         null,
+                         null,
+                         3);
                         foreach (var n in Buscar)
                         {
                             VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
@@ -161,7 +191,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                         var Buscar = ObjDataHistorial.Value.SacarDatosFacturacionCirugia(
                          null,
                          null,
-                         null);
+                         4);
                         foreach (var n in Buscar)
                         {
                             VariablesGlobales.IdMantenimiento = Convert.ToDecimal(n.NumeroFactura);
@@ -173,6 +203,56 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
             }
             catch (Exception) {
                 MessageBox.Show("Error al generar el reporte", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void rbFacturasConCirugias_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbFacturasSinCirugias.Checked)
+            {
+                IdEstatusCirugia = 1;
+            }
+            else
+            {
+                IdEstatusCirugia = 0;
+            }
+        }
+
+        private void rbFacturasSinCirugias_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbFacturasConCirugias.Checked)
+            {
+                IdEstatusCirugia = 2;
+            }
+            else
+            {
+                IdEstatusCirugia = 0;
+
+            }
+        }
+
+        private void rbFacturasAnuladas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbFacturasAnuladas.Checked)
+            {
+                IdEstatusCirugia = 3;
+            }
+            else
+            {
+                IdEstatusCirugia = 0;
+            }
+        }
+
+        private void rbAmbosTiposFacturas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAmbosTiposFacturas.Checked)
+            {
+                IdEstatusCirugia = 4;
+            }
+            else
+
+            {
+                IdEstatusCirugia = 0;
             }
         }
     }

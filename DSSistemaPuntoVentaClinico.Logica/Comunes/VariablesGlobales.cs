@@ -47,6 +47,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Comunes
         public decimal NumeroFacturaPagar { get; set; }
         public decimal NumeroReferenciaPagar { get; set; }
 
+        public string Capricho { get; set; }
 
 
 

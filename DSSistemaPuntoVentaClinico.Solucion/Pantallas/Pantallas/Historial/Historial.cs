@@ -1659,6 +1659,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             btnAnular.Enabled = false;
             MostrarHistorial();
             txtMonto.Text = string.Empty;
+            lbCirugiaProgramada.Visible = false;
+            lbCirugiaProgramadaTitulo.Visible = false;
+            btnProgramarCirugia.Enabled = false;
         }
         #endregion
 
@@ -2060,6 +2063,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
 
                     this.Variables.NumeroConector = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroConector"].Value.ToString());
                     this.Variables.Numerofactura = Convert.ToDecimal(this.dtListado.CurrentRow.Cells["NumeroFactura"].Value.ToString());
+                  
 
                     //BUSCAMOS EL REGISTRO MEDIANTE EL NUMERO DE CONECTOR
                     var BuscarProductoSeleccionado = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
@@ -2085,12 +2089,17 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                     {
                         IdEstatus = Convert.ToInt32(n.IdEstatusFacturacion);
                         Variables.IdEstatusFacturacion = Convert.ToDecimal(n.IdEstatusFacturacion);
+                        //CirugiaProgramada = n.CirugiaProgramada;
                     }
+                    lbCirugiaProgramada.Visible = true;
+                    lbCirugiaProgramadaTitulo.Visible = true;
+                    btnProgramarCirugia.Enabled = true;
                     if (IdEstatus == 2)
                     {
                         btnFacturar.Enabled = true;
+                        lbCirugiaProgramada.Text = "SI";
+                        lbCirugiaProgramada.ForeColor = Color.Red;
 
-                       
                     }
                     //else 
                     //SACAMOS EL MONTO
@@ -2098,6 +2107,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                     foreach (var n in Monto)
                     {
                         txtMonto.Text = n.Total.ToString();
+                        
                     }
 
                     decimal MontoSacado = Convert.ToDecimal(txtMonto.Text);
@@ -2217,6 +2227,16 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
         private void button2_Click(object sender, EventArgs e)
         {
             CargareporteVentas();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.ProgramacionCirugias Programacion = new Facturacion.ProgramacionCirugias();
+            Programacion.VariablesGlobales.AccionTomar = "INSERT";
+            Programacion.VariablesGlobales.NumeroFacturaMantenimiento = Variables.Numerofactura;
+            Programacion.VariablesGlobales.Capricho = "RAFI";
+            Programacion.ShowDialog();
+            RestablecerPantalla();
         }
     }
 }

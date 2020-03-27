@@ -361,17 +361,21 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
         #endregion
         #region MANTENIMEINTO DE FACTURACION DE CIRUGIA
         //SACAR LOS DATOS DE LA FACTURACION DE CIRUGIA
-        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EMantenimientoFacturacionCirugia> SacarDatosFacturacionCirugia(DateTime? FechaDesde = null, DateTime? FechaHasta = null, bool? CirugiaProgramada = null)
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EMantenimientoFacturacionCirugia> SacarDatosFacturacionCirugia(DateTime? FechaDesde = null, DateTime? FechaHasta = null, int? IdEstatusCirugia = null)
         {
             ObjData.CommandTimeout = 999999999;
 
-            var SacarDatos = (from n in ObjData.SP_SACAR_DATOS_FACTURACION_CIRUGIA(FechaDesde, FechaHasta, CirugiaProgramada)
+            var SacarDatos = (from n in ObjData.SP_SACAR_DATOS_FACTURACION_CIRUGIA(FechaDesde, FechaHasta, IdEstatusCirugia)
                               select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EMantenimientoFacturacionCirugia
                               {
                                   NumeroFactura=n.NumeroFactura,
                                   NumeroConector=n.NumeroConector,
                                   FechaFacturacion=n.FechaFacturacion,
-                                  CirugiaProgramada=n.CirugiaProgramada
+                                  CirugiaProgramada=n.CirugiaProgramada,
+                                  IdEstatusCirugia=n.IdEstatusCirugia,
+                                  Estastus=n.Estastus,
+                                  IdEstatusFacturacion=n.IdEstatusFacturacion,
+                                  EstatusCirugia=n.EstatusCirugia
                               }).ToList();
             return SacarDatos;
         }

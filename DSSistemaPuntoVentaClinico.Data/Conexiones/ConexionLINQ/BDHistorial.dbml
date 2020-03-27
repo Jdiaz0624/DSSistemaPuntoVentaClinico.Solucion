@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaFacturacionMedico" Class="BDHistorialDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=172.26.24.199;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString2" Provider="System.Data.SqlClient" />
   <Function Name="Reporte.SP_SACAR_RUTA_REPORTE" Method="SP_SACAR_RUTA_REPORTE">
     <Parameter Name="IdReporte" Parameter="idReporte" Type="System.Decimal" DbType="Decimal(20,0)" />
     <ElementType Name="SP_SACAR_RUTA_REPORTEResult">
@@ -116,17 +116,6 @@
     <ElementType Name="SP_MANTENIMIENTO_FACTURACION_CIRUGIAResult">
       <Column Name="IdUsuarioImprime" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="Reporte.SP_SACAR_DATOS_FACTURACION_CIRUGIA" Method="SP_SACAR_DATOS_FACTURACION_CIRUGIA">
-    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="CirugiaprogramadA" Parameter="cirugiaprogramadA" Type="System.Boolean" DbType="Bit" />
-    <ElementType Name="SP_SACAR_DATOS_FACTURACION_CIRUGIAResult">
-      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="FechaFacturacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="CirugiaProgramada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="Reporte.SP_MANTENIMIENTO_HISTORIAL_FACTURACION_COTIZACION" Method="SP_MANTENIMIENTO_HISTORIAL_FACTURACION_COTIZACION">
@@ -438,6 +427,21 @@
       <Column Name="ComisionPagada" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
       <Column Name="FechaPagoComision" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="MontoPagado" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Reporte.SP_SACAR_DATOS_FACTURACION_CIRUGIA" Method="SP_SACAR_DATOS_FACTURACION_CIRUGIA">
+    <Parameter Name="FechaDesde" Parameter="fechaDesde" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="FechaHasta" Parameter="fechaHasta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="IdEstatusCirugia" Parameter="idEstatusCirugia" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_SACAR_DATOS_FACTURACION_CIRUGIAResult">
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="FechaFacturacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CirugiaProgramada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdEstatusCirugia" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Estastus" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="IdEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0) NOT NULL" CanBeNull="false" />
+      <Column Name="EstatusCirugia" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>
