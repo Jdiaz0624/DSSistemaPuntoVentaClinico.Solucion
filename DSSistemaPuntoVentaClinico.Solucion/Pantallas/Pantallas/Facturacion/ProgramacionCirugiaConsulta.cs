@@ -212,7 +212,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                         VariablesGlobales.IdProgramacionCirugiaPagar,
                         VariablesGlobales.NumeroFacturaPagar,
                         VariablesGlobales.NumeroReferenciaPagar,
-                        null, null, null, null, null, null, 1, 1);
+                        null, null, null, null, null, null, null, 1, 1);
                     foreach (var n in SacarIdComisionMedico)
                     {
                         VariablesGlobales.IDComisionPagar = Convert.ToDecimal(n.IDComision);

@@ -16,126 +16,509 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjdataReporte = new Lazy<Logica.Logica.LogicaHistorial>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL LISTADO DE LAS COMISIONES
         private void MostrarComisiones()
         {
-            if (cbNoAgregarRangoFecha.Checked)
-            {
-                if (rbNoPagada.Checked == true)
+            try {
+                //VALIDAMOS EL TIPO DE COMISION QUE SE VA A GENERAR
+
+                //MOSTRAMOS LA COMISION NO PAGADA
+                if (rbNoPagada.Checked)
                 {
-                    var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                        new Nullable<decimal>(),
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        false,
-                        Convert.ToInt32(txtNumeroPagina.Value),
-                        Convert.ToInt32(txtNumeroRegistros.Value));
-                    dtListado.DataSource = MostrarListado;
+                    //PREGUNTAMOS SI LA CONSULTA LLEVA RANGO DE FECHA
+
+                    //EN CASO NEGATIVO
+                    if (cbNoAgregarRangoFecha.Checked ==true)
+                    {
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked==true)
+                        {
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
+
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
+
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    null,
+
+                                    null,
+                                    false,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    false,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+                        }
+
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
+                        {
+                            //CONSULTAMOS SIN MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   false,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarComision;
+                        }
+
+
+
+                    }
+
+                    //EN CASO POSITIVO
+                    else if (cbNoAgregarRangoFecha.Checked == false) {
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
+                        {
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
+
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
+
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    Convert.ToDateTime(txtFechaDesde.Text),
+                                    Convert.ToDateTime(txtFechaHasta.Text),
+                                    false,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                   null,
+                                   null,
+                                   Convert.ToDateTime(txtFechaDesde.Text),
+                                   Convert.ToDateTime(txtFechaHasta.Text),
+                                   false,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+                        }
+
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
+                        {
+                            //CONSULTAMOS SIN MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                  new Nullable<decimal>(),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  Convert.ToDateTime(txtFechaDesde.Text),
+                                  Convert.ToDateTime(txtFechaHasta.Text),
+                                  false,
+                                  Convert.ToInt32(txtNumeroPagina.Value),
+                                  Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarComision;
+                        }
+                    }
                 }
-                else if (rbPagada.Checked == true)
+
+
+                //MOSTRAMOS LA COMISION PAGADA
+                else if (rbPagada.Checked)
                 {
-                    var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                       new Nullable<decimal>(),
-                       null,
-                       null,
-                       null,
-                       null,
-                       null,
-                       null,
-                       null,
-                       null,
-                       true,
-                       Convert.ToInt32(txtNumeroPagina.Value),
-                       Convert.ToInt32(txtNumeroRegistros.Value));
-                    dtListado.DataSource = MostrarListado;
+                    //PREGUNTAMOS SI LA CONSULTA LLEVA RANGO DE FECHA
+
+                    //EN CASO NEGATIVO
+                    if (cbNoAgregarRangoFecha.Checked == true)
+                    {
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
+                        {
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
+
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
+
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    null,
+                                    null,
+                                    true,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                  new Nullable<decimal>(),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  true,
+                                  Convert.ToInt32(txtNumeroPagina.Value),
+                                  Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+                        }
+
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
+                        {
+                            //CONSULTAMOS SIN EL MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                true,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarComision;
+                        }
+                    }
+
+
+                    //EN CASO POSITIVO
+                    else if (cbNoAgregarRangoFecha.Checked == false)
+                    {
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
+                        {
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
+
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
+
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    Convert.ToDateTime(txtFechaDesde.Text),
+                                    Convert.ToDateTime(txtFechaHasta.Text),
+                                    true,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                   null,
+                                   null,
+                                   Convert.ToDateTime(txtFechaDesde.Text),
+                                   Convert.ToDateTime(txtFechaHasta.Text),
+                                   true,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+                        }
+
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
+                        {
+                            //CONSULTAMOS SIN EL MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                true,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarComision;
+                        }
+                    }
                 }
-                else if (rbAmbos.Checked == true)
-                {
-                    var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                       new Nullable<decimal>(),
-                       null,
-                       null,
-                       null,
-                       null,
-                       null,
-                       null,
-                       null,
-                       null,
-                       null,
-                       Convert.ToInt32(txtNumeroPagina.Value),
-                       Convert.ToInt32(txtNumeroRegistros.Value));
-                    dtListado.DataSource = MostrarListado;
-                }
-                else
-                {
-                    MessageBox.Show("Error al realizar la consulta", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                //MOSTRAMOS AMBAS COMISIONES
+                else if (rbAmbos.Checked) {
+                    //PREGUNTAMOS SI LA CONSULTA LLEVA RANGO DE FECHA
+
+                    //EN CASO NEGATIVO
+                    if (cbNoAgregarRangoFecha.Checked == true)
+                    {
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
+                        {
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
+
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
+
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                  new Nullable<decimal>(),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  Convert.ToInt32(txtNumeroPagina.Value),
+                                  Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+                        }
+
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
+                        {
+                            //CONSULTANOS SIN EL MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarComision;
+                        }
+                    }
+
+
+                    //EN CASO POSITIVO
+                    else if (cbNoAgregarRangoFecha.Checked == false)
+                    {
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
+                        {
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
+
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
+
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    Convert.ToDateTime(txtFechaDesde.Text),
+                                    Convert.ToDateTime(txtFechaHasta.Text),
+                                    null,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                   null,
+                                   null,
+                                   Convert.ToDateTime(txtFechaDesde.Text),
+                                   Convert.ToDateTime(txtFechaHasta.Text),
+                                   null,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                                dtListado.DataSource = BuscarComision;
+                            }
+                        }
+
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
+                        {
+                            //CONSULTAMOS SIN EL MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   Convert.ToDateTime(txtFechaDesde.Text),
+                                   Convert.ToDateTime(txtFechaHasta.Text),
+                                   null,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                            dtListado.DataSource = BuscarComision;
+                        }
+                    }
                 }
             }
-            else
-            {
-                if (rbNoPagada.Checked == true)
-                {
-                    var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                        new Nullable<decimal>(),
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        Convert.ToDateTime(txtFechaDesde.Text),
-                        Convert.ToDateTime(txtFechaHasta.Text),
-                        false,
-                        Convert.ToInt32(txtNumeroPagina.Value),
-                        Convert.ToInt32(txtNumeroRegistros.Value));
-                    dtListado.DataSource = MostrarListado;
-                }
-                else if (rbPagada.Checked == true)
-                {
-                    var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                      new Nullable<decimal>(),
-                      null,
-                      null,
-                      null,
-                      null,
-                      null,
-                      null,
-                      Convert.ToDateTime(txtFechaDesde.Text),
-                      Convert.ToDateTime(txtFechaHasta.Text),
-                      true,
-                      Convert.ToInt32(txtNumeroPagina.Value),
-                      Convert.ToInt32(txtNumeroRegistros.Value));
-                    dtListado.DataSource = MostrarListado;
-                }
-                else if (rbAmbos.Checked == true)
-                {
-                    var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                      new Nullable<decimal>(),
-                      null,
-                      null,
-                      null,
-                      null,
-                      null,
-                      null,
-                      Convert.ToDateTime(txtFechaDesde.Text),
-                      Convert.ToDateTime(txtFechaHasta.Text),
-                      null,
-                      Convert.ToInt32(txtNumeroPagina.Value),
-                      Convert.ToInt32(txtNumeroRegistros.Value));
-                    dtListado.DataSource = MostrarListado;
-                }
-                else
-                {
-                    MessageBox.Show("Error al realizar la consulta", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            catch (Exception ex) {
+                MessageBox.Show("Error al mostrar la consulta", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             FormatoGrid();
         }
@@ -221,323 +604,1120 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         #region GENERAR REPORTE DETALLE
         private void GenerarReporteDetalle()
         {
-            try {
-                if (cbNoAgregarRangoFecha.Checked)
+            try
+            {
+                //VALIDAMOS EL TIPO DE COMISION QUE SE VA A GENERAR
+
+                //MOSTRAMOS LA COMISION NO PAGADA
+                if (rbNoPagada.Checked)
                 {
-                    if (rbNoPagada.Checked == true)
+                    //PREGUNTAMOS SI LA CONSULTA LLEVA RANGO DE FECHA
+
+                    //EN CASO NEGATIVO
+                    if (cbNoAgregarRangoFecha.Checked == true)
                     {
-                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                            new Nullable<decimal>(),
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            false,
-                            Convert.ToInt32(txtNumeroPagina.Value),
-                            Convert.ToInt32(txtNumeroRegistros.Value));
-                        //ELIMINAMOS LOS DATOS 
-                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
-                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
-                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
-                        foreach (var n in MostrarListado)
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
                         {
-                            //PROCEDEMOS A GUARDAR LOS DATOS
-                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
 
-                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
-                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
-                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
-                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
-                            Guardar.CentroSalud = n.CentroSalud;
-                            Guardar.Medico = n.Medico;
-                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
-                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
-                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
-                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
-                            Guardar.FechaCirugia = n.FechaCirugia;
-                            Guardar.Hora = n.Hora;
-                            Guardar.ComisionPagada = n.ComisionPagada;
-                            Guardar.FechaPagoComision = n.FechapagoComision;
-                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
 
-                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    null,
+
+                                    null,
+                                    false,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
 
 
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    false,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
                         }
 
-                        //INVOCAMOS EL REPORTE DETALLE
-                        InvicarReporteDetalle();
-                    }
-                    else if (rbPagada.Checked == true)
-                    {
-                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                           new Nullable<decimal>(),
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           true,
-                           Convert.ToInt32(txtNumeroPagina.Value),
-                           Convert.ToInt32(txtNumeroRegistros.Value));
-                        //ELIMINAMOS LOS DATOS 
-                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
-                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
-                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
-                        foreach (var n in MostrarListado)
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
                         {
-                            //PROCEDEMOS A GUARDAR LOS DATOS
-                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            //CONSULTAMOS SIN MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   false,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                            //ELIMINAMOS LOS DATOS 
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
 
-                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
-                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
-                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
-                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
-                            Guardar.CentroSalud = n.CentroSalud;
-                            Guardar.Medico = n.Medico;
-                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
-                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
-                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
-                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
-                            Guardar.FechaCirugia = n.FechaCirugia;
-                            Guardar.Hora = n.Hora;
-                            Guardar.ComisionPagada = n.ComisionPagada;
-                            Guardar.FechaPagoComision = n.FechapagoComision;
-                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+                            //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                            foreach (var n in BuscarComision)
+                            {
+                                //PROCEDEMOS A GUARDAR LOS DATOS
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
 
-                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+                                Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Medico = n.Medico;
+                                Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                Guardar.FechaCirugia = n.FechaCirugia;
+                                Guardar.Hora = n.Hora;
+                                Guardar.ComisionPagada = n.ComisionPagada;
+                                Guardar.FechaPagoComision = n.FechapagoComision;
+                                Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
 
 
+                            }
+
+                            //INVOCAMOS EL REPORTE DETALLE
+                            InvicarReporteDetalle();
                         }
 
-                        //INVOCAMOS EL REPORTE DETALLE
-                        InvicarReporteDetalle();
+
+
                     }
-                    else if (rbAmbos.Checked == true)
+
+                    //EN CASO POSITIVO
+                    else if (cbNoAgregarRangoFecha.Checked == false)
                     {
-                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                           new Nullable<decimal>(),
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           null,
-                           Convert.ToInt32(txtNumeroPagina.Value),
-                           Convert.ToInt32(txtNumeroRegistros.Value));
-                        //ELIMINAMOS LOS DATOS 
-                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
-                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
-                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
-                        foreach (var n in MostrarListado)
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
                         {
-                            //PROCEDEMOS A GUARDAR LOS DATOS
-                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
 
-                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
-                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
-                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
-                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
-                            Guardar.CentroSalud = n.CentroSalud;
-                            Guardar.Medico = n.Medico;
-                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
-                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
-                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
-                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
-                            Guardar.FechaCirugia = n.FechaCirugia;
-                            Guardar.Hora = n.Hora;
-                            Guardar.ComisionPagada = n.ComisionPagada;
-                            Guardar.FechaPagoComision = n.FechapagoComision;
-                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
 
-                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    Convert.ToDateTime(txtFechaDesde.Text),
+                                    Convert.ToDateTime(txtFechaHasta.Text),
+                                    false,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
 
 
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                   null,
+                                   null,
+                                   Convert.ToDateTime(txtFechaDesde.Text),
+                                   Convert.ToDateTime(txtFechaHasta.Text),
+                                   false,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
                         }
 
-                        //INVOCAMOS EL REPORTE DETALLE
-                        InvicarReporteDetalle();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al realizar la consulta", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
+                        {
+                            //CONSULTAMOS SIN MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                  new Nullable<decimal>(),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  Convert.ToDateTime(txtFechaDesde.Text),
+                                  Convert.ToDateTime(txtFechaHasta.Text),
+                                  false,
+                                  Convert.ToInt32(txtNumeroPagina.Value),
+                                  Convert.ToInt32(txtNumeroRegistros.Value));
+                            //ELIMINAMOS LOS DATOS 
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                            //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                            foreach (var n in BuscarComision)
+                            {
+                                //PROCEDEMOS A GUARDAR LOS DATOS
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Medico = n.Medico;
+                                Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                Guardar.FechaCirugia = n.FechaCirugia;
+                                Guardar.Hora = n.Hora;
+                                Guardar.ComisionPagada = n.ComisionPagada;
+                                Guardar.FechaPagoComision = n.FechapagoComision;
+                                Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                            }
+
+                            //INVOCAMOS EL REPORTE DETALLE
+                            InvicarReporteDetalle();
+                        }
                     }
                 }
-                else
+
+
+                //MOSTRAMOS LA COMISION PAGADA
+                else if (rbPagada.Checked)
                 {
-                    if (rbNoPagada.Checked == true)
+                    //PREGUNTAMOS SI LA CONSULTA LLEVA RANGO DE FECHA
+
+                    //EN CASO NEGATIVO
+                    if (cbNoAgregarRangoFecha.Checked == true)
                     {
-                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                            new Nullable<decimal>(),
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            null,
-                            Convert.ToDateTime(txtFechaDesde.Text),
-                            Convert.ToDateTime(txtFechaHasta.Text),
-                            false,
-                            Convert.ToInt32(txtNumeroPagina.Value),
-                            Convert.ToInt32(txtNumeroRegistros.Value));
-                        //ELIMINAMOS LOS DATOS 
-                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
-                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
-                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
-                        foreach (var n in MostrarListado)
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
                         {
-                            //PROCEDEMOS A GUARDAR LOS DATOS
-                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
 
-                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
-                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
-                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
-                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
-                            Guardar.CentroSalud = n.CentroSalud;
-                            Guardar.Medico = n.Medico;
-                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
-                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
-                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
-                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
-                            Guardar.FechaCirugia = n.FechaCirugia;
-                            Guardar.Hora = n.Hora;
-                            Guardar.ComisionPagada = n.ComisionPagada;
-                            Guardar.FechaPagoComision = n.FechapagoComision;
-                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
 
-                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    null,
+                                    null,
+                                    true,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
 
 
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                  new Nullable<decimal>(),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  true,
+                                  Convert.ToInt32(txtNumeroPagina.Value),
+                                  Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
                         }
 
-                        //INVOCAMOS EL REPORTE DETALLE
-                        InvicarReporteDetalle();
-                    }
-                    else if (rbPagada.Checked == true)
-                    {
-                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                          new Nullable<decimal>(),
-                          null,
-                          null,
-                          null,
-                          null,
-                          null,
-                          null,
-                          Convert.ToDateTime(txtFechaDesde.Text),
-                          Convert.ToDateTime(txtFechaHasta.Text),
-                          true,
-                          Convert.ToInt32(txtNumeroPagina.Value),
-                          Convert.ToInt32(txtNumeroRegistros.Value));
-                        //ELIMINAMOS LOS DATOS 
-                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
-                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
-                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
-                        foreach (var n in MostrarListado)
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
                         {
-                            //PROCEDEMOS A GUARDAR LOS DATOS
-                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            //CONSULTAMOS SIN EL MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                true,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            //ELIMINAMOS LOS DATOS 
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
 
-                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
-                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
-                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
-                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
-                            Guardar.CentroSalud = n.CentroSalud;
-                            Guardar.Medico = n.Medico;
-                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
-                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
-                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
-                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
-                            Guardar.FechaCirugia = n.FechaCirugia;
-                            Guardar.Hora = n.Hora;
-                            Guardar.ComisionPagada = n.ComisionPagada;
-                            Guardar.FechaPagoComision = n.FechapagoComision;
-                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+                            //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                            foreach (var n in BuscarComision)
+                            {
+                                //PROCEDEMOS A GUARDAR LOS DATOS
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
 
-                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+                                Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Medico = n.Medico;
+                                Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                Guardar.FechaCirugia = n.FechaCirugia;
+                                Guardar.Hora = n.Hora;
+                                Guardar.ComisionPagada = n.ComisionPagada;
+                                Guardar.FechaPagoComision = n.FechapagoComision;
+                                Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
 
 
+                            }
+
+                            //INVOCAMOS EL REPORTE DETALLE
+                            InvicarReporteDetalle();
+                        }
+                    }
+
+
+                    //EN CASO POSITIVO
+                    else if (cbNoAgregarRangoFecha.Checked == false)
+                    {
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
+                        {
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
+
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
+
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    Convert.ToDateTime(txtFechaDesde.Text),
+                                    Convert.ToDateTime(txtFechaHasta.Text),
+                                    true,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                   null,
+                                   null,
+                                   Convert.ToDateTime(txtFechaDesde.Text),
+                                   Convert.ToDateTime(txtFechaHasta.Text),
+                                   true,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
                         }
 
-                        //INVOCAMOS EL REPORTE DETALLE
-                        InvicarReporteDetalle();
-                    }
-                    else if (rbAmbos.Checked == true)
-                    {
-                        var MostrarListado = ObjData.Value.BuscaComisionesMedicos(
-                          new Nullable<decimal>(),
-                          null,
-                          null,
-                          null,
-                          null,
-                          null,
-                          null,
-                          Convert.ToDateTime(txtFechaDesde.Text),
-                          Convert.ToDateTime(txtFechaHasta.Text),
-                          null,
-                          Convert.ToInt32(txtNumeroPagina.Value),
-                          Convert.ToInt32(txtNumeroRegistros.Value));
-                        //ELIMINAMOS LOS DATOS 
-                        DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
-                        Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                        var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
-                        //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
-                        foreach (var n in MostrarListado)
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
                         {
-                            //PROCEDEMOS A GUARDAR LOS DATOS
-                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            //CONSULTAMOS SIN EL MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToDateTime(txtFechaDesde.Text),
+                                Convert.ToDateTime(txtFechaHasta.Text),
+                                true,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            //ELIMINAMOS LOS DATOS 
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
 
-                            Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
-                            Guardar.IDComision = Convert.ToDecimal(n.IDComision);
-                            Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
-                            Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
-                            Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
-                            Guardar.CentroSalud = n.CentroSalud;
-                            Guardar.Medico = n.Medico;
-                            Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
-                            Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
-                            Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
-                            Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
-                            Guardar.FechaCirugia = n.FechaCirugia;
-                            Guardar.Hora = n.Hora;
-                            Guardar.ComisionPagada = n.ComisionPagada;
-                            Guardar.FechaPagoComision = n.FechapagoComision;
-                            Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+                            //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                            foreach (var n in BuscarComision)
+                            {
+                                //PROCEDEMOS A GUARDAR LOS DATOS
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
 
-                            var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+                                Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Medico = n.Medico;
+                                Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                Guardar.FechaCirugia = n.FechaCirugia;
+                                Guardar.Hora = n.Hora;
+                                Guardar.ComisionPagada = n.ComisionPagada;
+                                Guardar.FechaPagoComision = n.FechapagoComision;
+                                Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
 
 
+                            }
+
+                            //INVOCAMOS EL REPORTE DETALLE
+                            InvicarReporteDetalle();
+                        }
+                    }
+                }
+
+
+                //MOSTRAMOS AMBAS COMISIONES
+                else if (rbAmbos.Checked)
+                {
+                    //PREGUNTAMOS SI LA CONSULTA LLEVA RANGO DE FECHA
+
+                    //EN CASO NEGATIVO
+                    if (cbNoAgregarRangoFecha.Checked == true)
+                    {
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
+                        {
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
+
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
+
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                  new Nullable<decimal>(),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  Convert.ToInt32(txtNumeroPagina.Value),
+                                  Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
                         }
 
-                        //INVOCAMOS EL REPORTE DETALLE
-                        InvicarReporteDetalle();
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
+                        {
+                            //CONSULTANOS SIN EL MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                new Nullable<decimal>(),
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                Convert.ToInt32(txtNumeroPagina.Value),
+                                Convert.ToInt32(txtNumeroRegistros.Value));
+                            //ELIMINAMOS LOS DATOS 
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                            //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                            foreach (var n in BuscarComision)
+                            {
+                                //PROCEDEMOS A GUARDAR LOS DATOS
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Medico = n.Medico;
+                                Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                Guardar.FechaCirugia = n.FechaCirugia;
+                                Guardar.Hora = n.Hora;
+                                Guardar.ComisionPagada = n.ComisionPagada;
+                                Guardar.FechaPagoComision = n.FechapagoComision;
+                                Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                            }
+
+                            //INVOCAMOS EL REPORTE DETALLE
+                            InvicarReporteDetalle();
+                        }
                     }
-                    else
+
+
+                    //EN CASO POSITIVO
+                    else if (cbNoAgregarRangoFecha.Checked == false)
                     {
-                        MessageBox.Show("Error al realizar la consulta", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //PREGUNTAMOS SI LA CONSULTA LLEVA EL MEDICO
+
+
+                        //EN CASO DE QUE SEA POSITIVO
+                        if (cbFiltrarPorMedico.Checked == true)
+                        {
+                            //PREGUNTAMS EL TIPO DE FILTRO PARA EL MEDICO
+
+                            //CONSULTA ESCRITA
+                            if (rbEscrito.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO ESCRITO
+                                string _Medico = string.IsNullOrEmpty(txtParametrotxt.Text.Trim()) ? null : txtParametrotxt.Text.Trim();
+
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                    new Nullable<decimal>(),
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    _Medico,
+                                    null,
+                                    Convert.ToDateTime(txtFechaDesde.Text),
+                                    Convert.ToDateTime(txtFechaHasta.Text),
+                                    null,
+                                    Convert.ToInt32(txtNumeroPagina.Value),
+                                    Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
+
+                            //CONSULTA SELECCIONADA
+                            else if (rbSeleccionado.Checked == true)
+                            {
+                                //CONSULTAMOS CON MEDICO SELECCIONADO
+                                var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   Convert.ToDecimal(ddlSeleccionarMedico.SelectedValue),
+                                   null,
+                                   null,
+                                   Convert.ToDateTime(txtFechaDesde.Text),
+                                   Convert.ToDateTime(txtFechaHasta.Text),
+                                   null,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                                //ELIMINAMOS LOS DATOS 
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                                Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                                //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                                foreach (var n in BuscarComision)
+                                {
+                                    //PROCEDEMOS A GUARDAR LOS DATOS
+                                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                    Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                    Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                    Guardar.CentroSalud = n.CentroSalud;
+                                    Guardar.Medico = n.Medico;
+                                    Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                    Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                    Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                    Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                    Guardar.FechaCirugia = n.FechaCirugia;
+                                    Guardar.Hora = n.Hora;
+                                    Guardar.ComisionPagada = n.ComisionPagada;
+                                    Guardar.FechaPagoComision = n.FechapagoComision;
+                                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                    var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                                }
+
+                                //INVOCAMOS EL REPORTE DETALLE
+                                InvicarReporteDetalle();
+                            }
+                        }
+
+                        //EN CASO DE QUE SEA NEGATIVO
+                        else if (cbFiltrarPorMedico.Checked == false)
+                        {
+                            //CONSULTAMOS SIN EL MEDICO
+                            var BuscarComision = ObjData.Value.BuscaComisionesMedicos(
+                                   new Nullable<decimal>(),
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   null,
+                                   Convert.ToDateTime(txtFechaDesde.Text),
+                                   Convert.ToDateTime(txtFechaHasta.Text),
+                                   null,
+                                   Convert.ToInt32(txtNumeroPagina.Value),
+                                   Convert.ToInt32(txtNumeroRegistros.Value));
+                            //ELIMINAMOS LOS DATOS 
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Eliminar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+                            Eliminar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                            var Delete = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Eliminar, "DELETE");
+
+                            //SACAMOS LOS DATOS NECESARIOS PARA GUARDAR LOS DATOS
+                            foreach (var n in BuscarComision)
+                            {
+                                //PROCEDEMOS A GUARDAR LOS DATOS
+                                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle Guardar = new Logica.Entidades.EntidadReporte.EGuardarReporteComisionMedicoDetalle();
+
+                                Guardar.IdUsuario = Convert.ToDecimal(VariablesGlobales.IdUsuario);
+                                Guardar.IDComision = Convert.ToDecimal(n.IDComision);
+                                Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                                Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                                Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                                Guardar.CentroSalud = n.CentroSalud;
+                                Guardar.Medico = n.Medico;
+                                Guardar.PorcComisionMedico = Convert.ToDecimal(n.PorcComisionMedico);
+                                Guardar.MontoFactura = Convert.ToDecimal(n.MontoFactura);
+                                Guardar.MontoFacturaNeta = Convert.ToDecimal(n.MontoFacturaNeta);
+                                Guardar.ComisionPagar = Convert.ToDecimal(n.ComisionPagar);
+                                Guardar.FechaCirugia = n.FechaCirugia;
+                                Guardar.Hora = n.Hora;
+                                Guardar.ComisionPagada = n.ComisionPagada;
+                                Guardar.FechaPagoComision = n.FechapagoComision;
+                                Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                                var Save = ObjdataReporte.Value.GuardarComisionMedicoDetalle(Guardar, "INSERT");
+
+
+                            }
+
+                            //INVOCAMOS EL REPORTE DETALLE
+                            InvicarReporteDetalle();
+                        }
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Error al cargar reporte detalle" + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos del reporte, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
         #region INVICAR LOS REPORTES
@@ -546,6 +1726,26 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
 
         }
         private void InvicarReporteunico() { }
+        #endregion
+        #region MOSTRAR EL LISTADO DE LOS CENTROS DE SALUD
+        private void MostrarListadoCentroSalud() {
+            var MostrarListadoCentroSalud = ObjDataListas.Value.ListaCentrosalud();
+            ddlSeleccionarCentroSalud.DataSource = MostrarListadoCentroSalud;
+            ddlSeleccionarCentroSalud.DisplayMember = "Nombre";
+            ddlSeleccionarCentroSalud.ValueMember = "IdCentroSalud";
+        }
+        #endregion
+        #region MOSTRAR LOS MEDICOS
+        private void Mostrarmedicos() {
+            try {
+                var Mostrarmedicos = ObjDataListas.Value.ListaMedicos(
+               Convert.ToDecimal(ddlSeleccionarCentroSalud.SelectedValue));
+                ddlSeleccionarMedico.DataSource = Mostrarmedicos;
+                ddlSeleccionarMedico.DisplayMember = "NombreMedico";
+                ddlSeleccionarMedico.ValueMember = "IdMedico";
+            }
+            catch (Exception) { }
+        }
         #endregion
         public ComisionMedico()
         {
@@ -561,6 +1761,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             lbLetrero.Text = "Comisión Detalle";
             lbTitulo.Text = "Generar Comisión a Medicos";
             lbTitulo.ForeColor = Color.White;
+            MostrarListadoCentroSalud();
+           Mostrarmedicos();
         }
         
         private void ComisionMedico_FormClosing(object sender, FormClosingEventArgs e)
@@ -590,6 +1792,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
 
                 var Buscar = ObjData.Value.BuscaComisionesMedicos(
                     VariablesGlobales.IdMantenimiento,
+                    null,
                     null,
                     null,
                     null,
@@ -785,6 +1988,77 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void cbFiltrarPorMedico_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbFiltrarPorMedico.Checked)
+            {
+                rbEscrito.Visible = true;
+                rbSeleccionado.Visible = true;
+                rbEscrito.Checked = true;
+            }
+            else
+            {
+                rbEscrito.Visible = false;
+                rbSeleccionado.Visible = false;
+                rbEscrito.Checked = false;
+                rbSeleccionado.Checked = false;
+            }
+        }
+
+        private void rbEscrito_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbEscrito.Checked)
+            {
+                lbNombreMedico.Visible = true;
+                txtParametrotxt.Visible = true;
+                txtParametrotxt.Text = string.Empty;
+                lbSeleccionarCentroSalud.Visible = false;
+                ddlSeleccionarCentroSalud.Visible = false;
+                lbSeleccionarMedico.Visible = false;
+                ddlSeleccionarMedico.Visible = false;
+            }
+            else
+            {
+                lbNombreMedico.Visible = false;
+                txtParametrotxt.Visible = false;
+                txtParametrotxt.Text = string.Empty;
+                lbSeleccionarCentroSalud.Visible = false;
+                ddlSeleccionarCentroSalud.Visible = false;
+                lbSeleccionarMedico.Visible = false;
+                ddlSeleccionarMedico.Visible = false;
+            }
+        }
+
+        private void rbSeleccionado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSeleccionado.Checked)
+            {
+                lbNombreMedico.Visible = false;
+                txtParametrotxt.Visible = false;
+                txtParametrotxt.Text = string.Empty;
+                lbSeleccionarCentroSalud.Visible = true;
+                ddlSeleccionarCentroSalud.Visible = true;
+                lbSeleccionarMedico.Visible = true;
+                ddlSeleccionarMedico.Visible = true;
+
+            }
+            else
+            {
+                lbNombreMedico.Visible = false;
+                txtParametrotxt.Visible = false;
+                txtParametrotxt.Text = string.Empty;
+                lbSeleccionarCentroSalud.Visible = false;
+                ddlSeleccionarCentroSalud.Visible = false;
+                lbSeleccionarMedico.Visible = false;
+                ddlSeleccionarMedico.Visible = false;
+            }
+        }
+
+        private void ddlSeleccionarCentroSalud_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Mostrarmedicos();
         }
     }
 }

@@ -69,6 +69,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbComisionPagadaTitulo = new System.Windows.Forms.Label();
             this.lbRespuesta = new System.Windows.Forms.Label();
+            this.cbFiltrarPorMedico = new System.Windows.Forms.CheckBox();
+            this.rbEscrito = new System.Windows.Forms.RadioButton();
+            this.rbSeleccionado = new System.Windows.Forms.RadioButton();
+            this.lbNombreMedico = new System.Windows.Forms.Label();
+            this.txtParametrotxt = new System.Windows.Forms.TextBox();
+            this.lbSeleccionarCentroSalud = new System.Windows.Forms.Label();
+            this.lbSeleccionarMedico = new System.Windows.Forms.Label();
+            this.ddlSeleccionarCentroSalud = new System.Windows.Forms.ComboBox();
+            this.ddlSeleccionarMedico = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -97,7 +106,7 @@
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.Location = new System.Drawing.Point(344, 10);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(51, 20);
+            this.lbUsuario.Size = new System.Drawing.Size(64, 25);
             this.lbUsuario.TabIndex = 15;
             this.lbUsuario.Text = "label6";
             this.lbUsuario.Visible = false;
@@ -119,12 +128,15 @@
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Location = new System.Drawing.Point(3, 9);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
+            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
             this.lbTitulo.TabIndex = 14;
             this.lbTitulo.Text = "label6";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rbSeleccionado);
+            this.groupBox1.Controls.Add(this.rbEscrito);
+            this.groupBox1.Controls.Add(this.cbFiltrarPorMedico);
             this.groupBox1.Controls.Add(this.btnPagar);
             this.groupBox1.Controls.Add(this.lbLetrero);
             this.groupBox1.Controls.Add(this.button1);
@@ -137,7 +149,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 50);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(719, 209);
+            this.groupBox1.Size = new System.Drawing.Size(719, 278);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Comisiones Filtros";
@@ -148,7 +160,7 @@
             this.btnPagar.Enabled = false;
             this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagar.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagar.Location = new System.Drawing.Point(481, 151);
+            this.btnPagar.Location = new System.Drawing.Point(481, 222);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(230, 47);
             this.btnPagar.TabIndex = 9;
@@ -164,7 +176,7 @@
             this.lbLetrero.ForeColor = System.Drawing.Color.Red;
             this.lbLetrero.Location = new System.Drawing.Point(269, 117);
             this.lbLetrero.Name = "lbLetrero";
-            this.lbLetrero.Size = new System.Drawing.Size(70, 25);
+            this.lbLetrero.Size = new System.Drawing.Size(87, 29);
             this.lbLetrero.TabIndex = 8;
             this.lbLetrero.Text = "label3";
             // 
@@ -173,7 +185,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(244, 151);
+            this.button1.Location = new System.Drawing.Point(244, 222);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(230, 47);
             this.button1.TabIndex = 7;
@@ -186,7 +198,7 @@
             this.btnControlApertura.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnControlApertura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnControlApertura.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnControlApertura.Location = new System.Drawing.Point(8, 151);
+            this.btnControlApertura.Location = new System.Drawing.Point(8, 222);
             this.btnControlApertura.Name = "btnControlApertura";
             this.btnControlApertura.Size = new System.Drawing.Size(230, 47);
             this.btnControlApertura.TabIndex = 6;
@@ -213,7 +225,7 @@
             this.rbAmbos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbAmbos.Location = new System.Drawing.Point(257, 29);
             this.rbAmbos.Name = "rbAmbos";
-            this.rbAmbos.Size = new System.Drawing.Size(76, 24);
+            this.rbAmbos.Size = new System.Drawing.Size(94, 29);
             this.rbAmbos.TabIndex = 10;
             this.rbAmbos.TabStop = true;
             this.rbAmbos.Text = "Ambos";
@@ -227,7 +239,7 @@
             this.rbPagada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbPagada.Location = new System.Drawing.Point(150, 29);
             this.rbPagada.Name = "rbPagada";
-            this.rbPagada.Size = new System.Drawing.Size(81, 24);
+            this.rbPagada.Size = new System.Drawing.Size(100, 29);
             this.rbPagada.TabIndex = 9;
             this.rbPagada.TabStop = true;
             this.rbPagada.Text = "Pagada";
@@ -241,7 +253,7 @@
             this.rbNoPagada.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbNoPagada.Location = new System.Drawing.Point(13, 29);
             this.rbNoPagada.Name = "rbNoPagada";
-            this.rbNoPagada.Size = new System.Drawing.Size(105, 24);
+            this.rbNoPagada.Size = new System.Drawing.Size(130, 29);
             this.rbNoPagada.TabIndex = 8;
             this.rbNoPagada.TabStop = true;
             this.rbNoPagada.Text = "No Pagada";
@@ -255,7 +267,7 @@
             this.cbNoAgregarRangoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbNoAgregarRangoFecha.Location = new System.Drawing.Point(20, 116);
             this.cbNoAgregarRangoFecha.Name = "cbNoAgregarRangoFecha";
-            this.cbNoAgregarRangoFecha.Size = new System.Drawing.Size(207, 24);
+            this.cbNoAgregarRangoFecha.Size = new System.Drawing.Size(251, 29);
             this.cbNoAgregarRangoFecha.TabIndex = 4;
             this.cbNoAgregarRangoFecha.Text = "No Usar Rango de Fecha";
             this.toolTip1.SetToolTip(this.cbNoAgregarRangoFecha, "No filtrar por rango de fecha");
@@ -266,7 +278,7 @@
             this.txtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaHasta.Location = new System.Drawing.Point(168, 75);
             this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(155, 26);
+            this.txtFechaHasta.Size = new System.Drawing.Size(155, 30);
             this.txtFechaHasta.TabIndex = 3;
             // 
             // txtFechaDesde
@@ -274,7 +286,7 @@
             this.txtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtFechaDesde.Location = new System.Drawing.Point(168, 39);
             this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(155, 26);
+            this.txtFechaDesde.Size = new System.Drawing.Size(155, 30);
             this.txtFechaDesde.TabIndex = 2;
             // 
             // label2
@@ -282,7 +294,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(41, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.Size = new System.Drawing.Size(123, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Fecha Hasta";
             // 
@@ -291,7 +303,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(35, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 20);
+            this.label1.Size = new System.Drawing.Size(129, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha Desde";
             // 
@@ -299,14 +311,14 @@
             // 
             this.txtNumeroRegistros.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroRegistros.Location = new System.Drawing.Point(335, 569);
+            this.txtNumeroRegistros.Location = new System.Drawing.Point(335, 635);
             this.txtNumeroRegistros.Maximum = new decimal(new int[] {
             999999999,
             0,
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 26);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
             this.txtNumeroRegistros.TabIndex = 39;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -318,9 +330,9 @@
             // lbNumeroRegistros
             // 
             this.lbNumeroRegistros.AutoSize = true;
-            this.lbNumeroRegistros.Location = new System.Drawing.Point(208, 571);
+            this.lbNumeroRegistros.Location = new System.Drawing.Point(208, 637);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(101, 20);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(123, 25);
             this.lbNumeroRegistros.TabIndex = 38;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -328,14 +340,14 @@
             // 
             this.txtNumeroPagina.BackColor = System.Drawing.Color.LightGray;
             this.txtNumeroPagina.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtNumeroPagina.Location = new System.Drawing.Point(119, 571);
+            this.txtNumeroPagina.Location = new System.Drawing.Point(119, 637);
             this.txtNumeroPagina.Maximum = new decimal(new int[] {
             999999999,
             0,
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 26);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
             this.txtNumeroPagina.TabIndex = 37;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -347,18 +359,18 @@
             // lbNumeroPagina
             // 
             this.lbNumeroPagina.AutoSize = true;
-            this.lbNumeroPagina.Location = new System.Drawing.Point(13, 573);
+            this.lbNumeroPagina.Location = new System.Drawing.Point(13, 639);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
             this.lbNumeroPagina.TabIndex = 36;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
             // gbListado
             // 
             this.gbListado.Controls.Add(this.dtListado);
-            this.gbListado.Location = new System.Drawing.Point(12, 265);
+            this.gbListado.Location = new System.Drawing.Point(12, 378);
             this.gbListado.Name = "gbListado";
-            this.gbListado.Size = new System.Drawing.Size(1214, 298);
+            this.gbListado.Size = new System.Drawing.Size(1214, 254);
             this.gbListado.TabIndex = 35;
             this.gbListado.TabStop = false;
             this.gbListado.Text = "Listado de Comisiones";
@@ -378,11 +390,11 @@
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.GridColor = System.Drawing.Color.DimGray;
-            this.dtListado.Location = new System.Drawing.Point(3, 22);
+            this.dtListado.Location = new System.Drawing.Point(3, 26);
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.RowTemplate.Height = 24;
-            this.dtListado.Size = new System.Drawing.Size(1208, 273);
+            this.dtListado.Size = new System.Drawing.Size(1208, 225);
             this.dtListado.TabIndex = 0;
             this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
@@ -395,7 +407,7 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 60;
+            this.Select.Width = 73;
             // 
             // cbTodo
             // 
@@ -404,7 +416,7 @@
             this.cbTodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbTodo.Location = new System.Drawing.Point(355, 161);
             this.cbTodo.Name = "cbTodo";
-            this.cbTodo.Size = new System.Drawing.Size(62, 24);
+            this.cbTodo.Size = new System.Drawing.Size(77, 29);
             this.cbTodo.TabIndex = 10;
             this.cbTodo.Text = "Todo";
             this.toolTip1.SetToolTip(this.cbTodo, "Pagar Todo");
@@ -436,7 +448,7 @@
             // 
             this.txtMontoPagar.Location = new System.Drawing.Point(162, 162);
             this.txtMontoPagar.Name = "txtMontoPagar";
-            this.txtMontoPagar.Size = new System.Drawing.Size(187, 26);
+            this.txtMontoPagar.Size = new System.Drawing.Size(187, 30);
             this.txtMontoPagar.TabIndex = 9;
             this.txtMontoPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
             // 
@@ -445,7 +457,7 @@
             this.txtComisionPagar.Enabled = false;
             this.txtComisionPagar.Location = new System.Drawing.Point(163, 126);
             this.txtComisionPagar.Name = "txtComisionPagar";
-            this.txtComisionPagar.Size = new System.Drawing.Size(286, 26);
+            this.txtComisionPagar.Size = new System.Drawing.Size(286, 30);
             this.txtComisionPagar.TabIndex = 8;
             this.txtComisionPagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMontoPagar_KeyPress);
             // 
@@ -454,7 +466,7 @@
             this.txtFechaCirugia.Enabled = false;
             this.txtFechaCirugia.Location = new System.Drawing.Point(164, 92);
             this.txtFechaCirugia.Name = "txtFechaCirugia";
-            this.txtFechaCirugia.Size = new System.Drawing.Size(286, 26);
+            this.txtFechaCirugia.Size = new System.Drawing.Size(286, 30);
             this.txtFechaCirugia.TabIndex = 7;
             // 
             // txtNoFactura
@@ -462,7 +474,7 @@
             this.txtNoFactura.Enabled = false;
             this.txtNoFactura.Location = new System.Drawing.Point(164, 59);
             this.txtNoFactura.Name = "txtNoFactura";
-            this.txtNoFactura.Size = new System.Drawing.Size(286, 26);
+            this.txtNoFactura.Size = new System.Drawing.Size(286, 30);
             this.txtNoFactura.TabIndex = 6;
             // 
             // txtNombreMedico
@@ -470,7 +482,7 @@
             this.txtNombreMedico.Enabled = false;
             this.txtNombreMedico.Location = new System.Drawing.Point(164, 26);
             this.txtNombreMedico.Name = "txtNombreMedico";
-            this.txtNombreMedico.Size = new System.Drawing.Size(286, 26);
+            this.txtNombreMedico.Size = new System.Drawing.Size(286, 30);
             this.txtNombreMedico.TabIndex = 5;
             // 
             // label7
@@ -478,7 +490,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(34, 165);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 20);
+            this.label7.Size = new System.Drawing.Size(124, 25);
             this.label7.TabIndex = 4;
             this.label7.Text = "Monto Pagar";
             // 
@@ -487,7 +499,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(8, 128);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 20);
+            this.label6.Size = new System.Drawing.Size(151, 25);
             this.label6.TabIndex = 3;
             this.label6.Text = "Comisión Pagar";
             // 
@@ -496,7 +508,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(26, 94);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 20);
+            this.label5.Size = new System.Drawing.Size(134, 25);
             this.label5.TabIndex = 2;
             this.label5.Text = "Fecha Cirugia";
             // 
@@ -505,7 +517,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(47, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 20);
+            this.label4.Size = new System.Drawing.Size(113, 25);
             this.label4.TabIndex = 1;
             this.label4.Text = "No. Factura";
             // 
@@ -514,7 +526,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(85, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.Size = new System.Drawing.Size(76, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Medico";
             // 
@@ -523,9 +535,9 @@
             this.lbComisionPagadaTitulo.AutoSize = true;
             this.lbComisionPagadaTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbComisionPagadaTitulo.ForeColor = System.Drawing.Color.Black;
-            this.lbComisionPagadaTitulo.Location = new System.Drawing.Point(416, 573);
+            this.lbComisionPagadaTitulo.Location = new System.Drawing.Point(416, 639);
             this.lbComisionPagadaTitulo.Name = "lbComisionPagadaTitulo";
-            this.lbComisionPagadaTitulo.Size = new System.Drawing.Size(189, 25);
+            this.lbComisionPagadaTitulo.Size = new System.Drawing.Size(237, 29);
             this.lbComisionPagadaTitulo.TabIndex = 10;
             this.lbComisionPagadaTitulo.Text = "Comisión Pagada:";
             this.lbComisionPagadaTitulo.Visible = false;
@@ -535,18 +547,133 @@
             this.lbRespuesta.AutoSize = true;
             this.lbRespuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRespuesta.ForeColor = System.Drawing.Color.Black;
-            this.lbRespuesta.Location = new System.Drawing.Point(659, 573);
+            this.lbRespuesta.Location = new System.Drawing.Point(659, 639);
             this.lbRespuesta.Name = "lbRespuesta";
-            this.lbRespuesta.Size = new System.Drawing.Size(44, 25);
+            this.lbRespuesta.Size = new System.Drawing.Size(52, 29);
             this.lbRespuesta.TabIndex = 41;
             this.lbRespuesta.Text = "NO";
             this.lbRespuesta.Visible = false;
             // 
+            // cbFiltrarPorMedico
+            // 
+            this.cbFiltrarPorMedico.AutoSize = true;
+            this.cbFiltrarPorMedico.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbFiltrarPorMedico.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbFiltrarPorMedico.Location = new System.Drawing.Point(20, 149);
+            this.cbFiltrarPorMedico.Name = "cbFiltrarPorMedico";
+            this.cbFiltrarPorMedico.Size = new System.Drawing.Size(183, 29);
+            this.cbFiltrarPorMedico.TabIndex = 10;
+            this.cbFiltrarPorMedico.Text = "Filtrar Por Medico";
+            this.toolTip1.SetToolTip(this.cbFiltrarPorMedico, "No filtrar por rango de fecha");
+            this.cbFiltrarPorMedico.UseVisualStyleBackColor = true;
+            this.cbFiltrarPorMedico.CheckedChanged += new System.EventHandler(this.cbFiltrarPorMedico_CheckedChanged);
+            // 
+            // rbEscrito
+            // 
+            this.rbEscrito.AutoSize = true;
+            this.rbEscrito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbEscrito.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbEscrito.Location = new System.Drawing.Point(201, 151);
+            this.rbEscrito.Name = "rbEscrito";
+            this.rbEscrito.Size = new System.Drawing.Size(91, 29);
+            this.rbEscrito.TabIndex = 11;
+            this.rbEscrito.TabStop = true;
+            this.rbEscrito.Text = "Escrito";
+            this.toolTip1.SetToolTip(this.rbEscrito, "Escribir el Nombre del medico");
+            this.rbEscrito.UseVisualStyleBackColor = true;
+            this.rbEscrito.Visible = false;
+            this.rbEscrito.CheckedChanged += new System.EventHandler(this.rbEscrito_CheckedChanged);
+            // 
+            // rbSeleccionado
+            // 
+            this.rbSeleccionado.AutoSize = true;
+            this.rbSeleccionado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbSeleccionado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbSeleccionado.Location = new System.Drawing.Point(298, 151);
+            this.rbSeleccionado.Name = "rbSeleccionado";
+            this.rbSeleccionado.Size = new System.Drawing.Size(151, 29);
+            this.rbSeleccionado.TabIndex = 12;
+            this.rbSeleccionado.TabStop = true;
+            this.rbSeleccionado.Text = "Seleccionado";
+            this.toolTip1.SetToolTip(this.rbSeleccionado, "Seleccionar Medico de la lista");
+            this.rbSeleccionado.UseVisualStyleBackColor = true;
+            this.rbSeleccionado.Visible = false;
+            this.rbSeleccionado.CheckedChanged += new System.EventHandler(this.rbSeleccionado_CheckedChanged);
+            // 
+            // lbNombreMedico
+            // 
+            this.lbNombreMedico.AutoSize = true;
+            this.lbNombreMedico.Location = new System.Drawing.Point(741, 263);
+            this.lbNombreMedico.Name = "lbNombreMedico";
+            this.lbNombreMedico.Size = new System.Drawing.Size(177, 25);
+            this.lbNombreMedico.TabIndex = 42;
+            this.lbNombreMedico.Text = "Nombre de Medico";
+            this.lbNombreMedico.Visible = false;
+            // 
+            // txtParametrotxt
+            // 
+            this.txtParametrotxt.Location = new System.Drawing.Point(921, 261);
+            this.txtParametrotxt.Name = "txtParametrotxt";
+            this.txtParametrotxt.Size = new System.Drawing.Size(302, 30);
+            this.txtParametrotxt.TabIndex = 11;
+            this.txtParametrotxt.Visible = false;
+            // 
+            // lbSeleccionarCentroSalud
+            // 
+            this.lbSeleccionarCentroSalud.AutoSize = true;
+            this.lbSeleccionarCentroSalud.Location = new System.Drawing.Point(764, 297);
+            this.lbSeleccionarCentroSalud.Name = "lbSeleccionarCentroSalud";
+            this.lbSeleccionarCentroSalud.Size = new System.Drawing.Size(154, 25);
+            this.lbSeleccionarCentroSalud.TabIndex = 43;
+            this.lbSeleccionarCentroSalud.Text = "Centro de Salud";
+            this.lbSeleccionarCentroSalud.Visible = false;
+            // 
+            // lbSeleccionarMedico
+            // 
+            this.lbSeleccionarMedico.AutoSize = true;
+            this.lbSeleccionarMedico.Location = new System.Drawing.Point(841, 332);
+            this.lbSeleccionarMedico.Name = "lbSeleccionarMedico";
+            this.lbSeleccionarMedico.Size = new System.Drawing.Size(76, 25);
+            this.lbSeleccionarMedico.TabIndex = 44;
+            this.lbSeleccionarMedico.Text = "Medico";
+            this.lbSeleccionarMedico.Visible = false;
+            // 
+            // ddlSeleccionarCentroSalud
+            // 
+            this.ddlSeleccionarCentroSalud.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarCentroSalud.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarCentroSalud.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarCentroSalud.FormattingEnabled = true;
+            this.ddlSeleccionarCentroSalud.Location = new System.Drawing.Point(921, 293);
+            this.ddlSeleccionarCentroSalud.Name = "ddlSeleccionarCentroSalud";
+            this.ddlSeleccionarCentroSalud.Size = new System.Drawing.Size(302, 33);
+            this.ddlSeleccionarCentroSalud.TabIndex = 45;
+            this.ddlSeleccionarCentroSalud.Visible = false;
+            this.ddlSeleccionarCentroSalud.SelectedIndexChanged += new System.EventHandler(this.ddlSeleccionarCentroSalud_SelectedIndexChanged);
+            // 
+            // ddlSeleccionarMedico
+            // 
+            this.ddlSeleccionarMedico.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlSeleccionarMedico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSeleccionarMedico.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlSeleccionarMedico.FormattingEnabled = true;
+            this.ddlSeleccionarMedico.Location = new System.Drawing.Point(921, 328);
+            this.ddlSeleccionarMedico.Name = "ddlSeleccionarMedico";
+            this.ddlSeleccionarMedico.Size = new System.Drawing.Size(302, 33);
+            this.ddlSeleccionarMedico.TabIndex = 46;
+            this.ddlSeleccionarMedico.Visible = false;
+            // 
             // ComisionMedico
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 615);
+            this.ClientSize = new System.Drawing.Size(1240, 673);
+            this.Controls.Add(this.ddlSeleccionarMedico);
+            this.Controls.Add(this.ddlSeleccionarCentroSalud);
+            this.Controls.Add(this.lbSeleccionarMedico);
+            this.Controls.Add(this.lbSeleccionarCentroSalud);
+            this.Controls.Add(this.txtParametrotxt);
+            this.Controls.Add(this.lbNombreMedico);
             this.Controls.Add(this.lbRespuesta);
             this.Controls.Add(this.lbComisionPagadaTitulo);
             this.Controls.Add(this.gbPagoComisiones);
@@ -625,5 +752,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbComisionPagadaTitulo;
         private System.Windows.Forms.Label lbRespuesta;
+        private System.Windows.Forms.RadioButton rbSeleccionado;
+        private System.Windows.Forms.RadioButton rbEscrito;
+        private System.Windows.Forms.CheckBox cbFiltrarPorMedico;
+        private System.Windows.Forms.Label lbNombreMedico;
+        private System.Windows.Forms.TextBox txtParametrotxt;
+        private System.Windows.Forms.Label lbSeleccionarCentroSalud;
+        private System.Windows.Forms.Label lbSeleccionarMedico;
+        private System.Windows.Forms.ComboBox ddlSeleccionarCentroSalud;
+        private System.Windows.Forms.ComboBox ddlSeleccionarMedico;
     }
 }

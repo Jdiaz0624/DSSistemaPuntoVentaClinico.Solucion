@@ -174,11 +174,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
 
         #region MANTENIMIENTO DE COMISION DE MEDICO
         //BUSCA LAS COMISIONES DE LOS MEDICOS
-        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EBuscaComisionesMedicos> BuscaComisionesMedicos(decimal? IDComision = null, decimal? IdProgramacionCirugia = null, decimal? NumeroFactura = null, decimal? NumeroReferencia = null, decimal? IdCentroSalud = null, decimal? IdMedico = null, decimal? IdAsistente = null, DateTime? FechaCirugiaDesde = null, DateTime? FechaCirugiaHasta = null, bool? ComisionPagada = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EBuscaComisionesMedicos> BuscaComisionesMedicos(decimal? IDComision = null, decimal? IdProgramacionCirugia = null, decimal? NumeroFactura = null, decimal? NumeroReferencia = null, decimal? IdCentroSalud = null, decimal? IdMedico = null, string NombreMedico = null, decimal? IdAsistente = null, DateTime? FechaCirugiaDesde = null, DateTime? FechaCirugiaHasta = null, bool? ComisionPagada = null, int? NumeroPagina = null, int? NumeroRegistros = null)
         {
             Objdata.CommandTimeout = 999999999;
 
-            var Buscar = (from n in Objdata.SP_BUSCA_COMISIONES_MEDICOS(IDComision, IdProgramacionCirugia, NumeroFactura, NumeroReferencia, IdCentroSalud, IdMedico, IdAsistente, FechaCirugiaDesde, FechaCirugiaHasta, ComisionPagada, NumeroPagina, NumeroRegistros)
+            var Buscar = (from n in Objdata.SP_BUSCA_COMISIONES_MEDICOS(IDComision, IdProgramacionCirugia, NumeroFactura, NumeroReferencia, IdCentroSalud, IdMedico, NombreMedico, IdAsistente, FechaCirugiaDesde, FechaCirugiaHasta, ComisionPagada, NumeroPagina, NumeroRegistros)
                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EBuscaComisionesMedicos
                           {
                               IDComision=n.IDComision,

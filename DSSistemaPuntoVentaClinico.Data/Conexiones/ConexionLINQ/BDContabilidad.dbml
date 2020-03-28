@@ -149,6 +149,7 @@
     <Parameter Name="NumeroReferencia" Parameter="numeroReferencia" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdCentroSalud" Parameter="idCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdMedico" Parameter="idMedico" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NombreMedico" Parameter="nombreMedico" Type="System.String" DbType="VarChar(200)" />
     <Parameter Name="IdAsistente" Parameter="idAsistente" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="FechaCirugiaDesde" Parameter="fechaCirugiaDesde" Type="System.DateTime" DbType="Date" />
     <Parameter Name="FechaCirugiaHasta" Parameter="fechaCirugiaHasta" Type="System.DateTime" DbType="Date" />
