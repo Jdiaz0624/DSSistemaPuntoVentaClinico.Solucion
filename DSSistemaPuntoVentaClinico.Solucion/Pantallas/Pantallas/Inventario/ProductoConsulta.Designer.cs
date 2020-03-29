@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbProductoConsulta = new System.Windows.Forms.GroupBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtCodigoProducto = new System.Windows.Forms.TextBox();
@@ -57,15 +58,14 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnReporte = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.gbProductoConsulta.SuspendLayout();
             this.gbOpciones.SuspendLayout();
             this.gbListadoProductos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,6 +88,19 @@
             this.lbTitulo.Size = new System.Drawing.Size(70, 23);
             this.lbTitulo.TabIndex = 18;
             this.lbTitulo.Text = "label6";
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.btnCerrar.Location = new System.Drawing.Point(1121, 9);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 18;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // gbProductoConsulta
             // 
@@ -150,7 +163,7 @@
             this.gbOpciones.Controls.Add(this.btnRestablecer);
             this.gbOpciones.Controls.Add(this.btnNuevo);
             this.gbOpciones.Controls.Add(this.btnConsultar);
-            this.gbOpciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbOpciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpciones.Location = new System.Drawing.Point(564, 58);
             this.gbOpciones.Name = "gbOpciones";
             this.gbOpciones.Size = new System.Drawing.Size(598, 144);
@@ -187,7 +200,7 @@
             this.lbClaveSeguridad.AutoSize = true;
             this.lbClaveSeguridad.Location = new System.Drawing.Point(302, 97);
             this.lbClaveSeguridad.Name = "lbClaveSeguridad";
-            this.lbClaveSeguridad.Size = new System.Drawing.Size(71, 23);
+            this.lbClaveSeguridad.Size = new System.Drawing.Size(68, 23);
             this.lbClaveSeguridad.TabIndex = 4;
             this.lbClaveSeguridad.Text = "Clave";
             this.lbClaveSeguridad.Visible = false;
@@ -263,7 +276,7 @@
             // gbListadoProductos
             // 
             this.gbListadoProductos.Controls.Add(this.dtProductos);
-            this.gbListadoProductos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbListadoProductos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbListadoProductos.Location = new System.Drawing.Point(12, 208);
             this.gbListadoProductos.Name = "gbListadoProductos";
             this.gbListadoProductos.Size = new System.Drawing.Size(1150, 283);
@@ -301,7 +314,7 @@
             this.Selct.Text = "Select";
             this.Selct.ToolTipText = "Select";
             this.Selct.UseColumnTextForButtonValue = true;
-            this.Selct.Width = 77;
+            this.Selct.Width = 76;
             // 
             // lbPerfilUsuarioConectado
             // 
@@ -393,7 +406,7 @@
             // 
             this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporte.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReporte.Location = new System.Drawing.Point(1019, 493);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(141, 49);
@@ -407,28 +420,15 @@
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(810, 493);
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(717, 493);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(203, 49);
+            this.button1.Size = new System.Drawing.Size(296, 49);
             this.button1.TabIndex = 8;
-            this.button1.Text = "Cantidad Minima";
+            this.button1.Text = "Producto Bajo Inventario";
             this.toolTip1.SetToolTip(this.button1, "Mostrar los productos en Cantidad Minima");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1121, 9);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 18;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // ProductoConsulta
             // 
@@ -458,6 +458,7 @@
             this.Load += new System.EventHandler(this.ProductoConsulta_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.gbProductoConsulta.ResumeLayout(false);
             this.gbProductoConsulta.PerformLayout();
             this.gbOpciones.ResumeLayout(false);
@@ -466,7 +467,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroRegistros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumeroPagina)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

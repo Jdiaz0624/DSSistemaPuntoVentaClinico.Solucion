@@ -13,6 +13,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
     public partial class ComisionMedico : Form
     {
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaContabilidad> ObjData = new Lazy<Logica.Logica.LogicaContabilidad>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjdataReporte = new Lazy<Logica.Logica.LogicaHistorial>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
@@ -584,6 +585,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             {
                 if (MessageBox.Show("¿Quieres aplicar este pago?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    AfectarCaja();
                     DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico Pagar = new Logica.Entidades.EntidadesContabilidad.EGuardarComisionesMedico();
 
                     Pagar.IDComision = VariablesGlobales.IDComisionPagar;
@@ -1745,6 +1747,41 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                 ddlSeleccionarMedico.ValueMember = "IdMedico";
             }
             catch (Exception) { }
+        }
+        #endregion
+        #region AFECTAR CAJA
+        private void AfectarCaja() {
+            try {
+
+                decimal Valor = Convert.ToDecimal(txtMontoPagar.Text);
+
+                Random NumeroAleatorio = new Random();
+                int Numero = NumeroAleatorio.Next(999999999);
+
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.EHistorialCaja Historial = new Logica.Entidades.EntidadesCaja.EHistorialCaja();
+
+                Historial.IdistorialCaja = 0;
+                Historial.IdCaja = 1;
+                Historial.Monto = Valor * -1;
+                Historial.Concepto = "PAGO DE COMISION";
+                Historial.Fecha0 = DateTime.Now;
+                Historial.IdUsuario = VariablesGlobales.IdUsuario;
+                Historial.NumeroReferencia = Numero;
+                Historial.IdTipoPago = 1;
+
+                var MAN = ObjDataCaja.Value.MantenimientoHistorialCaja(Historial, "INSERT");
+
+                //ACTUALIZAR EL MONTO EN LACAJA
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.ECaja Caja = new Logica.Entidades.EntidadesCaja.ECaja();
+
+                Caja.IdCaja = 1;
+                Caja.MontoActual = Valor * -1;
+
+                var mam = ObjDataCaja.Value.MantenimientoCaja(Caja, "ADD");
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al afectar caja, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
         public ComisionMedico()

@@ -41,6 +41,7 @@
             this.btnReporteInventario = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.lbIdUsuario = new System.Windows.Forms.Label();
             this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
@@ -75,6 +76,7 @@
             this.btnReporteMedicos.Text = "Reporte de Medicos";
             this.toolTip1.SetToolTip(this.btnReporteMedicos, "Mostrar el Reporte de Medicos");
             this.btnReporteMedicos.UseVisualStyleBackColor = true;
+            this.btnReporteMedicos.Visible = false;
             // 
             // btnReporteClientes
             // 
@@ -85,9 +87,10 @@
             this.btnReporteClientes.Name = "btnReporteClientes";
             this.btnReporteClientes.Size = new System.Drawing.Size(411, 50);
             this.btnReporteClientes.TabIndex = 12;
-            this.btnReporteClientes.Text = "Reporte de Clientes";
+            this.btnReporteClientes.Text = "Reporte de Ventas";
             this.toolTip1.SetToolTip(this.btnReporteClientes, "Mostrar el Reporte de Clientes");
             this.btnReporteClientes.UseVisualStyleBackColor = true;
+            this.btnReporteClientes.Click += new System.EventHandler(this.btnReporteClientes_Click);
             // 
             // btnReporteComprobantesFiscales
             // 
@@ -101,6 +104,7 @@
             this.btnReporteComprobantesFiscales.Text = "Reporte de Comprobantes";
             this.toolTip1.SetToolTip(this.btnReporteComprobantesFiscales, "Mostrar el Reporte de Comprobantes Fiscales");
             this.btnReporteComprobantesFiscales.UseVisualStyleBackColor = true;
+            this.btnReporteComprobantesFiscales.Visible = false;
             // 
             // btnReporteMonedas
             // 
@@ -111,9 +115,10 @@
             this.btnReporteMonedas.Name = "btnReporteMonedas";
             this.btnReporteMonedas.Size = new System.Drawing.Size(411, 50);
             this.btnReporteMonedas.TabIndex = 9;
-            this.btnReporteMonedas.Text = "Reporte de Monedas";
+            this.btnReporteMonedas.Text = "Reporte de Cirugia";
             this.toolTip1.SetToolTip(this.btnReporteMonedas, "Mostrar el Reporte de Monedas");
             this.btnReporteMonedas.UseVisualStyleBackColor = true;
+            this.btnReporteMonedas.Click += new System.EventHandler(this.btnReporteMonedas_Click);
             // 
             // btnReporteCotizaciones
             // 
@@ -124,9 +129,10 @@
             this.btnReporteCotizaciones.Name = "btnReporteCotizaciones";
             this.btnReporteCotizaciones.Size = new System.Drawing.Size(411, 50);
             this.btnReporteCotizaciones.TabIndex = 3;
-            this.btnReporteCotizaciones.Text = "Reporte de Cotizaciones";
+            this.btnReporteCotizaciones.Text = "Cuadre de Caja";
             this.toolTip1.SetToolTip(this.btnReporteCotizaciones, "Mostrar el Reporte de Cotizaciones");
             this.btnReporteCotizaciones.UseVisualStyleBackColor = true;
+            this.btnReporteCotizaciones.Click += new System.EventHandler(this.btnReporteCotizaciones_Click);
             // 
             // btnReporeFacturacion
             // 
@@ -140,6 +146,7 @@
             this.btnReporeFacturacion.Text = "Reporte de Facturación";
             this.toolTip1.SetToolTip(this.btnReporeFacturacion, "Mostrar el Reporte de Facturacion");
             this.btnReporeFacturacion.UseVisualStyleBackColor = true;
+            this.btnReporeFacturacion.Visible = false;
             // 
             // btnReporteEmpleados
             // 
@@ -153,6 +160,7 @@
             this.btnReporteEmpleados.Text = "Reporte de Empleados";
             this.toolTip1.SetToolTip(this.btnReporteEmpleados, "Mostrar el Reporte de Empleados");
             this.btnReporteEmpleados.UseVisualStyleBackColor = true;
+            this.btnReporteEmpleados.Visible = false;
             // 
             // btnReporteInventario
             // 
@@ -163,9 +171,10 @@
             this.btnReporteInventario.Name = "btnReporteInventario";
             this.btnReporteInventario.Size = new System.Drawing.Size(411, 50);
             this.btnReporteInventario.TabIndex = 0;
-            this.btnReporteInventario.Text = "Reporte de Inventario";
+            this.btnReporteInventario.Text = "Reporte de Productos";
             this.toolTip1.SetToolTip(this.btnReporteInventario, "Mostrar el Reporte de Inventario");
             this.btnReporteInventario.UseVisualStyleBackColor = true;
+            this.btnReporteInventario.Click += new System.EventHandler(this.btnReporteInventario_Click);
             // 
             // btnCerrar
             // 
@@ -180,13 +189,24 @@
             this.toolTip1.SetToolTip(this.btnCerrar, "Cerrar");
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // lbIdUsuario
+            // 
+            this.lbIdUsuario.AutoSize = true;
+            this.lbIdUsuario.Location = new System.Drawing.Point(559, 12);
+            this.lbIdUsuario.Name = "lbIdUsuario";
+            this.lbIdUsuario.Size = new System.Drawing.Size(46, 17);
+            this.lbIdUsuario.TabIndex = 14;
+            this.lbIdUsuario.Text = "label1";
+            this.lbIdUsuario.Visible = false;
+            // 
             // SubMenuReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(869, 320);
+            this.ClientSize = new System.Drawing.Size(869, 322);
+            this.Controls.Add(this.lbIdUsuario);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gbOpciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -200,6 +220,7 @@
             this.gbOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -216,5 +237,6 @@
         private System.Windows.Forms.Button btnReporteMonedas;
         private System.Windows.Forms.Button btnReporteCotizaciones;
         private System.Windows.Forms.ToolTip toolTip1;
+        public System.Windows.Forms.Label lbIdUsuario;
     }
 }

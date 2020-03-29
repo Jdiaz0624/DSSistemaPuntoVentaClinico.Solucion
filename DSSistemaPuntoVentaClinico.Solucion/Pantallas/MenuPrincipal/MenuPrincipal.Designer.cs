@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.pMenuIzquierda = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnCerrarSesion2 = new System.Windows.Forms.PictureBox();
             this.btnCerrarSesion = new System.Windows.Forms.PictureBox();
@@ -60,7 +61,6 @@
             this.pContenedor = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.pMenuIzquierda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarSesion2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarSesion)).BeginInit();
@@ -101,6 +101,30 @@
             this.pMenuIzquierda.Name = "pMenuIzquierda";
             this.pMenuIzquierda.Size = new System.Drawing.Size(317, 999);
             this.pMenuIzquierda.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.empleados;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(11, 359);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(284, 39);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Programación";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.button1, "Programación de Cirugia");
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnInventario
             // 
@@ -227,7 +251,7 @@
             this.btnSeguridad.ForeColor = System.Drawing.Color.White;
             this.btnSeguridad.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.producto;
             this.btnSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeguridad.Location = new System.Drawing.Point(12, 396);
+            this.btnSeguridad.Location = new System.Drawing.Point(12, 437);
             this.btnSeguridad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSeguridad.Name = "btnSeguridad";
             this.btnSeguridad.Size = new System.Drawing.Size(284, 39);
@@ -251,7 +275,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.reportes;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(11, 553);
+            this.btnReportes.Location = new System.Drawing.Point(11, 396);
             this.btnReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(284, 39);
@@ -260,7 +284,6 @@
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolTip1.SetToolTip(this.btnReportes, "Modulo de Reportes");
             this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Visible = false;
             this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
             // 
             // btnHistorial
@@ -328,7 +351,7 @@
             this.btnGestionCobros.ForeColor = System.Drawing.Color.White;
             this.btnGestionCobros.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.compras;
             this.btnGestionCobros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionCobros.Location = new System.Drawing.Point(11, 453);
+            this.btnGestionCobros.Location = new System.Drawing.Point(11, 475);
             this.btnGestionCobros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGestionCobros.Name = "btnGestionCobros";
             this.btnGestionCobros.Size = new System.Drawing.Size(284, 39);
@@ -587,30 +610,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.empleados;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(11, 359);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(284, 39);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Programación";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.button1, "Programación de Cirugia");
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // MenuPrincipal
             // 
