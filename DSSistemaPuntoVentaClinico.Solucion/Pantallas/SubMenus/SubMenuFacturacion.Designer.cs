@@ -92,7 +92,7 @@
             this.btnCotizacion.Name = "btnCotizacion";
             this.btnCotizacion.Size = new System.Drawing.Size(230, 68);
             this.btnCotizacion.TabIndex = 2;
-            this.btnCotizacion.Text = "Registros";
+            this.btnCotizacion.Text = "Historial de Facturación";
             this.toolTip1.SetToolTip(this.btnCotizacion, "Cotización");
             this.btnCotizacion.UseVisualStyleBackColor = true;
             this.btnCotizacion.Click += new System.EventHandler(this.btnCotizacion_Click);

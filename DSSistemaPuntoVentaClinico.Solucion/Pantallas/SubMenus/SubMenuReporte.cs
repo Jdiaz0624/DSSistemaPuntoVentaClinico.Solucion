@@ -59,6 +59,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
         private void SubMenuReporte_Load(object sender, EventArgs e)
         {
             gbOpciones.ForeColor = Color.Black;
+            lbTitulo.Text = "Mantenimiento de Reportes del Sistema";
+            lbTitulo.ForeColor = Color.White;
         }
 
         private void btnReporteInventario_Click(object sender, EventArgs e)
@@ -295,6 +297,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
             DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja.MantenimientoFacturacionCirugia FacturacionCirugia = new Pantallas.Caja.MantenimientoFacturacionCirugia();
             FacturacionCirugia.VariablesGlobales.IdUsuario = 0;
             FacturacionCirugia.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

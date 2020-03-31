@@ -42,13 +42,19 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lbIdUsuario = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbTitulo = new System.Windows.Forms.Label();
             this.gbOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbOpciones
             // 
             this.gbOpciones.Controls.Add(this.btnReporteMedicos);
+            this.gbOpciones.Controls.Add(this.btnCerrar);
             this.gbOpciones.Controls.Add(this.btnReporteClientes);
             this.gbOpciones.Controls.Add(this.btnReporteComprobantesFiscales);
             this.gbOpciones.Controls.Add(this.btnReporteMonedas);
@@ -180,24 +186,58 @@
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(818, 12);
+            this.btnCerrar.Location = new System.Drawing.Point(795, 228);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(39, 32);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 13;
             this.btnCerrar.TabStop = false;
             this.toolTip1.SetToolTip(this.btnCerrar, "Cerrar");
+            this.btnCerrar.Visible = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lbIdUsuario
             // 
             this.lbIdUsuario.AutoSize = true;
-            this.lbIdUsuario.Location = new System.Drawing.Point(559, 12);
+            this.lbIdUsuario.Location = new System.Drawing.Point(672, 300);
             this.lbIdUsuario.Name = "lbIdUsuario";
             this.lbIdUsuario.Size = new System.Drawing.Size(46, 17);
             this.lbIdUsuario.TabIndex = 14;
             this.lbIdUsuario.Text = "label1";
             this.lbIdUsuario.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.lbTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(869, 38);
+            this.panel1.TabIndex = 16;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
+            this.pictureBox1.Location = new System.Drawing.Point(827, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Salir del Sistema");
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Location = new System.Drawing.Point(3, 7);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(46, 17);
+            this.lbTitulo.TabIndex = 14;
+            this.lbTitulo.Text = "label6";
             // 
             // SubMenuReporte
             // 
@@ -206,8 +246,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(869, 322);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbIdUsuario);
-            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.gbOpciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -219,6 +259,9 @@
             this.Load += new System.EventHandler(this.SubMenuReporte_Load);
             this.gbOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +281,8 @@
         private System.Windows.Forms.Button btnReporteCotizaciones;
         private System.Windows.Forms.ToolTip toolTip1;
         public System.Windows.Forms.Label lbIdUsuario;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }
