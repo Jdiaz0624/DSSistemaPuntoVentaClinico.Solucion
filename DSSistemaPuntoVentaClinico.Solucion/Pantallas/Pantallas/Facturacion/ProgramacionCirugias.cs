@@ -354,7 +354,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     null,
                     null,
                     null,
-                    Convert.ToDecimal(lbNumeroFactura.Text),
+                    lbNumeroFactura.Text,
                     1, 1);
                 foreach (var n in SacarNumeroProgramacionCirugia)
                 {
@@ -558,7 +558,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     var SacarDatos = ObjDataFacturacion.Value.BuscaProgramacionCirugia(
                         new Nullable<decimal>(),
                         null, null, null, null, null,
-                        Convert.ToDecimal(lbNumeroFactura.Text),
+                        lbNumeroFactura.Text,
                         1, 1);
                     foreach (var n in SacarDatos)
                     {

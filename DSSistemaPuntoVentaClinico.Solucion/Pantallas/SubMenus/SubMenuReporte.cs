@@ -303,5 +303,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
         {
             this.Dispose();
         }
+
+        private void btnReporteGastos_Click(object sender, EventArgs e)
+        {
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja.ReporteDeGastosCirugia ReporteGastos = new Pantallas.Caja.ReporteDeGastosCirugia();
+            ReporteGastos.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            ReporteGastos.ShowDialog();
+        }
     }
 }

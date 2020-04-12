@@ -409,7 +409,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
 
         #region MANTENIMEINTO DE PROGRAMACION DE CIRUGIA
         //LISTADO DE PROGRAMACION DE CIRUGIA
-        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EBuscaProgramacionirugia> BuscaProgramacionCirugia(decimal? IdProgramacionCirugia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdCentroSalud = null, decimal? IdMedico = null, decimal? IdEstatusCirugia = null, decimal? NumeroFactura = null, int? NumeroPagina = null, int? NumeroRegistros = null)
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EBuscaProgramacionirugia> BuscaProgramacionCirugia(decimal? IdProgramacionCirugia = null, DateTime? FechaDesde = null, DateTime? FechaHasta = null, decimal? IdCentroSalud = null, decimal? IdMedico = null, decimal? IdEstatusCirugia = null, string NumeroFactura = null, int? NumeroPagina = null, int? NumeroRegistros = null)
         {
             ObjData.CommandTimeout = 999999999;
 

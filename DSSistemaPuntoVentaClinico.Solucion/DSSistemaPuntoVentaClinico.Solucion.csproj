@@ -88,6 +88,12 @@
     <Compile Include="Pantallas\Pantallas\Caja\MonedaMantenimiento.Designer.cs">
       <DependentUpon>MonedaMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\ReporteDeGastosCirugia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Pantallas\Caja\ReporteDeGastosCirugia.Designer.cs">
+      <DependentUpon>ReporteDeGastosCirugia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\Pantallas\Configuracion\CantidadMinimaProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -497,6 +503,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Caja\MonedaMantenimiento.resx">
       <DependentUpon>MonedaMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pantallas\Pantallas\Caja\ReporteDeGastosCirugia.resx">
+      <DependentUpon>ReporteDeGastosCirugia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Configuracion\CantidadMinimaProductos.resx">
       <DependentUpon>CantidadMinimaProductos.cs</DependentUpon>
