@@ -34,6 +34,7 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lbusuario = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbFacturasAnuladas = new System.Windows.Forms.RadioButton();
             this.rbAmbosTiposFacturas = new System.Windows.Forms.RadioButton();
             this.rbFacturasConCirugias = new System.Windows.Forms.RadioButton();
             this.rbFacturasSinCirugias = new System.Windows.Forms.RadioButton();
@@ -45,7 +46,6 @@
             this.txtFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.rbFacturasAnuladas = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -62,7 +62,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(719, 46);
+            this.panel1.Size = new System.Drawing.Size(750, 46);
             this.panel1.TabIndex = 12;
             // 
             // lbTitulo
@@ -107,17 +107,32 @@
             this.groupBox1.Controls.Add(this.rbFacturasSinCirugias);
             this.groupBox1.Location = new System.Drawing.Point(13, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(694, 70);
+            this.groupBox1.Size = new System.Drawing.Size(790, 70);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo de Datos";
+            // 
+            // rbFacturasAnuladas
+            // 
+            this.rbFacturasAnuladas.AutoSize = true;
+            this.rbFacturasAnuladas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbFacturasAnuladas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbFacturasAnuladas.Location = new System.Drawing.Point(428, 29);
+            this.rbFacturasAnuladas.Name = "rbFacturasAnuladas";
+            this.rbFacturasAnuladas.Size = new System.Drawing.Size(213, 29);
+            this.rbFacturasAnuladas.TabIndex = 3;
+            this.rbFacturasAnuladas.TabStop = true;
+            this.rbFacturasAnuladas.Text = "Facturas Entregadas";
+            this.toolTip1.SetToolTip(this.rbFacturasAnuladas, "Mostrar el listado de las factura con estatus Entregadas");
+            this.rbFacturasAnuladas.UseVisualStyleBackColor = true;
+            this.rbFacturasAnuladas.CheckedChanged += new System.EventHandler(this.rbFacturasAnuladas_CheckedChanged);
             // 
             // rbAmbosTiposFacturas
             // 
             this.rbAmbosTiposFacturas.AutoSize = true;
             this.rbAmbosTiposFacturas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbAmbosTiposFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbAmbosTiposFacturas.Location = new System.Drawing.Point(574, 29);
+            this.rbAmbosTiposFacturas.Location = new System.Drawing.Point(647, 29);
             this.rbAmbosTiposFacturas.Name = "rbAmbosTiposFacturas";
             this.rbAmbosTiposFacturas.Size = new System.Drawing.Size(88, 29);
             this.rbAmbosTiposFacturas.TabIndex = 2;
@@ -134,11 +149,11 @@
             this.rbFacturasConCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbFacturasConCirugias.Location = new System.Drawing.Point(7, 29);
             this.rbFacturasConCirugias.Name = "rbFacturasConCirugias";
-            this.rbFacturasConCirugias.Size = new System.Drawing.Size(210, 29);
+            this.rbFacturasConCirugias.Size = new System.Drawing.Size(211, 29);
             this.rbFacturasConCirugias.TabIndex = 1;
             this.rbFacturasConCirugias.TabStop = true;
-            this.rbFacturasConCirugias.Text = "Facturas sin cirugias";
-            this.toolTip1.SetToolTip(this.rbFacturasConCirugias, "Mostrar el listado de las facturas con cirugias programadas");
+            this.rbFacturasConCirugias.Text = "Facturas Pendientes";
+            this.toolTip1.SetToolTip(this.rbFacturasConCirugias, "Mostrar el listado de cirugia con estatus Pendientes");
             this.rbFacturasConCirugias.UseVisualStyleBackColor = true;
             this.rbFacturasConCirugias.CheckedChanged += new System.EventHandler(this.rbFacturasConCirugias_CheckedChanged);
             // 
@@ -149,11 +164,11 @@
             this.rbFacturasSinCirugias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.rbFacturasSinCirugias.Location = new System.Drawing.Point(222, 29);
             this.rbFacturasSinCirugias.Name = "rbFacturasSinCirugias";
-            this.rbFacturasSinCirugias.Size = new System.Drawing.Size(217, 29);
+            this.rbFacturasSinCirugias.Size = new System.Drawing.Size(200, 29);
             this.rbFacturasSinCirugias.TabIndex = 0;
             this.rbFacturasSinCirugias.TabStop = true;
-            this.rbFacturasSinCirugias.Text = "Facturas con cirugias";
-            this.toolTip1.SetToolTip(this.rbFacturasSinCirugias, "Mostrar el listado de las facturas que no tienen cirugias programadas");
+            this.rbFacturasSinCirugias.Text = "Facturas Operadas";
+            this.toolTip1.SetToolTip(this.rbFacturasSinCirugias, "Mostrar el listado de las facturas con estatus operadas");
             this.rbFacturasSinCirugias.UseVisualStyleBackColor = true;
             this.rbFacturasSinCirugias.CheckedChanged += new System.EventHandler(this.rbFacturasSinCirugias_CheckedChanged);
             // 
@@ -230,27 +245,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha Desde";
             // 
-            // rbFacturasAnuladas
-            // 
-            this.rbFacturasAnuladas.AutoSize = true;
-            this.rbFacturasAnuladas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbFacturasAnuladas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbFacturasAnuladas.Location = new System.Drawing.Point(445, 29);
-            this.rbFacturasAnuladas.Name = "rbFacturasAnuladas";
-            this.rbFacturasAnuladas.Size = new System.Drawing.Size(115, 29);
-            this.rbFacturasAnuladas.TabIndex = 3;
-            this.rbFacturasAnuladas.TabStop = true;
-            this.rbFacturasAnuladas.Text = "Anuladas\r\n";
-            this.toolTip1.SetToolTip(this.rbFacturasAnuladas, "Mostrar las Facturas Anuladas");
-            this.rbFacturasAnuladas.UseVisualStyleBackColor = true;
-            this.rbFacturasAnuladas.CheckedChanged += new System.EventHandler(this.rbFacturasAnuladas_CheckedChanged);
-            // 
             // MantenimientoFacturacionCirugia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(719, 264);
+            this.ClientSize = new System.Drawing.Size(750, 264);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cbFiltrarPorRangoFecha);
