@@ -283,6 +283,13 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fechaDesde, fechaHasta, idEstatusCirugia);
 			return ((ISingleResult<SP_SACAR_DATOS_FACTURACION_CIRUGIAResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Reporte.SP_GUARDAR_REPORTE_GASTOS_CIRUGIA")]
+		public ISingleResult<SP_GUARDAR_REPORTE_GASTOS_CIRUGIAResult> SP_GUARDAR_REPORTE_GASTOS_CIRUGIA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdProgramacionCirugia", DbType="Decimal(20,0)")] System.Nullable<decimal> idProgramacionCirugia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Descripcion", DbType="VarChar(100)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Cantidad", DbType="Int")] System.Nullable<int> cantidad, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Comentario", DbType="VarChar(8000)")] string comentario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Accion", DbType="VarChar(150)")] string accion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario, idProgramacionCirugia, descripcion, cantidad, comentario, accion);
+			return ((ISingleResult<SP_GUARDAR_REPORTE_GASTOS_CIRUGIAResult>)(result.ReturnValue));
+		}
 	}
 	
 	public partial class SP_SACAR_RUTA_REPORTEResult
@@ -4354,6 +4361,104 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._EstatusCirugia != value))
 				{
 					this._EstatusCirugia = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GUARDAR_REPORTE_GASTOS_CIRUGIAResult
+	{
+		
+		private System.Nullable<decimal> _IdUsuario;
+		
+		private System.Nullable<decimal> _IdProgramacionCirugia;
+		
+		private string _Descripcion;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private string _Comentario;
+		
+		public SP_GUARDAR_REPORTE_GASTOS_CIRUGIAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdUsuario
+		{
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this._IdUsuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProgramacionCirugia", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdProgramacionCirugia
+		{
+			get
+			{
+				return this._IdProgramacionCirugia;
+			}
+			set
+			{
+				if ((this._IdProgramacionCirugia != value))
+				{
+					this._IdProgramacionCirugia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(100)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comentario", DbType="VarChar(8000)")]
+		public string Comentario
+		{
+			get
+			{
+				return this._Comentario;
+			}
+			set
+			{
+				if ((this._Comentario != value))
+				{
+					this._Comentario = value;
 				}
 			}
 		}

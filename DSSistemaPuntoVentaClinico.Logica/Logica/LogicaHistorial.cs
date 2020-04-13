@@ -582,5 +582,35 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             return Guardar;
         }
         #endregion
+        #region GUARDAR REPORTE GASTOS CIRUGIA
+        //GUARDAR LOS DATOS DE LOS GASTOS DE CIRUGIA
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteGastosCirugia GuardarReorteGastosCirugia(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteGastosCirugia Item, string Accion)
+        {
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteGastosCirugia Guardar = null;
+
+            var ReporteGastosCirugia = ObjData.SP_GUARDAR_REPORTE_GASTOS_CIRUGIA(
+                Item.IdUsuario,
+                Item.IdProgramacionCirugia,
+                Item.Descripcion,
+                Item.Cantidad,
+                Item.Comentario,
+                Accion);
+            if (ReporteGastosCirugia != null)
+            {
+                Guardar = (from n in ReporteGastosCirugia
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial.EGuardarReporteGastosCirugia
+                           {
+                               IdUsuario=n.IdUsuario,
+                               IdProgramacionCirugia=n.IdProgramacionCirugia,
+                               Descripcion=n.Descripcion,
+                               Cantidad=n.Cantidad,
+                               Comentario=n.Comentario
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+          
+        }
+    
+        #endregion
     }
 }

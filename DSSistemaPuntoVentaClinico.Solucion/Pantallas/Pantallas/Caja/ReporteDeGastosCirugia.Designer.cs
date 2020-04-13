@@ -49,7 +49,7 @@
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dtListado = new System.Windows.Forms.DataGridView();
-            this.Select = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Reporte = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -146,6 +146,7 @@
             this.txtNumeroFactura.Name = "txtNumeroFactura";
             this.txtNumeroFactura.Size = new System.Drawing.Size(271, 30);
             this.txtNumeroFactura.TabIndex = 5;
+            this.txtNumeroFactura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroFactura_KeyPress);
             // 
             // cbAgregarRangoFecha
             // 
@@ -209,6 +210,7 @@
             this.button1.TabIndex = 18;
             this.button1.Text = "Generar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -238,6 +240,7 @@
             0,
             0,
             0});
+            this.txtNumeroRegistros.ValueChanged += new System.EventHandler(this.txtNumeroRegistros_ValueChanged);
             // 
             // lbNumeroRegistros
             // 
@@ -266,6 +269,7 @@
             0,
             0,
             0});
+            this.txtNumeroPagina.ValueChanged += new System.EventHandler(this.txtNumeroPagina_ValueChanged);
             // 
             // lbNumeroPagina
             // 
@@ -297,7 +301,7 @@
             this.dtListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Select});
+            this.Reporte});
             this.dtListado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtListado.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(57)))), ((int)(((byte)(80)))));
@@ -307,17 +311,18 @@
             this.dtListado.RowTemplate.Height = 24;
             this.dtListado.Size = new System.Drawing.Size(1014, 269);
             this.dtListado.TabIndex = 0;
+            this.dtListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtListado_CellContentClick);
             // 
-            // Select
+            // Reporte
             // 
-            this.Select.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Select.HeaderText = "Select";
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Text = "Select";
-            this.Select.ToolTipText = "Select";
-            this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 73;
+            this.Reporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Reporte.HeaderText = "Reporte";
+            this.Reporte.Name = "Reporte";
+            this.Reporte.ReadOnly = true;
+            this.Reporte.Text = "Reporte";
+            this.Reporte.ToolTipText = "Reporte";
+            this.Reporte.UseColumnTextForButtonValue = true;
+            this.Reporte.Width = 86;
             // 
             // ReporteDeGastosCirugia
             // 
@@ -339,7 +344,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ReporteDeGastosCirugia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ReporteDeGastosCirugia";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReporteDeGastosCirugia_FormClosing);
             this.Load += new System.EventHandler(this.ReporteDeGastosCirugia_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -378,6 +385,6 @@
         private System.Windows.Forms.Label lbNumeroPagina;
         private System.Windows.Forms.GroupBox gbListado;
         private System.Windows.Forms.DataGridView dtListado;
-        private System.Windows.Forms.DataGridViewButtonColumn Select;
+        private System.Windows.Forms.DataGridViewButtonColumn Reporte;
     }
 }

@@ -296,6 +296,29 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte
                 MessageBox.Show("Error al cargar el reporte" + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void GenerarReporteGastosGeneral(decimal IdUsuario)
+        {
+            try {
+                ReportDocument Gastos = new ReportDocument();
+
+                SqlCommand Comando = new SqlCommand();
+                Comando.CommandText = "EXEC [Reporte].[SP_SACAR_GASTOS_CIRUGIA_GENERAL] @IdUsuario";
+                Comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                Comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                Comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                Gastos.Load(@"" + VariablesGlobales.RutaReporte);
+                Gastos.Refresh();
+                Gastos.SetParameterValue("@IdUsuario", IdUsuario);
+                Gastos.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = Gastos;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar reporte de gastos general, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void Reportes_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);
