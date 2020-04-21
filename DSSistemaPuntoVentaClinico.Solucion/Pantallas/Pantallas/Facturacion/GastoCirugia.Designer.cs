@@ -33,6 +33,10 @@
             this.lbTitulo = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.gbDatosGastos = new System.Windows.Forms.GroupBox();
+            this.btnCambiar = new System.Windows.Forms.Button();
+            this.ddlEstatusCirugia = new System.Windows.Forms.ComboBox();
+            this.lbEstatusCirugia = new System.Windows.Forms.Label();
+            this.cbModificarEsatusCirugia = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnRestablecer = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
@@ -52,10 +56,6 @@
             this.txtNumeroPagina = new System.Windows.Forms.NumericUpDown();
             this.lbNumeroPagina = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cbModificarEsatusCirugia = new System.Windows.Forms.CheckBox();
-            this.lbEstatusCirugia = new System.Windows.Forms.Label();
-            this.ddlEstatusCirugia = new System.Windows.Forms.ComboBox();
-            this.btnCambiar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lbEstatus = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -127,6 +127,54 @@
             this.gbDatosGastos.TabIndex = 49;
             this.gbDatosGastos.TabStop = false;
             this.gbDatosGastos.Text = "Dato de Gastos";
+            // 
+            // btnCambiar
+            // 
+            this.btnCambiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCambiar.Location = new System.Drawing.Point(736, 143);
+            this.btnCambiar.Name = "btnCambiar";
+            this.btnCambiar.Size = new System.Drawing.Size(141, 49);
+            this.btnCambiar.TabIndex = 14;
+            this.btnCambiar.Text = "Cambiar";
+            this.toolTip1.SetToolTip(this.btnCambiar, "Modificar Estatus de Cirugia");
+            this.btnCambiar.UseVisualStyleBackColor = true;
+            this.btnCambiar.Visible = false;
+            this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
+            // 
+            // ddlEstatusCirugia
+            // 
+            this.ddlEstatusCirugia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddlEstatusCirugia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlEstatusCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlEstatusCirugia.FormattingEnabled = true;
+            this.ddlEstatusCirugia.Location = new System.Drawing.Point(404, 151);
+            this.ddlEstatusCirugia.Name = "ddlEstatusCirugia";
+            this.ddlEstatusCirugia.Size = new System.Drawing.Size(326, 33);
+            this.ddlEstatusCirugia.TabIndex = 13;
+            this.ddlEstatusCirugia.Visible = false;
+            // 
+            // lbEstatusCirugia
+            // 
+            this.lbEstatusCirugia.AutoSize = true;
+            this.lbEstatusCirugia.Location = new System.Drawing.Point(213, 155);
+            this.lbEstatusCirugia.Name = "lbEstatusCirugia";
+            this.lbEstatusCirugia.Size = new System.Drawing.Size(185, 25);
+            this.lbEstatusCirugia.TabIndex = 12;
+            this.lbEstatusCirugia.Text = "Seleccionar Estatus";
+            this.lbEstatusCirugia.Visible = false;
+            // 
+            // cbModificarEsatusCirugia
+            // 
+            this.cbModificarEsatusCirugia.AutoSize = true;
+            this.cbModificarEsatusCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbModificarEsatusCirugia.Location = new System.Drawing.Point(25, 151);
+            this.cbModificarEsatusCirugia.Name = "cbModificarEsatusCirugia";
+            this.cbModificarEsatusCirugia.Size = new System.Drawing.Size(180, 29);
+            this.cbModificarEsatusCirugia.TabIndex = 11;
+            this.cbModificarEsatusCirugia.Text = "Modificar Estatus";
+            this.cbModificarEsatusCirugia.UseVisualStyleBackColor = true;
+            this.cbModificarEsatusCirugia.CheckedChanged += new System.EventHandler(this.cbModificarEsatusCirugia_CheckedChanged);
             // 
             // button2
             // 
@@ -215,6 +263,8 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtDescripcion.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtDescripcion.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtDescripcion.Location = new System.Drawing.Point(136, 29);
             this.txtDescripcion.Name = "txtDescripcion";
@@ -346,54 +396,6 @@
             this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
             this.lbNumeroPagina.TabIndex = 51;
             this.lbNumeroPagina.Text = "No.Pagina";
-            // 
-            // cbModificarEsatusCirugia
-            // 
-            this.cbModificarEsatusCirugia.AutoSize = true;
-            this.cbModificarEsatusCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbModificarEsatusCirugia.Location = new System.Drawing.Point(25, 151);
-            this.cbModificarEsatusCirugia.Name = "cbModificarEsatusCirugia";
-            this.cbModificarEsatusCirugia.Size = new System.Drawing.Size(180, 29);
-            this.cbModificarEsatusCirugia.TabIndex = 11;
-            this.cbModificarEsatusCirugia.Text = "Modificar Estatus";
-            this.cbModificarEsatusCirugia.UseVisualStyleBackColor = true;
-            this.cbModificarEsatusCirugia.CheckedChanged += new System.EventHandler(this.cbModificarEsatusCirugia_CheckedChanged);
-            // 
-            // lbEstatusCirugia
-            // 
-            this.lbEstatusCirugia.AutoSize = true;
-            this.lbEstatusCirugia.Location = new System.Drawing.Point(213, 155);
-            this.lbEstatusCirugia.Name = "lbEstatusCirugia";
-            this.lbEstatusCirugia.Size = new System.Drawing.Size(185, 25);
-            this.lbEstatusCirugia.TabIndex = 12;
-            this.lbEstatusCirugia.Text = "Seleccionar Estatus";
-            this.lbEstatusCirugia.Visible = false;
-            // 
-            // ddlEstatusCirugia
-            // 
-            this.ddlEstatusCirugia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ddlEstatusCirugia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlEstatusCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ddlEstatusCirugia.FormattingEnabled = true;
-            this.ddlEstatusCirugia.Location = new System.Drawing.Point(404, 151);
-            this.ddlEstatusCirugia.Name = "ddlEstatusCirugia";
-            this.ddlEstatusCirugia.Size = new System.Drawing.Size(326, 33);
-            this.ddlEstatusCirugia.TabIndex = 13;
-            this.ddlEstatusCirugia.Visible = false;
-            // 
-            // btnCambiar
-            // 
-            this.btnCambiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCambiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCambiar.Location = new System.Drawing.Point(736, 143);
-            this.btnCambiar.Name = "btnCambiar";
-            this.btnCambiar.Size = new System.Drawing.Size(141, 49);
-            this.btnCambiar.TabIndex = 14;
-            this.btnCambiar.Text = "Cambiar";
-            this.toolTip1.SetToolTip(this.btnCambiar, "Modificar Estatus de Cirugia");
-            this.btnCambiar.UseVisualStyleBackColor = true;
-            this.btnCambiar.Visible = false;
-            this.btnCambiar.Click += new System.EventHandler(this.btnCambiar_Click);
             // 
             // label4
             // 

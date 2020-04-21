@@ -21,5 +21,19 @@ namespace DSSistemaPuntoVentaClinico.Logica.Comunes
             readr.Close();
         }
 
+        public static void AutoCompletarProductos(TextBox Filtro)
+        {
+            try {
+                SqlCommand comando = new SqlCommand("select Descripcion from Inventario.Producto  where Estatus = 1", DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion());
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read() == true)
+                {
+                    Filtro.AutoCompleteCustomSource.Add(reader["Descripcion"].ToString());
+                }
+                reader.Close();
+            }
+            catch (Exception ex) { MessageBox.Show("Error al Autocompletar el producto codigo de eror " + ex.Message, "EROR", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
     }
 }

@@ -127,6 +127,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             CargarEstatusCirugia();
             //SACAMOS EL ESTATUS DE LA CIRUGIA
             SacaEstatus();
+            DSSistemaPuntoVentaClinico.Logica.Comunes.AutoCompletarControles.AutoCompletarProductos(txtDescripcion);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
