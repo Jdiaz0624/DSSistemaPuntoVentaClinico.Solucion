@@ -18,6 +18,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
         }
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaCaja> ObjDataCaja = new Lazy<Logica.Logica.LogicaCaja>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaConfiguracion> ObjDataConfiguracion = new Lazy<Logica.Logica.LogicaConfiguracion>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjDaraHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region Sacar los datos de la caja
@@ -99,7 +101,45 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                 VariablesGlobales.NombreSistema = n.NombreEmpresa;
             }
         }
-#endregion
+        #endregion
+        #region GENERAR VOLANTE DE PAGO
+        private void GenerarVolanteCaja()
+        {
+            //SACAMOS EL NUMERO MAXIMO DEL REGISTRO GUARDADO
+            decimal IdMaximo = 0;
+            var SacarNumeroMaximo = ObjDataCaja.Value.SacarIdMAximoCaja(VariablesGlobales.IdUsuario);
+            foreach (var n in SacarNumeroMaximo)
+            {
+                IdMaximo = Convert.ToDecimal(n.IdMaximo);
+            }
+
+
+
+            //SACAMOS LA RUTA DE LA IMAGEN
+            var SacarRutaReportes = ObjDaraHistorial.Value.SacarRutaReporte(14);
+            foreach (var n in SacarRutaReportes)
+            {
+                VariablesGlobales.RutaReporte = n.RutaReporte;
+            }
+
+            //SACAMOS LAS CREDENCIALES DE LA BASE DE DATOS
+
+            var SacarCredenciales = ObjDataSeguridad.Value.SacarLogonBD(1);
+            foreach (var n in SacarCredenciales)
+            {
+                VariablesGlobales.UsuarioBD = n.Usuario;
+                VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+            }
+
+            //INVICAMO EL RECIBO DE MOVIMIENTO DE CAJA
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteCaja = new Reporte.Reportes();
+            ReporteCaja.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            ReporteCaja.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            ReporteCaja.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            ReporteCaja.GenerarVolanteCaja(IdMaximo);
+            ReporteCaja.ShowDialog();
+        }
+        #endregion
         private void Caja_Load(object sender, EventArgs e)
         {
             SacarDatosEmpresa(1);
@@ -256,6 +296,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                         SacarDatosCaja(Convert.ToDecimal(txtCodigoCaja.Text));
                         txtMonto.Text = string.Empty;
                         txtConcepto.Text = string.Empty;
+
+                        GenerarVolanteCaja();
+
                     }
 
                 }
@@ -290,6 +333,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                             SacarDatosCaja(Convert.ToDecimal(txtCodigoCaja.Text));
                             txtMonto.Text = string.Empty;
                             txtConcepto.Text = string.Empty;
+                            GenerarVolanteCaja();
                         }
 
                     }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaFacturacionMedico" Class="BDCajaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=SistemaFacturacionMedico;Integrated Security=True" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString5" Provider="System.Data.SqlClient" />
   <Function Name="Caja.SP_BUSCA_MONEDA" Method="SP_BUSCA_MONEDA">
     <Parameter Name="IdMoneda" Parameter="idMoneda" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="CodigoMoneda" Parameter="codigoMoneda" Type="System.String" DbType="VarChar(100)" />
@@ -172,6 +172,12 @@
     <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
     <ElementType Name="SP_SACAR_NUMERO_RECIBOResult">
       <Column Name="NumeroRecibo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Caja.SP_SACAR_MAXIMO_ID_HISTORIAL_CAJA" Method="SP_SACAR_MAXIMO_ID_HISTORIAL_CAJA">
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <ElementType Name="SP_SACAR_MAXIMO_ID_HISTORIAL_CAJAResult">
+      <Column Name="IdMaximo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

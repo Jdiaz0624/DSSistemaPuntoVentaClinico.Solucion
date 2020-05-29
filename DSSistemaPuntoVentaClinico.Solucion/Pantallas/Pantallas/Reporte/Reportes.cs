@@ -319,6 +319,28 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte
                 MessageBox.Show("Error al generar reporte de gastos general, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void GenerarVolanteCaja(decimal IdVolante) {
+            try {
+                ReportDocument VolanteCaja = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_GENERAR_VOLANTE_MOVIMIENTO_CAJA]  @IdHistorialCaja";
+                comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdHistorialCaja", SqlDbType.Decimal);
+                comando.Parameters["@IdHistorialCaja"].Value = IdVolante;
+
+                VolanteCaja.Load(@"" + VariablesGlobales.RutaReporte);
+                VolanteCaja.Refresh();
+                VolanteCaja.SetParameterValue("@IdHistorialCaja", IdVolante);
+                VolanteCaja.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = VolanteCaja;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al mostrar el volante de caja, codigo de error--> " + ex.Message);
+            }
+        }
         private void Reportes_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);

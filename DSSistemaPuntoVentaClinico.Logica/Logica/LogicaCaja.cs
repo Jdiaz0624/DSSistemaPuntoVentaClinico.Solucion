@@ -263,5 +263,18 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             return SacarNumero;
         }
         #endregion
+        #region SACAR EL ID MAXIMO DE LA CAJA
+        public List<DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.ESacarIdCajaMaximo> SacarIdMAximoCaja(decimal? IdUsuario = null)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            var Sacar = (from n in ObjData.SP_SACAR_MAXIMO_ID_HISTORIAL_CAJA(IdUsuario)
+                         select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadesCaja.ESacarIdCajaMaximo
+                         {
+                             IdMaximo = n.IdMaximo
+                         }).ToList();
+            return Sacar;
+        }
+        #endregion
     }
 }

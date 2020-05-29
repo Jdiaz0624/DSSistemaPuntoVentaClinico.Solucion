@@ -33,7 +33,7 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
     #endregion
 		
 		public BDCajaDataContext() : 
-				base(global::DSSistemaPuntoVentaClinico.Data.Properties.Settings.Default.SistemaFacturacionMedicoConnectionString2, mappingSource)
+				base(global::DSSistemaPuntoVentaClinico.Data.Properties.Settings.Default.SistemaFacturacionMedicoConnectionString5, mappingSource)
 		{
 			OnCreated();
 		}
@@ -123,6 +123,13 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroFactura);
 			return ((ISingleResult<SP_SACAR_NUMERO_RECIBOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Caja.SP_SACAR_MAXIMO_ID_HISTORIAL_CAJA")]
+		public ISingleResult<SP_SACAR_MAXIMO_ID_HISTORIAL_CAJAResult> SP_SACAR_MAXIMO_ID_HISTORIAL_CAJA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IdUsuario", DbType="Decimal(20,0)")] System.Nullable<decimal> idUsuario)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), idUsuario);
+			return ((ISingleResult<SP_SACAR_MAXIMO_ID_HISTORIAL_CAJAResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1813,6 +1820,32 @@ namespace DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionLINQ
 				if ((this._NumeroRecibo != value))
 				{
 					this._NumeroRecibo = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SACAR_MAXIMO_ID_HISTORIAL_CAJAResult
+	{
+		
+		private System.Nullable<decimal> _IdMaximo;
+		
+		public SP_SACAR_MAXIMO_ID_HISTORIAL_CAJAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdMaximo", DbType="Decimal(20,0)")]
+		public System.Nullable<decimal> IdMaximo
+		{
+			get
+			{
+				return this._IdMaximo;
+			}
+			set
+			{
+				if ((this._IdMaximo != value))
+				{
+					this._IdMaximo = value;
 				}
 			}
 		}

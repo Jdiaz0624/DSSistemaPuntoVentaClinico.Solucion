@@ -61,6 +61,7 @@
     <Compile Include="Entidades\EntidadesCaja\ECaja.cs" />
     <Compile Include="Entidades\EntidadesCaja\EHistorialCaja.cs" />
     <Compile Include="Entidades\EntidadesCaja\EMoneda.cs" />
+    <Compile Include="Entidades\EntidadesCaja\ESacarIdCajaMaximo.cs" />
     <Compile Include="Entidades\EntidadesCaja\ESacarNumeroRecibo.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EBuscaListas.cs" />
     <Compile Include="Entidades\EntidadesConfiguracion\EConfiguracionGeneralSistema.cs" />
