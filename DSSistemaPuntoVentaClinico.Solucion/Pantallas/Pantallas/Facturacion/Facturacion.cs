@@ -1362,54 +1362,48 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //VERIFICAMOS SI EL CAMPO COTIZACION ESTA VACIO
-            if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
-            {
-                MessageBox.Show("El campo cotizacion no puede estar vacio, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                //VALIDAMOS LOS DATOS
-                var Validar = ObjDataHistorial.Value.HistorialFacturacionCotizacion(
-                    new Nullable<decimal>(),
-                    Convert.ToDecimal(txtNoCotizacion.Text.Trim()),
-                    null, 2, null, null, null, null, null, null, null, 1, 1);
-                if (Validar.Count() < 1)
+            try {
+                //VERIFICAMOS SI EL CAMPO NUMERO DE COTIZACION ESTA VACIO
+                if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
                 {
-                    MessageBox.Show("No se encontraron registros con el numero de cotizacion ingresado, favor de verificar el numero e intentarlo nuevamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El campo numero de cotización no puede estar vacio, para extraer los datos, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                   
-                    //SACAMOS LOS DATOS
-                    foreach (var n in Validar)
+                    //CONSULTANOS LOS DATOS
+                    var ConsultarInformacion = ObjDataHistorial.Value.HistorialFacturacionCotizacion(
+                        Convert.ToDecimal(txtNoCotizacion.Text),
+                        null,
+                        null,
+                        2,
+                        null, null, null, null, null, null, null, null, 1, 1);
+                    if (ConsultarInformacion.Count() < 1)
                     {
-                        ddlTipoFacturacion.Text = n.TipoComprobante;
-                        txtNombrePaciente.Text = n.NombrePaciente;
-                        txtTelefono.Text = n.Telefono;
-                        ddlCentroSalud.Text = n.CentroSalud;
-                        txtSala.Text = n.Sala;
-                        ddlMedico.Text = n.Medico;
-                        ddlTipoIdentificacion.Text = n.TipoIdentificacion;
-                        txtIdentificacion.Text = n.NumeroIdentificacion;
-                        txtDireccion.Text = n.Direccion;
-                        ddlSexo.Text = n.Sexo;
-                        txtEmail.Text = n.Email;
-                        txtComentario.Text = n.ComentarioPaciente;
-                        VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
+                        MessageBox.Show("No existe cotizaciones relacionadas con el numero ingresado, favor de verificar e intentar nuevamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    VariablesGlobales.ModoCotizacion = true;
-                    btnAgregarAlmacen.Visible = false;
-                    groupBox3.Visible = false;
-                    rbQuitarDescuento.Visible = false;
-                    rbAgregarDescuento.Visible = false;
-                    btnColocarDescuento.Visible = false;
-                    button2.Visible = false;
-                    rbFacturar.Checked = true;
-                    MostrarListadoProductosAgregados(VariablesGlobales.NumeroConector);
-                    SacarDatosCalculos(VariablesGlobales.NumeroConector);
-                   
+                    else {
+                        //SACAMOS LOS DATOS DEL REGISTRO
+                        foreach (var n in ConsultarInformacion)
+                        {
+                            ddlTipoFacturacion.Text = n.TipoComprobante;
+                            txtNombrePaciente.Text = n.NombrePaciente;
+                            txtTelefono.Text = n.Telefono;
+                            ddlCentroSalud.Text = n.CentroSalud;
+                            txtSala.Text = n.Sala;
+                            ddlMedico.Text = n.Medico;
+                            ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                            txtIdentificacion.Text = n.NumeroIdentificacion;
+                            txtDireccion.Text = n.Direccion;
+                            txtEmail.Text = n.Email;
+                            txtComentario.Text = n.ComentarioPaciente;
+                            txtPacientePaciente.Text = n.Paciente;
+                            txtCedulaCedula.Text = n.CedulaPaciente;
+                        }
+                    }
                 }
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al extraer los datos de la cotización, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
