@@ -341,6 +341,27 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte
                 MessageBox.Show("Error al mostrar el volante de caja, codigo de error--> " + ex.Message);
             }
         }
+        public void GenerarReciboPagoComision(decimal IdUsuario) {
+            try {
+                ReportDocument PagoComision = new ReportDocument();
+
+                SqlCommand comando = new SqlCommand();
+                comando.CommandText = "EXEC [Reporte].[SP_RECIBO_PAGO_COMISION] @IdUsuario";
+                comando.Connection = DSSistemaPuntoVentaClinico.Data.Conexiones.ConexionADO.BDConexion.ObtenerConexion();
+
+                comando.Parameters.Add("@IdUsuario", SqlDbType.Decimal);
+                comando.Parameters["@IdUsuario"].Value = IdUsuario;
+
+                PagoComision.Load(@"" + VariablesGlobales.RutaReporte);
+                PagoComision.Refresh();
+                PagoComision.SetParameterValue("@IdUsuario", IdUsuario);
+                PagoComision.SetDatabaseLogon(VariablesGlobales.UsuarioBD, VariablesGlobales.ClaveBD);
+                crystalReportViewer1.ReportSource = PagoComision;
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al enerar el recibo de pago de comisión, codigo de error --> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void Reportes_Load(object sender, EventArgs e)
         {
             SacarInformacionEmpresa(1);

@@ -534,6 +534,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             btnPagar.Enabled = false;
             lbComisionPagadaTitulo.Visible = false;
             lbRespuesta.Visible = false;
+            btnRecibo.Enabled = false;
         }
         #endregion
         #region FORMATO DEL GRID
@@ -1828,9 +1829,30 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                     var MAN2 = ObjdataHistorial.Value.GaurdarComisionReporte(Guardar, "INSERT");
                 }
 
-                //INVOCAMOS EL REPORTE
+               
+                //SACAMOS LA RUTA DEL REPORTE 
+                var SacarRUtaReporte = ObjdataReporte.Value.SacarRutaReporte(15);
+                foreach (var n in SacarRUtaReporte)
+                {
+                    VariablesGlobales.RutaReporte = n.RutaReporte;
+                }
 
-              
+                //SACAMOS LAS CREDENCIALES DE BASE DE DATOS
+                var SacarCredenciales = ObjDataSeguridad.Value.SacarLogonBD(1);
+                foreach (var n in SacarCredenciales)
+                {
+                    VariablesGlobales.UsuarioBD = n.Usuario;
+                    VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
+                }
+
+                //INVOCAMOS EL REPORTE
+                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Recibo = new Reporte.Reportes();
+                Recibo.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                Recibo.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                Recibo.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                Recibo.GenerarReciboPagoComision(VariablesGlobales.IdUsuario);
+                Recibo.ShowDialog();
+
 
             }
             catch (Exception ex) {
@@ -1927,6 +1949,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                 btnPagar.Enabled = true;
                 lbComisionPagadaTitulo.Visible = true;
                 lbRespuesta.Visible = true;
+                btnRecibo.Enabled = true;
             }
         }
 
@@ -2152,6 +2175,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         private void ddlSeleccionarCentroSalud_SelectedIndexChanged(object sender, EventArgs e)
         {
             Mostrarmedicos();
+        }
+
+        private void btnRecibo_Click(object sender, EventArgs e)
+        {
+            GenerarReciboPagoComision(VariablesGlobales.IdUsuario);
         }
     }
 }
