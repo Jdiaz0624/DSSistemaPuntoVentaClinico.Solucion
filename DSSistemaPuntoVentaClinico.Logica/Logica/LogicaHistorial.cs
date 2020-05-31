@@ -611,7 +611,50 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
             return Guardar;
           
         }
-    
+
+        #endregion
+        #region GUARDAR LAS COMISIONES DE LOS PAGOS A LAS COMISIONES
+        public DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarPagoComisionReporte GaurdarComisionReporte(DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarPagoComisionReporte Item, string Accion)
+        {
+            ObjData.CommandTimeout = 999999999;
+
+            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarPagoComisionReporte Guardar = null;
+
+            var ComisionMedico = ObjData.SP_GUARDAR_PAGO_COMISION_REPORTE(
+                Item.IdUsuario,
+                Item.IdComision,
+                Item.IdProgramacionCirugia,
+                Item.NumeroFactura,
+                Item.NumeroReferencia,
+                Item.IdCentroSalud,
+                Item.IdMedico,
+                Item.IdAsistente,
+                Item.FechaCirugia,
+                Item.ComisionPagada,
+                Item.FechaPagoComision,
+                Item.MontoPagado,
+                Accion);
+            if (ComisionMedico != null)
+            {
+                Guardar = (from n in ComisionMedico
+                           select new DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarPagoComisionReporte
+                           {
+                               IdUsuario=n.IdUsuario,
+                               IdComision=n.IdComision,
+                               IdProgramacionCirugia=n.IdProgramacionCirugia,
+                               NumeroFactura=n.NumeroFactura,
+                               NumeroReferencia=n.NumeroReferencia,
+                               IdCentroSalud=n.IdCentroSalud,
+                               IdMedico=n.IdMedico,
+                               IdAsistente=n.IdAsistente,
+                               FechaCirugia=n.FechaCirugia,
+                               ComisionPagada=n.ComisionPagada,
+                               FechaPagoComision=n.FechaPagoComision,
+                               MontoPagado=n.MontoPagado
+                           }).FirstOrDefault();
+            }
+            return Guardar;
+        }
         #endregion
     }
 }

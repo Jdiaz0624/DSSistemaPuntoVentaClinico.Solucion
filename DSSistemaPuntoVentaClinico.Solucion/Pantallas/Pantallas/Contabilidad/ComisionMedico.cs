@@ -18,6 +18,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjdataReporte = new Lazy<Logica.Logica.LogicaHistorial>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaSeguridad> ObjDataSeguridad = new Lazy<Logica.Logica.LogicaSeguridad>();
         Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaListas> ObjDataListas = new Lazy<Logica.Logica.LogicaListas>();
+        Lazy<DSSistemaPuntoVentaClinico.Logica.Logica.LogicaHistorial> ObjdataHistorial = new Lazy<Logica.Logica.LogicaHistorial>();
         public DSSistemaPuntoVentaClinico.Logica.Comunes.VariablesGlobales VariablesGlobales = new Logica.Comunes.VariablesGlobales();
 
         #region MOSTRAR EL LISTADO DE LAS COMISIONES
@@ -597,6 +598,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                     Pagar.MontoPagado = Convert.ToDecimal(txtMontoPagar.Text);
 
                     var MAn = ObjData.Value.GuardarComisionesMedicos(Pagar, "UPDATE");
+                    GenerarReciboPagoComision(VariablesGlobales.IdMantenimiento);
                     Consultar();
                     MessageBox.Show("Pago aplicado Exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -1784,6 +1786,58 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             }
         }
         #endregion
+        #region GENERAR RECIBO DE PAGO DE COMISION
+        private void GenerarReciboPagoComision(decimal IdComision)
+        {
+            try {
+
+                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarPagoComisionReporte Eliminar = new Logica.Entidades.EntidadReporte.EGuardarPagoComisionReporte();
+                Eliminar.IdUsuario = VariablesGlobales.IdUsuario;
+                var MAN = ObjdataHistorial.Value.GaurdarComisionReporte(Eliminar, "DELETE");
+
+
+                //CONSULTANOS LOS DATOS
+                var ConsultarRegistro = ObjData.Value.BuscaComisionesMedicos(IdComision,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null, 1, 1);
+                foreach (var n in ConsultarRegistro)
+                {
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadReporte.EGuardarPagoComisionReporte Guardar = new Logica.Entidades.EntidadReporte.EGuardarPagoComisionReporte();
+
+                    Guardar.IdUsuario = VariablesGlobales.IdUsuario;
+                    Guardar.IdComision = IdComision;
+                    Guardar.IdProgramacionCirugia = Convert.ToDecimal(n.IdProgramacionCirugia);
+                    Guardar.NumeroFactura = Convert.ToDecimal(n.NumeroFactura);
+                    Guardar.NumeroReferencia = Convert.ToDecimal(n.NumeroReferencia);
+                    Guardar.IdCentroSalud = Convert.ToDecimal(n.IdCentroSalud);
+                    Guardar.IdMedico = Convert.ToDecimal(n.Idmedico);
+                    Guardar.IdAsistente = Convert.ToDecimal(n.IdAsistente);
+                    Guardar.FechaCirugia = Convert.ToDateTime(n.FechaCirugia0);
+                    Guardar.ComisionPagada = Convert.ToBoolean(n.ComisionPagada0);
+                    Guardar.FechaPagoComision = Convert.ToDateTime(n.FechapagoComision0);
+                    Guardar.MontoPagado = Convert.ToDecimal(n.MontoPagado);
+
+                    var MAN2 = ObjdataHistorial.Value.GaurdarComisionReporte(Guardar, "INSERT");
+                }
+
+                //INVOCAMOS EL REPORTE
+
+              
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al generar el recibo de pago de comision codigo de error --> " + ex.Message);
+            }
+        }
+        #endregion
         public ComisionMedico()
         {
             InitializeComponent();
@@ -1984,6 +2038,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             if (cbTodo.Checked == true)
             {
                 AplicarPagoComision();
+               
             }
             else
             {
@@ -2007,6 +2062,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                         else
                         {
                             AplicarPagoComision();
+                            
                         }
                     }
                 }
