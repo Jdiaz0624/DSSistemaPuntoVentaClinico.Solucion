@@ -101,6 +101,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                 Item.IdUsuario,
                 Item.Paciente,
                 Item.CedulaPaciente,
+                Item.DescripcionTipoCliente,
                 Accion);
             if (FacturacionCliente != null)
             {
@@ -126,7 +127,8 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                                      FechaFacturacion=n.FechaFacturacion,
                                      IdUsuario=n.IdUsuario,
                                      Paciente=n.Paciente,
-                                     CedulaPaciente=n.CedulaPaciente
+                                     CedulaPaciente=n.CedulaPaciente,
+                                     DescripcionTipoCliente=n.DescripcionTipoCliente
                                  }).FirstOrDefault();
             }
             return Mantenimiento;

@@ -154,6 +154,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         //GUARDAR LOS DATOS DEL CLIENTE
         private void GuardarFacturacionCliente()
         {
+            string TipoCliente = "";
+            if (rbBuscarCliente.Checked)
+            {
+                TipoCliente = "CLIENTE";
+            }
+            else if (rbBuscarPaciente.Checked)
+            {
+                TipoCliente = "PACIENTE";
+            }
             DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes Guardar = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
 
             Guardar.NumeroFactura = VariablesGlobales.NumeroFacturacion;
@@ -176,6 +185,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Guardar.IdUsuario = VariablesGlobales.IdUsuario;
             Guardar.Paciente = txtPacientePaciente.Text;
             Guardar.CedulaPaciente = txtCedulaCedula.Text;
+            Guardar.DescripcionTipoCliente = TipoCliente;
+            
 
             var MAN = ObjDataFacturacion.Value.GuararFacturacionCliete(Guardar,VariablesGlobales.AccionTomar);
         }
@@ -499,7 +510,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                 Agregar.VariablesGlobales.BloqueaControles = VariablesGlobales.BloqueaControles;
                 Agregar.VariablesGlobales.IdTipoVentaSeleccionado = VariablesGlobales.IdTipoVentaSeleccionado;
                 Agregar.VariablesGlobales.CodigoPaciente = VariablesGlobales.CodigoPaciente;
-               // Agregar.VariablesGlobales.CantidadDias = Convert.ToInt32(ddlCantidadDias.Text);
+                // Agregar.VariablesGlobales.CantidadDias = Convert.ToInt32(ddlCantidadDias.Text);
+                Agregar.VariablesGlobales.ConvertirCotizacionFactura = lbTitulo.Text;
                 Agregar.VariablesGlobales.TipoVenta = ddlTipoVenta.Text;
                 Agregar.ShowDialog();
             }
@@ -786,7 +798,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             OpcionTipoVenta();
             CargarEstatusCirugia();
             lbTitulo.ForeColor = Color.White;
-            lbTitulo.Text = "Facturación de Productos";
+            if (VariablesGlobales.ConvertirCotizacionFactura == "CONVERTIR COTIZACION A FACTURA")
+            {
+                lbTitulo.Text= "CONVERTIR COTIZACION A FACTURA";
+            }
+            else {
+                lbTitulo.Text = "FACTURACION DE PRODUCTOS";
+            }
+            
             VariablesGlobales.ModoCotizacion = false;
             groupBox2.ForeColor = Color.Black;
             groupBox3.ForeColor = Color.Black;
@@ -1017,134 +1036,32 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
         private void btnARS_Click(object sender, EventArgs e)
         {
             try {
-                if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 1)
+                if (lbTitulo.Text == "FACTURACION DE PRODUCTOS")
                 {
-                    if (Convert.ToInt32(ddltIPago.SelectedValue) == 6)
+                    //FACTURAMOS DE MANERA NORMAL
+                    if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 1)
                     {
-                        MessageBox.Show("No es posible proceder con la facturación por que estas seleccionando un tipo de pago a credito cuando estas realizando un tipo de venta a contado, favor de verificar el tipo de venta o cambiar el tipo de pago", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        //CONTADO
-                        //VALIDAMOS SI HAY PRODUCTOS AGRAGADOS PARA FACTURAR
-                        var ValidarProductosAgregados = ObjDataFacturacion.Value.BuscarProductosAgregados(
-                            VariablesGlobales.NumeroConector,
-                            null);
-                        if (ValidarProductosAgregados.Count() < 1)
+                        if (Convert.ToInt32(ddltIPago.SelectedValue) == 6)
                         {
-                            if (rbFacturar.Checked)
-                            {
-                                MessageBox.Show("No has agregado productos para facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                            else if (rbCotizar.Checked)
-                            {
-                                MessageBox.Show("No has agregado productos para cotizar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
-                            if (MessageBox.Show("¿Quieres agregar productos?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                            {
-                                PasarPantallaAgregarProductos();
-                            }
+                            MessageBox.Show("No es posible proceder con la facturación por que estas seleccionando un tipo de pago a credito cuando estas realizando un tipo de venta a contado, favor de verificar el tipo de venta o cambiar el tipo de pago", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
-                            //PROCESAMOS EN BASE A FACTURAR
-                            if (rbFacturar.Checked)
+                            //CONTADO
+                            //VALIDAMOS SI HAY PRODUCTOS AGRAGADOS PARA FACTURAR
+                            var ValidarProductosAgregados = ObjDataFacturacion.Value.BuscarProductosAgregados(
+                                VariablesGlobales.NumeroConector,
+                                null);
+                            if (ValidarProductosAgregados.Count() < 1)
                             {
-                                //VERIFICAMOS QUE LOS CAMPOS NECESARIOS ESTEN CHEQUEADOS
-                                if (string.IsNullOrEmpty(ddlTipoFacturacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()))
+                                if (rbFacturar.Checked)
                                 {
-                                    MessageBox.Show("Has dejado campos vacios en la parte del cliente que son necesarios para completar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBox.Show("No has agregado productos para facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
-                                else
+                                else if (rbCotizar.Checked)
                                 {
-                                    //VERIFICAMOS SI EL CAMPO MONTO ESTA VACIO
-                                    if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()))
-                                    {
-                                        MessageBox.Show("El campo monto no puede estar vacio favor de revisar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    }
-                                    else
-                                    {
-                                        decimal TipoPago = 0;
-                                        //VERIFICAMOS EL TIPO DE PAGO
-                                        var ValidarTipopago = ObjDataFacturacion.Value.ListadoTipoPago(
-                                            Convert.ToDecimal(ddltIPago.SelectedValue),
-                                            null, null, 1, 1);
-                                        foreach (var n in ValidarTipopago)
-                                        {
-                                            TipoPago = Convert.ToDecimal(n.IdTipoPago);
-                                        }
-                                        if (TipoPago == 1)
-                                        {
-                                            //VALIDAMOS EL MONTO
-                                            decimal Monto = Convert.ToDecimal(txtMontoPagar.Text);
-                                            decimal Total = Convert.ToDecimal(txtTotal.Text);
-
-                                            if (Monto < Total)
-                                            {
-                                                MessageBox.Show("El monto ingresado es menor al total a pagar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                            }
-                                            else
-                                            {
-                                                //GUARDAMOS LOS DATOS
-                                                TerminarProceso();
-                                            }
-                                        }
-                                        else
-                                        {
-                                            //GUARDAMOS LOS DATOS
-                                            TerminarProceso();
-
-                                        }
-                                    }
+                                    MessageBox.Show("No has agregado productos para cotizar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
-
-                            }
-                            else if (rbCotizar.Checked)
-                            {
-                                if (string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()))
-                                {
-                                    txtNombrePaciente.Text = "CLIENTE FACTURACION";
-                                }
-                                DevolverProductos();
-                                //GUARDAMOS LOS DATOS
-                                VariablesGlobales.AccionTomar = "INSERT";
-                                GuardarFacturacionCliente();
-                                GuardarDatosFacturaconCalculos();
-                                //  AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
-                                // AfectarCaja();
-                                MessageBox.Show("Cotización realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                ImprimirFactura(VariablesGlobales.NumeroConector);
-                                this.Dispose();
-                            }
-
-                            //PROCESAMOS EN BASE A COTIZAR
-                        }
-                    }
-                }
-                //VENTA A CREDITO
-                else if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 2)
-                {
-                    try {
-                        //GENERAR UN NUMERO DE RNC ALEATORIO PARA EN CASO DE QUE ESTE VACIO EL 
-                        if (string.IsNullOrEmpty(txtIdentificacion.Text.Trim()))
-                        {
-                            ddlTipoIdentificacion.Text = "RNC";
-                            Random GenerarRNC = new Random();
-                           int RNCGenerado = GenerarRNC.Next(0, 999999999);
-                            txtIdentificacion.Text = RNCGenerado.ToString();
-                        }
-                        //VALIDAMOS LOS CAMPOS OBLIGATORIOS
-                        if (string.IsNullOrEmpty(ddlTipoFacturacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()) || string.IsNullOrEmpty(ddlSexo.Text.Trim()))
-                        {
-                            MessageBox.Show("Has dejado campos vacios que son necesarios para realizar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                        else
-                        {
-                            //VALIDAMOS SI HAY PRODUCTOS AGREGADOS
-                            var ValidarProductos = ObjDataFacturacion.Value.BuscarProductosAgregados(VariablesGlobales.NumeroConector);
-                            if (ValidarProductos.Count() < 1)
-                            {
-                                MessageBox.Show("No hay productos agregados para facturar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 if (MessageBox.Show("¿Quieres agregar productos?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
                                     PasarPantallaAgregarProductos();
@@ -1152,41 +1069,225 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                             }
                             else
                             {
-                                decimal CreditoDisponible = Convert.ToDecimal(txtMontoCredito.Text);
-                                decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
-                                if (TotalPagar > CreditoDisponible)
+                                //PROCESAMOS EN BASE A FACTURAR
+                                if (rbFacturar.Checked)
                                 {
-                                    MessageBox.Show("No es posible realizar este venta por que este cliente solo tiene " + CreditoDisponible.ToString("N2") + " cuando el total a pagar es de " + TotalPagar.ToString("N2") + " Por lo tanto supera el valor",VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                                else
-                                {
-                                    if (VariablesGlobales.CodigoPaciente == 787164)
+                                    //VERIFICAMOS QUE LOS CAMPOS NECESARIOS ESTEN CHEQUEADOS
+                                    if (string.IsNullOrEmpty(ddlTipoFacturacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()))
                                     {
-                                        MessageBox.Show("Este paciente no se le puede hacer una venta a credito, por que no esta registrada en el sistema", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        MessageBox.Show("Has dejado campos vacios en la parte del cliente que son necesarios para completar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     }
                                     else
                                     {
-                                        //GUARDAMOS LOS REGISTROS CORRESPONDIENTES
-                                        GuardarCuentasPorCobrar();
-                                        TerminarProceso();
+                                        //VERIFICAMOS SI EL CAMPO MONTO ESTA VACIO
+                                        if (string.IsNullOrEmpty(txtMontoPagar.Text.Trim()))
+                                        {
+                                            MessageBox.Show("El campo monto no puede estar vacio favor de revisar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        }
+                                        else
+                                        {
+                                            decimal TipoPago = 0;
+                                            //VERIFICAMOS EL TIPO DE PAGO
+                                            var ValidarTipopago = ObjDataFacturacion.Value.ListadoTipoPago(
+                                                Convert.ToDecimal(ddltIPago.SelectedValue),
+                                                null, null, 1, 1);
+                                            foreach (var n in ValidarTipopago)
+                                            {
+                                                TipoPago = Convert.ToDecimal(n.IdTipoPago);
+                                            }
+                                            if (TipoPago == 1)
+                                            {
+                                                //VALIDAMOS EL MONTO
+                                                decimal Monto = Convert.ToDecimal(txtMontoPagar.Text);
+                                                decimal Total = Convert.ToDecimal(txtTotal.Text);
+
+                                                if (Monto < Total)
+                                                {
+                                                    MessageBox.Show("El monto ingresado es menor al total a pagar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                }
+                                                else
+                                                {
+                                                    //GUARDAMOS LOS DATOS
+                                                    TerminarProceso();
+                                                }
+                                            }
+                                            else
+                                            {
+                                                //GUARDAMOS LOS DATOS
+                                                TerminarProceso();
+
+                                            }
+                                        }
                                     }
-                              
+
+                                }
+                                else if (rbCotizar.Checked)
+                                {
+                                    if (string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()))
+                                    {
+                                        txtNombrePaciente.Text = "CLIENTE FACTURACION";
+                                    }
+                                    DevolverProductos();
+                                    //GUARDAMOS LOS DATOS
+                                    VariablesGlobales.AccionTomar = "INSERT";
+                                    GuardarFacturacionCliente();
+                                    GuardarDatosFacturaconCalculos();
+                                    //  AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
+                                    // AfectarCaja();
+                                    MessageBox.Show("Cotización realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    ImprimirFactura(VariablesGlobales.NumeroConector);
+                                    this.Dispose();
                                 }
 
+                                //PROCESAMOS EN BASE A COTIZAR
                             }
                         }
                     }
-                    catch (Exception) {
-                        MessageBox.Show("Error al realizar la facturación a credito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //VENTA A CREDITO
+                    else if (Convert.ToInt32(ddlTipoVenta.SelectedValue) == 2)
+                    {
+                        try
+                        {
+                            //GENERAR UN NUMERO DE RNC ALEATORIO PARA EN CASO DE QUE ESTE VACIO EL 
+                            if (string.IsNullOrEmpty(txtIdentificacion.Text.Trim()))
+                            {
+                                ddlTipoIdentificacion.Text = "RNC";
+                                Random GenerarRNC = new Random();
+                                int RNCGenerado = GenerarRNC.Next(0, 999999999);
+                                txtIdentificacion.Text = RNCGenerado.ToString();
+                            }
+                            //VALIDAMOS LOS CAMPOS OBLIGATORIOS
+                            if (string.IsNullOrEmpty(ddlTipoFacturacion.Text.Trim()) || string.IsNullOrEmpty(txtNombrePaciente.Text.Trim()) || string.IsNullOrEmpty(ddlCentroSalud.Text.Trim()) || string.IsNullOrEmpty(ddlMedico.Text.Trim()) || string.IsNullOrEmpty(ddlTipoIdentificacion.Text.Trim()) || string.IsNullOrEmpty(ddlSexo.Text.Trim()))
+                            {
+                                MessageBox.Show("Has dejado campos vacios que son necesarios para realizar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {
+                                //VALIDAMOS SI HAY PRODUCTOS AGREGADOS
+                                var ValidarProductos = ObjDataFacturacion.Value.BuscarProductosAgregados(VariablesGlobales.NumeroConector);
+                                if (ValidarProductos.Count() < 1)
+                                {
+                                    MessageBox.Show("No hay productos agregados para facturar, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    if (MessageBox.Show("¿Quieres agregar productos?", VariablesGlobales.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    {
+                                        PasarPantallaAgregarProductos();
+                                    }
+                                }
+                                else
+                                {
+                                    decimal CreditoDisponible = Convert.ToDecimal(txtMontoCredito.Text);
+                                    decimal TotalPagar = Convert.ToDecimal(txtTotal.Text);
+                                    if (TotalPagar > CreditoDisponible)
+                                    {
+                                        MessageBox.Show("No es posible realizar este venta por que este cliente solo tiene " + CreditoDisponible.ToString("N2") + " cuando el total a pagar es de " + TotalPagar.ToString("N2") + " Por lo tanto supera el valor", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+                                    else
+                                    {
+                                        if (VariablesGlobales.CodigoPaciente == 787164)
+                                        {
+                                            MessageBox.Show("Este paciente no se le puede hacer una venta a credito, por que no esta registrada en el sistema", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        }
+                                        else
+                                        {
+                                            //GUARDAMOS LOS REGISTROS CORRESPONDIENTES
+                                            GuardarCuentasPorCobrar();
+                                            TerminarProceso();
+                                        }
+
+                                    }
+
+                                }
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Error al realizar la facturación a credito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+
                     }
-
-
+                    else
+                    {
+                        MessageBox.Show("Error al facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+
+
+                else if (lbTitulo.Text == "CONVERTIR COTIZACION A FACTURA")
                 {
-                    MessageBox.Show("Error al facturar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //RECORREMOS TODOS LOS PRODUCTOS AGREGADOS PARA FACTURAR
+                    var ProductosAgregadosFactura = ObjDataFacturacion.Value.BuscarProductosAgregados(
+                        VariablesGlobales.NumeroConector, null);
+                    foreach (var n in ProductosAgregadosFactura)
+                    {
+                        //COMPARAMOS CON LA CANTIDAD EXISTENTE EN EL INVENTARIO
+                        int CantidadVender = 0;
+                        int CantidadDisponible = 0;
+                        long IdProducto = 0;
+                 //       int TotalArquculos = 0;
+                        string CodigoProductoSeleccionado = "";
+
+                        CantidadVender = Convert.ToInt32(n.Cantidad);
+                        IdProducto = Convert.ToInt64(n.IdProducto);
+                        CodigoProductoSeleccionado = n.CodigoProducto;
+
+                        //BUSCAMOS EL PRODUCTO MEDIANTE EL ID Y SACAMOS LA CANTIDAD EXISTENTE EN EL INVENTARIO
+                        var BuscarProducto = ObjDataInventario.Value.BuscaProducto(
+                            IdProducto,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null, 1, 1);
+                        foreach (var n2 in BuscarProducto)
+                        {
+                            CantidadDisponible = Convert.ToInt32(n2.CantidadAlmacen);
+                        }
+
+                        //COMPARAMOS LAS CANTIDADES
+                        if (CantidadVender <= CantidadDisponible)
+                        {
+
+                            //DESCONTAMOS EL PRODUCTO
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EPRoducto Descontar = new Logica.Entidades.EntidadInventario.EPRoducto();
+
+                            Descontar.IdProducto = IdProducto;
+                            Descontar.CodigoProducto = CodigoProductoSeleccionado;
+                            Descontar.CantidadAlmacen = CantidadVender;
+                            Descontar.UsuarioAdiciona = VariablesGlobales.IdUsuario;
+                            Descontar.FechaAdiciona0 = DateTime.Now;
+                            Descontar.UsuarioModifica = VariablesGlobales.IdUsuario;
+                            Descontar.FechaModifica0 = DateTime.Now;
+
+                            var Des = ObjDataInventario.Value.MantenimientoProducto(Descontar, "LESS");
+
+                            //ACTUALIZAMOS EL ESTATUS E INVOCAMOS LA FACTURA
+
+                            DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes Convertir = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
+
+                            Convertir.NumeroConector = VariablesGlobales.NumeroConector;
+
+                            var Con = ObjDataFacturacion.Value.GuararFacturacionCliete(Convertir, "CONVERTDATA");
+
+                         
+                        }
+                        
+                    }
+                    //INVOCAMOS LA FACTURA
+                    AfectarComprobante(Convert.ToDecimal(ddlTipoFacturacion.SelectedValue));
+                    AfectarCaja();
+                    MessageBox.Show("Operación realizada con exito", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ImprimirFactura(VariablesGlobales.NumeroConector);
+                    this.Dispose(); ;
                 }
 
+
+               
+                //sjsjfjshdjs
             }
             catch (Exception) { }
 
@@ -1383,8 +1484,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                     }
                     else {
                         //SACAMOS LOS DATOS DEL REGISTRO
+                        lbTitulo.Text = "CONVERTIR COTIZACION A FACTURA";
                         foreach (var n in ConsultarInformacion)
                         {
+                            VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
                             ddlTipoFacturacion.Text = n.TipoComprobante;
                             txtNombrePaciente.Text = n.NombrePaciente;
                             txtTelefono.Text = n.Telefono;
@@ -1398,7 +1501,42 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                             txtComentario.Text = n.ComentarioPaciente;
                             txtPacientePaciente.Text = n.Paciente;
                             txtCedulaCedula.Text = n.CedulaPaciente;
+                            string TipoCliente = n.DescripcionTipoCliente;
+                            if (TipoCliente == "CLIENTE")
+                            {
+                                rbBuscarCliente.Checked = true;
+                                txtCodigoCliente.Enabled = false;
+                                ddlTipoFacturacion.Enabled = false;
+                                txtNombrePaciente.Enabled = false;
+                                txtTelefono.Enabled = false;
+                                txtNoCotizacion.Enabled = false;
+                                ddlTipoIdentificacion.Enabled = false;
+                                txtIdentificacion.Enabled = false;
+                                txtDireccion.Enabled = false;
+                                ddlSexo.Enabled = false;
+                                txtEmail.Enabled = false;
+                                txtComentario.Enabled = false;
+                            }
+                            else {
+                                rbBuscarPaciente.Checked = true;
+                                txtCodigoCliente.Enabled = true;
+                                ddlTipoFacturacion.Enabled = true;
+                                txtNombrePaciente.Enabled = true;
+                                txtTelefono.Enabled = true;
+                                txtNoCotizacion.Enabled = true;
+                                ddlTipoIdentificacion.Enabled = true;
+                                txtIdentificacion.Enabled = true;
+                                txtDireccion.Enabled = true;
+                                ddlSexo.Enabled = true;
+                                txtEmail.Enabled = true;
+                                txtComentario.Enabled = true;
+                            }
                         }
+                        rbCotizar.Checked = false;
+                        rbFacturar.Checked = true;
+                        rbCotizar.Enabled = false;
+                        MostrarListadoProductosAgregados(VariablesGlobales.NumeroConector);
+                        SacarDatosCalculos(VariablesGlobales.NumeroConector);
                     }
                 }
             }
@@ -1485,6 +1623,11 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             {
                 FiltroCentroSalud();
             }
+        }
+
+        private void txtCodigoCliente_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

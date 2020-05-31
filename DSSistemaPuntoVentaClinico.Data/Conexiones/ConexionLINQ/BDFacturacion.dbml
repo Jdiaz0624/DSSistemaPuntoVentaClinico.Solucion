@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaFacturacionMedico" Class="BDFacturacionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=SistemaFacturacionMedico;User ID=sa" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JDIAZ0624;Initial Catalog=SistemaFacturacionMedico;Integrated Security=True" SettingsObjectName="DSSistemaPuntoVentaClinico.Data.Properties.Settings" SettingsPropertyName="SistemaFacturacionMedicoConnectionString5" Provider="System.Data.SqlClient" />
   <Function Name="Facturacion.SP_BUSCA_TIPO_PAGO" Method="SP_BUSCA_TIPO_PAGO">
     <Parameter Name="IdTipoPago" Parameter="idTipoPago" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="CodigoTipoPago" Parameter="codigoTipoPago" Type="System.String" DbType="VarChar(100)" />
@@ -216,51 +216,6 @@
       <Column Name="Balance" Type="System.Decimal" DbType="Decimal(20,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="Facturacion.SP_GUARDAR_DATOS_FACTURACION_CLIENTE" Method="SP_GUARDAR_DATOS_FACTURACION_CLIENTE">
-    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="IdEstatusFacturacion" Parameter="idEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="CodigoFacturacion" Parameter="codigoFacturacion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="IdTipoFacturacion" Parameter="idTipoFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="NombrePaciente" Parameter="nombrePaciente" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(30)" />
-    <Parameter Name="IdCentroSalud" Parameter="idCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="Sala" Parameter="sala" Type="System.String" DbType="VarChar(200)" />
-    <Parameter Name="IdMedico" Parameter="idMedico" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="IdTipoIdentificacion" Parameter="idTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="VarChar(8000)" />
-    <Parameter Name="IdSexo" Parameter="idSexo" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="ComentarioPaciente" Parameter="comentarioPaciente" Type="System.String" DbType="VarChar(8000)" />
-    <Parameter Name="FechaFacturacion" Parameter="fechaFacturacion" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
-    <Parameter Name="Paciente" Parameter="paciente" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="CedulaPaciente" Parameter="cedulaPaciente" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
-    <ElementType Name="SP_GUARDAR_DATOS_FACTURACION_CLIENTEResult">
-      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="IdEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="CodigoFacturacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="IdTipoFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="NombrePaciente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Telefono" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="IdCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Sala" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
-      <Column Name="IdMedico" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="IdTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="IdSexo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="ComentarioPaciente" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
-      <Column Name="FechaFacturacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
-      <Column Name="Paciente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="CedulaPaciente" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="Facturacion.SP_BUSCA_DATOS_FACTURACION_ESPEJO" Method="SP_BUSCA_DATOS_FACTURACION_ESPEJO">
     <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
     <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
@@ -409,6 +364,53 @@
       <Column Name="FechaFacturacion" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
       <Column Name="Comentario" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="Facturacion.SP_GUARDAR_DATOS_FACTURACION_CLIENTE" Method="SP_GUARDAR_DATOS_FACTURACION_CLIENTE">
+    <Parameter Name="NumeroFactura" Parameter="numeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdEstatusFacturacion" Parameter="idEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="CodigoFacturacion" Parameter="codigoFacturacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="NumeroConector" Parameter="numeroConector" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoFacturacion" Parameter="idTipoFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NombrePaciente" Parameter="nombrePaciente" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="IdCentroSalud" Parameter="idCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Sala" Parameter="sala" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="IdMedico" Parameter="idMedico" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="IdTipoIdentificacion" Parameter="idTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="NumeroIdentificacion" Parameter="numeroIdentificacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="IdSexo" Parameter="idSexo" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ComentarioPaciente" Parameter="comentarioPaciente" Type="System.String" DbType="VarChar(8000)" />
+    <Parameter Name="FechaFacturacion" Parameter="fechaFacturacion" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="IdUsuario" Parameter="idUsuario" Type="System.Decimal" DbType="Decimal(20,0)" />
+    <Parameter Name="Paciente" Parameter="paciente" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CedulaPaciente" Parameter="cedulaPaciente" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DescripcionTipoCliente" Parameter="descripcionTipoCliente" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="Accion" Parameter="accion" Type="System.String" DbType="VarChar(150)" />
+    <ElementType Name="SP_GUARDAR_DATOS_FACTURACION_CLIENTEResult">
+      <Column Name="NumeroFactura" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdEstatusFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="CodigoFacturacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NumeroConector" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTipoFacturacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NombrePaciente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="IdCentroSalud" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Sala" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="IdMedico" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="IdTipoIdentificacion" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="IdSexo" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ComentarioPaciente" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="FechaFacturacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Decimal" DbType="Decimal(20,0)" CanBeNull="true" />
+      <Column Name="Paciente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CedulaPaciente" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DescripcionTipoCliente" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

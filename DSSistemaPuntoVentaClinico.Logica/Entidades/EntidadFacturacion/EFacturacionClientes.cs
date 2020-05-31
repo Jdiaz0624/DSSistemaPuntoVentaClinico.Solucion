@@ -46,5 +46,6 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion
         public string Paciente { get; set; }
 
         public string CedulaPaciente { get; set; }
+        public string DescripcionTipoCliente { get; set; }
     }
 }

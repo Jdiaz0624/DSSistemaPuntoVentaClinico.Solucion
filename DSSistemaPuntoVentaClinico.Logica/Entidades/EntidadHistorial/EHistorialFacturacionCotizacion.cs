@@ -8,9 +8,12 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial
 {
     public class EHistorialFacturacionCotizacion
     {
+
         public System.Nullable<decimal> NumeroFactura {get;set;}
 
         public string NombrePaciente {get;set;}
+
+        public string DescripcionTipoCliente {get;set;}
 
         public System.Nullable<decimal> IdTipoIdentificacion {get;set;}
 
@@ -123,9 +126,11 @@ namespace DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadHistorial
         public System.Nullable<decimal> CodigoPaciente {get;set;}
 
         public string Nombre {get;set;}
-        public System.Nullable<decimal> Balance { get; set; }
-        public string Paciente { get; set; }
 
-        public string CedulaPaciente { get; set; }
+        public System.Nullable<decimal> Balance {get;set;}
+
+        public string Paciente {get;set;}
+
+        public string CedulaPaciente {get;set;}
     }
 }

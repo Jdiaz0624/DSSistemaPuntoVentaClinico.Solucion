@@ -257,6 +257,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             Facturacion.VariablesGlobales.CodigoPaciente = VariablesGlobales.CodigoPaciente;
             Facturacion.ddlTipoVenta.Text = VariablesGlobales.TipoVenta;
             Facturacion.ddlCantidadDias.Text = VariablesGlobales.CantidadDias.ToString();
+            Facturacion.VariablesGlobales.ConvertirCotizacionFactura = VariablesGlobales.ConvertirCotizacionFactura;
             Facturacion.ShowDialog();
            
         }
@@ -436,13 +437,19 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
             else
             {
-                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EPRoducto Priducto = new Logica.Entidades.EntidadInventario.EPRoducto();
+                if (VariablesGlobales.ConvertirCotizacionFactura != "CONVERTIR COTIZACION A FACTURA")
+                {
+                    DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadInventario.EPRoducto Priducto = new Logica.Entidades.EntidadInventario.EPRoducto();
 
-                Priducto.IdProducto = VariablesGlobales.IdMantenimiento;
-                Priducto.CodigoProducto = VariablesGlobales.CodigoMantenimiento;
-                Priducto.CantidadAlmacen = Convert.ToInt32(CantidadVeder);
+                    Priducto.IdProducto = VariablesGlobales.IdMantenimiento;
+                    Priducto.CodigoProducto = VariablesGlobales.CodigoMantenimiento;
+                    Priducto.CantidadAlmacen = Convert.ToInt32(CantidadVeder);
 
-                var MAN = ObjdataInventario.Value.MantenimientoProducto(Priducto, "LESS");
+                    var MAN = ObjdataInventario.Value.MantenimientoProducto(Priducto, "LESS");
+
+                }
+
+           
 
                 VariablesGlobales.Secuencial = 0;
                 GuardarProductosFacturacion("INSERT");

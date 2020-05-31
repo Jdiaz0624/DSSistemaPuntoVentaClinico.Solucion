@@ -50,6 +50,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Comunes
         public string Capricho { get; set; }
 
 
+        public string ConvertirCotizacionFactura { get; set; }
+
+
 
 
         #region VARIABLES PARA EL PROCESO DE HISTORIAL DE FACTURACION Y COTIZACION

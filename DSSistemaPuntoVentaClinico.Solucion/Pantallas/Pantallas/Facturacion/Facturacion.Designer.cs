@@ -950,6 +950,7 @@
             this.txtCodigoCliente.Name = "txtCodigoCliente";
             this.txtCodigoCliente.Size = new System.Drawing.Size(280, 27);
             this.txtCodigoCliente.TabIndex = 8;
+            this.txtCodigoCliente.TextChanged += new System.EventHandler(this.txtCodigoCliente_TextChanged);
             this.txtCodigoCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoCliente_KeyPress);
             // 
             // label8
@@ -1125,7 +1126,6 @@
         private System.Windows.Forms.RadioButton rbAgregarDescuento;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox ddlEstatusCirugia;
-        private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lbCantidadDias;
         private System.Windows.Forms.Button btnRegresar;
@@ -1141,5 +1141,6 @@
         private System.Windows.Forms.Label lbCedulaCedula;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtFiltroCentroSalud;
+        public System.Windows.Forms.Label lbTitulo;
     }
 }

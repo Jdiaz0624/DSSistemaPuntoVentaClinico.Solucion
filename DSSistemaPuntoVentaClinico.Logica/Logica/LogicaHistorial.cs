@@ -20,6 +20,7 @@ namespace DSSistemaPuntoVentaClinico.Logica.Logica
                              {
                                  NumeroFactura = n.NumeroFactura,
                                  NombrePaciente =n.NombrePaciente,
+                                 DescripcionTipoCliente=n.DescripcionTipoCliente,
                                  IdTipoIdentificacion =n.IdTipoIdentificacion,
                                  TipoIdentificacion =n.TipoIdentificacion,
                                  NumeroIdentificacion =n.NumeroIdentificacion,

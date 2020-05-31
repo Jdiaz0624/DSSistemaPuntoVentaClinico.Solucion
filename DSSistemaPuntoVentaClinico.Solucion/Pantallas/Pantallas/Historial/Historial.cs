@@ -463,6 +463,7 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
             this.dtListado.Columns["FechaVencimiento0"].Visible = false;
             this.dtListado.Columns["TipoVenta0"].Visible = false;
             this.dtListado.Columns["TipoVenta01"].Visible = false;
+            this.dtListado.Columns["DescripcionTipoCliente"].Visible = false;
     //        this.dtListado.Columns["IdCantidaddias"].Visible = false;
         }
         #endregion
