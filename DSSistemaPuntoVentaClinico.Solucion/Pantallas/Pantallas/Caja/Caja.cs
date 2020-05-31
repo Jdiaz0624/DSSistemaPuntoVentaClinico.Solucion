@@ -36,7 +36,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                 foreach (var n in SacarDatosCaja)
                 {
                     lbNombreCaja.Text = n.Descripcion;
-                    lbMonto.Text = n.MontoActual.ToString();
+                    decimal MontoActualCaja = Convert.ToDecimal(n.MontoActual);
+                    lbMonto.Text = MontoActualCaja.ToString("N2");
                     lbEstatus.Text = n.Estatus;
                     Estatus = Convert.ToBoolean(n.Estatus0);
                     if (Estatus == true)

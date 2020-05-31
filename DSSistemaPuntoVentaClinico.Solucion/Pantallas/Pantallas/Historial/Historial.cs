@@ -2107,8 +2107,9 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                     var Monto = ObjdataHistorial.Value.MontoFacturacionCotizacion(Variables.NumeroConector);
                     foreach (var n in Monto)
                     {
-                        txtMonto.Text = n.Total.ToString();
-                        
+                        decimal MontoTotal = Convert.ToDecimal(n.Total);
+                        txtMonto.Text = MontoTotal.ToString("N2");
+
                     }
 
                     decimal MontoSacado = Convert.ToDecimal(txtMonto.Text);
