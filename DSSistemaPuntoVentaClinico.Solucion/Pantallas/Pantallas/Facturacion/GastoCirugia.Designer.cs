@@ -85,7 +85,7 @@
             this.lbTitulo.Location = new System.Drawing.Point(12, 19);
             this.lbTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(64, 25);
+            this.lbTitulo.Size = new System.Drawing.Size(51, 20);
             this.lbTitulo.TabIndex = 48;
             this.lbTitulo.Text = "label6";
             // 
@@ -150,16 +150,17 @@
             this.ddlEstatusCirugia.FormattingEnabled = true;
             this.ddlEstatusCirugia.Location = new System.Drawing.Point(404, 151);
             this.ddlEstatusCirugia.Name = "ddlEstatusCirugia";
-            this.ddlEstatusCirugia.Size = new System.Drawing.Size(326, 33);
+            this.ddlEstatusCirugia.Size = new System.Drawing.Size(326, 28);
             this.ddlEstatusCirugia.TabIndex = 13;
             this.ddlEstatusCirugia.Visible = false;
+            this.ddlEstatusCirugia.SelectedIndexChanged += new System.EventHandler(this.ddlEstatusCirugia_SelectedIndexChanged);
             // 
             // lbEstatusCirugia
             // 
             this.lbEstatusCirugia.AutoSize = true;
             this.lbEstatusCirugia.Location = new System.Drawing.Point(213, 155);
             this.lbEstatusCirugia.Name = "lbEstatusCirugia";
-            this.lbEstatusCirugia.Size = new System.Drawing.Size(185, 25);
+            this.lbEstatusCirugia.Size = new System.Drawing.Size(151, 20);
             this.lbEstatusCirugia.TabIndex = 12;
             this.lbEstatusCirugia.Text = "Seleccionar Estatus";
             this.lbEstatusCirugia.Visible = false;
@@ -170,7 +171,7 @@
             this.cbModificarEsatusCirugia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbModificarEsatusCirugia.Location = new System.Drawing.Point(25, 151);
             this.cbModificarEsatusCirugia.Name = "cbModificarEsatusCirugia";
-            this.cbModificarEsatusCirugia.Size = new System.Drawing.Size(180, 29);
+            this.cbModificarEsatusCirugia.Size = new System.Drawing.Size(149, 24);
             this.cbModificarEsatusCirugia.TabIndex = 11;
             this.cbModificarEsatusCirugia.Text = "Modificar Estatus";
             this.cbModificarEsatusCirugia.UseVisualStyleBackColor = true;
@@ -249,7 +250,7 @@
             this.txtcomentario.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtcomentario.Location = new System.Drawing.Point(136, 97);
             this.txtcomentario.Name = "txtcomentario";
-            this.txtcomentario.Size = new System.Drawing.Size(279, 30);
+            this.txtcomentario.Size = new System.Drawing.Size(279, 26);
             this.txtcomentario.TabIndex = 5;
             // 
             // txtcantodad
@@ -257,7 +258,7 @@
             this.txtcantodad.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtcantodad.Location = new System.Drawing.Point(136, 63);
             this.txtcantodad.Name = "txtcantodad";
-            this.txtcantodad.Size = new System.Drawing.Size(279, 30);
+            this.txtcantodad.Size = new System.Drawing.Size(279, 26);
             this.txtcantodad.TabIndex = 4;
             this.txtcantodad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantodad_KeyPress);
             // 
@@ -268,7 +269,7 @@
             this.txtDescripcion.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.txtDescripcion.Location = new System.Drawing.Point(136, 29);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(279, 30);
+            this.txtDescripcion.Size = new System.Drawing.Size(279, 26);
             this.txtDescripcion.TabIndex = 3;
             // 
             // label3
@@ -276,7 +277,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 25);
+            this.label3.Size = new System.Drawing.Size(91, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Comentario";
             // 
@@ -285,7 +286,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(34, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 25);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Cantidad*";
             // 
@@ -294,7 +295,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(10, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 25);
+            this.label1.Size = new System.Drawing.Size(98, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descripción*";
             // 
@@ -320,11 +321,11 @@
             this.Select});
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 26);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(882, 190);
+            this.dataGridView1.Size = new System.Drawing.Size(882, 194);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -337,7 +338,7 @@
             this.Select.Text = "Select";
             this.Select.ToolTipText = "Select";
             this.Select.UseColumnTextForButtonValue = true;
-            this.Select.Width = 73;
+            this.Select.Width = 60;
             // 
             // txtNumeroRegistros
             // 
@@ -350,7 +351,7 @@
             0,
             0});
             this.txtNumeroRegistros.Name = "txtNumeroRegistros";
-            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroRegistros.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroRegistros.TabIndex = 54;
             this.txtNumeroRegistros.Value = new decimal(new int[] {
             10,
@@ -364,7 +365,7 @@
             this.lbNumeroRegistros.AutoSize = true;
             this.lbNumeroRegistros.Location = new System.Drawing.Point(207, 508);
             this.lbNumeroRegistros.Name = "lbNumeroRegistros";
-            this.lbNumeroRegistros.Size = new System.Drawing.Size(123, 25);
+            this.lbNumeroRegistros.Size = new System.Drawing.Size(101, 20);
             this.lbNumeroRegistros.TabIndex = 53;
             this.lbNumeroRegistros.Text = "No.Registros";
             // 
@@ -379,7 +380,7 @@
             0,
             0});
             this.txtNumeroPagina.Name = "txtNumeroPagina";
-            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 30);
+            this.txtNumeroPagina.Size = new System.Drawing.Size(51, 26);
             this.txtNumeroPagina.TabIndex = 52;
             this.txtNumeroPagina.Value = new decimal(new int[] {
             1,
@@ -393,7 +394,7 @@
             this.lbNumeroPagina.AutoSize = true;
             this.lbNumeroPagina.Location = new System.Drawing.Point(12, 510);
             this.lbNumeroPagina.Name = "lbNumeroPagina";
-            this.lbNumeroPagina.Size = new System.Drawing.Size(103, 25);
+            this.lbNumeroPagina.Size = new System.Drawing.Size(82, 20);
             this.lbNumeroPagina.TabIndex = 51;
             this.lbNumeroPagina.Text = "No.Pagina";
             // 
@@ -402,7 +403,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(424, 513);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(171, 25);
+            this.label4.Size = new System.Drawing.Size(139, 20);
             this.label4.TabIndex = 15;
             this.label4.Text = "Estatus de Cirugia";
             // 
@@ -411,13 +412,13 @@
             this.lbEstatus.AutoSize = true;
             this.lbEstatus.Location = new System.Drawing.Point(596, 513);
             this.lbEstatus.Name = "lbEstatus";
-            this.lbEstatus.Size = new System.Drawing.Size(171, 25);
+            this.lbEstatus.Size = new System.Drawing.Size(139, 20);
             this.lbEstatus.TabIndex = 55;
             this.lbEstatus.Text = "Estatus de Cirugia";
             // 
             // GastoCirugia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(911, 553);

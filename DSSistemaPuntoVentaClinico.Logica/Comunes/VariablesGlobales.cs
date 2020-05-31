@@ -52,6 +52,9 @@ namespace DSSistemaPuntoVentaClinico.Logica.Comunes
 
         public string ConvertirCotizacionFactura { get; set; }
 
+        public string TruquitoCamara = "NO";
+        public long NumeroConvertir { get; set; }
+
 
 
 

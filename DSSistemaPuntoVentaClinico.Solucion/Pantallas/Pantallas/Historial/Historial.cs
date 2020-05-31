@@ -2146,67 +2146,90 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            
+          
+            //sdfghjmk,.
             if (MessageBox.Show("¿Quieres facturar esta cotización?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                //SACAMOS LOS LA CANTIDAD DEL PRODUCTO PARA AFECTAR EL INVENTARIO
-                var SacarProductos = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
-                    null, Variables.NumeroConector,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    1, 1000);
-                foreach (var n in SacarProductos)
+                bool EstatusCaja = false;
+
+                var SacarEstatusCaja = ObjDataCaja.Value.BuscaCaja(1, null);
+                foreach (var n in SacarEstatusCaja)
                 {
-                    var SacarCodigoProducto = ObjDataInventario.Value.BuscaProducto(
-                        Convert.ToDecimal(n.IdProducto),
-                        null, null, null, null, null, null, null, null, null, 1, 1);
-                    foreach (var n2 in SacarCodigoProducto)
+                    EstatusCaja = Convert.ToBoolean(n.Estatus0);
+                    if (EstatusCaja == true)
                     {
-                        AfectarProductoInventario(
-                        Convert.ToDecimal(n.IdProducto),
-                        n2.CodigoProducto,
-                        Convert.ToInt32(n.Cantidad));
+                        DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion.Facturacion Facturacion = new Pantallas.Facturacion.Facturacion();
+                        Facturacion.VariablesGlobales.IdUsuario = Convert.ToDecimal(Variables.IdUsuario);
+                        Facturacion.VariablesGlobales.GenerarConector = true;
+                        Facturacion.VariablesGlobales.SacarDatosEspejo = false;
+                        Facturacion.txtNoCotizacion.Text = Variables.Numerofactura.ToString();
+                        Facturacion.VariablesGlobales.TruquitoCamara = "SI";
+                        Facturacion.VariablesGlobales.NumeroConvertir = Convert.ToInt64(Variables.Numerofactura);
+                        Facturacion.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede acceder a esta pantalla por que la caja principal esta actualmente cerrada", "Facturació", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
+                ////SACAMOS LOS LA CANTIDAD DEL PRODUCTO PARA AFECTAR EL INVENTARIO
+                //var SacarProductos = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                //    null, Variables.NumeroConector,
+                //    null,
+                //    null,
+                //    null,
+                //    null,
+                //    null,
+                //    null,
+                //    null,
+                //    null,
+                //    null,
+                //    null,
+                //    1, 1000);
+                //foreach (var n in SacarProductos)
+                //{
+                //    var SacarCodigoProducto = ObjDataInventario.Value.BuscaProducto(
+                //        Convert.ToDecimal(n.IdProducto),
+                //        null, null, null, null, null, null, null, null, null, 1, 1);
+                //    foreach (var n2 in SacarCodigoProducto)
+                //    {
+                //        AfectarProductoInventario(
+                //        Convert.ToDecimal(n.IdProducto),
+                //        n2.CodigoProducto,
+                //        Convert.ToInt32(n.Cantidad));
+                //    }
+                //}
 
-                decimal IdTipoComprobante = 0;
-                decimal Total = 0;
-                decimal IdTpoPago = 0;
-                //SACAMOS EL TIPO DE COMPROBANTE PARA PODER AFECTARLO MEDIANTE EL NUMERO DE FACTURACION
-                var SacarTipoFacturacion = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
-                    new Nullable<decimal>(),
-                    Variables.NumeroConector,
-                    null, null, null, null, null, null, null, null, null, null, 1, 1);
-                foreach (var n in SacarTipoFacturacion)
-                {
-                    IdTipoComprobante = Convert.ToDecimal(n.IdTipoFacturacion);
-                    Total = Convert.ToDecimal(n.Total);
-                    IdTpoPago = Convert.ToDecimal(n.IdTipoPago);
-                }
-                DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes Facturar = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
+                //decimal IdTipoComprobante = 0;
+                //decimal Total = 0;
+                //decimal IdTpoPago = 0;
+                ////SACAMOS EL TIPO DE COMPROBANTE PARA PODER AFECTARLO MEDIANTE EL NUMERO DE FACTURACION
+                //var SacarTipoFacturacion = ObjdataHistorial.Value.HistorialFacturacionCotizacion(
+                //    new Nullable<decimal>(),
+                //    Variables.NumeroConector,
+                //    null, null, null, null, null, null, null, null, null, null, 1, 1);
+                //foreach (var n in SacarTipoFacturacion)
+                //{
+                //    IdTipoComprobante = Convert.ToDecimal(n.IdTipoFacturacion);
+                //    Total = Convert.ToDecimal(n.Total);
+                //    IdTpoPago = Convert.ToDecimal(n.IdTipoPago);
+                //}
+                //DSSistemaPuntoVentaClinico.Logica.Entidades.EntidadFacturacion.EFacturacionClientes Facturar = new Logica.Entidades.EntidadFacturacion.EFacturacionClientes();
 
-                Facturar.NumeroConector = Variables.NumeroConector;
+                //Facturar.NumeroConector = Variables.NumeroConector;
 
-                var MANFacturar = ObjDataFacturacion.Value.GuararFacturacionCliete(Facturar, "CHANGESTATUS");
-                AfectarComprobante(IdTipoComprobante);
-                
-                AfectarCaja(Total, IdTpoPago);
-                MessageBox.Show("Registro Facturado exitosamente", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (MessageBox.Show("¿Quieres generar la factura de este registro?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    //IMPRIMIMOS LA FACTURA
-                    GenerarFacturaVentas(Variables.NumeroConector);
-                    RestablecerPantalla();
-                }
-                RestablecerPantalla();
+                //var MANFacturar = ObjDataFacturacion.Value.GuararFacturacionCliete(Facturar, "CHANGESTATUS");
+                //AfectarComprobante(IdTipoComprobante);
+
+                //AfectarCaja(Total, IdTpoPago);
+                //MessageBox.Show("Registro Facturado exitosamente", Variables.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //if (MessageBox.Show("¿Quieres generar la factura de este registro?", Variables.NombreSistema, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //{
+                //    //IMPRIMIMOS LA FACTURA
+                //    GenerarFacturaVentas(Variables.NumeroConector);
+                //    RestablecerPantalla();
+                //}
+                //RestablecerPantalla();
             }
         }
 

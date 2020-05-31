@@ -1071,7 +1071,6 @@
         private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.TextBox txtNombrePaciente;
         private System.Windows.Forms.ComboBox ddlTipoFacturacion;
-        private System.Windows.Forms.TextBox txtNoCotizacion;
         private System.Windows.Forms.TextBox txtCodigoCliente;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -1142,5 +1141,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txtFiltroCentroSalud;
         public System.Windows.Forms.Label lbTitulo;
+        public System.Windows.Forms.TextBox txtNoCotizacion;
     }
 }

@@ -778,6 +778,94 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
         }
         #endregion
+        #region CONVERTIR COTIZACION A FACTURA
+        private void ConvertirCotizacionFactura() {
+            try
+            {
+                //VERIFICAMOS SI EL CAMPO NUMERO DE COTIZACION ESTA VACIO
+                if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
+                {
+                    MessageBox.Show("El campo numero de cotización no puede estar vacio, para extraer los datos, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    //CONSULTANOS LOS DATOS
+                    var ConsultarInformacion = ObjDataHistorial.Value.HistorialFacturacionCotizacion(
+                        Convert.ToDecimal(txtNoCotizacion.Text),
+                        null,
+                        null,
+                        2,
+                        null, null, null, null, null, null, null, null, 1, 1);
+                    if (ConsultarInformacion.Count() < 1)
+                    {
+                        MessageBox.Show("No existe cotizaciones relacionadas con el numero ingresado, favor de verificar e intentar nuevamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        //SACAMOS LOS DATOS DEL REGISTRO
+                        lbTitulo.Text = "CONVERTIR COTIZACION A FACTURA";
+                        foreach (var n in ConsultarInformacion)
+                        {
+                            VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
+                            ddlTipoFacturacion.Text = n.TipoComprobante;
+                            txtNombrePaciente.Text = n.NombrePaciente;
+                            txtTelefono.Text = n.Telefono;
+                            ddlCentroSalud.Text = n.CentroSalud;
+                            txtSala.Text = n.Sala;
+                            ddlMedico.Text = n.Medico;
+                            ddlTipoIdentificacion.Text = n.TipoIdentificacion;
+                            txtIdentificacion.Text = n.NumeroIdentificacion;
+                            txtDireccion.Text = n.Direccion;
+                            txtEmail.Text = n.Email;
+                            txtComentario.Text = n.ComentarioPaciente;
+                            txtPacientePaciente.Text = n.Paciente;
+                            txtCedulaCedula.Text = n.CedulaPaciente;
+                            string TipoCliente = n.DescripcionTipoCliente;
+                            if (TipoCliente == "CLIENTE")
+                            {
+                                rbBuscarCliente.Checked = true;
+                                txtCodigoCliente.Enabled = false;
+                                ddlTipoFacturacion.Enabled = false;
+                                txtNombrePaciente.Enabled = false;
+                                txtTelefono.Enabled = false;
+                                txtNoCotizacion.Enabled = false;
+                                ddlTipoIdentificacion.Enabled = false;
+                                txtIdentificacion.Enabled = false;
+                                txtDireccion.Enabled = false;
+                                ddlSexo.Enabled = false;
+                                txtEmail.Enabled = false;
+                                txtComentario.Enabled = false;
+                            }
+                            else
+                            {
+                                rbBuscarPaciente.Checked = true;
+                                txtCodigoCliente.Enabled = true;
+                                ddlTipoFacturacion.Enabled = true;
+                                txtNombrePaciente.Enabled = true;
+                                txtTelefono.Enabled = true;
+                                txtNoCotizacion.Enabled = true;
+                                ddlTipoIdentificacion.Enabled = true;
+                                txtIdentificacion.Enabled = true;
+                                txtDireccion.Enabled = true;
+                                ddlSexo.Enabled = true;
+                                txtEmail.Enabled = true;
+                                txtComentario.Enabled = true;
+                            }
+                        }
+                        rbCotizar.Checked = false;
+                        rbFacturar.Checked = true;
+                        rbCotizar.Enabled = false;
+                        MostrarListadoProductosAgregados(VariablesGlobales.NumeroConector);
+                        SacarDatosCalculos(VariablesGlobales.NumeroConector);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al extraer los datos de la cotización, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
         private void Facturacion_Load(object sender, EventArgs e)
         {
             rbBuscarPaciente.Checked = true;
@@ -905,7 +993,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
             rbQuitarDescuento.Checked = true;
             lbConector.Text = VariablesGlobales.NumeroConector.ToString();
-           
+
+            if (VariablesGlobales.TruquitoCamara == "SI")
+            {
+                txtNoCotizacion.Text = VariablesGlobales.NumeroConvertir.ToString();
+                ConvertirCotizacionFactura();
+            }
+            else {
+                txtNoCotizacion.Text = string.Empty;
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -1463,86 +1559,8 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            try {
-                //VERIFICAMOS SI EL CAMPO NUMERO DE COTIZACION ESTA VACIO
-                if (string.IsNullOrEmpty(txtNoCotizacion.Text.Trim()))
-                {
-                    MessageBox.Show("El campo numero de cotización no puede estar vacio, para extraer los datos, favor de verificar", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    //CONSULTANOS LOS DATOS
-                    var ConsultarInformacion = ObjDataHistorial.Value.HistorialFacturacionCotizacion(
-                        Convert.ToDecimal(txtNoCotizacion.Text),
-                        null,
-                        null,
-                        2,
-                        null, null, null, null, null, null, null, null, 1, 1);
-                    if (ConsultarInformacion.Count() < 1)
-                    {
-                        MessageBox.Show("No existe cotizaciones relacionadas con el numero ingresado, favor de verificar e intentar nuevamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else {
-                        //SACAMOS LOS DATOS DEL REGISTRO
-                        lbTitulo.Text = "CONVERTIR COTIZACION A FACTURA";
-                        foreach (var n in ConsultarInformacion)
-                        {
-                            VariablesGlobales.NumeroConector = Convert.ToDecimal(n.NumeroConector);
-                            ddlTipoFacturacion.Text = n.TipoComprobante;
-                            txtNombrePaciente.Text = n.NombrePaciente;
-                            txtTelefono.Text = n.Telefono;
-                            ddlCentroSalud.Text = n.CentroSalud;
-                            txtSala.Text = n.Sala;
-                            ddlMedico.Text = n.Medico;
-                            ddlTipoIdentificacion.Text = n.TipoIdentificacion;
-                            txtIdentificacion.Text = n.NumeroIdentificacion;
-                            txtDireccion.Text = n.Direccion;
-                            txtEmail.Text = n.Email;
-                            txtComentario.Text = n.ComentarioPaciente;
-                            txtPacientePaciente.Text = n.Paciente;
-                            txtCedulaCedula.Text = n.CedulaPaciente;
-                            string TipoCliente = n.DescripcionTipoCliente;
-                            if (TipoCliente == "CLIENTE")
-                            {
-                                rbBuscarCliente.Checked = true;
-                                txtCodigoCliente.Enabled = false;
-                                ddlTipoFacturacion.Enabled = false;
-                                txtNombrePaciente.Enabled = false;
-                                txtTelefono.Enabled = false;
-                                txtNoCotizacion.Enabled = false;
-                                ddlTipoIdentificacion.Enabled = false;
-                                txtIdentificacion.Enabled = false;
-                                txtDireccion.Enabled = false;
-                                ddlSexo.Enabled = false;
-                                txtEmail.Enabled = false;
-                                txtComentario.Enabled = false;
-                            }
-                            else {
-                                rbBuscarPaciente.Checked = true;
-                                txtCodigoCliente.Enabled = true;
-                                ddlTipoFacturacion.Enabled = true;
-                                txtNombrePaciente.Enabled = true;
-                                txtTelefono.Enabled = true;
-                                txtNoCotizacion.Enabled = true;
-                                ddlTipoIdentificacion.Enabled = true;
-                                txtIdentificacion.Enabled = true;
-                                txtDireccion.Enabled = true;
-                                ddlSexo.Enabled = true;
-                                txtEmail.Enabled = true;
-                                txtComentario.Enabled = true;
-                            }
-                        }
-                        rbCotizar.Checked = false;
-                        rbFacturar.Checked = true;
-                        rbCotizar.Enabled = false;
-                        MostrarListadoProductosAgregados(VariablesGlobales.NumeroConector);
-                        SacarDatosCalculos(VariablesGlobales.NumeroConector);
-                    }
-                }
-            }
-            catch (Exception ex) {
-                MessageBox.Show("Error al extraer los datos de la cotización, codigo de error--> " + ex.Message, VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            ConvertirCotizacionFactura();
+       
         }
 
         private void ddlTipoVenta_SelectedIndexChanged(object sender, EventArgs e)

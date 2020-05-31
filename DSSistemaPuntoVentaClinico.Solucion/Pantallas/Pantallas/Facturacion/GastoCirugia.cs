@@ -292,7 +292,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
 
             var MAn = ObjDataFacturacion.Value.MantenimientoProgramacionCirugia(ModificarEstatus, "CHANGESTATUS");
             MessageBox.Show("Estatus cambiado exitosamente", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            SacaEstatus();
+           SacaEstatus();
+        }
+
+        private void ddlEstatusCirugia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
