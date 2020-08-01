@@ -284,5 +284,10 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.MenuPrincipal
             //Programacion.ShowDialog();
 
         }
+
+        private void pSuperior_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

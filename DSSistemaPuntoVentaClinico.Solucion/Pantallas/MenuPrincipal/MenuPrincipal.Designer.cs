@@ -97,9 +97,9 @@
             this.pMenuIzquierda.Controls.Add(this.btnFacturacion);
             this.pMenuIzquierda.Dock = System.Windows.Forms.DockStyle.Left;
             this.pMenuIzquierda.Location = new System.Drawing.Point(0, 0);
-            this.pMenuIzquierda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pMenuIzquierda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pMenuIzquierda.Name = "pMenuIzquierda";
-            this.pMenuIzquierda.Size = new System.Drawing.Size(317, 999);
+            this.pMenuIzquierda.Size = new System.Drawing.Size(238, 812);
             this.pMenuIzquierda.TabIndex = 0;
             // 
             // button1
@@ -115,10 +115,10 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.empleados;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(11, 359);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(8, 292);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(284, 39);
+            this.button1.Size = new System.Drawing.Size(213, 32);
             this.button1.TabIndex = 19;
             this.button1.Text = "Programación";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -138,10 +138,10 @@
             this.btnInventario.ForeColor = System.Drawing.Color.White;
             this.btnInventario.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.venta;
             this.btnInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.Location = new System.Drawing.Point(8, 140);
-            this.btnInventario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnInventario.Location = new System.Drawing.Point(6, 114);
+            this.btnInventario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(284, 39);
+            this.btnInventario.Size = new System.Drawing.Size(213, 32);
             this.btnInventario.TabIndex = 18;
             this.btnInventario.Text = "Inventario";
             this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -153,10 +153,10 @@
             // 
             this.btnCerrarSesion2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrarSesion2.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.Logout_37127;
-            this.btnCerrarSesion2.Location = new System.Drawing.Point(3, 622);
-            this.btnCerrarSesion2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCerrarSesion2.Location = new System.Drawing.Point(2, 505);
+            this.btnCerrarSesion2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCerrarSesion2.Name = "btnCerrarSesion2";
-            this.btnCerrarSesion2.Size = new System.Drawing.Size(89, 90);
+            this.btnCerrarSesion2.Size = new System.Drawing.Size(67, 73);
             this.btnCerrarSesion2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrarSesion2.TabIndex = 17;
             this.btnCerrarSesion2.TabStop = false;
@@ -168,10 +168,10 @@
             // 
             this.btnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrarSesion.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.Logout_37127;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(93, 622);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(70, 505);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(89, 90);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(67, 73);
             this.btnCerrarSesion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrarSesion.TabIndex = 11;
             this.btnCerrarSesion.TabStop = false;
@@ -181,10 +181,10 @@
             // pbImagenInicales
             // 
             this.pbImagenInicales.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.Iniciales;
-            this.pbImagenInicales.Location = new System.Drawing.Point(3, 2);
-            this.pbImagenInicales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbImagenInicales.Location = new System.Drawing.Point(2, 2);
+            this.pbImagenInicales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbImagenInicales.Name = "pbImagenInicales";
-            this.pbImagenInicales.Size = new System.Drawing.Size(116, 69);
+            this.pbImagenInicales.Size = new System.Drawing.Size(87, 56);
             this.pbImagenInicales.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagenInicales.TabIndex = 5;
             this.pbImagenInicales.TabStop = false;
@@ -195,9 +195,10 @@
             this.lbFechaSistema.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbFechaSistema.AutoSize = true;
             this.lbFechaSistema.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFechaSistema.Location = new System.Drawing.Point(3, 962);
+            this.lbFechaSistema.Location = new System.Drawing.Point(2, 782);
+            this.lbFechaSistema.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbFechaSistema.Name = "lbFechaSistema";
-            this.lbFechaSistema.Size = new System.Drawing.Size(235, 29);
+            this.lbFechaSistema.Size = new System.Drawing.Size(189, 23);
             this.lbFechaSistema.TabIndex = 16;
             this.lbFechaSistema.Text = "Fecha del Sistema";
             this.toolTip1.SetToolTip(this.lbFechaSistema, "Hora del Sistema");
@@ -207,9 +208,10 @@
             this.lbHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbHora.AutoSize = true;
             this.lbHora.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHora.Location = new System.Drawing.Point(7, 924);
+            this.lbHora.Location = new System.Drawing.Point(5, 751);
+            this.lbHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbHora.Name = "lbHora";
-            this.lbHora.Size = new System.Drawing.Size(217, 29);
+            this.lbHora.Size = new System.Drawing.Size(174, 23);
             this.lbHora.TabIndex = 15;
             this.lbHora.Text = "Hora del Sistema";
             this.toolTip1.SetToolTip(this.lbHora, "Hora del Sistema");
@@ -227,10 +229,10 @@
             this.btnConfiguracion.ForeColor = System.Drawing.Color.White;
             this.btnConfiguracion.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.producto;
             this.btnConfiguracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfiguracion.Location = new System.Drawing.Point(11, 278);
-            this.btnConfiguracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConfiguracion.Location = new System.Drawing.Point(8, 226);
+            this.btnConfiguracion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConfiguracion.Name = "btnConfiguracion";
-            this.btnConfiguracion.Size = new System.Drawing.Size(284, 39);
+            this.btnConfiguracion.Size = new System.Drawing.Size(213, 32);
             this.btnConfiguracion.TabIndex = 14;
             this.btnConfiguracion.Text = "Configuracion";
             this.btnConfiguracion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -251,10 +253,10 @@
             this.btnSeguridad.ForeColor = System.Drawing.Color.White;
             this.btnSeguridad.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.producto;
             this.btnSeguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeguridad.Location = new System.Drawing.Point(12, 437);
-            this.btnSeguridad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSeguridad.Location = new System.Drawing.Point(9, 355);
+            this.btnSeguridad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSeguridad.Name = "btnSeguridad";
-            this.btnSeguridad.Size = new System.Drawing.Size(284, 39);
+            this.btnSeguridad.Size = new System.Drawing.Size(213, 32);
             this.btnSeguridad.TabIndex = 13;
             this.btnSeguridad.Text = "Seguridad";
             this.btnSeguridad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -275,10 +277,10 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.reportes;
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(11, 396);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReportes.Location = new System.Drawing.Point(8, 322);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(284, 39);
+            this.btnReportes.Size = new System.Drawing.Size(213, 32);
             this.btnReportes.TabIndex = 12;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -300,10 +302,10 @@
             this.btnHistorial.ForeColor = System.Drawing.Color.White;
             this.btnHistorial.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.producto;
             this.btnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorial.Location = new System.Drawing.Point(8, 580);
-            this.btnHistorial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHistorial.Location = new System.Drawing.Point(6, 471);
+            this.btnHistorial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHistorial.Name = "btnHistorial";
-            this.btnHistorial.Size = new System.Drawing.Size(284, 39);
+            this.btnHistorial.Size = new System.Drawing.Size(213, 32);
             this.btnHistorial.TabIndex = 11;
             this.btnHistorial.Text = "Historial";
             this.btnHistorial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -326,10 +328,10 @@
             this.btnNomina.ForeColor = System.Drawing.Color.White;
             this.btnNomina.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.clientes;
             this.btnNomina.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNomina.Location = new System.Drawing.Point(11, 505);
-            this.btnNomina.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNomina.Location = new System.Drawing.Point(8, 410);
+            this.btnNomina.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNomina.Name = "btnNomina";
-            this.btnNomina.Size = new System.Drawing.Size(284, 39);
+            this.btnNomina.Size = new System.Drawing.Size(213, 32);
             this.btnNomina.TabIndex = 10;
             this.btnNomina.Text = "Nomina";
             this.btnNomina.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -351,10 +353,10 @@
             this.btnGestionCobros.ForeColor = System.Drawing.Color.White;
             this.btnGestionCobros.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.compras;
             this.btnGestionCobros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionCobros.Location = new System.Drawing.Point(11, 475);
-            this.btnGestionCobros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGestionCobros.Location = new System.Drawing.Point(8, 386);
+            this.btnGestionCobros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGestionCobros.Name = "btnGestionCobros";
-            this.btnGestionCobros.Size = new System.Drawing.Size(284, 39);
+            this.btnGestionCobros.Size = new System.Drawing.Size(213, 32);
             this.btnGestionCobros.TabIndex = 9;
             this.btnGestionCobros.Text = "Gestion de Cobros";
             this.btnGestionCobros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -376,10 +378,10 @@
             this.btnEmpresa.ForeColor = System.Drawing.Color.White;
             this.btnEmpresa.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.empleados;
             this.btnEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmpresa.Location = new System.Drawing.Point(11, 231);
-            this.btnEmpresa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEmpresa.Location = new System.Drawing.Point(8, 188);
+            this.btnEmpresa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEmpresa.Name = "btnEmpresa";
-            this.btnEmpresa.Size = new System.Drawing.Size(284, 39);
+            this.btnEmpresa.Size = new System.Drawing.Size(213, 32);
             this.btnEmpresa.TabIndex = 8;
             this.btnEmpresa.Text = "Empresa";
             this.btnEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -400,10 +402,10 @@
             this.btnContabilidad.ForeColor = System.Drawing.Color.White;
             this.btnContabilidad.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.pagos;
             this.btnContabilidad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContabilidad.Location = new System.Drawing.Point(11, 320);
-            this.btnContabilidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnContabilidad.Location = new System.Drawing.Point(8, 260);
+            this.btnContabilidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnContabilidad.Name = "btnContabilidad";
-            this.btnContabilidad.Size = new System.Drawing.Size(284, 39);
+            this.btnContabilidad.Size = new System.Drawing.Size(213, 32);
             this.btnContabilidad.TabIndex = 7;
             this.btnContabilidad.Text = "Contabilidad";
             this.btnContabilidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -424,10 +426,10 @@
             this.btnCaja.ForeColor = System.Drawing.Color.White;
             this.btnCaja.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.pagos;
             this.btnCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCaja.Location = new System.Drawing.Point(11, 186);
-            this.btnCaja.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCaja.Location = new System.Drawing.Point(8, 151);
+            this.btnCaja.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCaja.Name = "btnCaja";
-            this.btnCaja.Size = new System.Drawing.Size(284, 39);
+            this.btnCaja.Size = new System.Drawing.Size(213, 32);
             this.btnCaja.TabIndex = 6;
             this.btnCaja.Text = "Caja";
             this.btnCaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -438,10 +440,10 @@
             // pbImagenCompleta
             // 
             this.pbImagenCompleta.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.Completo;
-            this.pbImagenCompleta.Location = new System.Drawing.Point(3, 2);
-            this.pbImagenCompleta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbImagenCompleta.Location = new System.Drawing.Point(2, 2);
+            this.pbImagenCompleta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbImagenCompleta.Name = "pbImagenCompleta";
-            this.pbImagenCompleta.Size = new System.Drawing.Size(313, 90);
+            this.pbImagenCompleta.Size = new System.Drawing.Size(235, 73);
             this.pbImagenCompleta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagenCompleta.TabIndex = 4;
             this.pbImagenCompleta.TabStop = false;
@@ -458,10 +460,10 @@
             this.btnFacturacion.ForeColor = System.Drawing.Color.White;
             this.btnFacturacion.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.venta;
             this.btnFacturacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFacturacion.Location = new System.Drawing.Point(11, 94);
-            this.btnFacturacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFacturacion.Location = new System.Drawing.Point(8, 76);
+            this.btnFacturacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFacturacion.Name = "btnFacturacion";
-            this.btnFacturacion.Size = new System.Drawing.Size(284, 39);
+            this.btnFacturacion.Size = new System.Drawing.Size(213, 32);
             this.btnFacturacion.TabIndex = 3;
             this.btnFacturacion.Text = "Facturación";
             this.btnFacturacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -481,20 +483,22 @@
             this.pSuperior.Controls.Add(this.btnRestaurar);
             this.pSuperior.Controls.Add(this.btnCerrar);
             this.pSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pSuperior.Location = new System.Drawing.Point(317, 0);
-            this.pSuperior.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pSuperior.Location = new System.Drawing.Point(238, 0);
+            this.pSuperior.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pSuperior.Name = "pSuperior";
-            this.pSuperior.Size = new System.Drawing.Size(1483, 92);
+            this.pSuperior.Size = new System.Drawing.Size(1112, 75);
             this.pSuperior.TabIndex = 1;
+            this.pSuperior.Paint += new System.Windows.Forms.PaintEventHandler(this.pSuperior_Paint);
             this.pSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pSuperior_MouseDown);
             // 
             // lbiDUSUARIO
             // 
             this.lbiDUSUARIO.AutoSize = true;
             this.lbiDUSUARIO.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbiDUSUARIO.Location = new System.Drawing.Point(332, 12);
+            this.lbiDUSUARIO.Location = new System.Drawing.Point(249, 10);
+            this.lbiDUSUARIO.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbiDUSUARIO.Name = "lbiDUSUARIO";
-            this.lbiDUSUARIO.Size = new System.Drawing.Size(236, 28);
+            this.lbiDUSUARIO.Size = new System.Drawing.Size(189, 23);
             this.lbiDUSUARIO.TabIndex = 11;
             this.lbiDUSUARIO.Text = "Usuario Conectado";
             this.toolTip1.SetToolTip(this.lbiDUSUARIO, "Usuario Conectado");
@@ -504,9 +508,10 @@
             // 
             this.lbPerfilUsuarioConectado.AutoSize = true;
             this.lbPerfilUsuarioConectado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPerfilUsuarioConectado.Location = new System.Drawing.Point(91, 43);
+            this.lbPerfilUsuarioConectado.Location = new System.Drawing.Point(68, 35);
+            this.lbPerfilUsuarioConectado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbPerfilUsuarioConectado.Name = "lbPerfilUsuarioConectado";
-            this.lbPerfilUsuarioConectado.Size = new System.Drawing.Size(197, 28);
+            this.lbPerfilUsuarioConectado.Size = new System.Drawing.Size(157, 23);
             this.lbPerfilUsuarioConectado.TabIndex = 10;
             this.lbPerfilUsuarioConectado.Text = "Perfil de Usuario";
             this.toolTip1.SetToolTip(this.lbPerfilUsuarioConectado, "Perfil");
@@ -515,9 +520,10 @@
             // 
             this.lbUsuarioConectado.AutoSize = true;
             this.lbUsuarioConectado.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUsuarioConectado.Location = new System.Drawing.Point(91, 9);
+            this.lbUsuarioConectado.Location = new System.Drawing.Point(68, 7);
+            this.lbUsuarioConectado.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbUsuarioConectado.Name = "lbUsuarioConectado";
-            this.lbUsuarioConectado.Size = new System.Drawing.Size(236, 28);
+            this.lbUsuarioConectado.Size = new System.Drawing.Size(189, 23);
             this.lbUsuarioConectado.TabIndex = 9;
             this.lbUsuarioConectado.Text = "Usuario Conectado";
             this.toolTip1.SetToolTip(this.lbUsuarioConectado, "Usuario Conectado");
@@ -526,10 +532,10 @@
             // 
             this.btnCambiarTamano.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCambiarTamano.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cambiar_tamano_de_imagen_png_7;
-            this.btnCambiarTamano.Location = new System.Drawing.Point(5, 22);
-            this.btnCambiarTamano.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCambiarTamano.Location = new System.Drawing.Point(4, 18);
+            this.btnCambiarTamano.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCambiarTamano.Name = "btnCambiarTamano";
-            this.btnCambiarTamano.Size = new System.Drawing.Size(63, 49);
+            this.btnCambiarTamano.Size = new System.Drawing.Size(47, 40);
             this.btnCambiarTamano.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCambiarTamano.TabIndex = 1;
             this.btnCambiarTamano.TabStop = false;
@@ -541,10 +547,10 @@
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.maxi;
-            this.btnMaximizar.Location = new System.Drawing.Point(1387, 12);
-            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMaximizar.Location = new System.Drawing.Point(1040, 10);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(39, 32);
+            this.btnMaximizar.Size = new System.Drawing.Size(29, 26);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMaximizar.TabIndex = 8;
             this.btnMaximizar.TabStop = false;
@@ -556,10 +562,10 @@
             this.btnMinizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinizar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.minimazar;
-            this.btnMinizar.Location = new System.Drawing.Point(1341, 12);
-            this.btnMinizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMinizar.Location = new System.Drawing.Point(1006, 10);
+            this.btnMinizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMinizar.Name = "btnMinizar";
-            this.btnMinizar.Size = new System.Drawing.Size(39, 32);
+            this.btnMinizar.Size = new System.Drawing.Size(29, 26);
             this.btnMinizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMinizar.TabIndex = 7;
             this.btnMinizar.TabStop = false;
@@ -571,10 +577,10 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.res;
-            this.btnRestaurar.Location = new System.Drawing.Point(1387, 12);
-            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRestaurar.Location = new System.Drawing.Point(1040, 10);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(39, 32);
+            this.btnRestaurar.Size = new System.Drawing.Size(29, 26);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnRestaurar.TabIndex = 2;
             this.btnRestaurar.TabStop = false;
@@ -586,10 +592,10 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::DSSistemaPuntoVentaClinico.Solucion.Properties.Resources.cerrar;
-            this.btnCerrar.Location = new System.Drawing.Point(1431, 12);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(1073, 10);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(39, 32);
+            this.btnCerrar.Size = new System.Drawing.Size(29, 26);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnCerrar.TabIndex = 6;
             this.btnCerrar.TabStop = false;
@@ -601,10 +607,10 @@
             this.pContenedor.AutoSize = true;
             this.pContenedor.BackColor = System.Drawing.Color.LightGray;
             this.pContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pContenedor.Location = new System.Drawing.Point(317, 92);
-            this.pContenedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pContenedor.Location = new System.Drawing.Point(238, 75);
+            this.pContenedor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pContenedor.Name = "pContenedor";
-            this.pContenedor.Size = new System.Drawing.Size(1483, 907);
+            this.pContenedor.Size = new System.Drawing.Size(1112, 737);
             this.pContenedor.TabIndex = 2;
             // 
             // timer1
@@ -613,15 +619,15 @@
             // 
             // MenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1800, 999);
+            this.ClientSize = new System.Drawing.Size(1350, 812);
             this.Controls.Add(this.pContenedor);
             this.Controls.Add(this.pSuperior);
             this.Controls.Add(this.pMenuIzquierda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MenuPrincipal";
