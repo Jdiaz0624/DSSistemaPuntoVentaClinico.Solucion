@@ -109,13 +109,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                     VariablesGlobales.RutaReporte = n.RutaReporte;
                 }
                 ////MANDAMOS LOS PARAMETROS E INVOCAMOS EL REPORTE
-                //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Cuadre = new Reporte.Reportes();
+                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte Cuadre = new Reporte.Reporte();
 
-                //Cuadre.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                //Cuadre.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                //Cuadre.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                //Cuadre.GenerarCuadreCaja(VariablesGlobales.IdUsuario);
-                //Cuadre.ShowDialog();
+                Cuadre.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                Cuadre.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                Cuadre.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                Cuadre.GenerarCuadreCaja(VariablesGlobales.IdUsuario);
+                Cuadre.ShowDialog();
 
             }
             catch (Exception ex) {

@@ -168,13 +168,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                 VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
             }
 
-            ////INVOAMOS EL REPORTE
-            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Historial = new Reporte.Reportes();
-            //Historial.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            //Historial.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            //Historial.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            //Historial.ReporteHistorialPagos(VariablesGlobales.IdUsuario);
-            //Historial.ShowDialog();
+            //INVOAMOS EL REPORTE
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte Historial = new Reporte.Reporte();
+            Historial.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            Historial.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            Historial.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            Historial.ReporteHistorialPagos(VariablesGlobales.IdUsuario);
+            Historial.ShowDialog();
         }
         #endregion
         #region MOSTRAR RECIBO DE INGRESO
@@ -195,13 +195,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                 VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
             }
 
-            ////INVOCAMOS EL RECIBO
-            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReciboIngreso = new Reporte.Reportes();
-            //ReciboIngreso.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            //ReciboIngreso.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            //ReciboIngreso.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            //ReciboIngreso.ReciboIngreso(NumeroReciboSacado);
-            //ReciboIngreso.ShowDialog();
+            //INVOCAMOS EL RECIBO
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte ReciboIngreso = new Reporte.Reporte();
+            ReciboIngreso.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            ReciboIngreso.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            ReciboIngreso.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            ReciboIngreso.ReciboIngreso(NumeroReciboSacado);
+            ReciboIngreso.ShowDialog();
         }
 #endregion
 

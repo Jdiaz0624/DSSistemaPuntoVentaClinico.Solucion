@@ -1557,13 +1557,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                 Variables.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
             }
 
-            ////INVOCAMOS EL REPORTE
-            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteVentas = new Reporte.Reportes();
-            //ReporteVentas.VariablesGlobales.RutaReporte = Variables.RutaReporte;
-            //ReporteVentas.VariablesGlobales.UsuarioBD = Variables.UsuarioBD;
-            //ReporteVentas.VariablesGlobales.ClaveBD = Variables.ClaveBD;
-            //ReporteVentas.MostrarReporteVentas(Variables.IdUsuario);
-            //ReporteVentas.ShowDialog();
+            //INVOCAMOS EL REPORTE
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte ReporteVentas = new Reporte.Reporte();
+            ReporteVentas.VariablesGlobales.RutaReporte = Variables.RutaReporte;
+            ReporteVentas.VariablesGlobales.UsuarioBD = Variables.UsuarioBD;
+            ReporteVentas.VariablesGlobales.ClaveBD = Variables.ClaveBD;
+            ReporteVentas.MostrarReporteVentas(Variables.IdUsuario);
+            ReporteVentas.ShowDialog();
         }
         #endregion
 
@@ -1639,13 +1639,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Historial
                 Variables.RutaReporte = n.RutaReporte;
             }
 
-            ////MOSTRAMOS EL REPORTE
-            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Factura = new Reporte.Reportes();
-            //Factura.VariablesGlobales.UsuarioBD = Variables.UsuarioBD;
-            //Factura.VariablesGlobales.ClaveBD = Variables.ClaveBD;
-            //Factura.VariablesGlobales.RutaReporte = Variables.RutaReporte;
-            //Factura.CargarReporteExternoPantalla(NumeroConector);
-            //Factura.ShowDialog();
+            //MOSTRAMOS EL REPORTE
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte Factura = new Reporte.Reporte();
+            Factura.VariablesGlobales.UsuarioBD = Variables.UsuarioBD;
+            Factura.VariablesGlobales.ClaveBD = Variables.ClaveBD;
+            Factura.VariablesGlobales.RutaReporte = Variables.RutaReporte;
+            Factura.CargarReporteExternoPantalla(NumeroConector);
+            Factura.ShowDialog();
         }
         #endregion
 

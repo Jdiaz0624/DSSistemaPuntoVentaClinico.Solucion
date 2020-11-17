@@ -193,14 +193,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             }
 
             ////INVOCAMOS EL REPORTE
-            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Antiguedad = new Reporte.Reportes();
-            //Antiguedad.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-            //Antiguedad.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            //Antiguedad.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            //Antiguedad.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            //Antiguedad.GenerarReporteCuentasPorCobrar(VariablesGlobales.IdMantenimiento);
-            //Antiguedad.ShowDialog();
-                //GenerarReporteCuentasPorCobrar
+            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte Antiguedad = new Reporte.Reporte();
+            Antiguedad.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            Antiguedad.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            Antiguedad.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            Antiguedad.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            Antiguedad.GenerarReporteCuentasPorCobrar(VariablesGlobales.IdMantenimiento);
+            Antiguedad.ShowDialog();
+            //GenerarReporteCuentasPorCobrar
         }
 
         private void button1_Click(object sender, EventArgs e)

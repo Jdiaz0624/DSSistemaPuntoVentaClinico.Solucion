@@ -135,13 +135,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                     VariablesGlobales.RutaReporte = n.RutaReporte;
                 }
 
-                //MOSTRAMOS EL REPORTE
-                //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteGastoCirugia = new Reporte.Reportes();
-                //ReporteGastoCirugia.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                //ReporteGastoCirugia.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                //ReporteGastoCirugia.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                //ReporteGastoCirugia.GenerarReorteGastosCirugia(VariablesGlobales.IdMantenimiento);
-                //ReporteGastoCirugia.ShowDialog();
+              //  MOSTRAMOS EL REPORTE
+                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte ReporteGastoCirugia = new Reporte.Reporte();
+                ReporteGastoCirugia.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                ReporteGastoCirugia.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                ReporteGastoCirugia.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                ReporteGastoCirugia.GenerarReorteGastosCirugia(VariablesGlobales.IdMantenimiento);
+                ReporteGastoCirugia.ShowDialog();
             }
         }
 
@@ -201,14 +201,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                     }
 
                     //INVOCAMOS EL REPORTE
-                  //  DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteGastos = new Reporte.Reportes();
+                    DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte ReporteGastos = new Reporte.Reporte();
 
-                   //// ReporteGastos.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-                   // ReporteGastos.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                   // ReporteGastos.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                   // ReporteGastos.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                   // ReporteGastos.GenerarReporteGastosGeneral(VariablesGlobales.IdUsuario);
-                   // ReporteGastos.ShowDialog();
+                     ReporteGastos.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                    ReporteGastos.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                    ReporteGastos.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                    ReporteGastos.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                    ReporteGastos.GenerarReporteGastosGeneral(VariablesGlobales.IdUsuario);
+                    ReporteGastos.ShowDialog();
 
 
 
@@ -265,14 +265,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                     }
 
                     //INVOCAMOS EL REPORTE
-                    //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteGastos = new Reporte.Reportes();
+                    DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte ReporteGastos = new Reporte.Reporte();
 
-                    //// ReporteGastos.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-                    //ReporteGastos.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                    //ReporteGastos.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                    //ReporteGastos.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                    //ReporteGastos.GenerarReporteGastosGeneral(VariablesGlobales.IdUsuario);
-                    //ReporteGastos.ShowDialog();
+                    // ReporteGastos.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                    ReporteGastos.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                    ReporteGastos.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                    ReporteGastos.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                    ReporteGastos.GenerarReporteGastosGeneral(VariablesGlobales.IdUsuario);
+                    ReporteGastos.ShowDialog();
                 }
             }
             catch (Exception ex) {

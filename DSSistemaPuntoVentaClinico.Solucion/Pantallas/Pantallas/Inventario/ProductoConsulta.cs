@@ -348,15 +348,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Inventario
                     VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
                 }
 
-                ////CARGAMOS EL REPORTE
-                //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes cargar = new Reporte.Reportes();
+                //CARGAMOS EL REPORTE
+                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reporte cargar = new Reporte.Reporte();
 
-                //cargar.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-                //cargar.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                //cargar.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                //cargar.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                //cargar.GenerarReporteProductos(VariablesGlobales.IdUsuario);
-                //cargar.ShowDialog();
+                cargar.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                cargar.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                cargar.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                cargar.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                cargar.GenerarReporteProductos(VariablesGlobales.IdUsuario);
+                cargar.ShowDialog();
             }
             catch (Exception) {
                 MessageBox.Show("Error al realiar este proceso", VariablesGlobales.NombreSistema, MessageBoxButtons.OK, MessageBoxIcon.Error);
