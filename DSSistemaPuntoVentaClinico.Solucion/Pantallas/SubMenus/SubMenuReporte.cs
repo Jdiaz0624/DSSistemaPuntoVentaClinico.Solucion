@@ -40,13 +40,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
                 VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
             }
 
-            //INVOCAMOS EL REPORTE
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteVentas = new Pantallas.Reporte.Reportes();
-            ReporteVentas.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            ReporteVentas.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            ReporteVentas.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            ReporteVentas.MostrarReporteVentas(VariablesGlobales.IdUsuario);
-            ReporteVentas.ShowDialog();
+            ////INVOCAMOS EL REPORTE
+            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteVentas = new Pantallas.Reporte.Reportes();
+            //ReporteVentas.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            //ReporteVentas.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            //ReporteVentas.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            //ReporteVentas.MostrarReporteVentas(VariablesGlobales.IdUsuario);
+            //ReporteVentas.ShowDialog();
         }
         #endregion
 
@@ -130,15 +130,15 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
                     VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
                 }
 
-                //CARGAMOS EL REPORTE
-                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes cargar = new Pantallas.Reporte.Reportes();
+                ////CARGAMOS EL REPORTE
+                //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes cargar = new Pantallas.Reporte.Reportes();
 
-                cargar.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-                cargar.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                cargar.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                cargar.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                cargar.GenerarReporteProductos(VariablesGlobales.IdUsuario);
-                cargar.ShowDialog();
+                //cargar.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+                //cargar.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                //cargar.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                //cargar.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                //cargar.GenerarReporteProductos(VariablesGlobales.IdUsuario);
+                //cargar.ShowDialog();
             }
             catch (Exception)
             {
@@ -197,14 +197,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.SubMenus
                 {
                     VariablesGlobales.RutaReporte = n.RutaReporte;
                 }
-                //MANDAMOS LOS PARAMETROS E INVOCAMOS EL REPORTE
-                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Cuadre = new Pantallas.Reporte.Reportes();
+                ////MANDAMOS LOS PARAMETROS E INVOCAMOS EL REPORTE
+                //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Cuadre = new Pantallas.Reporte.Reportes();
 
-                Cuadre.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                Cuadre.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                Cuadre.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                Cuadre.GenerarCuadreCaja(VariablesGlobales.IdUsuario);
-                Cuadre.ShowDialog();
+                //Cuadre.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                //Cuadre.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                //Cuadre.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                //Cuadre.GenerarCuadreCaja(VariablesGlobales.IdUsuario);
+                //Cuadre.ShowDialog();
 
             }
             catch (Exception ex)

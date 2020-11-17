@@ -55,13 +55,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                 VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
             }
 
-            //LLAMAMOE LE REPORTE
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Cargar = new Reporte.Reportes();
-            Cargar.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            Cargar.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            Cargar.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            Cargar.GenerarReporteFacturacionCirugia(VariablesGlobales.IdUsuario);
-            Cargar.ShowDialog();
+            ////LLAMAMOE LE REPORTE
+            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Cargar = new Reporte.Reportes();
+            //Cargar.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            //Cargar.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            //Cargar.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            //Cargar.GenerarReporteFacturacionCirugia(VariablesGlobales.IdUsuario);
+            //Cargar.ShowDialog();
         }
         #endregion
         public MantenimientoFacturacionCirugia()

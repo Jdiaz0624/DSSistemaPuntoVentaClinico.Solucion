@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="bdr, Version=2.1.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.UI.WinForms.2.2.0\lib\Utilities\bdr.exe</HintPath>
     </Reference>
@@ -122,12 +123,18 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -475,11 +482,11 @@
     <Compile Include="Pantallas\Pantallas\Prueba\Prueba.Designer.cs">
       <DependentUpon>Prueba.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Pantallas\Reporte\Reportes.cs">
+    <Compile Include="Pantallas\Pantallas\Reporte\Reporte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\Pantallas\Reporte\Reportes.Designer.cs">
-      <DependentUpon>Reportes.cs</DependentUpon>
+    <Compile Include="Pantallas\Pantallas\Reporte\Reporte.Designer.cs">
+      <DependentUpon>Reporte.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Pantallas\Seguridad\ClaveSeguridad.cs">
       <SubType>Form</SubType>
@@ -738,9 +745,6 @@
     <EmbeddedResource Include="Pantallas\Pantallas\Prueba\Prueba.resx">
       <DependentUpon>Prueba.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\Pantallas\Reporte\Reportes.resx">
-      <DependentUpon>Reportes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\Pantallas\Seguridad\ClaveSeguridad.resx">
       <DependentUpon>ClaveSeguridad.cs</DependentUpon>
     </EmbeddedResource>
@@ -796,6 +800,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Fakes Include="Fakes\CrystalDecisions.CrystalReports.Engine.fakes" />
+    <Fakes Include="Fakes\CrystalDecisions.ReportSource.fakes" />
+    <Fakes Include="Fakes\CrystalDecisions.Windows.Forms.fakes" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -877,6 +884,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logout_37127.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="CRDESIGNERLib">
+      <Guid>{C0AA5023-C763-4A4B-AFED-ADCF78D6C08B}</Guid>
+      <VersionMajor>13</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

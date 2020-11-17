@@ -132,13 +132,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Caja
                 VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
             }
 
-            //INVICAMO EL RECIBO DE MOVIMIENTO DE CAJA
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteCaja = new Reporte.Reportes();
-            ReporteCaja.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            ReporteCaja.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            ReporteCaja.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            ReporteCaja.GenerarVolanteCaja(IdMaximo);
-            ReporteCaja.ShowDialog();
+            ////INVICAMO EL RECIBO DE MOVIMIENTO DE CAJA
+            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteCaja = new Reporte.Reportes();
+            //ReporteCaja.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            //ReporteCaja.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            //ReporteCaja.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            //ReporteCaja.GenerarVolanteCaja(IdMaximo);
+            //ReporteCaja.ShowDialog();
         }
         #endregion
         private void Caja_Load(object sender, EventArgs e)

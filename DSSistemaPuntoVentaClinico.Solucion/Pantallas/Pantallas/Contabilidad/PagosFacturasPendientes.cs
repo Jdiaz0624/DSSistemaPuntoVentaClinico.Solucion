@@ -166,12 +166,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
             }
 
             //INVOCAMOS EL RECIBO
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReciboIngreso = new Reporte.Reportes();
-            ReciboIngreso.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            ReciboIngreso.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            ReciboIngreso.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            ReciboIngreso.ReciboIngreso(NumeroReciboSacado);
-            ReciboIngreso.ShowDialog();
+            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReciboIngreso = new Reporte.Reportes();
+            //ReciboIngreso.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            //ReciboIngreso.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            //ReciboIngreso.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            //ReciboIngreso.ReciboIngreso(NumeroReciboSacado);
+            //ReciboIngreso.ShowDialog();
         }
         #endregion
         public PagosFacturasPendientes()

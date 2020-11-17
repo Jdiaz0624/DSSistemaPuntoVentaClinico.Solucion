@@ -229,12 +229,12 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
             }
 
             //MOSTRAMOS EL REPORTE
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Factura = new Reporte.Reportes();
-            Factura.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            Factura.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            Factura.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            Factura.CargarReporteExternoPantalla(NumeroConector);
-            Factura.ShowDialog();
+            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Factura = new Reporte.Reportes();
+            //Factura.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            //Factura.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            //Factura.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            //Factura.CargarReporteExternoPantalla(NumeroConector);
+            //Factura.ShowDialog();
         }
         #endregion
 

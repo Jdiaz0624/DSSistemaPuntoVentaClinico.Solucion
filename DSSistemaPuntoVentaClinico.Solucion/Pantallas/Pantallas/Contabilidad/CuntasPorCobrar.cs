@@ -192,14 +192,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                 VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
             }
 
-            //INVOCAMOS EL REPORTE
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Antiguedad = new Reporte.Reportes();
-            Antiguedad.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-            Antiguedad.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            Antiguedad.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            Antiguedad.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            Antiguedad.GenerarReporteCuentasPorCobrar(VariablesGlobales.IdMantenimiento);
-            Antiguedad.ShowDialog();
+            ////INVOCAMOS EL REPORTE
+            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Antiguedad = new Reporte.Reportes();
+            //Antiguedad.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+            //Antiguedad.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            //Antiguedad.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            //Antiguedad.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            //Antiguedad.GenerarReporteCuentasPorCobrar(VariablesGlobales.IdMantenimiento);
+            //Antiguedad.ShowDialog();
                 //GenerarReporteCuentasPorCobrar
         }
 

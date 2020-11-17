@@ -1845,13 +1845,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                     VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
                 }
 
-                //INVOCAMOS EL REPORTE
-                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Recibo = new Reporte.Reportes();
-                Recibo.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                Recibo.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                Recibo.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                Recibo.GenerarReciboPagoComision(VariablesGlobales.IdUsuario);
-                Recibo.ShowDialog();
+                ////INVOCAMOS EL REPORTE
+                //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Recibo = new Reporte.Reportes();
+                //Recibo.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                //Recibo.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                //Recibo.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                //Recibo.GenerarReciboPagoComision(VariablesGlobales.IdUsuario);
+                //Recibo.ShowDialog();
 
 
             }
@@ -1974,14 +1974,14 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                     VariablesGlobales.UsuarioBD = n.Usuario;
                     VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
                 }
-                //INVOCAMOS EL REPORTE
-                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Reporte = new Reporte.Reportes();
-              //  Reporte.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
-                Reporte.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                Reporte.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                Reporte.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                Reporte.GenerarReporteComisionMedicoDetalle(VariablesGlobales.IdUsuario);
-                Reporte.ShowDialog();
+              //  //INVOCAMOS EL REPORTE
+              //  DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes Reporte = new Reporte.Reportes();
+              ////  Reporte.VariablesGlobales.IdUsuario = VariablesGlobales.IdUsuario;
+              //  Reporte.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+              //  Reporte.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+              //  Reporte.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+              //  Reporte.GenerarReporteComisionMedicoDetalle(VariablesGlobales.IdUsuario);
+              //  Reporte.ShowDialog();
             }
             else
             {
@@ -1999,13 +1999,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Contabilidad
                     VariablesGlobales.UsuarioBD = n.Usuario;
                     VariablesGlobales.ClaveBD = DSSistemaPuntoVentaClinico.Logica.Comunes.SeguridadEncriptacion.DesEncriptar(n.Clave);
                 }
-                //INVICAMOS EL REPORTE
-                DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteUnico = new Reporte.Reportes();
-                ReporteUnico.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-                ReporteUnico.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-                ReporteUnico.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-                ReporteUnico.GenerarReporteComisionUnico(VariablesGlobales.IdMantenimiento);
-                ReporteUnico.ShowDialog();
+                ////INVICAMOS EL REPORTE
+                //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteUnico = new Reporte.Reportes();
+                //ReporteUnico.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+                //ReporteUnico.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+                //ReporteUnico.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+                //ReporteUnico.GenerarReporteComisionUnico(VariablesGlobales.IdMantenimiento);
+                //ReporteUnico.ShowDialog();
             }
         }
 

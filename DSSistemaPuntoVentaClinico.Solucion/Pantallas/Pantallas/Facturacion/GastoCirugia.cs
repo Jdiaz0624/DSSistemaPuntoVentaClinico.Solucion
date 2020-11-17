@@ -255,13 +255,13 @@ namespace DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Facturacion
                 VariablesGlobales.RutaReporte = n.RutaReporte;
             }
 
-            //MOSTRAMOS EL REPORTE
-            DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteGastoCirugia = new Reporte.Reportes();
-            ReporteGastoCirugia.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
-            ReporteGastoCirugia.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
-            ReporteGastoCirugia.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
-            ReporteGastoCirugia.GenerarReorteGastosCirugia(VariablesGlobales.IdMantenimiento);
-            ReporteGastoCirugia.ShowDialog();
+            ////MOSTRAMOS EL REPORTE
+            //DSSistemaPuntoVentaClinico.Solucion.Pantallas.Pantallas.Reporte.Reportes ReporteGastoCirugia = new Reporte.Reportes();
+            //ReporteGastoCirugia.VariablesGlobales.UsuarioBD = VariablesGlobales.UsuarioBD;
+            //ReporteGastoCirugia.VariablesGlobales.ClaveBD = VariablesGlobales.ClaveBD;
+            //ReporteGastoCirugia.VariablesGlobales.RutaReporte = VariablesGlobales.RutaReporte;
+            //ReporteGastoCirugia.GenerarReorteGastosCirugia(VariablesGlobales.IdMantenimiento);
+            //ReporteGastoCirugia.ShowDialog();
 
       
         }
